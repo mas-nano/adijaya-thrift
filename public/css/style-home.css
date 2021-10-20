@@ -1,0 +1,69 @@
+/* container */
+.promo{
+    height: 300px;
+}
+.produk{
+    padding: 10px;
+    height: 475px;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin: 8px;
+}
+.rekomendasi{
+    width: 1050px;
+    margin: auto;
+}
+.rekom{
+    display: block;
+    padding-left: 0px;
+}
+.rekom li{
+    display: inline-block;
+    width: calc(33.3333% - 3px);
+}
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    margin-left: 8px;
+}
+.gambar-produk{
+    width: 100%;
+    height: 373px;
+    object-fit: cover;
+}
+.nama-barang, .harga-barang{
+    font-family: 'Louis George Cafe';
+    padding: 5px 0px;
+    font-size: 24px;
+    margin: auto;
+}
+.nama-barang a{
+    text-decoration: none;
+    color: black;
+}
+.like{
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin-right: 10px;
+}
+.more{
+    display: inline-block;
+    padding: 80px 0px;
+    text-align: center;
+    width: 100%;
+}
+.more a{
+    width: 400px;
+    border-radius: 24px;
+    background-color: #FF8D44;
+    color: white;
+    justify-content:center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 14px 50px;
+    border-color: white;
+    box-shadow: none;
+}
+/* end container */

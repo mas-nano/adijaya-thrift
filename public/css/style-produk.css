@@ -1,0 +1,158 @@
+/* content */
+.content{
+    width: 1050px;
+    margin: auto;
+    display: flex;
+    padding-top: 70px;
+}
+.profil-produk{
+    flex:5;
+    background-color: transparent;
+}
+.foto-produk{
+    padding: 10px;
+    background-color: white;
+    height: 450px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.foto-produk img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.deskripsi-produk{
+    flex:5;
+}
+.split{
+    flex:1;
+    background-color:transparent;
+}
+.profil-toko{
+    margin: 30px 0px;
+    height: 100px;
+    padding: 10px 0px 10px 50px;
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.profil-toko img{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.profil-toko div{
+    display: inline-block;
+    margin-right: 30px;
+}
+.nama-toko{
+    font-family: 'Louis George Cafe';
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.nama-pengguna{
+    font-family: 'Louis George Cafe Std';
+    font-size: 14px;
+    margin-top: 5px;
+    text-decoration: none;
+    color: black;
+}
+.checked {
+    color: orange;
+}
+.nama-produk{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-top: 0px;
+}
+.harga-produk{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+.deskripsi-produk div{
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.deskripsi-produk button{
+    display: inline-block;
+    margin:auto;
+    padding: 10px 63px;
+    background-color: #FF8D44;
+    color: white;
+    border-radius: 24px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+.deskripsi-produk section{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+/* end content */
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+}
+.modalContent{
+    background-color: white;
+    margin: 20% auto;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    width:25%;
+    align-items: center;
+    animation-name : modalopen;
+    animation-duration : 1s;
+}
+.modalContent input{
+    display: block;
+    margin:auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #E1E1E1;
+    height: 50px;
+    border: none;
+    padding: 0px 20px 0px 20px;
+    font-family: 'Louis George Cafe Std';
+    font-size: 20px;
+}
+.close{
+    margin-left: 20px;
+}
+.close:hover, .modalContent button, .deskripsi-produk button{
+    cursor: pointer;
+}
+.sub{
+    text-align: center;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.modalContent button{
+    display: block;
+    margin: auto;
+    padding: 10px 50px;
+    background-color: #FF8D44;
+    color: white;
+    border-radius: 24px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+@keyframes modalopen{
+    from{ opacity: 0}
+    to { opacity: 1}
+}

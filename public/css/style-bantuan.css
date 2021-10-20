@@ -1,0 +1,55 @@
+/* container */
+.content{
+    padding: 100px 0px;
+}
+.bantuan{
+    text-align: center;
+}
+.form-bantuan{
+    width: 440px;
+    margin: auto;
+}
+.form-bantuan p{
+    text-align: center;
+    font-family: 'Louis George Cafe Std';
+    font-size: 14px;
+    color: black;
+}
+.form-input{
+    width: 400px;
+    margin-bottom: 20px;
+    background-color: white;
+    height: 50px;
+    border: 1px solid black;
+    float: left;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border-radius: 28px;
+    padding: 0px 20px 0px 20px;
+    font-family: 'Louis George Cafe Std';
+    font-size: 20px;
+}
+.deskripsi{
+    height: 175px;
+    padding: 20px;
+}
+.form-bantuan label{
+    display: block;
+    font-family: 'Louis George Cafe Std';
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.btn-bantuan{
+    display: block;
+    margin:auto;
+    padding: 10px 63px;
+    background-color: #FF8D44;
+    color: white;
+    border-radius: 24px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+/* end container */

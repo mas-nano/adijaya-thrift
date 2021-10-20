@@ -1,0 +1,110 @@
+.wrapper{
+    width: 1050px;
+    margin: auto;
+    display: flex;
+    padding-top: 30px;
+}
+.left{
+    flex: 9;
+}
+.profil{
+    margin-bottom: 30px;
+    height: 100px;
+    padding: 10px 0px 10px 30px;
+    display: flex;
+    border-radius: 18px;
+    align-items: flex-start;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.profil img{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.profil div{
+    display: inline-block;
+    margin-right: 30px;
+}
+.nama-toko{
+    font-family: 'Louis George Cafe';
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+/* deskripsi ulasan dari ulasan */
+.nama-pengguna{
+    font-family: 'Louis George Cafe Std';
+    font-size: 14px;
+    margin-top: 5px;
+}
+/* end deskripsi ulasan dari ulasan */
+.checked {
+    color: orange;
+}
+.pilihan{
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    border-radius: 18px;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.pilihan a{
+    padding: 25px 0px;
+    display: block;
+    padding-left: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+.pilihan a:hover{
+    cursor: pointer;
+}
+.terpilih{
+    background-color: #E1E1E1;
+}
+.atas{
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+.bawah{
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.split{
+    flex:1;
+}
+.right{
+    flex: 15;
+}
+.width-90{
+    width: 90%;
+    margin: auto;
+}
+.pt-10{
+    padding: 10px 0px;
+}
+.pt-10 p,.box p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+.box{
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 18px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+}
+canvas{
+    display: block;
+    width: 95%;
+    height: 400px;
+    margin: auto;
+}
+.center{
+    text-align: center;
+    padding: 10px 0px;
+}

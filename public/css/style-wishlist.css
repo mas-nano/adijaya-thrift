@@ -1,0 +1,120 @@
+.wrapper{
+    width: 1050px;
+    margin: 30px auto;
+    display: flex;
+}
+.left{
+    flex: 9;
+}
+.profil{
+    margin-bottom: 30px;
+    height: 100px;
+    padding: 10px 0px 10px 30px;
+    display: flex;
+    border-radius: 18px;
+    align-items: flex-start;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.profil img,.img-change{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.profil div{
+    display: inline-block;
+    margin-right: 30px;
+}
+.nama-toko{
+    font-family: 'Louis George Cafe';
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+/* deskripsi ulasan dari ulasan */
+.nama-pengguna{
+    font-family: 'Louis George Cafe Std';
+    font-size: 14px;
+    margin-top: 5px;
+}
+/* end deskripsi ulasan dari ulasan */
+.checked {
+    color: orange;
+}
+.pilihan{
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    border-radius: 18px;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.pilihan a{
+    padding: 25px 0px;
+    display: block;
+    padding-left: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+.pilihan a:hover{
+    cursor: pointer;
+}
+.terpilih{
+    background-color: #E1E1E1;
+}
+.atas{
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+.bawah{
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.link{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+.center p{
+    text-align: center;
+    cursor: pointer;
+}
+.split{
+    flex: 1;
+}
+.right{
+    flex:15;
+}
+.hasil li{
+    display: inline-block;
+    width: calc(46.3333% + 19px);
+}
+.produk{
+    padding: 10px;
+    max-width: 200px;
+    height: 290px;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin: 8px;
+}
+.gambar-produk{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.produk p{
+    font-family: 'Louis George Cafe';
+    margin: 10px 0px;
+    font-size: 18px;
+    padding: 5px 0px;
+    margin: auto;
+}
+.end{
+    text-align: end;
+    margin-right: 10px;
+}
+.fa-heart-o{
+    color:red;
+}

@@ -1,0 +1,107 @@
+.wrapper-luar{
+    width: 1050px;
+    margin: auto;
+    padding-top: 30px;
+}
+.sub{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+}
+.wrapper-dalam{
+    display: flex;
+}
+.left{
+    flex:8;
+}
+.total{
+    padding: 10px 0px 10px 30px;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+}
+.total pre{
+    tab-size: 8;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.total p{
+    font-family: 'Louis George Cafe Std';
+    font-size: 16px;
+    margin: 5px 0px;
+}
+.wrapper-bca{
+    display: flex;
+    align-items: center;
+}
+.detail-bca{
+    margin-left: 10px;
+}
+.split{
+    flex:1;
+    background-color: transparent;
+}
+.right{
+    flex:7;
+}
+.wrapper-bayar{
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    padding: 10px 30px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.input{
+    display: block;
+}
+.wrapper-bayar label, .wrapper-form label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.wrapper-bayar input, select, .wrapper-form input{
+    width: 84%;
+    height: 40px;
+    padding: 0px 30px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    font-family: 'Louis George Cafe Std';
+    font-size: 20px;
+}
+.wrapper-bayar select, .wrapper-form select{
+    width: 99%;
+}
+.wrapper-bayar input, .wrapper-form input{
+    background-color: #E1E1E1;
+    border: none;
+}
+button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 63px;
+    background-color: #FF8D44;
+    color: white;
+    border-radius: 24px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+button:hover{
+    cursor:pointer;
+}
+.full{
+    padding: 30px 0px;
+    width: 1050px;
+    margin: auto;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+}
+.wrapper-form{
+    width: 35%;
+    margin: auto;
+}

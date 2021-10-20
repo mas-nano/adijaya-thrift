@@ -1,0 +1,47 @@
+.wrapper-luar{
+    width: 1050px;
+    margin: auto;
+    padding-top: 30px;
+}
+.sub{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+}
+.wrapper-dalam{
+    display: flex;
+}
+.left{
+    flex:8;
+}
+.split{
+    flex:1;
+    background-color: transparent;
+}
+.right{
+    flex:7;
+    padding: 10px 30px;
+    position: relative;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+}
+.total{
+    padding: 10px 0px 10px 30px;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+}
+.total pre, .right pre{
+    tab-size: 8;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.total p,.right p{
+    font-family: 'Louis George Cafe Std';
+    font-size: 16px;
+    margin: 5px 0px;
+}

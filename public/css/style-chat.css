@@ -1,0 +1,135 @@
+.wrapper-luar{
+    display: flex;
+    width: 1050px;
+    margin: auto;
+    padding-top: 30px;
+}
+.left{
+    flex: 7;
+    height: 600px;
+    overflow: auto;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+}
+.pengirim{
+    height: 97px;
+    background-color: white;
+    margin-bottom: 5px;
+    display: flex;
+    padding: 10px 0px 10px 30px;
+    cursor: pointer;
+}
+.click{
+    background-color: #E1E1E1;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #888; 
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+.pengirim img{
+    border-radius: 50%;
+    border: 1px solid black;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.pengirim p{
+    margin: 1px 0px;
+}
+.nama-asli{
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+.username{
+    font-family: 'Louis George Cafe Std';
+    font-size: 16px;
+}
+.split{
+    flex: 1;
+}
+.right{
+    flex:12;
+    height: 600px;
+    overflow: auto;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    flex: 1;
+    background-color: #E1E1E1;
+}
+.input input{
+    margin: auto;
+    width: 90%;
+    height: 30px;
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+.input input:focus{
+    outline: none;
+}
+.pesan{
+    overflow: hidden;
+    max-height: 100%;
+    flex: 13;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.wrapper-pesan{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+.send{
+    width: 270px;
+    min-height: 50px;
+    align-self: flex-end;
+    background-color: #E1E1E1;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    margin-bottom: 5px;
+    padding: 5px 20px;
+}
+.send p,.receive p{
+    width: 100%;
+    margin: 0px;
+    font-family: 'Louis George Cafe Std';
+    font-size: 16px;
+
+}
+.receive{
+    margin-bottom: 5px;
+    width: 270px;
+    min-height: 50px;
+    align-self: flex-start;
+    background-color: #E1E1E1;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    padding: 5px 20px;
+}

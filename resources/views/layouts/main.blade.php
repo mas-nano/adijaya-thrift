@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }} - Adijaya Thrift</title>
-    <link rel="stylesheet" href="css/navfoot.css">
-    <link rel="stylesheet" href="css/style-{{ $css }}.css">
+    <link rel="stylesheet" href="{{ (isset($id_produk)||isset($id_toko)?"../":"") }}css/navfoot.css">
+    <link rel="stylesheet" href="{{ (isset($id_produk)||isset($id_toko)?"../":"") }}css/style-{{ $css }}.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,500">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -18,24 +18,27 @@
         <div class="wrapper-navbar">
             <div class="navbar">
                 <div class="brand-logo">
-                    <img src="img/phooo 1.png" alt="">
+                    <img src="{{ (isset($id_produk)||isset($id_toko)?"../img/phooo 1.png":"img/phooo 1.png") }}" alt="">
                 </div>
                 <div class="search">
-                    <form action="" method="post">
-                        <input type="text" name="keyword" id="keyword" class="keyword" placeholder="Pencarian...">
+                    <form action="/produk" method="get">
+                        <input type="text" name="s" id="keyword" class="keyword" placeholder="Pencarian..." value="{{ (isset($res['s'])?$res['s']:'') }}" required>
                         <div class="search-logo">
-                            <img src="img/search-logo.png" alt="" class="search-button">
+                            <button type="submit" class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                     </form>
                 </div>
                 <div class="link">
                     <ul>
                         <li><a class="{{ ($title === "Beranda")?"active":"" }}" href="/">Beranda</a></li>
-                        <li><a class="{{ ($title === "Kategori")?"active":"" }}" href="/">Kategori</a></li>
-                        <li><a class="{{ ($title === "Masuk")?"active":"" }}" href="/login">Masuk</a></li>
-                        <li><a class="{{ ($title === "Daftar")?"active":"" }}" href="/daftar">Daftar</a></li>
-                        <li><a class="{{ ($title === "Akun")?"active":"" }}" href="/">Akun</a></li>
-                        <img src="shopping_cart.png" alt="">
+                        <li><a class="{{ ($title === "Produk")?"active":"" }}" href="/produk">Produk</a></li>
+                        @if (isset($_SESSION['id']))
+                            <li><a class="{{ ($title === "Notifikasi")?"active":"" }}" href="/notifikasi"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                            <li><a class="{{ ($title === "Akun")?"active":"" }}" href="/">Hi,</a></li>
+                        @else
+                            <li><a class="{{ ($title === "Masuk")?"active":"" }}" href="/login">Login</a></li>
+                            <li><a class="{{ ($title === "Daftar")?"active":"" }}" href="/daftar">Daftar</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

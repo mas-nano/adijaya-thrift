@@ -1,6 +1,37 @@
 /* container */
-.promo{
+.link-promo{
+    background-color: #FF8D44;
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fs-20{
+    font-size: 20px;
+}
+.ta-c{
+    text-align: center;
+}
+.pv-1{
+    padding: 10px 0px;
+}
+.mv-0{
+    margin: 0px 0px;
+}
+.brown{
+    color: #BA0000;
+}
+.link-promo a{
+    text-decoration: none;
+}
+.cover{
+    object-fit: cover;
+}
+.banner img{
     height: 300px;
+    width: 100%;
 }
 .produk{
     padding: 10px;

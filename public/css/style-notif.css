@@ -1,0 +1,28 @@
+.wrapper{
+    width: 1050px;
+    margin: auto;
+}
+.flex{
+    display: flex;
+}
+.f-1{
+    flex: 1;
+}
+.f-10{
+    flex: 10;
+}
+.ai-c{
+    align-items: center;
+}
+.montserrat{
+    font-family: 'Montserrat',sans-serif;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-500{
+    font-weight: 500;
+}
+.mv-1{
+    margin: 10px 0px;
+}

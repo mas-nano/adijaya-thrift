@@ -27,6 +27,18 @@
     flex:1;
     background-color:transparent;
 }
+.louis{
+    font-family: "Louis George Cafe Std";
+}
+.fs-20{
+    font-size: 20px;
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.fs-16{
+    font-size: 16px;
+}
 .profil-toko{
     margin: 30px 0px;
     height: 100px;

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Login;
+use App\Http\Controllers\Register;
+use App\Http\Controllers\Search;
+use App\Http\Controllers\Toko;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,42 +23,24 @@ Route::get('/', function () {
         "title" => "Beranda"
     ]);
 });
-Route::get('/login', function () {
-    return view('login',[
-        "css" => "login",
-        "title" => "Masuk"
-    ]);
-});
-Route::post('/login', function () {
-    return view('login',[
-        "css" => "login",
-        "title" => "Masuk"
-    ]);
-});
-Route::get('/daftar', function () {
-    return view('daftar',[
-        "css" => "register",
-        "title" => "Daftar"
-    ]);
-});
-Route::get('/produk', function () {
+Route::get('/login', [Login::class, 'index'])->name('login');
+Route::post('/login', [Login::class, 'login']);
+Route::get('/daftar', [Register::class, 'index']);
+Route::post('/daftar', [Register::class, 'create']);
+Route::get('/produk/{id_produk}', function ($id_produk) {
     return view('produk',[
         "css" => "produk",
-        "title" => "Produk"
+        "title" => "Produk",
+        "id_produk" => $id_produk
     ]);
 });
-Route::get('/toko', function () {
-    return view('toko',[
-        "css" => "profilToko-review",
-        "title" => "Aulia Dewi"
+Route::get('/notifikasi', function () {
+    return view('notif',[
+        "css" => "notif",
+        "title" => "Notifikasi"
     ]);
 });
-Route::get('/search', function () {
-    return view('search',[
-        "css" => "search",
-        "title" => "Search"
-    ]);
-});
+Route::get('/toko/{id_toko}', [Toko::class, 'index']);
 Route::get('/checkout', function () {
     return view('checkout',[
         "css" => "checkout",
@@ -97,12 +83,7 @@ Route::get('/pesanan-masuk', function () {
         "title" => "Pesanan-masuk"
     ]);
 });
-Route::get('/cari', function () {
-    return view('cari',[
-        "css" => "cari",
-        "title" => "Cari"
-    ]);
-});
+Route::get('/produk', [Search::class, 'index']);
 Route::get('/bantuan', function () {
     return view('bantuan',[
         "css" => "bantuan",

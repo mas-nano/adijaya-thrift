@@ -4,7 +4,7 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="img/phooo 1.png" alt="">
+            <img src="../img/phooo 1.png" alt="">
         </div>
         <div>
             <p class="nama-toko">Aulia Dewi</p>
@@ -18,8 +18,8 @@
         </div>
     </div>
     <div class="pilihan">
-        <a href="" class="atas terpilih">Review</a>
-        <a href="" class="bawah">Produk</a>
+        <a href="{{ $id_toko }}" class="atas terpilih">Review</a>
+        <a href="?produk=true" class="bawah">Produk</a>
     </div>
     <div class="wrapper-maps">
         <div id="maps">
@@ -39,7 +39,7 @@
             <hr>
             <div class="ulasan-rinci">
                 <div>
-                    <img src="img/phooo 1.png" alt="">
+                    <img src="../img/phooo 1.png" alt="">
                 </div>
                 <div>
                     <p class="nama-pengguna">@nama_pengguna</p>
@@ -55,7 +55,7 @@
             <hr>
             <div class="ulasan-rinci">
                 <div>
-                    <img src="img/phooo 1.png" alt="">
+                    <img src="../img/phooo 1.png" alt="">
                 </div>
                 <div>
                     <p class="nama-pengguna">@nama_pengguna</p>
@@ -71,7 +71,7 @@
             <hr>
             <div class="ulasan-rinci">
                 <div>
-                    <img src="img/phooo 1.png" alt="">
+                    <img src="../img/phooo 1.png" alt="">
                 </div>
                 <div>
                     <p class="nama-pengguna">@nama_pengguna</p>
@@ -92,5 +92,5 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
 async
 ></script>
-<script src="js/profilToko.js"></script>
+<script src="../js/profilToko.js"></script>
 @endsection

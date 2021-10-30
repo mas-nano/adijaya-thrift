@@ -40,6 +40,9 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
+.form-bantuan textarea{
+    background-color: #E1E1E1;
+}
 .btn-bantuan{
     display: block;
     margin:auto;

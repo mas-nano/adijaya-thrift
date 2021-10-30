@@ -7,6 +7,13 @@
 .left{
     flex: 9;
 }
+.dropdown{
+    margin-bottom: 10px;
+    border-radius: 18px;
+    padding-left: 5px;
+    height: 38px;
+    width: 30%;
+}
 .profil{
     margin-bottom: 30px;
     height: 100px;

@@ -76,15 +76,17 @@
     flex-direction: column;
 }
 .input{
-    flex: 1;
+    flex: 2;
     background-color: #E1E1E1;
 }
 .input input{
-    margin: auto;
-    width: 90%;
+    margin-left: 20px;
+    width: 86%;
     height: 30px;
-    display: block;
+    display: inline-block;
     background-color: transparent;
+    font-family: 'Louis George Cafe Std';
+    font-size: 20px;
     border: none;
 }
 .input input:focus{
@@ -93,7 +95,7 @@
 .pesan{
     overflow: hidden;
     max-height: 100%;
-    flex: 13;
+    flex: 20;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -108,10 +110,9 @@
     width: 270px;
     min-height: 50px;
     align-self: flex-end;
-    background-color: #E1E1E1;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-    border-bottom-left-radius: 18px;
+    background-color: #746F6C;
+    color: white;
+    border-radius: 18px;
     margin-bottom: 5px;
     padding: 5px 20px;
 }
@@ -119,7 +120,7 @@
     width: 100%;
     margin: 0px;
     font-family: 'Louis George Cafe Std';
-    font-size: 16px;
+    font-size: 20px;
 
 }
 .receive{
@@ -128,8 +129,12 @@
     min-height: 50px;
     align-self: flex-start;
     background-color: #E1E1E1;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-radius: 18px;
     padding: 5px 20px;
+}
+.img-send{
+    width: 24px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
 }

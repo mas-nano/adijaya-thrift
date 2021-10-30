@@ -78,11 +78,10 @@
     background-color: #E1E1E1;
     border: none;
 }
-button{
+.btn{
     display: block;
     margin: 20px auto;
     padding: 10px 63px;
-    background-color: #FF8D44;
     color: white;
     border-radius: 24px;
     border: none;
@@ -90,7 +89,7 @@ button{
     font-weight: 600;
     font-size: 16px;
 }
-button:hover{
+.btn:hover{
     cursor:pointer;
 }
 .full{
@@ -104,4 +103,16 @@ button:hover{
 .wrapper-form{
     width: 35%;
     margin: auto;
+}
+.flex{
+    width: 25%;
+    margin: auto;
+    display: flex;
+    justify-content:center;
+}
+.orange{
+    background-color: #FF8D44;
+}
+.red{
+    background-color: #BA0000;
 }

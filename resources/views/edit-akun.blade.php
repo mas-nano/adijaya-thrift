@@ -13,11 +13,11 @@
             </div>
             <div class="pilihan">
                 <div>
-                    <a href="" class="atas">Edit Profil</a>
-                    <a href="" class="terpilih">Pemesanan</a>
-                    <a href="" class="">Penjualan</a>
-                    <a href="" class="">Wishlist</a>
-                    <a href="" class="bawah">Pesan</a>
+                    <a href="" class="atas terpilih">Edit Profil</a>
+                    <a href="/riwayat" class="">Riwayat</a>
+                    <a href="/penjualan" class="">Penjualan</a>
+                    <a href="wishlist" class="">Wishlist</a>
+                    <a href="/chat" class="bawah">Pesan</a>
                 </div>
             </div>
             <div class="center">
@@ -46,18 +46,14 @@
                     <input type="password" id="password" class="block input" name="password">
                     <label for="ponsel" class="block">Ponsel</label>
                     <input type="text" id="ponsel" class="block input">
-                    <label for="alamat" class="block">Alamat</label>
-                    <input type="text" id="alamat" class="block input">
                     <label for="bank" class="block">Bank</label>
-                    <select name="bank" id="bank" class="block">
-                        <option value="BRI">BRI</option>
-                        <option value="Mandiri">Mandiri</option>
-                        <option value="BCA">BCA</option>
-                    </select>
+                    <input type="text" name="bank" id="bank" class="block input">
                     <label for="rekening" class="block">Nomor Rekening</label>
                     <input type="text" id="rekening" class="block input">
                     <label for="pemilik" class="block">Nama Lengkap Pemilik</label>
                     <input type="text" id="pemilik" class="block input">
+                    <label for="alamat" class="block">Alamat</label>
+                    <input type="text" id="alamat" class="block input">
                     <label for="provinsi" class="block">Provinsi</label>
                     <select name="provinsi" id="provinsi" class="block">
                         <option value="Jawa Timur">Jawa Timur</option>

@@ -1,0 +1,44 @@
+.wrapper{
+    width: 1050px;
+    margin: auto;
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.fw-6{
+    font-weight: 600;
+}
+.fs-36{
+    font-size: 36px;
+}
+.fs-24{
+    font-size: 24px;
+}
+.box{
+    background-color: white;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    padding: 100px 40px;
+}
+.flex{
+    display: flex;
+    justify-content: right;
+}
+.mt-3{
+    margin-top: 30px;
+}
+.btn{
+    border-radius: 18px;
+    border-color: transparent;
+    color: white;
+    padding: 5px 20px;
+    margin-left: 10px;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.red{
+    background-color: #BA0000;
+}
+.orange{
+    background-color: #FF8D44;
+}

@@ -13,13 +13,6 @@
 }
 .left{
     flex:8;
-}
-.split{
-    flex:1;
-    background-color: transparent;
-}
-.right{
-    flex:7;
     padding: 10px 30px;
     position: relative;
     background-color: white;
@@ -27,21 +20,100 @@
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.total{
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.louis{
+    font-family: 'Louis George Cafe Std';
+}
+.fw-6{
+    font-weight: 600;
+}
+.fs-30{
+    font-size: 30px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-24{
+    font-size: 24px;
+}
+.block{
+    display: block;
+}
+.w-35{
+    width: 35%;
+}
+.center{
+    margin: auto;
+}
+.input{
+    height: 40px;
+    padding: 0px 30px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    background-color: #E1E1E1;
+    border: none;
+}
+.img{
+    width: 300px;
+}
+.w-75{
+    width: 75%;
+}
+.w-92{
+    width: 92%;
+}
+.btn{
+    margin: 20px 10px;
+    padding: 10px 63px;
+    background-color: #FF8D44;
+    color: white;
+    border-radius: 24px;
+    border: none;
+    font-size: 16px;
+}
+.btn:hover{
+    cursor:pointer;
+}
+.mv-4{
+    margin: 40px auto;
+}
+.split{
+    flex:1;
+    background-color: transparent;
+}
+.right{
+    flex:7;
+    
+}
+.box{
     padding: 10px 0px 10px 30px;
     border-radius: 18px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.total pre, .right pre{
+.box pre{
     tab-size: 8;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
-.total p,.right p{
+.box p{
     font-family: 'Louis George Cafe Std';
     font-size: 16px;
     margin: 5px 0px;
+}
+.red{
+    background-color: #BA0000;
+}
+.orange{
+    background-color: #FF8D44;
+}
+.flex{
+    display: flex;
+    width: 25%;
+    margin: auto;
+    justify-content: center;
 }

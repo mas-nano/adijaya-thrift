@@ -19,13 +19,13 @@
         </div>
         <div class="pilihan">
             <div>
-                <a href="" class="atas">Produk</a>
-                <a href="" class="">Pesan</a>
-                <a href="" class="">Penawaran</a>
-                <a href="" class="">Penjualan</a>
-                <a href="" class="">Laporan Penjualan</a>
+                <a href="/produk-toko" class="atas">Produk</a>
+                <a href="/chat" class="">Pesan</a>
+                <a href="/penawaran" class="">Penawaran</a>
+                <a href="/pesanan-masuk" class="">Penjualan</a>
+                <a href="/laporan-penjualan" class="">Laporan Penjualan</a>
                 <a href="" class="terpilih">Riwayat Penjualan</a>
-                <a href="" class="bawah">Bantuan</a>
+                <a href="/bantuan" class="bawah">Bantuan</a>
             </div>
         </div>
     </div>
@@ -33,34 +33,27 @@
     <div class="right">
         <div class="box-radius-18">
             <div class="width-90">
+                <select name="filter" id="filter" class="dropdown louis-16">
+                    <option value="">Filter</option>
+                    <option value="Belum Dikirim">Belum Diterima</option>
+                    <option value="Sudah Dikirim">Selesai</option>
+                </select>
                 <div class="status-produk">
                     <img src="img/sepatu.png" alt="">
                     <div class="flex-3 mg-l-3">
-                        <p class="louis-16">Sudah Dibayar</p>
+                        <p class="louis-16">Sepatu Nike</p>
                         <p class="louis-12">Belum Diterima</p>
                     </div>
-                    <p class="flex-5 align-r louis-12"></p>
-                    <p class="flex-1 align-r"><i class="fa fa-print" aria-hidden="true"></i></p>
+                    <p class="flex-5 align-r louis-12">Detail</p>
                 </div>
                 <div class="status-produk">
                     <img src="img/sepatu.png" alt="">
                     <div class="flex-3 mg-l-3">
-                        <p class="louis-16">Sudah Dibayar</p>
+                        <p class="louis-16">Sepatu Nike</p>
                         <p class="louis-12">Selesai</p>
                     </div>
                     <p class="flex-5 align-r louis-12">Ajukan Pencairan</p>
-                    <p class="flex-1 align-r"><i class="fa fa-print" aria-hidden="true"></i></p>
-                </div>
-                <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-3 mg-l-3">
-                        <p class="louis-16">Sudah Dibayar</p>
-                        <p class="louis-12 green">Sudah Dicairkan</p>
-                    </div>
-                    <p class="flex-5 align-r louis-12"></p>
-                    <p class="flex-1 align-r"><i class="fa fa-print" aria-hidden="true"></i></p>
-                </div>
-                
+                </div>        
             </div>
         </div>
     </div>

@@ -5,15 +5,13 @@
     <div class="wrapper-dalam">
         <div class="left">
             <div class="alamat">
-                <p class="subalamat">Alamat</p>
-                <p class="detail">Laras Wahyu</p>
-                <p class="detail">Jl. Wisma Pagesangan</p>
-                <p class="detail">Surabaya, Jawa Timur</p>
-                <p class="detail">102937192816</p>
+                <p class="subalamat">Metode Pengiriman</p>
+                <input type="radio" value="transfer" name="kurir" id="kurir" checked>
+                <label for="kurir">Standar</label><br>
             </div>
             <div class="bayar">
                 <p class="subalamat">Metode Pembayaran</p>
-                <input type="radio" value="transfer" name="bayar" id="transfer">
+                <input type="radio" value="transfer" name="bayar" id="transfer" checked>
                 <label for="transfer">Transfer Bank</label><br>
                 <input type="radio" value="qris" name="bayar" id="qris">
                 <label for="qris">QRIS</label><br>
@@ -38,14 +36,16 @@
                     <div class="template">
                         <p class="align-kanan">SUBTOTAL</p>
                         <p class="align-kanan">PENGIRIMAN</p>
+                        <p class="align-kanan">BIAYA ADMIN</p>
                         <br>
                         <p class="align-kanan total">TOTAL</p>
                     </div>
                     <div class="template">
                         <p class="align-kanan">Rp100.000.000</p>
                         <p class="align-kanan">Rp20.000</p>
+                        <p class="align-kanan">Rp2.000</p>
                         <br>
-                        <p class="align-kanan total">Rp100.020.000</p>
+                        <p class="align-kanan total">Rp100.022.500</p>
                     </div>
                 </div>
             </div>

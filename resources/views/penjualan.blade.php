@@ -13,11 +13,11 @@
             </div>
             <div class="pilihan">
                 <div>
-                    <a href="" class="atas">Edit Profil</a>
-                    <a href="" class="">Pemesanan</a>
+                    <a href="/akun" class="atas">Edit Profil</a>
+                    <a href="/riwayat" class="">Riwayat</a>
                     <a href="" class="terpilih">Penjualan</a>
-                    <a href="" class="">Wishlist</a>
-                    <a href="" class="bawah">Pesan</a>
+                    <a href="/wishlist" class="">Wishlist</a>
+                    <a href="/chat" class="bawah">Pesan</a>
                 </div>
             </div>
             <div class="center">
@@ -32,25 +32,29 @@
             </div>
             <div class="box">
                 <div class="width-90 pt-10">
-                    <p>Total penjualan hari ini:</p>
-                    <p>Rp1230000</p>
+                    <p class="montserrat fw-5 fs-24 mb-0">Total penjualan hari ini:</p>
+                    <p class="louis-b fs-48 mt-1">Rp1230000</p>
                 </div>
             </div>
             <div class="box">
                 <div class="width-90 pt-10">
-                    <p>Riwayat Penjualan</p>
+                    <p class="montserrat fw-5 fs-24">Riwayat Penjualan</p>
                     <div class="flex mb-3">
                         <img src="img/sepatu.png" alt="">
-                        <p class="flex-5">Sudah Dibayar</p>
-                        <p class="flex-1"><i class="fa fa-print" aria-hidden="true"></i></p>
+                        <div class="flex-5">
+                            <p class="louis fs-23">Sepatu Nike</p>
+                            <p class="louis fs-14">Sudah Dibayar</p>
+                        </div>
+                        <p class="flex-1 louis fs-23">Detail</p>
                     </div>
-                    <hr>
                     <div class="flex mb-3">
                         <img src="img/sepatu.png" alt="">
-                        <p class="flex-5">Sudah Dibayar</p>
-                        <p class="flex-1"><i class="fa fa-print" aria-hidden="true"></i></p>
+                        <div class="flex-5">
+                            <p class="louis fs-23">Sepatu Nike</p>
+                            <p class="louis fs-14">Sudah Dibayar</p>
+                        </div>
+                        <p class="flex-1 louis fs-23">Detail</p>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>

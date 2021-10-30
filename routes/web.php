@@ -47,6 +47,13 @@ Route::get('/checkout', function () {
         "title" => "Checkout"
     ]);
 });
+Route::get('/panduan', function () {
+    return view('panduan',[
+        "css" => "panduan",
+        "title" => "Panduan"
+    ]);
+});
+
 Route::get('/chat', function () {
     return view('chat',[
         "css" => "chat",
@@ -71,10 +78,10 @@ Route::get('/upload', function () {
         "title" => "Upload"
     ]);
 });
-Route::get('/pemesanan', function () {
+Route::get('/riwayat', function () {
     return view('pemesanan',[
         "css" => "pemesanan",
-        "title" => "Pemesanan"
+        "title" => "Riwayat"
     ]);
 });
 Route::get('/pesanan-masuk', function () {
@@ -90,7 +97,13 @@ Route::get('/bantuan', function () {
         "title" => "Bantuan"
     ]);
 });
-Route::get('/edit-akun', function () {
+Route::get('/produk-toko', function () {
+    return view('produk-toko',[
+        "css" => "produk-toko",
+        "title" => "Produk Toko"
+    ]);
+});
+Route::get('/akun', function () {
     return view('edit-akun',[
         "css" => "edit-akun",
         "title" => "Edit Akun"
@@ -144,6 +157,11 @@ Route::get('/admin/dashboard', function () {
 });
 Route::get('/admin/kelolaAdmin', function () {
     return view('admin-kelolaAdmin',[
-        "title" => "Admin - Tambah Admin"
+        "title" => "Tambah Admin"
+    ]);
+});
+Route::get('/admin/admin', function () {
+    return view('admin-list',[
+        "title" => "Admin"
     ]);
 });

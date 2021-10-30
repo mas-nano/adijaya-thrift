@@ -11,6 +11,7 @@
                 <p class="detail">Surabaya, Jawa Timur</p>
                 <p class="detail">102937192816</p>
             </div>
+            <p><i class="fa fa-print" aria-hidden="true"></i></p>
         </div>
         <div class="split"></div>
         <div class="right">
@@ -29,12 +30,14 @@
                     <div class="template">
                         <p class="align-kanan">SUBTOTAL</p>
                         <p class="align-kanan">PENGIRIMAN</p>
+                        <p class="align-kanan">BIAYA ADMIN</p>
                         <br>
                         <p class="align-kanan total">TOTAL</p>
                     </div>
                     <div class="template">
                         <p class="align-kanan">Rp100.000.000</p>
                         <p class="align-kanan">Rp20.000</p>
+                        <p class="align-kanan">Rp2.000</p>
                         <br>
                         <p class="align-kanan total">Rp100.020.000</p>
                     </div>
@@ -48,9 +51,6 @@
         <button class="btn terima" type="button">Paket diterima</button>
         {{-- Dikirim via Penjual --}}
         <button class="btn terima" type="button">Paket dikirim</button>
-        {{-- Pembatalan Penjual --}}
-        <button class="btn terima" type="button">Terima</button>
-        <button class="btn bayar" type="button">Tolak</button>
     </div>
 </div>
 @endsection

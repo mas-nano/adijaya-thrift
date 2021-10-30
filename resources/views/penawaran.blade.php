@@ -19,13 +19,13 @@
         </div>
         <div class="pilihan">
             <div>
-                <a href="" class="atas">Produk</a>
-                <a href="" class="">Pesan</a>
+                <a href="/produk-toko" class="atas">Produk</a>
+                <a href="/chat" class="">Pesan</a>
                 <a href="" class="terpilih">Penawaran</a>
-                <a href="" class="">Penjualan</a>
-                <a href="" class="">Laporan Penjualan</a>
-                <a href="" class="">Riwayat Penjualan</a>
-                <a href="" class="bawah">Bantuan</a>
+                <a href="/pesanan-masuk" class="">Penjualan</a>
+                <a href="/laporan-penjualan" class="">Laporan Penjualan</a>
+                <a href="/riwayat-penjualan" class="">Riwayat Penjualan</a>
+                <a href="/bantuan" class="bawah">Bantuan</a>
             </div>
         </div>
     </div>
@@ -41,8 +41,6 @@
                     </div>
                     <div class="flex-5 align-r">
                         <p class="louis-16">Rp5000</p>
-                        <button class="btn bg-orange">Terima</button>
-                        <button class="btn bg-red">Tolak</button>
                     </div>
                 </div>
                 <div class="status-produk">

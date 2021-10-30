@@ -111,6 +111,7 @@
             <div class="input">
                 <form action="" method="POST">
                     <input type="text" name="pesan" id="pesan" placeholder="Ketik disini...">
+                    <img src="img/send.png" alt="" class="img-send">
                 </form>
             </div>
         </div>

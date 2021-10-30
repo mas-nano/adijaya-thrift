@@ -25,11 +25,7 @@
             <form action="" method="POST">
                 <div class="wrapper-bayar">
                     <label for="bank" class="input">Bank</label>
-                    <select name="bank" id="bank" class="input">
-                        <option value="bca">BCA</option>
-                        <option value="mandiri">Mandiri</option>
-                        <option value="bri">BRI</option>
-                    </select>
+                    <input type="text" name="bank" id="bank" placeholder="Nama Bank">
                     <label for="rekening" class="input">Nomor Rekening</label>
                     <input type="text" name="rekening" id="rekening" class="input" placeholder="Nomor Rekening">
                     <label for="pemilik" class="input">Nama Pemilik</label>
@@ -56,6 +52,9 @@
             </select>
         </div>
     </div>
-    <button type="submit" name="konfirmasi">Konfirmasi</button>
+    <div class="flex">
+        <button type="submit" name="konfirmasi" class="btn orange">Konfirmasi</button>
+        <button type="button" name="batal" class="btn red">Batalkan</button>
+    </div>
 </form>
     @endsection

@@ -4,9 +4,11 @@
     <div class="full flex vh-c">
         <form action="" method="post" class="w-350">
             <p class="ta-c montserrat fs-16 fw-600">Masuk</p>
-            <input type="text" name="id" id="id" class="input block bg-grey louis fs-16 mg-b-2" placeholder="ID">
-            <input type="text" name="id" id="id" class="input block bg-grey louis fs-16 mg-b-2" placeholder="Kata Sandi">
+            <input type="text" name="id" id="id" class="input block bg-grey louis fs-16 mg-b-2 b-0" placeholder="ID">
+            <input type="text" name="id" id="id" class="input block bg-grey louis fs-16 mg-b-2 b-0" placeholder="Kata Sandi">
             <button type="submit" class="btn bg-orange block montserrat fs-16 fw-600 center">Masuk</button>
+            <br>
+            <p class="louis fs-24 ta-c red">Login gagal nama pengguna/password salah</p>
         </form>
     </div>
 @endsection

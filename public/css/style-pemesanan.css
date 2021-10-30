@@ -36,9 +36,19 @@
     font-size: 14px;
     margin-top: 5px;
 }
+.green{
+    color: #22C308;
+}
 /* end deskripsi ulasan dari ulasan */
 .checked {
     color: orange;
+}
+.dropdown{
+    margin-bottom: 10px;
+    border-radius: 18px;
+    padding-left: 5px;
+    height: 38px;
+    width: 30%;
 }
 .pilihan{
     background-color: white;

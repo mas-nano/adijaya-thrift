@@ -13,11 +13,11 @@
             </div>
             <div class="pilihan">
                 <div>
-                    <a href="" class="atas">Edit Profil</a>
-                    <a href="" class="">Pemesanan</a>
-                    <a href="" class="">Penjualan</a>
+                    <a href="/akun" class="atas">Edit Profil</a>
+                    <a href="/riwayat" class="">Riwayat</a>
+                    <a href="/penjualan" class="">Penjualan</a>
                     <a href="" class="terpilih">Wishlist</a>
-                    <a href="" class="bawah">Pesan</a>
+                    <a href="/chat" class="bawah">Pesan</a>
                 </div>
             </div>
             <div class="center">
@@ -33,7 +33,6 @@
                         <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
                         <p class="nama-barang">Sepatu Ngganteng</p>
                         <p class="harga-barang">Rp10.000</p>
-                        <p class="end"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
                     </div>
                 </li>
                 <li>
@@ -41,7 +40,6 @@
                         <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
                         <p class="nama-barang">Sepatu Ngganteng</p>
                         <p class="harga-barang">Rp10.000</p>
-                        <p class="end"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
                     </div>
                 </li>
             </ul>

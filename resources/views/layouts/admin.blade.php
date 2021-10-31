@@ -18,13 +18,13 @@
             <img src="../img/phooo 1.png" alt="" class="logo mg-v-1 pointer">
         </div>
         <p class="ta-c mg-b-4 icon"><a href="dashboard" class="{{ ($title=="Dashboard"?"orange":"black") }} td-0"><i class="fas fa-home fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Beranda</span></a></p>
-        <p class="ta-c mg-b-4 icon"><a href="" class="{{ ($title=="Pengguna"?"orange":"black") }} td-0"><i class="fas fa-users fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Pengguna</span></p>
-        <p class="ta-c mg-b-4 icon"><a href="" class="{{ ($title=="Bantuan"?"orange":"black") }} td-0"><i class="fas fa-question-circle fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Bantuan</span></p>
-        <p class="ta-c mg-b-4 icon"><a href="" class="{{ ($title=="Perusahaan"?"orange":"black") }} td-0"><i class="far fa-money-bill-alt fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Perusahaan</span></p>
-        <p class="ta-c mg-b-4 icon"><a href="" class="{{ ($title=="Pencairan"?"orange":"black") }} td-0"><i class="fas fa-wallet fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Pencairan</span></p>
-        <p class="ta-c mg-b-4 icon"><a href="" class="{{ ($title=="Konfirmasi"?"orange":"black") }} td-0"><i class="fas fa-clipboard-check fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Konfirmasi</span></p>
+        <p class="ta-c mg-b-4 icon"><a href="pengguna" class="{{ ($title=="Pengguna"?"orange":"black") }} td-0"><i class="fas fa-users fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Pengguna</span></p>
+        <p class="ta-c mg-b-4 icon"><a href="bantuan" class="{{ ($title=="Bantuan"?"orange":"black") }} td-0"><i class="fas fa-question-circle fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Bantuan</span></p>
+        <p class="ta-c mg-b-4 icon"><a href="perusahaan" class="{{ ($title=="Perusahaan"?"orange":"black") }} td-0"><i class="far fa-money-bill-alt fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Perusahaan</span></p>
+        <p class="ta-c mg-b-4 icon"><a href="pencairan" class="{{ ($title=="Pencairan"?"orange":"black") }} td-0"><i class="fas fa-wallet fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Pencairan</span></p>
+        <p class="ta-c mg-b-4 icon"><a href="konfirmasi" class="{{ ($title=="Konfirmasi"?"orange":"black") }} td-0"><i class="fas fa-clipboard-check fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Konfirmasi</span></p>
         <p class="ta-c mg-b-4 icon"><a href="admin" class="{{ ($title=="Admin"?"orange":"black") }} td-0"><i class="fas fa-id-card fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Admin</span></p>
-        <p class="ta-c mg-b-4 icon"><a href="" class="{{ ($title=="Produk"?"orange":"black") }} td-0"><i class="fas fa-box-open fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Produk</span></p>
+        <p class="ta-c mg-b-4 icon"><a href="produk" class="{{ ($title=="Produk"?"orange":"black") }} td-0"><i class="fas fa-box-open fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Produk</span></p>
         <p class="ta-c mg-b-4 icon absolute b0 l0"><a href="" class="td-0 black"><i class="fas fa-sign-out-alt fs-22 fa-fw"></i> <span class="montserrat fs-16 none icon-det">Keluar</span></a></p>
     </div>
     <div class="content">

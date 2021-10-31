@@ -31,7 +31,7 @@ body{
     object-fit: cover;
 }
 .input{
-    border-radius: 28px;
+    border-radius: 18px;
     height: 50px;
     width: 89%;
     padding: 0px 20px 0px 20px;
@@ -59,12 +59,61 @@ body{
     border-radius: 10px;
     border: none;
 }
+.btn-foto{
+    border-radius: 18px;
+    border-color: black;
+    padding: 5px 20px;
+}
 .table{
     width: 100%;
     border-radius: 8px;
     border-color: #E1E1E1;
 }
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+}
+.modalContent{
+    background-color: white;
+    margin: 20% auto;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    width:25%;
+    align-items: center;
+    animation-name : modalopen;
+    animation-duration : 1s;
+}
+@keyframes modalopen{
+    from{ opacity: 0}
+    to { opacity: 1}
+}
+.img{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.dropdown{
+    border-radius: 18px;
+}
+.img-produk{
+    max-width: 110px;
+    height: 110px;
+    object-fit: cover;
+}
 /* Margin */
+.mg-0{
+    margin: 0px;
+}
+.mg-v-2{
+    margin: 20px 0px;
+}
 .mg-v-1{
     margin: 10px 0px;
 }
@@ -92,9 +141,15 @@ body{
 .mg-r-2{
     margin-right: 20px;
 }
+.mg-h-1{
+    margin: 0px 10px;
+}
 /* padding */
 .pd-5{
     padding: 50px;
+}
+.pd-3{
+    padding: 30px;
 }
 .pd-v-5{
     padding-left: 50px;
@@ -143,6 +198,28 @@ body{
 .w-300{
     width: 300px;
 }
+.wp-97{
+    width: 97%;
+}
+.wp-100{
+    width: 100%;
+}
+.wp-90{
+    width: 90%;
+}
+.wcalc-custom{
+    width: calc(50% - 2px);
+}
+.mwp-70{
+    max-width: 70%;
+}
+.mwp-50{
+    max-width: 50%;
+}
+/* height */
+.h-300{
+    height: 300px;
+}
 /* display */
 .flex{
     display: flex;
@@ -188,6 +265,27 @@ body{
 .flex-1{
     flex: 1;
 }
+.flex-2{
+    flex: 2;
+}
+.flex-8{
+    flex: 8;
+}
+.flex-5{
+    flex: 5;
+}
+.flex-3{
+    flex: 3;
+}
+.flex-9{
+    flex: 9;
+}
+.jc-c{
+    justify-content: center;
+}
+.ta-r{
+    text-align: right;
+}
 /* background */
 .bg-grey{
     background-color: #E1E1E1;
@@ -198,12 +296,18 @@ body{
 .bg-white{
     background-color: white;
 }
+.bg-red{
+    background-color: #BA0000;
+}
 /* font */
 .montserrat{
     font-family: 'Montserrat', sans-serif;
 }
 .fw-600{
     font-weight: 600;
+}
+.fw-500{
+    font-weight: 500;
 }
 .fs-14{
     font-size: 14px;
@@ -229,6 +333,9 @@ body{
 .louis{
     font-family: 'Louis George Cafe Std';
 }
+.louis-b{
+    font-family: 'Louis George Cafe';
+}
 .td-0{
     text-decoration: none;
 }
@@ -242,10 +349,16 @@ body{
 .black{
     color: black;
 }
+.green{
+    color: #22C308;
+}
 /* misc */
 .pointer:hover{
     cursor: pointer;
 }
 .b-0{
     border: none;
+}
+.br-18{
+    border-radius: 18px;
 }

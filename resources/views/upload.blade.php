@@ -46,23 +46,4 @@
     </div>
     <button type="submit" name="unggah" id="unggah">Unggah</button>
 </form>
-<div class="modal" id="modalBox">
-    <div class="modalContent">
-        <p class="close fa fa-chevron-left"></p>
-        <div class="star">
-            <span class="fa fa-star fa-2x" id="1"></span>
-            <span class="fa fa-star fa-2x" id="2"></span>
-            <span class="fa fa-star fa-2x" id="3"></span>
-            <span class="fa fa-star fa-2x" id="4"></span>
-            <span class="fa fa-star fa-2x" id="5"></span>
-        </div>
-        <form action="" method="POST">
-            <p class="sub">Review</p>
-            <textarea name="tawar" id="" rows="5" cols="25"></textarea>
-            <button type="submit">Buat Penawaran</button>
-        </form>
-    </div>
-</div>
-<script src="js/review.js">
-</script>
 @endsection

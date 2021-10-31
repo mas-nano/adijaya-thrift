@@ -47,7 +47,7 @@
     </div>
     <section>
         <button type="button" name="beli" id="beli">Beli</button>
-        <button type="button" name="tawar" id="tawar">Tawar</button>
+        <button type="button" name="tawar" id="modal">Tawar</button>
     </section>
 </div>
 </div>

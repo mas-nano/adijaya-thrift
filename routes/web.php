@@ -155,7 +155,7 @@ Route::get('/admin/dashboard', function () {
         "title" => "Dashboard"
     ]);
 });
-Route::get('/admin/kelolaAdmin', function () {
+Route::get('/admin/kelolaUser', function () {
     return view('admin-kelolaAdmin',[
         "title" => "Tambah Admin"
     ]);
@@ -163,5 +163,60 @@ Route::get('/admin/kelolaAdmin', function () {
 Route::get('/admin/admin', function () {
     return view('admin-list',[
         "title" => "Admin"
+    ]);
+});
+Route::get('/admin/pengguna', function () {
+    return view('admin-penggunaList',[
+        "title" => "Pengguna"
+    ]);
+});
+Route::get('/admin/bantuan', function () {
+    return view('admin-bantuanList',[
+        "title" => "Bantuan"
+    ]);
+});
+Route::get('/admin/detail-bantuan', function () {
+    return view('admin-bantuan',[
+        "title" => "Bantuan"
+    ]);
+});
+Route::get('/admin/perusahaan', function () {
+    return view('admin-perusahaan',[
+        "title" => "Perusahaan"
+    ]);
+});
+Route::get('/admin/kelolaDana', function () {
+    return view('admin-kelolaDana',[
+        "title" => "Perusahaan"
+    ]);
+});
+Route::get('/admin/pencairan', function () {
+    return view('admin-pencairanList',[
+        "title" => "Pencairan"
+    ]);
+});
+Route::get('/admin/kelolaPencairan', function () {
+    return view('admin-pencairan',[
+        "title" => "Pencairan"
+    ]);
+});
+Route::get('/admin/konfirmasi', function () {
+    return view('admin-konfirmasiList',[
+        "title" => "Konfirmasi"
+    ]);
+});
+Route::get('/admin/kelolaKonfirmasi', function () {
+    return view('admin-konfirmasi',[
+        "title" => "Konfirmasi"
+    ]);
+});
+Route::get('/admin/produk', function () {
+    return view('admin-produkList',[
+        "title" => "Produk"
+    ]);
+});
+Route::get('/admin/kelolaProduk', function () {
+    return view('admin-kelolaProduk',[
+        "title" => "Produk"
     ]);
 });

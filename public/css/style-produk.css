@@ -60,6 +60,8 @@
     font-family: 'Louis George Cafe';
     font-size: 16px;
     margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
 }
 .nama-pengguna{
     font-family: 'Louis George Cafe Std';

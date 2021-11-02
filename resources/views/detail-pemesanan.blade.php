@@ -45,13 +45,16 @@
             </div>
         </div>
     </div>
-    {{-- Kalo selesai hapus semua --}}
+    @if ($data['s']!='selesai')
     <div class="btn-wrapper">
-        {{-- Pembeli menerima barang --}}
+        @if ($data['s']=='proses')
         <button class="btn terima" type="button" id="modal">Paket diterima</button>
-        {{-- Dikirim via Penjual --}}
+        @endif
+        @if ($data['s']=='sudah-bayar')
         <button class="btn terima" type="button">Paket dikirim</button>
+        @endif
     </div>
+    @endif
 </div>
 <div class="modal" id="modalBox">
     <div class="modalContent">

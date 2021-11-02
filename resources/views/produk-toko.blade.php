@@ -36,7 +36,7 @@
             <li>
                 <div class="produk">
                     <img src="../img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                    <p class="nama-barang">Sepatu Ngganteng</p>
+                    <p class="nama-barang">Sepatu Nike</p>
                     <p class="harga-barang">Rp10.000</p>
                     <p class="louis fs-14 align-r"><a href="" class="td-0 black">Ubah</a></p>
                 </div>
@@ -44,7 +44,7 @@
             <li>
                 <div class="produk">
                     <img src="../img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                    <p class="nama-barang">Sepatu Ngganteng</p>
+                    <p class="nama-barang">Sepatu Nike</p>
                     <p class="harga-barang">Rp10.000</p>
                     <p class="louis fs-14 align-r"><a href="" class="td-0 black">Ubah</a></p>
                 </div>

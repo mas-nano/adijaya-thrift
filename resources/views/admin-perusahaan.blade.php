@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="wrapper">
-    <p class="montserrat fs-22 ta-c fw-600">Beranda</p>
+    <p class="montserrat fs-22 ta-c fw-600">Dana Perusahaan</p>
     <div class="flex jus-con-sa">
         <div class="box bg-grey inline-block pd-5">
             <p class="montserrat fs-22 ta-c mg-v-1">Jumlah Pemesanan</p>

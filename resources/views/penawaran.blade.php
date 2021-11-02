@@ -37,7 +37,7 @@
                     <img src="img/sepatu.png" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Ngganteng</p>
+                        <p class="louis-16">Sepatu Nike</p>
                     </div>
                     <div class="flex-5 align-r">
                         <p class="louis-16">Rp5000</p>
@@ -47,7 +47,7 @@
                     <img src="img/sepatu.png" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Ngganteng</p>
+                        <p class="louis-16">Sepatu Nike</p>
                     </div>
                     <div class="flex-5 align-r">
                         <p class="louis-16">Rp5000</p>
@@ -59,7 +59,7 @@
                     <img src="img/sepatu.png" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Ngganteng</p>
+                        <p class="louis-16">Sepatu Nike</p>
                     </div>
                     <div class="flex-5 align-r">
                         <p class="louis-16">Rp5000</p>

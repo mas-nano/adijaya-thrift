@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DetailPesan;
+use App\Http\Controllers\KelolaAdmin;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Search;
@@ -121,12 +123,7 @@ Route::get('/wishlist', function () {
         "title" => "Wishlist"
     ]);
 });
-Route::get('/detail-pemesanan', function () {
-    return view('detail-pemesanan',[
-        "css" => "detail-pemesanan",
-        "title" => "Detail Pemesanan"
-    ]);
-});
+Route::get('/detail-pemesanan', [DetailPesan::class, 'index']);
 Route::get('/laporan-penjualan', function () {
     return view('laporan-penjualan',[
         "css" => "laporan-penjualan",
@@ -155,11 +152,7 @@ Route::get('/admin/dashboard', function () {
         "title" => "Dashboard"
     ]);
 });
-Route::get('/admin/kelolaUser', function () {
-    return view('admin-kelolaAdmin',[
-        "title" => "Tambah Admin"
-    ]);
-});
+Route::get('/admin/kelolaUser', [KelolaAdmin::class, 'index']);
 Route::get('/admin/admin', function () {
     return view('admin-list',[
         "title" => "Admin"

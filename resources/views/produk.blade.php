@@ -10,7 +10,7 @@
             <img src="../img/phooo 1.png" alt="">
         </div>
         <div>
-            <p class="nama-toko"><a href="/toko/1">Aulia Dewi</a></p>
+            <p class="nama-toko"><a href="/toko/1" class="nama-toko">Aulia Dewi</a></p>
             <p class="nama-pengguna">@auliadewi</p>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>

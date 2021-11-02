@@ -3,49 +3,42 @@
     <div class="wrapper-luar">
         <div class="left">
             <div class="pengirim click">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>
                 </div>
             </div>
             <div class="pengirim">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>
                 </div>
             </div>
             <div class="pengirim">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>
                 </div>
             </div>
             <div class="pengirim">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>
                 </div>
             </div>
             <div class="pengirim">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>
                 </div>
             </div>
             <div class="pengirim">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>
                 </div>
             </div>
             <div class="pengirim">
-                <img src="img/phooo 1.png" alt="">
                 <div class="nama">
                     <p class="nama-asli">Aulia</p>
                     <p class="username">@aulia</p>

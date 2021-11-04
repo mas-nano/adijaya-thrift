@@ -14,10 +14,6 @@
     margin-bottom: 20px;
     background-color: #E1E1E1;
     height: 50px;
-    float: left;
-    flex: 2;
-    display: flex;
-    align-items: center;
     border: none;
     border-radius: 28px;
     padding: 0px 20px 0px 20px;
@@ -46,5 +42,21 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 24px;
+}
+.message{
+    width: 400px;
+    margin: auto;
+    padding: 3px 10px;
+    margin-top: 5px;
+    border-radius: 18px;
+}
+.warn{
+    background-color: rgb(240, 73, 73);
+}
+.center{
+    text-align: center;
+    color:white;
+    font-family: 'Louis George Cafe';
+    font-size: 14px;
 }
 /* end container */

@@ -6,9 +6,16 @@ $("#foto").change(function(e){
 });
 let markers = [];
 function initMap() {
-    const myLatlng = { lat: 0.08207915823301208, lng: 119.0684741280404 };
+    if($("#lat").val()==""){
+        var myLatlng = { lat: 0.08207915823301208, lng: 119.0684741280404 };
+        var zoom = 3;
+    }else{
+        var myLatlng = { lat: parseInt($("#lat").val()), lng: parseInt($("#lng").val()) };
+        var zoom = 17;
+    }
+
     const map = new google.maps.Map(document.getElementById("maps"), {
-      zoom: 3,
+      zoom: zoom,
       center: myLatlng,
     });
 
@@ -18,6 +25,9 @@ function initMap() {
             position: mapsMouseEvent.latLng,
             map
         });
+        let pos = mapsMouseEvent.latLng.toJSON();
+        $("#lat").val(pos['lat']);
+        $("#lng").val(pos['lng']);
         markers.push(marker);
         marker.setMap(null);
         if(markers.length!=1){
@@ -29,3 +39,31 @@ function initMap() {
         }
     });
   }
+  function kota(id, sel){
+      $.ajax({
+          url: `https://dev.farizdotid.com/api/daerahindonesia/kota`,
+          type: "GET",
+          dataType: "json",
+          data: {
+              id_provinsi: id
+          },
+          success: function(data){
+              for(let i=0; i<data["kota_kabupaten"].length;i++){
+                sel.append($("<option></option>")
+                .attr("value", data["kota_kabupaten"][i]["nama"]).text(data["kota_kabupaten"][i]["nama"]));
+              }
+            }
+      });
+  }
+const prov = $( "#provinsi option:selected" ).val();
+if(prov != ""){
+    const id = $( "#provinsi option:selected" ).attr("id");
+    var sel = $("#kota");
+    kota(id, sel);
+}
+$("#provinsi").change(function(){
+    const id = $( "#provinsi option:selected" ).attr("id");
+    var sel = $("#kota");
+    sel.empty();
+    kota(id, sel);
+});

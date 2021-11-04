@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Akun;
 use App\Http\Controllers\DetailPesan;
 use App\Http\Controllers\KelolaAdmin;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\Logout;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Search;
 use App\Http\Controllers\Toko;
@@ -105,12 +107,8 @@ Route::get('/produk-toko', function () {
         "title" => "Produk Toko"
     ]);
 });
-Route::get('/akun', function () {
-    return view('edit-akun',[
-        "css" => "edit-akun",
-        "title" => "Edit Akun"
-    ]);
-});
+Route::get('/akun', [Akun::class, 'index']);
+Route::post('/akun', [Akun::class, 'update']);
 Route::get('/penjualan', function () {
     return view('penjualan',[
         "css" => "penjualan",
@@ -213,3 +211,4 @@ Route::get('/admin/kelolaProduk', function () {
         "title" => "Produk"
     ]);
 });
+Route::get('/logout', [Logout::class, 'index']);

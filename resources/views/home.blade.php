@@ -15,7 +15,7 @@
         <li>
             <div class="produk">
                 <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang"><a href="/produk">Sepatu Nike</a></p>
+                <p class="nama-barang"><a href="/produk/1">Sepatu Nike</a></p>
                 <p class="harga-barang">Rp10.000</p>
             </div>
         </li>

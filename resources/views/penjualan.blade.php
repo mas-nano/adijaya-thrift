@@ -22,13 +22,13 @@
             </div>
             <div class="center">
                 <p class="link">Profil</p>
-                <p><i class="fa fa-sign-out" aria-hidden="true"></i><span class="link"> Keluar</span></p>
+                <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>
         <div class="split"></div>
         <div class="right">
             <div class="center">
-                <p><a href="/" class="btn-lengkap">Lihat Lebih Lengkap</a></p>
+                <p><a href="/produk-toko" class="btn-lengkap">Lihat Lebih Lengkap</a></p>
             </div>
             <div class="box">
                 <div class="width-90 pt-10">

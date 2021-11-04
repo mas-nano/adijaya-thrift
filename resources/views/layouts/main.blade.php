@@ -32,9 +32,9 @@
                     <ul>
                         <li><a class="{{ ($title === "Beranda")?"active":"" }}" href="/">Beranda</a></li>
                         <li><a class="{{ ($title === "Produk")?"active":"" }}" href="/produk">Produk</a></li>
-                        @if (isset($_SESSION['id']))
+                        @if (session('dataUser'))
                             <li><a class="{{ ($title === "Notifikasi")?"active":"" }}" href="/notifikasi"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-                            <li><a class="{{ ($title === "Akun")?"active":"" }}" href="/">Hi,</a></li>
+                            <li><a class="{{ ($title === "Edit Akun")?"active":"" }}" href="/akun">Hi, {{ session('dataUser')['nama'] }}</a></li>
                         @else
                             <li><a class="{{ ($title === "Masuk")?"active":"" }}" href="/login">Login</a></li>
                             <li><a class="{{ ($title === "Daftar")?"active":"" }}" href="/daftar">Daftar</a></li>

@@ -10,21 +10,18 @@
     margin: auto;
 }
 .form-input{
+    display: block;
     width: 400px;
     margin-bottom: 20px;
     background-color: #E1E1E1;
     height: 50px;
-    float: left;
-    flex: 2;
-    display: flex;
-    align-items: center;
     border: none;
     border-radius: 28px;
     padding: 0px 20px 0px 20px;
     font-family: 'Louis George Cafe Std';
     font-size: 20px;
 }
-.form-login p{
+.p{
     text-align: center;
     font-family: 'Louis George Cafe Std';
     font-size: 14px;

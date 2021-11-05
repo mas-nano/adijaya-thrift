@@ -4,11 +4,11 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="img/phooo 1.png" alt="">
+                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
                 </div>
                 <div>
-                    <p class="nama-toko">Aulia Dewi</p>
-                    <p class="nama-pengguna">@auliadewi</p>
+                    <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
+                    <p class="nama-pengguna">{{ '@'.session('dataUser')['username'] }}</p>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>

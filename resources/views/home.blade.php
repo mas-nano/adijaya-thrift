@@ -12,52 +12,12 @@
 <div class="rekomendasi">
     <p class="title">REKOMENDASI</p>
     <ul class="rekom">
-        <li>
-            <div class="produk">
-                <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang"><a href="/produk/1">Sepatu Nike</a></p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
-        <li>
-            <div class="produk">
-                <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
-        <li>
-            <div class="produk">
-                <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
-        <li>
-            <div class="produk">
-                <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
-        <li>
-            <div class="produk">
-                <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
-        <li>
-            <div class="produk">
-                <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
+        
     </ul>
     <div class="more">
-        <a href="">Lihat Lebih Banyak</a>
+        <a href="" class="lebih">Lihat Lebih Banyak</a>
     </div>
 </div>
 </div>
+<script src="js/home.js"></script>
 @endsection

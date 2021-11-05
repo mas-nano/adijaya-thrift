@@ -38,7 +38,9 @@ class Login extends Controller
                 $data = [
                     'nama' => $users[0]['name'],
                     'id' => $users[0]['id'],
-                    'email' => $users[0]['email']
+                    'email' => $users[0]['email'],
+                    'username' => $users[0]['username'],
+                    'gambar' => $users[0]['photo']
                 ];
                 $request->session()->put('dataUser', $data);
                 return redirect()->to('/')->send();

@@ -20,6 +20,7 @@
 .profil img{
     border-radius: 50%;
     border: 1px solid black;
+    max-width: 90px;
 }
 .profil div{
     display: inline-block;
@@ -116,7 +117,6 @@
 .produk{
     padding: 10px;
     max-width: 200px;
-    height: 290px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin: 8px;

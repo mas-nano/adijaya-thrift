@@ -19,6 +19,7 @@
 .profil img,.img-change{
     border-radius: 50%;
     border: 1px solid black;
+    max-width: 90px;
 }
 .profil div{
     display: inline-block;

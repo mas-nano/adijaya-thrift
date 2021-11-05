@@ -4,7 +4,6 @@ var modal = document.getElementById('modalBox');
 var modalBtn = document.querySelectorAll('#modal');
 // Get close button
 var closeBtn = document.getElementsByClassName('close')[0];
-console.log(modalBtn.length)
 // Listen for open click
 for(let i=0; i<modalBtn.length; i++){
     modalBtn[i].addEventListener('click', openModal);

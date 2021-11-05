@@ -17,9 +17,15 @@
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.profil img,.img-change{
+.profil img{
     border-radius: 50%;
     border: 1px solid black;
+    max-width: 90px;
+}
+.img-change{
+    border-radius: 50%;
+    border: 1px solid black;
+    max-width: 110px;
 }
 .profil div{
     display: inline-block;
@@ -153,4 +159,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
+}
+.warn{
+    color: red;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: center;
 }

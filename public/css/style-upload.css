@@ -5,6 +5,7 @@
     padding: 20px 0px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     border-radius: 18px;
+    background-color: white;
 }
 .wrapper{
     width: 90%;
@@ -34,7 +35,7 @@ label{
     font-family: 'Louis George Cafe Std';
     font-size: 20px;
 }
-button{
+.unggah{
     display: block;
     margin: auto;
     padding: 10px 50px;
@@ -45,4 +46,33 @@ button{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
+}
+.unggah:hover{
+    cursor: pointer;
+}
+.warn{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: red;
+    text-align: center;
+}
+.desk{
+    font-family: 'Louis George Cafe Std';
+    font-size: 20px;
+    border-radius: 18px;
+    padding: 10px;
+}
+.fotoProduk{
+    max-width: 500px;
+}
+.produk{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: white;
+    height: 30px;
+    border-color: #E1E1E1;
+    border-radius: 16px;
+    padding: 0px 20px 0px 20px;
+    font-family: 'Louis George Cafe Std';
+    font-size: 20px;
 }

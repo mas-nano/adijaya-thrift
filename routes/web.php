@@ -5,6 +5,8 @@ use App\Http\Controllers\DetailPesan;
 use App\Http\Controllers\KelolaAdmin;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProdukToko;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Search;
 use App\Http\Controllers\Toko;
@@ -31,20 +33,14 @@ Route::get('/login', [Login::class, 'index'])->name('login');
 Route::post('/login', [Login::class, 'login']);
 Route::get('/daftar', [Register::class, 'index']);
 Route::post('/daftar', [Register::class, 'create']);
-Route::get('/produk/{id_produk}', function ($id_produk) {
-    return view('produk',[
-        "css" => "produk",
-        "title" => "Produk",
-        "id_produk" => $id_produk
-    ]);
-});
+Route::get('/produk/{produk}', [ProdukToko::class, 'show']);
 Route::get('/notifikasi', function () {
     return view('notif',[
         "css" => "notif",
         "title" => "Notifikasi"
     ]);
 });
-Route::get('/toko/{id_toko}', [Toko::class, 'index']);
+Route::get('/toko/{user}', [Toko::class, 'index']);
 Route::get('/checkout', function () {
     return view('checkout',[
         "css" => "checkout",
@@ -76,12 +72,10 @@ Route::get('/bayar-qr', function () {
         "title" => "Bayar"
     ]);
 });
-Route::get('/upload', function () {
-    return view('upload',[
-        "css" => "upload",
-        "title" => "Upload"
-    ]);
-});
+Route::get('/kelolaProduk', [ProdukController::class, 'index']);
+Route::post('/kelolaProduk', [ProdukController::class, 'store']);
+Route::get('/kelolaProduk/{produk}', [ProdukController::class, 'show']);
+Route::post('/kelolaProduk/{produk}', [ProdukController::class, 'update']);
 Route::get('/riwayat', function () {
     return view('pemesanan',[
         "css" => "pemesanan",
@@ -101,12 +95,7 @@ Route::get('/bantuan', function () {
         "title" => "Bantuan"
     ]);
 });
-Route::get('/produk-toko', function () {
-    return view('produk-toko',[
-        "css" => "produk-toko",
-        "title" => "Produk Toko"
-    ]);
-});
+Route::get('/produk-toko', [ProdukToko::class, 'index']);
 Route::get('/akun', [Akun::class, 'index']);
 Route::post('/akun', [Akun::class, 'update']);
 Route::get('/penjualan', function () {

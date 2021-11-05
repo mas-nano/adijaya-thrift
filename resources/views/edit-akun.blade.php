@@ -4,11 +4,17 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="img/phooo 1.png" alt="">
+                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
                 </div>
                 <div>
-                    <p class="nama-toko">Laras Wahyu</p>
-                    <p class="nama-pengguna">@laraswahyu</p>
+                    <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
+                    <p class="nama-pengguna">{{ '@'.session('dataUser')['username'] }}</p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span>(3)</span>
                 </div>
             </div>
             <div class="pilihan">
@@ -30,13 +36,26 @@
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="flex-center">
-                    <img src="img/phooo 1.png" alt="" class="img-change">
+                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
                     <button class="btn-foto" type="button">Unggah Foto</button>
                     <input type="text" id="file-name" disabled>
                     <input type="file" name="photo" id="foto" style="display: none;">
                 </div>
                 <hr>
                 <div class="width-45">
+                    @if (isset($gambar))
+                        <p class="warn">{{ $gambar }}</p>
+                    @endif
+                    @if (isset($message))
+                        @foreach ($message as $item)
+                            @foreach ($item as $msg)
+                            <div class="warn">
+                                <p class="center">{{ $msg }}</p>
+                            </div>
+                            
+                            @endforeach
+                        @endforeach
+                    @endif
                     <label for="nama" class="block">Nama</label>
                     <input type="text" id="nama" class="block input" name="name" value="{{ (isset($data[0]['name'])?$data[0]['name']:"") }}">
                     <label for="username" class="block">Nama Pengguna</label>

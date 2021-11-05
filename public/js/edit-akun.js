@@ -10,7 +10,7 @@ function initMap() {
         var myLatlng = { lat: 0.08207915823301208, lng: 119.0684741280404 };
         var zoom = 3;
     }else{
-        var myLatlng = { lat: parseInt($("#lat").val()), lng: parseInt($("#lng").val()) };
+        var myLatlng = { lat: parseFloat($("#lat").val()), lng: parseFloat($("#lng").val()) };
         var zoom = 17;
     }
 
@@ -18,7 +18,13 @@ function initMap() {
       zoom: zoom,
       center: myLatlng,
     });
-
+    if(($("#lat").val()!="")){
+        const marker = new google.maps.Marker({
+            position: myLatlng,
+            map
+        });
+        markers.push(marker);
+    }
     // Configure the click listener.
     map.addListener("click", (mapsMouseEvent) => {
         const marker = new google.maps.Marker({

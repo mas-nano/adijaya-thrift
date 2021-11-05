@@ -61,7 +61,6 @@ class Akun extends Controller
                 File::delete($destination);
             }
             $file = $request->file('photo');
-            var_dump(json_decode($file,true));
             $extention = $file->getClientOriginalExtension();
             $eksGambar = ['jpeg', 'jpg', 'png'];
             if(!in_array($extention, $eksGambar)){
@@ -69,7 +68,7 @@ class Akun extends Controller
                     "css" => "edit-akun",
                     "title" => "Edit Akun",
                     "data" => $dataUser,
-                    "message" => json_decode($validate->errors(),true),
+                    "gambar" => "File bukan gambar",
                     "prov" => $prov
                 ]);
             }
@@ -80,6 +79,15 @@ class Akun extends Controller
         try {
             $user = User::where('id', session('dataUser')['id'])->update($data);
             $dataUser = User::where('id', $id)->get();
+            $sesi = [
+                'nama' => $dataUser[0]['name'],
+                'id' => $dataUser[0]['id'],
+                'email' => $dataUser[0]['email'],
+                'username' => $dataUser[0]['username'],
+                'gambar' => $dataUser[0]['photo']
+            ];
+            $request->session()->forget('dataUser');
+            $request->session()->put('dataUser', $sesi);
             return view('edit-akun',[
                 "css" => "edit-akun",
                 "title" => "Edit Akun",

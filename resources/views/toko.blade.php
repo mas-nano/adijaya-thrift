@@ -4,11 +4,11 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="../img/phooo 1.png" alt="">
+            <img src="../img/uploads/profile_images/{{ (isset($data['photo'])?$data['photo']:"") }}" alt="">
         </div>
         <div>
-            <p class="nama-toko">Aulia Dewi</p>
-            <p class="nama-pengguna">@auliadewi</p>
+            <p class="nama-toko">{{ (isset($data['name'])?$data['name']:"") }}</p>
+            <p class="nama-pengguna">{{ (isset($data['username'])?"@".$data['username']:"") }}</p>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -18,11 +18,11 @@
         </div>
     </div>
     <div class="pilihan">
-        <a href="{{ $id_toko }}" class="atas terpilih">Review</a>
+        <a href="{{ $data['id'] }}" class="atas terpilih">Review</a>
         <a href="?produk=true" class="bawah">Produk</a>
     </div>
     <div class="wrapper-maps">
-        <div id="maps">
+        <div id="maps" data-lat="{{ (isset($data['lat'])?$data['lat']:"") }}" data-lng="{{ (isset($data['lng'])?$data['lng']:"") }}">
         </div>
     </div>
 </div>

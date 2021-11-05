@@ -4,11 +4,11 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="../img/phooo 1.png" alt="">
+            <img src="../img/uploads/profile_images/{{ (isset($data['photo'])?$data['photo']:"") }}" alt="">
         </div>
         <div>
-            <p class="nama-toko">Aulia Dewi</p>
-            <p class="nama-pengguna">@auliadewi</p>
+            <p class="nama-toko">{{ (isset($data['name'])?$data['name']:"") }}</p>
+            <p class="nama-pengguna">{{ (isset($data['username'])?"@".$data['username']:"") }}</p>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -22,27 +22,24 @@
         <a href="?produk=true" class="bawah terpilih">Produk</a>
     </div>
     <div class="wrapper-maps">
-        <div id="maps">
+        <div id="maps" data-lat="{{ (isset($data['lat'])?$data['lat']:"") }}" data-lng="{{ (isset($data['lng'])?$data['lng']:"") }}">
         </div>
     </div>
 </div>
 <div class="split"></div>
 <div class="ulasan">
     <ul class="hasil">
-        <li>
-            <div class="produk">
-                <img src="../img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
-        <li>
-            <div class="produk">
-                <img src="../img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                <p class="nama-barang">Sepatu Nike</p>
-                <p class="harga-barang">Rp10.000</p>
-            </div>
-        </li>
+        @if (isset($produk))
+            @for ($i = 0; $i < count($produk); $i++)
+            <li>
+                <div class="produk">
+                    <img src="../img/uploads/produk/{{ $produk[$i]['foto'] }}" alt="" srcset="" class="gambar-produk">
+                    <p class="nama-barang">{{ $produk[$i]['nama_produk'] }}</p>
+                    <p class="harga-barang">Rp{{ number_format($produk[$i]['harga'],0,',','.') }}</p>
+                </div>
+            </li>
+            @endfor
+        @endif
     </ul>
 </div>
 </div>

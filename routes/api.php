@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\LoginAPI;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserAPI;
+use App\Http\Controllers\LoginAPI;
+use App\Http\Controllers\ProdukAPI;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::resource('user', UserAPI::class);
 Route::resource('login', LoginAPI::class);
+Route::get('produk/{take}', [ProdukAPI::class, 'create']);

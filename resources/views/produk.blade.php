@@ -33,7 +33,7 @@
         <i class="fa fa-fw fa-share-alt fa-lg"></i>
     </div>
     <section>
-        <button type="button" name="beli" id="beli">Beli</button>
+        <button type="button" name="beli" id="beli"><a href="/checkout/{{ (isset($produk['id'])?$produk['id']:"") }}" class="beli">Beli</a></button>
         <button type="button" name="tawar" id="modal">Tawar</button>
     </section>
 </div>

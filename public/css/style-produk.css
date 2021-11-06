@@ -171,3 +171,7 @@
     from{ opacity: 0}
     to { opacity: 1}
 }
+.beli{
+    color: white;
+    text-decoration: none;
+}

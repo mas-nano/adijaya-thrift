@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Akun;
+use App\Http\Controllers\Checkout;
 use App\Http\Controllers\DetailPesan;
 use App\Http\Controllers\KelolaAdmin;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
+use App\Http\Controllers\Pembayaran;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukToko;
 use App\Http\Controllers\Register;
@@ -41,12 +43,8 @@ Route::get('/notifikasi', function () {
     ]);
 });
 Route::get('/toko/{user}', [Toko::class, 'index']);
-Route::get('/checkout', function () {
-    return view('checkout',[
-        "css" => "checkout",
-        "title" => "Checkout"
-    ]);
-});
+Route::get('/checkout/{produk}', [Checkout::class, 'index']);
+Route::post('/checkout/{produk}', [Checkout::class, 'store']);
 Route::get('/panduan', function () {
     return view('panduan',[
         "css" => "panduan",
@@ -60,12 +58,7 @@ Route::get('/chat', function () {
         "title" => "Chat"
     ]);
 });
-Route::get('/bayar-transfer', function () {
-    return view('bayar',[
-        "css" => "bayar",
-        "title" => "Bayar"
-    ]);
-});
+Route::get('/pembayaran/{pembayaran}', [Pembayaran::class, 'index']);
 Route::get('/bayar-qr', function () {
     return view('bayarqr',[
         "css" => "qr",

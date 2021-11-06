@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+<form action="" method="post">
+    @csrf
+    <input type="hidden" name="metode_bayar" value="{{ $data['metode_bayar'] }}">
+    <input type="hidden" name="total" value="{{ $data['total'] }}">
+    <input type="hidden" name="aksi" value="true">
     <div class="wrapper">
         <p class="montserrat fw-6 fs-36">Panduan</p>
         <div class="box">
@@ -10,8 +15,9 @@
                 3. Pembayaran dengan sistem COD dilakukan secara langsung antara pihak pembeli dan penjual.</p>
         </div>
         <div class="flex mt-3">
-            <button type="button" class="btn red montserrat fw-6 fs-24">Saya tidak menyetujui</button>
-            <button type="button" class="btn orange montserrat fw-6 fs-24">Saya menyetujui</button>
+            <button type="button" class="btn red montserrat fw-6 fs-24"><a href="/produk/{{ $produk['id'] }}" class="td-0 white">Saya tidak menyetujui</a></button>
+            <button type="submit" class="btn orange montserrat fw-6 fs-24">Saya menyetujui</button>
         </div>
     </div>
+</form>
 @endsection

@@ -22,7 +22,7 @@
                 </div>
                 <div class="search">
                     <form action="/produk" method="get">
-                        <input type="text" name="s" id="keyword" class="keyword" placeholder="Pencarian..." value="{{ (isset($res['s'])?$res['s']:'') }}" required>
+                        <input type="text" name="search" id="keyword" class="keyword" placeholder="Pencarian..." value="{{ (isset($res['s'])?$res['s']:'') }}" required>
                         <div class="search-logo">
                             <button type="submit" class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>

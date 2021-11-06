@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::resource('user', UserAPI::class);
 Route::resource('login', LoginAPI::class);
-Route::get('produk/{take}', [ProdukAPI::class, 'create']);
+Route::get('produk/{take}', [ProdukAPI::class, 'get']);

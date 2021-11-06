@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProdukAPI extends Controller
 {
@@ -23,14 +24,17 @@ class ProdukAPI extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($take)
+    public function get($take)
     {
         try{
-            $data = json_decode(Produk::take($take)->get(), true);
+            $data = json_decode(Produk::filter(request(['search', 'daerah', 'kategori', 'sort', 'promo', 'min', 'max']))->take($take)->get(), true);
             for($i=0;$i<count($data);$i++){
                 $data[$i]['harga']=number_format($data[$i]['harga'],0,',','.');
+                if($data[$i]['promo']!=null){
+                    $data[$i]['promo']=number_format($data[$i]['promo'],0,',','.');
+                }
             }
-            return response()->json($data);
+            return response()->json($data, Response::HTTP_OK);
         }catch(QueryException $e){
             return $e->errorInfo;
         }
@@ -64,9 +68,19 @@ class ProdukAPI extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produk $produk)
+    public function search(Request $request)
     {
-        //
+        if($request['take']){
+            $produk = json_decode(Produk::filter(request(['search', 'daerah', 'kategori', 'sort', 'promo', 'min', 'max']))->take($request['take'])->get());
+            for($i=0;$i<count($produk);$i++){
+                $produk[$i]->harga=number_format($produk[$i]->harga,0,',','.');
+            }
+            return response()->json($produk, Response::HTTP_OK);
+        }else{
+            return response()->json([
+                'message' => 'Masukkan parameter "take"'
+            ],Response::HTTP_BAD_REQUEST);
+        }
     }
 
     /**

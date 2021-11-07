@@ -24,19 +24,31 @@
         <div class="right">
             <form action="" method="POST">
                 @csrf
+                <input type="hidden" name="produk_id" value="{{ $produk->id }}">
+                <input type="hidden" name="stok" value="{{ $produk->stok }}">
                 <div class="wrapper-bayar">
                     <label for="bank" class="input">Bank</label>
-                    <input type="text" name="bank" id="bank" placeholder="Nama Bank">
+                    <input type="text" name="nama_bank" id="bank" placeholder="Nama Bank">
                     <label for="rekening" class="input">Nomor Rekening</label>
-                    <input type="text" name="rekening" id="rekening" class="input" placeholder="Nomor Rekening">
+                    <input type="text" name="nomor_rekening" id="rekening" class="input" placeholder="Nomor Rekening">
                     <label for="pemilik" class="input">Nama Pemilik</label>
-                    <input type="text" name="pemilik" id="pemilik" class="input" placeholder="Nama Pemilik">
+                    <input type="text" name="nama" id="pemilik" class="input" placeholder="Nama Pemilik">
                 </div>
             </div>
         </div>
     </div>
     <div class="full">
         <div class="wrapper-form">
+            @if (isset($error))
+            @foreach ($error as $item)
+                @foreach ($item as $msg)
+                <div class="message warn">
+                    <p class="center">{{ $msg }}</p>
+                </div>
+                
+                @endforeach
+            @endforeach
+            @endif
             <label for="alamat" class="input">Alamat</label>
             <input type="text" name="alamat" id="alamat" class="input" placeholder="Alamat">
             <label for="provinsi" class="input">Provinsi</label>

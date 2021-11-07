@@ -34,7 +34,6 @@ class Checkout extends Controller
                 ]);
             }else{
                 $dataBayar = $request->except(['_token', 'aksi']);
-                $dataBayar['status'] = 'Belum Bayar';
                 $dataBayar['tanggal'] = date('Y-m-d');
                 try {
                     $pembayaran = Pembayaran::create($dataBayar);
@@ -45,7 +44,8 @@ class Checkout extends Controller
                     'pembayaran_id' => $pembayaran['id'],
                     'produk_id' => intval($produk['id']),
                     'user_id' => intval(session('dataUser')['id']),
-                    'penjual_id' => intval($produk['id_penjual'])
+                    'penjual_id' => intval($produk['id_penjual']),
+                    'status_pembeli' => 'Menunggu Pembayaran'
                 ];
                 try {
                     $pemesanan = Pemesanan::create($data);

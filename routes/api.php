@@ -5,6 +5,8 @@ use App\Http\Controllers\UserAPI;
 use App\Http\Controllers\LoginAPI;
 use App\Http\Controllers\ProdukAPI;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PemesananAPI;
+use App\Http\Controllers\PembayaranAPI;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('user', UserAPI::class);
 Route::resource('login', LoginAPI::class);
 Route::get('produk/{take}', [ProdukAPI::class, 'get']);
+Route::delete('pembayaran/{id}', [PembayaranAPI::class, 'destroy']);
+Route::get('pemesanan', [PemesananAPI::class, 'index']);

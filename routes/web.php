@@ -59,6 +59,7 @@ Route::get('/chat', function () {
     ]);
 });
 Route::get('/pembayaran/{pembayaran}', [Pembayaran::class, 'index']);
+Route::post('/pembayaran/{pembayaran}', [Pembayaran::class, 'update']);
 Route::get('/bayar-qr', function () {
     return view('bayarqr',[
         "css" => "qr",
@@ -103,7 +104,7 @@ Route::get('/wishlist', function () {
         "title" => "Wishlist"
     ]);
 });
-Route::get('/detail-pemesanan', [DetailPesan::class, 'index']);
+Route::get('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'index']);
 Route::get('/laporan-penjualan', function () {
     return view('laporan-penjualan',[
         "css" => "laporan-penjualan",

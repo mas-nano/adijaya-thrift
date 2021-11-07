@@ -36,9 +36,9 @@
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="flex-center">
-                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="" class="foto-profil">
                     <button class="btn-foto" type="button">Unggah Foto</button>
-                    <input type="text" id="file-name" disabled>
+                    <input type="text" id="file-name" disabled class="input-hidden">
                     <input type="file" name="photo" id="foto" style="display: none;">
                 </div>
                 <hr>

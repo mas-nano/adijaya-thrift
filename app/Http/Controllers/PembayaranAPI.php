@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PembayaranController extends Controller
 {
@@ -80,6 +81,9 @@ class PembayaranController extends Controller
      */
     public function destroy(Pembayaran $pembayaran)
     {
-        //
+        $pembayaran->delete();
+        return response()->json([
+            'message' => 'Berhasil Dihapus'
+        ], Response::HTTP_OK);
     }
 }

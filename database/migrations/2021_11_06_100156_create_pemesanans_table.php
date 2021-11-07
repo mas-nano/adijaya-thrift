@@ -19,6 +19,8 @@ class CreatePemesanansTable extends Migration
             $table->foreignId('produk_id');
             $table->foreignId('user_id');
             $table->foreignId('penjual_id');
+            $table->string('status_pembeli');
+            $table->string('status_penjual')->nullable();
             $table->timestamps();
         });
     }

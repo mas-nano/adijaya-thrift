@@ -28,14 +28,18 @@
     <p class="harga-produk">Rp{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</p>
     <pre class="montserrat fs-16">{{ (isset($produk['deskripsi'])?$produk['deskripsi']:"") }}</pre>
     <div>
+        @if (session('dataUser')['id']!=$produk['id_penjual'])    
         <i class="fa fa-fw fa-comment-o fa-lg"></i>
         <i class="fa fa-fw fa-heart-o fa-lg"></i>
+        @endif
         <i class="fa fa-fw fa-share-alt fa-lg"></i>
     </div>
+    @if (session('dataUser')['id']!=$produk['id_penjual'])    
     <section>
         <button type="button" name="beli" id="beli"><a href="/checkout/{{ (isset($produk['id'])?$produk['id']:"") }}" class="beli">Beli</a></button>
         <button type="button" name="tawar" id="modal">Tawar</button>
     </section>
+    @endif
 </div>
 </div>
 <div class="modal" id="modalBox">

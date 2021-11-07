@@ -18,11 +18,13 @@ class CreatePembayaransTable extends Migration
             $table->date('tanggal');
             $table->string('total');
             $table->string('metode_bayar');
-            $table->string('status');
             $table->string('nomor_rekening')->nullable();
             $table->string('nama')->nullable();
             $table->string('nama_bank')->nullable();
             $table->string('no_resi')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kota')->nullable();
             $table->timestamps();
         });
     }

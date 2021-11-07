@@ -35,20 +35,16 @@
         <div class="right">
             <div class="box-radius-18">
                 <div class="width-90">
+                    <input type="hidden" name="" id="user_id" value="{{ session('dataUser')['id'] }}">
                     <p class="sub montserrat-18">Status</p>
-                    <select name="f-status" id="f-status" class="dropdown">
+                    <select name="filter" id="filter" class="dropdown">
                         <option value="">Filter</option>
                         <option value="Selesai">Selesai</option>
                         <option value="Telah Dikonfirmasi">Telah Dikonfirmasi</option>
                         <option value="Konfirmasi Admin">Konfirmasi Admin</option>
                     </select>
-                    <div class="status-produk">
-                        <img src="img/sepatu.png" alt="">
-                        <div class="flex-5 mg-l-3">
-                            <p class="louis-16">Sepatu Nike</p>
-                            <p class="louis-16">Sudah dibayar</p>
-                        </div>
-                        <p class="flex-5 align-r louis-16">Detail</p>
+                    <div id="produk">
+                        
                     </div>
                 </div>
             </div>
@@ -80,4 +76,5 @@
             </div>
         </div>
     </div>
+    <script src="js/riwayat.js"></script>
 @endsection

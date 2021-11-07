@@ -14,4 +14,8 @@ class Pemesanan extends Model
     {
         return $this->belongsTo(Pembayaran::class);
     }
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
 }

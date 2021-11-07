@@ -116,3 +116,8 @@
 .red{
     background-color: #BA0000;
 }
+.center{
+    color: red;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}

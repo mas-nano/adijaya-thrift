@@ -150,3 +150,11 @@
 .red{
     color: red;
 }
+.link-detail{
+    text-decoration: none;
+    color: black;
+}
+.warn{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}

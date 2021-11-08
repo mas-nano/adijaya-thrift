@@ -13,11 +13,19 @@ class Pembayaran extends Controller
     public function index(Bayar $pembayaran)
     {
         if(session('dataUser')){
+            $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+            $prov = json_decode($res->getBody(), true);
             if($pembayaran->metode_bayar=='transfer'){
-                $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
-                $prov = json_decode($res->getBody(), true);
                 return view('bayar',[
                     "css" => "bayar",
+                    "title" => "Bayar",
+                    "data" => $pembayaran,
+                    "prov" => $prov,
+                    "produk" => $pembayaran->pemesanan->produk
+                ]);
+            }else{
+                return view('bayarqr',[
+                    "css" => "qr",
                     "title" => "Bayar",
                     "data" => $pembayaran,
                     "prov" => $prov,
@@ -42,19 +50,30 @@ class Pembayaran extends Controller
         if($validate->fails()) {
             $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
             $prov = json_decode($res->getBody(), true);
-            return view('bayar',[
-                "css" => "bayar",
-                "title" => "Bayar",
-                "data" => $pembayaran,
-                "prov" => $prov,
-                "produk" => $pembayaran->pemesanan->produk,
-                "error" => json_decode($validate->errors(),true)
-            ]);
+            if($pembayaran->metode_bayar=='transfer'){
+                return view('bayar',[
+                    "css" => "bayar",
+                    "title" => "Bayar",
+                    "data" => $pembayaran,
+                    "prov" => $prov,
+                    "produk" => $pembayaran->pemesanan->produk,
+                    "error" => json_decode($validate->errors(),true)
+                ]);
+            }else{
+                return view('bayarqr',[
+                    "css" => "qr",
+                    "title" => "Bayar",
+                    "data" => $pembayaran,
+                    "prov" => $prov,
+                    "produk" => $pembayaran->pemesanan->produk,
+                    "error" => json_decode($validate->errors(),true)
+                ]);
+            }
         }
         $request['stok'] = $request['stok']-1;
         $request['status_pembeli'] = 'Konfirmasi admin';
         try{
-            $pembayaran->update($request->except(['_token', 'produk_id', 'produk_stok']));
+            $pembayaran->update($request->except(['_token', 'produk_id', 'aksi']));
             $pembayaran->pemesanan->produk->update($request->only(['stok']));
             $pembayaran->pemesanan->update($request->only(['status_pembeli']));
             return redirect()->to('/riwayat')->send();

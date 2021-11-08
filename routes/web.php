@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Akun;
+use App\Http\Controllers\Bantuan;
 use App\Http\Controllers\Checkout;
 use App\Http\Controllers\DetailPesan;
 use App\Http\Controllers\KelolaAdmin;
@@ -12,6 +13,7 @@ use App\Http\Controllers\ProdukToko;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\Search;
 use App\Http\Controllers\Toko;
+use App\Http\Controllers\Wishlist;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,12 +62,6 @@ Route::get('/chat', function () {
 });
 Route::get('/pembayaran/{pembayaran}', [Pembayaran::class, 'index']);
 Route::post('/pembayaran/{pembayaran}', [Pembayaran::class, 'update']);
-Route::get('/bayar-qr', function () {
-    return view('bayarqr',[
-        "css" => "qr",
-        "title" => "Bayar"
-    ]);
-});
 Route::get('/kelolaProduk', [ProdukController::class, 'index']);
 Route::post('/kelolaProduk', [ProdukController::class, 'store']);
 Route::get('/kelolaProduk/{produk}', [ProdukController::class, 'show']);
@@ -83,12 +79,8 @@ Route::get('/pesanan-masuk', function () {
     ]);
 });
 Route::get('/produk', [Search::class, 'index']);
-Route::get('/bantuan', function () {
-    return view('bantuan',[
-        "css" => "bantuan",
-        "title" => "Bantuan"
-    ]);
-});
+Route::get('/bantuan', [Bantuan::class, 'index']);
+Route::post('/bantuan', [Bantuan::class, 'store']);
 Route::get('/produk-toko', [ProdukToko::class, 'index']);
 Route::get('/akun', [Akun::class, 'index']);
 Route::post('/akun', [Akun::class, 'update']);
@@ -98,12 +90,7 @@ Route::get('/penjualan', function () {
         "title" => "Penjualan"
     ]);
 });
-Route::get('/wishlist', function () {
-    return view('wishlist',[
-        "css" => "wishlist",
-        "title" => "Wishlist"
-    ]);
-});
+Route::get('/wishlist', [Wishlist::class, 'index']);
 Route::get('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'index']);
 Route::get('/laporan-penjualan', function () {
     return view('laporan-penjualan',[

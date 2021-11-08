@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Wishlist extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    protected $hidden = ['password'];
 
-    public function wishlist()
+    public function produk()
     {
-        return $this->hasMany(Wishlist::class);
+        return $this->belongsTo(Produk::class);
     }
 }

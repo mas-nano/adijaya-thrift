@@ -35,3 +35,38 @@ function outsideClick(e){
     }
  
 }
+var id = $(".fa-heart-o").data("id");
+$(".fa-heart-o").click(function(){
+    console.log("cihuy");
+    if($(".fa-heart-o").hasClass("red")){
+        $.ajax({
+            url: `http://localhost:8000/api/wishlist/${id}`,
+            type: "DELETE",
+            dataType: "json",
+            success: function(){
+                $(".fa-heart-o").removeClass("red")
+            },
+            error: function(e){
+                console.log(e);
+            }
+        })
+    }else{
+        $.ajax({
+            url: "http://localhost:8000/api/wishlist",
+            type: "POST",
+            dataType: "json",
+            data: {
+                user_id: $(this).data("user"),
+                produk_id: $(this).data("produk")
+            },
+            success: function(data){
+                console.log(data.data.id);
+                $(".fa-heart-o").addClass("red")
+                id = data.data.id
+            },
+            error: function(e){
+                console.log(e);
+            }
+        })
+    }
+});

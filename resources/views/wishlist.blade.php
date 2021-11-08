@@ -34,20 +34,18 @@
         <div class="split"></div>
         <div class="right">
             <ul class="hasil">
+                @foreach ($wishlist as $w)
                 <li>
                     <div class="produk">
-                        <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                        <p class="nama-barang">Sepatu Ngganteng</p>
-                        <p class="harga-barang">Rp10.000</p>
+                        <img src="img/uploads/produk/{{ $w->produk->foto }}" alt="" srcset="" class="gambar-produk">
+                        <p class="nama-barang"><a href="http://localhost:8000/produk/{{ $w->produk->id }}" class="link-produk">{{ $w->produk->nama_produk }}</a></p>
+                        <p class="harga-barang">Rp{{ number_format($w->produk->harga, 0, ',', '.') }}</p>
+                        @if (!is_null($w->produk->promo))
+                            <p class="harga-barang">PROMO: Rp{{ number_format($w->produk->promo, 0, ',', '.') }}</p>
+                        @endif
                     </div>
                 </li>
-                <li>
-                    <div class="produk">
-                        <img src="img/sepatu.png" alt="" srcset="" class="gambar-produk">
-                        <p class="nama-barang">Sepatu Ngganteng</p>
-                        <p class="harga-barang">Rp10.000</p>
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemesanan;
+use App\Models\Bantuan;
 use Illuminate\Http\Request;
 
-class PemesananController extends Controller
+class BantuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PemesananController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pemesanan  $pemesanan
+     * @param  \App\Models\Bantuan  $bantuan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pemesanan $pemesanan)
+    public function show(Bantuan $bantuan)
     {
         //
     }
@@ -52,10 +52,10 @@ class PemesananController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pemesanan  $pemesanan
+     * @param  \App\Models\Bantuan  $bantuan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pemesanan $pemesanan)
+    public function edit(Bantuan $bantuan)
     {
         //
     }
@@ -64,10 +64,10 @@ class PemesananController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pemesanan  $pemesanan
+     * @param  \App\Models\Bantuan  $bantuan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pemesanan $pemesanan)
+    public function update(Request $request, Bantuan $bantuan)
     {
         //
     }
@@ -75,10 +75,10 @@ class PemesananController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pemesanan  $pemesanan
+     * @param  \App\Models\Bantuan  $bantuan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemesanan $pemesanan)
+    public function destroy(Bantuan $bantuan)
     {
         //
     }

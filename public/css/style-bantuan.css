@@ -9,12 +9,6 @@
     width: 440px;
     margin: auto;
 }
-.form-bantuan p{
-    text-align: center;
-    font-family: 'Louis George Cafe Std';
-    font-size: 14px;
-    color: black;
-}
 .form-input{
     width: 400px;
     margin-bottom: 20px;
@@ -54,5 +48,13 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 24px;
+}
+.warn{
+    color: red;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn-bantuan:hover{
+    cursor: pointer;
 }
 /* end container */

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pembayaran;
+use App\Models\Wishlist;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class PembayaranAPI extends Controller
+class WishlistAPI extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,16 +37,24 @@ class PembayaranAPI extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $wishlist = Wishlist::create($request->all());
+            return response()->json([
+                'message' => 'Sukses',
+                'data' => $wishlist
+            ], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Wishlist  $wishlist
      * @return \Illuminate\Http\Response
      */
-    public function show(Pembayaran $pembayaran)
+    public function show(Wishlist $wishlist)
     {
         //
     }
@@ -53,10 +62,10 @@ class PembayaranAPI extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Wishlist  $wishlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pembayaran $pembayaran)
+    public function edit(Wishlist $wishlist)
     {
         //
     }
@@ -65,10 +74,10 @@ class PembayaranAPI extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Wishlist  $wishlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pembayaran $pembayaran)
+    public function update(Request $request, Wishlist $wishlist)
     {
         //
     }
@@ -76,13 +85,12 @@ class PembayaranAPI extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Wishlist  $wishlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pembayaran $pembayaran)
+    public function destroy(Wishlist $wishlist)
     {
-        $pembayaran->pemesanan->delete();
-        $pembayaran->delete();
+        $wishlist->delete();
         return response()->json([
             'message' => 'Berhasil Dihapus'
         ], Response::HTTP_OK);

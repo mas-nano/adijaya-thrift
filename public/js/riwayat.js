@@ -12,7 +12,7 @@ function show(data){
                     <img src="img/uploads/produk/${data['produk'][i]['foto']}" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">${data['produk'][i]['nama_produk']}</p>
-                        <p class="louis-16">${data['status'][i]}</p>
+                        <p class="louis-16">${data['status_pembeli'][i]}</p>
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/${data['pemesanan_id'][i]}" class="link-detail">Detail</a></p>
                 </div>`;

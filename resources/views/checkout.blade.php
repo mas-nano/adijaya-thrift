@@ -29,7 +29,11 @@
                 <div class="produk">
                     <img src="../img/uploads/produk/{{ (isset($produk['foto'])?$produk['foto']:"") }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ (isset($produk['nama_produk'])?$produk['nama_produk']:"") }}</p>
+                    @if (isset($produk['promo']))
+                    <p class="template harga-produk">Rp{{ (isset($produk['promo'])?number_format($produk['promo'], 0, ',', '.'):"") }}</p>
+                    @else
                     <p class="template harga-produk">Rp{{ (isset($produk['harga'])?number_format($produk['harga'], 0, ',', '.'):"") }}</p>
+                    @endif
                 </div>
                 
                 <hr>
@@ -43,14 +47,26 @@
                         <p class="align-kanan total">TOTAL</p>
                     </div>
                     <div class="template">
+                        @if (isset($produk['promo']))
+                        <p class="align-kanan">Rp{{ (isset($produk['promo'])?number_format($produk['promo'], 0, ',', '.'):"") }}</p>
+                        @else
                         <p class="align-kanan">Rp{{ (isset($produk['harga'])?number_format($produk['harga'], 0, ',', '.'):"") }}</p>
+                        @endif
                         <p class="align-kanan">Rp20.000</p>
                         <p class="align-kanan">Rp2.000</p>
                         <br>
+                        @if (isset($produk['promo']))
+                        <p class="align-kanan total">Rp{{ (isset($produk['promo'])?number_format($produk['promo']+22000, 0, ',', '.'):"") }}</p>
+                        @else
                         <p class="align-kanan total">Rp{{ (isset($produk['harga'])?number_format($produk['harga']+22000, 0, ',', '.'):"") }}</p>
+                        @endif
                     </div>
                 </div>
+                @if (isset($produk['promo']))
+                <input type="hidden" name="total" value="{{ (isset($produk['promo'])?$produk['promo']+22000:"") }}">
+                @else
                 <input type="hidden" name="total" value="{{ (isset($produk['harga'])?$produk['harga']+22000:"") }}">
+                @endif
             </div>
         </div>
     </div>

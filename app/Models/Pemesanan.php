@@ -18,4 +18,8 @@ class Pemesanan extends Model
     {
         return $this->belongsTo(Produk::class);
     }
+    public function pembeli()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

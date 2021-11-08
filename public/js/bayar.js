@@ -26,3 +26,13 @@ $("#provinsi").change(function(){
   sel.empty();
   kota(id, sel);
 });
+$("#batal").click(function(){
+  $.ajax({
+    url: `http://localhost:8000/api/pembayaran/${$("#id").val()}`,
+    type: "DELETE",
+    dataType: "json",
+    success: function(data){
+        window.location.href = "http://localhost:8000/riwayat";
+      }
+});
+})

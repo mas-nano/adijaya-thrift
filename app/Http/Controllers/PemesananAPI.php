@@ -24,13 +24,13 @@ class PemesananAPI extends Controller
                 array_push($bayar, $query[$i]->pembayaran);
                 array_push($produk, $query[$i]->produk);
                 array_push($pemesanan_id, $query[$i]->id);
-                array_push($status, $query[$i]->status);
+                array_push($status, $query[$i]->status_pembeli);
             }
             return response()->json([
                 "bayar"=>$bayar, 
                 "produk"=>$produk,
                 "pemesanan_id"=>$pemesanan_id,
-                "status" => $status
+                "status_pembeli" => $status
             ], Response::HTTP_OK);
         }else{
             return response()->json([

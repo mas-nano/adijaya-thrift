@@ -25,7 +25,6 @@ function showRekom(jml){
     });
 }
 $(".rekom").on("click",".produk",function(){
-    console.log($(this).data("id"));
     let id = $(this).data("id");
     window.location.href = `http://localhost:8000/produk/${id}`;
 })

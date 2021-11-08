@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePemesanansTable extends Migration
+class CreateWishlistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreatePemesanansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pemesanans', function (Blueprint $table) {
+        Schema::create('wishlists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pembayaran_id');
-            $table->foreignId('produk_id');
             $table->foreignId('user_id');
-            $table->foreignId('penjual_id');
-            $table->string('status_pembeli')->nullable();
-            $table->string('status_penjual')->nullable();
+            $table->foreignId('produk_id');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreatePemesanansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemesanans');
+        Schema::dropIfExists('wishlists');
     }
 }

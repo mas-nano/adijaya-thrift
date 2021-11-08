@@ -97,7 +97,6 @@
 .produk{
     padding: 10px;
     max-width: 200px;
-    height: 290px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin: 8px;
@@ -120,4 +119,8 @@
 }
 .fa-heart-o{
     color:red;
+}
+.link-produk{
+    text-decoration: none;
+    color: black;
 }

@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 
 class DetailPesan extends Controller
 {
-    public function index(Request $request)
+    public function index(Pemesanan $pemesanan, Request $request)
     {
-        $data = $request->all();
-        if(isset($data['s'])){
+        if(session('dataUser')){
             return view('detail-pemesanan',[
                 "css" => "detail-pemesanan",
                 "title" => "Detail Pemesanan",
-                "data" => $data
+                "data" => $pemesanan
             ]);
         }else{
-            return redirect()->to('/riwayat')->send();
+            return redirect()->to('/login')->send();
         }
+            
     }
 }

@@ -20,12 +20,21 @@ class ProdukToko extends Controller
     }
     public function show(Produk $produk)
     {
-        $data = User::where('id', $produk['id_penjual'])->get();
+        $data = User::findOrFail($produk->id_penjual);
+        if(session('dataUser')){
+            $wishlist = User::findOrFail(session('dataUser')['id']);
+            if(isset($wishlist->wishlist->where('produk_id', $produk->id)->first()->id)){
+                $id = $wishlist->wishlist->where('produk_id', $produk->id)->first()->id;
+            }else{
+                $id = false;
+            }
+        }
         return view('produk',[
             "css" => "produk",
             "title" => "Produk",
             "produk" => json_decode($produk, true),
-            "data" => json_decode($data, true)
+            "data" => $data,
+            "wishlist" => $id
         ]);
     }
 }

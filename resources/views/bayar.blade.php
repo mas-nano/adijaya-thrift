@@ -26,6 +26,7 @@
                 @csrf
                 <input type="hidden" name="produk_id" value="{{ $produk->id }}">
                 <input type="hidden" name="stok" value="{{ $produk->stok }}">
+                <input type="hidden" name="id" id="id" value="{{ $data->id }}">
                 <div class="wrapper-bayar">
                     <label for="bank" class="input">Bank</label>
                     <input type="text" name="nama_bank" id="bank" placeholder="Nama Bank">
@@ -66,7 +67,7 @@
     </div>
     <div class="flex">
         <button type="submit" name="konfirmasi" class="btn orange">Konfirmasi</button>
-        <button type="button" name="batal" class="btn red">Batalkan</button>
+        <button type="button" name="batal" class="btn red" id="batal">Batalkan</button>
     </div>
 </form>
 <script src="../js/bayar.js"></script>

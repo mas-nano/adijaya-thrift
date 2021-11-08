@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pembayaran;
+use App\Models\Tawar;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
-class PembayaranAPI extends Controller
+class TawarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +41,10 @@ class PembayaranAPI extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Tawar  $tawar
      * @return \Illuminate\Http\Response
      */
-    public function show(Pembayaran $pembayaran)
+    public function show(Tawar $tawar)
     {
         //
     }
@@ -53,10 +52,10 @@ class PembayaranAPI extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Tawar  $tawar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pembayaran $pembayaran)
+    public function edit(Tawar $tawar)
     {
         //
     }
@@ -65,10 +64,10 @@ class PembayaranAPI extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Tawar  $tawar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pembayaran $pembayaran)
+    public function update(Request $request, Tawar $tawar)
     {
         //
     }
@@ -76,15 +75,11 @@ class PembayaranAPI extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pembayaran  $pembayaran
+     * @param  \App\Models\Tawar  $tawar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pembayaran $pembayaran)
+    public function destroy(Tawar $tawar)
     {
-        $pembayaran->pemesanan->delete();
-        $pembayaran->delete();
-        return response()->json([
-            'message' => 'Berhasil Dihapus'
-        ], Response::HTTP_OK);
+        //
     }
 }

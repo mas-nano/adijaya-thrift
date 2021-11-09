@@ -5,6 +5,9 @@
 .montserrat{
     font-family: 'Montserrat', sans-serif;
 }
+.orange{
+    color: #FF8D44;
+}
 .fw-500{
     font-weight: 500;
 }
@@ -19,6 +22,12 @@
 }
 .mv-0{
     margin: 0px 0px;
+}
+.fs-26{
+    font-size: 26px;
+}
+.fs-24{
+    font-size: 24px;
 }
 .brown{
     color: #BA0000;
@@ -68,7 +77,6 @@
 .nama-barang, .harga-barang{
     font-family: 'Louis George Cafe';
     padding: 5px 0px;
-    font-size: 24px;
     margin: auto;
 }
 .nama-barang a{

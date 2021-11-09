@@ -8,6 +8,7 @@ use App\Http\Controllers\KelolaAdmin;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
 use App\Http\Controllers\Pembayaran;
+use App\Http\Controllers\Penawaran;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukToko;
 use App\Http\Controllers\Register;
@@ -38,6 +39,7 @@ Route::post('/login', [Login::class, 'login']);
 Route::get('/daftar', [Register::class, 'index']);
 Route::post('/daftar', [Register::class, 'create']);
 Route::get('/produk/{produk}', [ProdukToko::class, 'show']);
+Route::post('/produk/{produk}', [ProdukToko::class, 'store']);
 Route::get('/notifikasi', function () {
     return view('notif',[
         "css" => "notif",
@@ -104,12 +106,8 @@ Route::get('/riwayat-penjualan', function () {
         "title" => "Riwayat Penjualan"
     ]);
 });
-Route::get('/penawaran', function () {
-    return view('penawaran',[
-        "css" => "penawaran",
-        "title" => "Penawaran"
-    ]);
-});
+Route::get('/penawaran', [Penawaran::class, 'index']);
+Route::post('/penawaran', [Penawaran::class, 'update']);
 Route::get('/admin/login', function () {
     return view('admin-login',[
         "title" => "Login"

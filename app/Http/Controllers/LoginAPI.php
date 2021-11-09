@@ -39,7 +39,7 @@ class LoginAPI extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'password' => ['required'],
+            'username' => ['required'],
             'email' => ['required', 'email']
         ]);
         
@@ -53,7 +53,7 @@ class LoginAPI extends Controller
         }
 
         $data = $request->all();
-        $users =User::where('email', $data['email'])->get();
+        $users =User::where('username', $data['username'])->get();
         if(count($users)===1){
             if(password_verify($data['password'], $users[0]['password'])){
                 return response()->json([

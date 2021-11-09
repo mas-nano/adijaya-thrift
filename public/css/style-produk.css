@@ -83,7 +83,6 @@
 .harga-produk{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 16px;
 }
 .deskripsi-produk div{
     margin-right: 10px;
@@ -183,4 +182,10 @@
 }
 .red{
     color: red;
+}
+.fs-18{
+    font-size: 18px;
+}
+.orange{
+    color: #FF8D44;
 }

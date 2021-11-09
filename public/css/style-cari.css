@@ -89,7 +89,7 @@
     display: inline-block;
     width: calc(33.3333% - 3px);
 }
-.container-hasil p{
+.hasil-text{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 36px;
@@ -102,7 +102,6 @@
 .produk p{
     font-family: 'Louis George Cafe';
     margin: 10px 0px;
-    font-size: 18px;
     padding: 5px 0px;
     margin: auto;
 }
@@ -132,5 +131,14 @@
 }
 .warn{
     text-align: center;
+}
+.fs-18{
+    font-size: 18px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.orange{
+    color: #FF8D44;
 }
 /* end container */

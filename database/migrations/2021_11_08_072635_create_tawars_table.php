@@ -19,7 +19,7 @@ class CreateTawarsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('penjual_id');
             $table->string('nominal');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

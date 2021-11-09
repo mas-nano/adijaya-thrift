@@ -15,8 +15,9 @@ function showRekom(jml){
                 let append = `<li>
                 <div class="produk" data-id="${data[i]["id"]}">
                     <img src="img/uploads/produk/${data[i]["foto"]}" alt="" srcset="" class="gambar-produk">
-                    <p class="nama-barang"><a href="/produk/${data[i]["id"]}">${data[i]["nama_produk"]}</a></p>
-                    <p class="harga-barang">Rp${data[i]["harga"]}</p>
+                    <p class="nama-barang fs-24"><a href="/produk/${data[i]["id"]}">${data[i]["nama_produk"]}</a></p>
+                    <p class="harga-barang fs-24">Rp${(data[i]["promo"])?"<strike>"+data[i]["harga"]+"</strike>":data[i]["harga"]}</p>
+                    <p class="harga-barang orange fs-26">${(data[i]["promo"])?"Rp"+data[i]["promo"]:""}</p>
                 </div>
             </li>`;
             $(".rekom").append(append);

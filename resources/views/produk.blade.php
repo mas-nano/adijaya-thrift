@@ -25,24 +25,32 @@
 <div class="split"></div>
 <div class="deskripsi-produk">
     <p class="nama-produk">{{ (isset($produk['nama_produk'])?$produk['nama_produk']:"") }}</p>
-    <p class="harga-produk">Rp{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</p>
     @if (isset($produk['promo']))
-        <p class="harga-produk">PROMO: Rp{{ number_format($produk['promo'],0,',','.') }}</p>
-    @endif
+    <p class="harga-produk fs-16">Rp<strike>{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</strike></p>
+    <p class="harga-produk fs-18 orange"><b>Rp{{ number_format($produk['promo'],0,',','.') }}</b></p>
+    @else
+    <p class="harga-produk fs-16">Rp{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</p>
+        @endif
     <pre class="montserrat fs-16">{{ (isset($produk['deskripsi'])?$produk['deskripsi']:"") }}</pre>
     <div>
-        @if (session('dataUser')['id']!=$produk['id_penjual'])    
-        <i class="fa fa-fw fa-comment-o fa-lg icon"></i>
-        <i class="fa fa-fw fa-heart-o fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
+        @if (session('dataUser'))
+            @if (session('dataUser')['id']!=$produk['id_penjual'])
+            <i class="fa fa-fw fa-comment-o fa-lg icon"></i>
+            <i class="fa fa-fw fa-heart-o fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
+            @endif
         @endif
         <i class="fa fa-fw fa-share-alt fa-lg icon"></i>
     </div>
-    @if (session('dataUser')['id']!=$produk['id_penjual'])    
     <section>
-        <button type="button" name="beli" id="beli"><a href="/checkout/{{ (isset($produk['id'])?$produk['id']:"") }}" class="beli">Beli</a></button>
-        <button type="button" name="tawar" id="modal">Tawar</button>
-    </section>
+    @if (session("dataUser"))
+        @if (session('dataUser')['id']!=$produk['id_penjual'])    
+            <button type="button" name="beli" id="beli"><a href="/checkout/{{ (isset($produk['id'])?$produk['id']:"") }}" class="beli">Beli</a></button>
+        @endif
+    @else
+    <button type="button" name="beli" id="beli"><a href="/login" class="beli">Beli</a></button>
     @endif
+    <button type="button" name="tawar" id="modal">Tawar</button>
+    </section>
 </div>
 </div>
 <div class="modal" id="modalBox">
@@ -50,7 +58,8 @@
         <p class="close fa fa-chevron-left"></p>
         <p class="sub">Buat Penawaran</p>
         <form action="" method="POST">
-            <input type="text" name="tawar" id="" placeholder="Masukkan Harga...">
+            @csrf
+            <input type="text" name="nominal" id="" placeholder="Masukkan Harga...">
             <button type="submit">Buat Penawaran</button>
         </form>
     </div>

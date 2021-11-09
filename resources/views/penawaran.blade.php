@@ -29,21 +29,33 @@
             </div>
         </div>
     </div>
-    <div class="split"></div>
+    <div class="split">
+        <input type="hidden" name="" id="penjual_id" value="{{ session('dataUser')['id'] }}">
+    </div>
     <div class="right">
         <div class="box-radius-18">
-            <div class="width-90">
+            <div class="width-90" id="tawar">
+                @foreach ($tawar as $t)
                 <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
+                    <img src="img/uploads/produk/{{ $t->produk->foto }}" alt="">
                     <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Nike</p>
+                        <p class="louis-16">{{ $t->user->name }}</p>
+                        <p class="louis-16">{{ $t->produk->nama_produk }}</p>
                     </div>
                     <div class="flex-5 align-r">
-                        <p class="louis-16">Rp5000</p>
+                        <p class="louis-16">Rp{{ number_format($t->nominal, 0, ',', '.') }}</p>
+                        @if ($t->status=='Proses')    
+                            <form action="" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $t->id }}">
+                                <button class="btn bg-orange" type="submit" name="terima">Terima</button>
+                                <button class="btn bg-red" type="submit" name="tolak">Tolak</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
-                <div class="status-produk">
+                @endforeach
+                {{-- <div class="status-produk">
                     <img src="img/sepatu.png" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">Laras Wahyu menawar</p>
@@ -51,25 +63,25 @@
                     </div>
                     <div class="flex-5 align-r">
                         <p class="louis-16">Rp5000</p>
-                        <button class="btn bg-orange">Terima</button>
-                        <button class="btn bg-red">Tolak</button>
-                    </div>
-                </div>
-                <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Nike</p>
-                    </div>
-                    <div class="flex-5 align-r">
-                        <p class="louis-16">Rp5000</p>
-                        <button class="btn bg-orange">Terima</button>
-                        <button class="btn bg-red">Tolak</button>
                     </div>
                 </div>
                 
+                <div class="status-produk">
+                    <img src="img/sepatu.png" alt="">
+                    <div class="flex-5 mg-l-3">
+                        <p class="louis-16">Laras Wahyu menawar</p>
+                        <p class="louis-16">Sepatu Nike</p>
+                    </div>
+                    <div class="flex-5 align-r">
+                        <p class="louis-16">Rp5000</p>
+                        <button class="btn bg-orange">Terima</button>
+                        <button class="btn bg-red">Tolak</button>
+                    </div>
+                </div>
+                 --}}
             </div>
         </div>
     </div>
 </div>
+<script src="js/penawaran.js"></script>
 @endsection

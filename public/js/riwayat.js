@@ -26,10 +26,41 @@ function show(data){
         }
     });
 }
+function showTawar(data){
+    $.ajax({
+        url: "http://localhost:8000/api/penawaran",
+        method: "GET",
+        dataType: "json",
+        data: data,
+        success: function(data){
+            if(data['tawar'].length>0){
+                $("#tawar").empty();
+                $.each(data['tawar'], function(index, obj){
+                    console.log(obj);
+                    let append = `<div class="status-produk">
+                    <img src="img/uploads/produk/${obj.produk.foto}" alt="">
+                    <div class="flex-5 mg-l-3">
+                        <p class="louis-16">${obj.produk.nama_produk}</p>
+                        <p class="louis-16 ${(obj.status=='Ditolak')?"red":""} ${(obj.status=='Diterima')?"green":""}">${obj.status}</p>
+                    </div>
+                    <p class="flex-5 align-r louis-16"><a href="/checkout/${obj.produk.id}" class="link-detail">${(obj.status=='Diterima')?"Detail":""}</a></p>
+                </div>`;
+                
+                $("#tawar").append(append);
+                });
+            }else{
+                $("#tawar").empty();
+                let append = `<p class="warn">Penawaran tidak ditemukan</p>`;
+                $("#tawar").append(append);
+            }
+        }
+    });
+}
 let data = {
     user_id: $("#user_id").val()
 }
 show(data);
+showTawar(data);
 $("#filter").change(function(){
     let data = {
         user_id: $("#user_id").val(),

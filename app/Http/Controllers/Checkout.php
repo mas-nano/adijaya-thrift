@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Pembayaran;
 use App\Models\Pemesanan;
+use App\Models\Tawar;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Validator;
@@ -14,10 +15,12 @@ class Checkout extends Controller
     public function index(Produk $produk)
     {
         if(session('dataUser')){
+            $tawar = Tawar::where('user_id', session('dataUser')['id'])->where('produk_id', $produk->id)->first();
             return view('checkout',[
                 "css" => "checkout",
                 "title" => "Checkout",
-                "produk" => json_decode($produk, true)
+                "produk" => json_decode($produk, true),
+                "tawar" => $tawar
             ]);
         }
         return redirect()->to('/login')->send();

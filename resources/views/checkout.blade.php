@@ -29,9 +29,11 @@
                 <div class="produk">
                     <img src="../img/uploads/produk/{{ (isset($produk['foto'])?$produk['foto']:"") }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ (isset($produk['nama_produk'])?$produk['nama_produk']:"") }}</p>
-                    @if (isset($produk['promo']))
+                    @if (isset($tawar->nominal))
+                    <p class="template harga-produk">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal, 0, ',', '.'):"") }}</p>
+                    @elseif(isset($produk['promo']))
                     <p class="template harga-produk">Rp{{ (isset($produk['promo'])?number_format($produk['promo'], 0, ',', '.'):"") }}</p>
-                    @else
+                    @elseif(isset($produk['harga']))
                     <p class="template harga-produk">Rp{{ (isset($produk['harga'])?number_format($produk['harga'], 0, ',', '.'):"") }}</p>
                     @endif
                 </div>
@@ -47,24 +49,30 @@
                         <p class="align-kanan total">TOTAL</p>
                     </div>
                     <div class="template">
-                        @if (isset($produk['promo']))
+                        @if (isset($tawar->nominal))
+                        <p class="align-kanan">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal, 0, ',', '.'):"") }}</p>
+                        @elseif(isset($produk['promo']))
                         <p class="align-kanan">Rp{{ (isset($produk['promo'])?number_format($produk['promo'], 0, ',', '.'):"") }}</p>
-                        @else
+                        @elseif(isset($produk['harga']))
                         <p class="align-kanan">Rp{{ (isset($produk['harga'])?number_format($produk['harga'], 0, ',', '.'):"") }}</p>
                         @endif
                         <p class="align-kanan">Rp20.000</p>
                         <p class="align-kanan">Rp2.000</p>
                         <br>
-                        @if (isset($produk['promo']))
+                        @if (isset($tawar->nominal))
+                        <p class="align-kanan total">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal+22000, 0, ',', '.'):"") }}</p>
+                        @elseif(isset($produk['promo']))
                         <p class="align-kanan total">Rp{{ (isset($produk['promo'])?number_format($produk['promo']+22000, 0, ',', '.'):"") }}</p>
-                        @else
+                        @elseif(isset($produk['harga']))
                         <p class="align-kanan total">Rp{{ (isset($produk['harga'])?number_format($produk['harga']+22000, 0, ',', '.'):"") }}</p>
                         @endif
                     </div>
                 </div>
-                @if (isset($produk['promo']))
+                @if (isset($tawar->nominal))
+                <input type="hidden" name="total" value="{{ (isset($tawar->nominal)?$tawar->nominal+22000:"") }}">
+                @elseif (isset($produk['promo']))
                 <input type="hidden" name="total" value="{{ (isset($produk['promo'])?$produk['promo']+22000:"") }}">
-                @else
+                @elseif(isset($produk['harga']))
                 <input type="hidden" name="total" value="{{ (isset($produk['harga'])?$produk['harga']+22000:"") }}">
                 @endif
             </div>

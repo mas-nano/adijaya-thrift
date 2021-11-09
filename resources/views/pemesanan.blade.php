@@ -56,21 +56,8 @@
                         <option value="Ditolak">Ditolak</option>
                         <option value="Diterima">Diterima</option>
                     </select>
-                    <div class="status-produk">
-                        <img src="img/sepatu.png" alt="">
-                        <div class="flex-5 mg-l-3">
-                            <p class="louis-16">Sepatu Nike</p>
-                            <p class="louis-16 green">Diterima</p>
-                        </div>
-                        <p class="flex-5 align-r louis-16">Detail</p>
-                    </div>
-                    <div class="status-produk">
-                        <img src="img/sepatu.png" alt="">
-                        <div class="flex-5 mg-l-3">
-                            <p class="louis-16">Sepatu Nike</p>
-                            <p class="louis-16 red">Ditolak</p>
-                        </div>
-                        <p class="flex-5 align-r louis-16"></p>
+                    <div id="tawar">
+
                     </div>
                 </div>
             </div>

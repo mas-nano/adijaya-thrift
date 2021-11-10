@@ -148,11 +148,20 @@
 }
 .louis-12{
     font-family: 'Louis George Cafe';
-    font-size: 12px;
+    font-size: 14px;
 }
 .red{
     color: red;
 }
 .green{
     color: #22C308;
+}
+.warn{
+    text-align: center;
+    color: red;
+    font-family: 'Montserrat', sans-serif;
+}
+.link-detail{
+    text-decoration: none;
+    color: black;
 }

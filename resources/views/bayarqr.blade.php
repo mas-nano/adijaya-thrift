@@ -8,7 +8,9 @@
             <p class="louis fs-20">Silahkan membayar sesuai dengan jumlah ke rekening berikut:</p>
             <img src="../img/image 15.png" alt="" class="img block center">
         </div>
-        <div class="split"></div>
+        <div class="split">
+            <input type="hidden" name="" value="{{ session('dataUser')['id'] }}" id="user_id">
+        </div>
         <div class="right">
             <form action="" method="post">
                 @csrf
@@ -45,14 +47,14 @@
             <label for="alamat" class="block montserrat fw-6 fs-24">Alamat</label>
             <input type="text" name="alamat" id="alamat" class="input louis fs-20 w-75" placeholder="Alamat">
             <label for="provinsi" class="block montserrat fw-6 fs-24">Provinsi</label>
-            <select name="provinsi" id="provinsi" class="input louis fs-20 w-92">
+            <select name="provinsi" id="provinsi" class="dropdown white louis fs-20 w-92">
                 <option value="">Pilih Provinsi</option>
                 @for ($i = 0; $i < count($prov['provinsi']); $i++)
                 <option value="{{ $prov['provinsi'][$i]['nama'] }}" id="{{ $prov['provinsi'][$i]['id'] }}">{{ $prov['provinsi'][$i]['nama'] }}</option>
                 @endfor
             </select>
             <label for="Kota" class="block montserrat fw-6 fs-24">Kota</label>
-            <select name="kota" id="kota" class="input louis fs-20 w-92">
+            <select name="kota" id="kota" class="dropdown white louis fs-20 w-92">
                 <option value="">-</option>
             </select>
         </div>

@@ -125,7 +125,7 @@
 }
 .status-produk img{
     max-width: 100px;
-    
+    object-fit: cover;
 }
 .montserrat-18{
     font-family: 'Montserrat', sans-serif;
@@ -154,4 +154,20 @@
 }
 .green{
     color: #22C308;
+}
+.td-0{
+    text-decoration: none;
+}
+.black{
+    color: black;
+}
+.warn{
+    text-align: center;
+    color: red;
+    font-family: 'Montserrat', sans-serif;
+}
+.grey{
+    height: 1px;
+    background-color: #e1e1e1;
+    border: none;
 }

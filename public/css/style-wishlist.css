@@ -106,10 +106,9 @@
     height: 200px;
     object-fit: cover;
 }
-.produk p{
+.harga-barang{
     font-family: 'Louis George Cafe';
     margin: 10px 0px;
-    font-size: 18px;
     padding: 5px 0px;
     margin: auto;
 }
@@ -123,4 +122,13 @@
 .link-produk{
     text-decoration: none;
     color: black;
+}
+.orange{
+    color: #FF8D44;
+}
+.fs-18{
+    font-size: 18px;
+}
+.fs-20{
+    font-size: 20px;
 }

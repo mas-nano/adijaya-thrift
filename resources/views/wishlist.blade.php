@@ -38,11 +38,13 @@
                 <li>
                     <div class="produk">
                         <img src="img/uploads/produk/{{ $w->produk->foto }}" alt="" srcset="" class="gambar-produk">
-                        <p class="nama-barang"><a href="http://localhost:8000/produk/{{ $w->produk->id }}" class="link-produk">{{ $w->produk->nama_produk }}</a></p>
-                        <p class="harga-barang">Rp{{ number_format($w->produk->harga, 0, ',', '.') }}</p>
+                        <p class="harga-barang"><a href="http://localhost:8000/produk/{{ $w->produk->id }}" class="link-produk">{{ $w->produk->nama_produk }}</a></p>
                         @if (!is_null($w->produk->promo))
-                            <p class="harga-barang">PROMO: Rp{{ number_format($w->produk->promo, 0, ',', '.') }}</p>
-                        @endif
+                            <p class="harga-barang fs-18">Rp<strike>{{ number_format($w->produk->harga, 0, ',', '.') }}</strike></p>
+                            <p class="harga-barang fs-20 orange">Rp{{ number_format($w->produk->promo, 0, ',', '.') }}</p>
+                            @else
+                            <p class="harga-barang fs-18">Rp{{ number_format($w->produk->harga, 0, ',', '.') }}</p>
+                            @endif
                     </div>
                 </li>
                 @endforeach

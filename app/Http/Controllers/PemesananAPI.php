@@ -13,7 +13,7 @@ class PemesananAPI extends Controller
         if(isset($request['user_id'])){
             $query = Pemesanan::where('user_id', $request['user_id']);
             if(isset($request['filter'])){
-                $query->where('status', $request['filter']);
+                $query->where('status_pembeli', $request['filter']);
             }
             $query = $query->get();
             $bayar = [];

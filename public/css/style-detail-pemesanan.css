@@ -69,6 +69,7 @@ label{
 .foto{
     max-width: 110px;
     height: 110px;
+    object-fit: cover;
 }
 .template{
     width: 40%;
@@ -143,8 +144,9 @@ label{
     display: block;
     margin:auto;
     margin-bottom: 20px;
-    background-color: #E1E1E1;
-    border: none;
+    background-color:white;
+    border-radius: 18px;
+    border-color: #e1e1e1;
     padding: 0px 20px 0px 20px;
     font-family: 'Louis George Cafe Std';
     font-size: 16px;
@@ -153,7 +155,8 @@ label{
     margin-left: 20px;
 }
 .sub-modal{
-    margin: 10px 0px 0px 57px;
+    width: 55%;
+    margin: 10px auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;

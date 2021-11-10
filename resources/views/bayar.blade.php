@@ -20,7 +20,9 @@
                 </div>
             </div>
         </div>
-        <div class="split"></div>
+        <div class="split">
+            <input type="hidden" name="" value="{{ session('dataUser')['id'] }}" id="user_id">
+        </div>
         <div class="right">
             <form action="" method="POST">
                 @csrf

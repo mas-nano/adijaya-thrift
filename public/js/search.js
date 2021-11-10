@@ -49,7 +49,7 @@ function show(data=null, take){
                         <img src="img/uploads/produk/${data[i]['foto']}" alt="" srcset="" class="gambar-produk">
                         <p class="nama-barang fs-18">${data[i]["nama_produk"]}</p>
                         <p class="harga-barang fs-18">Rp${(data[i]["promo"])?"<strike>"+data[i]["harga"]+"</strike>":data[i]["harga"]}</p>
-                        <p class="harga-barang fs-20 orange">${(data[i]["promo"])?"Rp"+data[i]["promo"]:""}</p>
+                        ${(data[i]["promo"])?'<p class="harga-barang orange fs-26">Rp'+data[i]["promo"]+"</p>":""}
                     </div>
                 </li>`;
                 $(".hasil").append(append);

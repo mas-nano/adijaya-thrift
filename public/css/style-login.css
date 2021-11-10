@@ -43,19 +43,10 @@
     font-weight: 600;
     font-size: 24px;
 }
-.message{
-    width: 400px;
-    margin: auto;
-    padding: 3px 10px;
-    margin-top: 5px;
-    border-radius: 18px;
-}
-.warn{
-    background-color: rgb(240, 73, 73);
-}
+
 .center{
     text-align: center;
-    color:white;
+    color:red;
     font-family: 'Louis George Cafe';
     font-size: 14px;
 }

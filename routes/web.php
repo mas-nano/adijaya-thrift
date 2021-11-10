@@ -9,9 +9,11 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
 use App\Http\Controllers\Pembayaran;
 use App\Http\Controllers\Penawaran;
+use App\Http\Controllers\Pesanan;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukToko;
 use App\Http\Controllers\Register;
+use App\Http\Controllers\Riwayat;
 use App\Http\Controllers\Search;
 use App\Http\Controllers\Toko;
 use App\Http\Controllers\Wishlist;
@@ -74,12 +76,8 @@ Route::get('/riwayat', function () {
         "title" => "Riwayat"
     ]);
 });
-Route::get('/pesanan-masuk', function () {
-    return view('pesanan-masuk',[
-        "css" => "pesanan-masuk",
-        "title" => "Pesanan-masuk"
-    ]);
-});
+Route::get('/pesanan-masuk', [Pesanan::class, 'index']);
+Route::post('/pesanan-masuk', [Pesanan::class, 'search']);
 Route::get('/produk', [Search::class, 'index']);
 Route::get('/bantuan', [Bantuan::class, 'index']);
 Route::post('/bantuan', [Bantuan::class, 'store']);
@@ -94,18 +92,15 @@ Route::get('/penjualan', function () {
 });
 Route::get('/wishlist', [Wishlist::class, 'index']);
 Route::get('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'index']);
+Route::post('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'update']);
 Route::get('/laporan-penjualan', function () {
     return view('laporan-penjualan',[
         "css" => "laporan-penjualan",
         "title" => "Laporan Penjualan"
     ]);
 });
-Route::get('/riwayat-penjualan', function () {
-    return view('riwayat-penjualan',[
-        "css" => "riwayat-penjualan",
-        "title" => "Riwayat Penjualan"
-    ]);
-});
+Route::get('/riwayat-penjualan', [Riwayat::class, 'index']);
+Route::post('/riwayat-penjualan', [Riwayat::class, 'search']);
 Route::get('/penawaran', [Penawaran::class, 'index']);
 Route::post('/penawaran', [Penawaran::class, 'update']);
 Route::get('/admin/login', function () {

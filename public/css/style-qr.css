@@ -117,3 +117,10 @@
     margin: auto;
     justify-content: center;
 }
+.dropdown{
+    height: 40px;
+    padding: 0px 30px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    background-color: white;
+}

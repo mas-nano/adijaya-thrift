@@ -18,7 +18,8 @@ class Penawaran extends Controller
         return view('penawaran',[
             "css" => "penawaran",
             "title" => "Penawaran",
-            "tawar" => $query
+            "tawar" => $query,
+            "i"=> 0,
         ]);
     }
     public function update(Request $request)

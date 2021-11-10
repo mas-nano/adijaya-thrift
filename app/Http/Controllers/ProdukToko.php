@@ -70,7 +70,7 @@ class ProdukToko extends Controller
             $request['penjual_id'] = $produk->id_penjual;
             $request['status'] = 'Proses';
             try {
-                if(is_null($tawar = Tawar::where('user_id', session('dataUser')['id'])->where('produk_id', $produk->id)->first())){
+                if(is_null($tawar = Tawar::where('user_id', session('dataUser')['id'])->where('produk_id', $produk->id)->where('status',' Proses')->first())){
                     Tawar::create($request->all());
                 }else{
                     $tawar->update($request->all());

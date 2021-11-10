@@ -15,7 +15,7 @@ class Checkout extends Controller
     public function index(Produk $produk)
     {
         if(session('dataUser')){
-            $tawar = Tawar::where('user_id', session('dataUser')['id'])->where('produk_id', $produk->id)->first();
+            $tawar = Tawar::where('user_id', session('dataUser')['id'])->where('produk_id', $produk->id)->where('status','Diterima')->latest()->first();
             return view('checkout',[
                 "css" => "checkout",
                 "title" => "Checkout",
@@ -38,6 +38,9 @@ class Checkout extends Controller
             }else{
                 $dataBayar = $request->except(['_token', 'aksi']);
                 $dataBayar['tanggal'] = date('Y-m-d');
+                if($pemesanan = Pemesanan::where('user_id', session('dataUser')['id'])->where('produk_id', $produk['id'])->where('status_pembeli', 'Menunggu Pembayaran')->first()){
+                    return redirect()->to('/pembayaran/'.$pemesanan->pembayaran_id)->send();
+                }
                 try {
                     $pembayaran = Pembayaran::create($dataBayar);
                 } catch (QueryException $e) {
@@ -51,7 +54,7 @@ class Checkout extends Controller
                     'status_pembeli' => 'Menunggu Pembayaran'
                 ];
                 try {
-                    $pemesanan = Pemesanan::create($data);
+                    Pemesanan::create($data);
                 } catch (QueryException $e) {
                     return $e->errorInfo;
                 }

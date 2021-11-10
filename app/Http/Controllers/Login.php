@@ -20,7 +20,7 @@ class Login extends Controller
     {
         $validate = Validator::make($request->all(), [
             'password' => ['required'],
-            'email' => ['required', 'email']
+            'username' => ['required']
         ]);
         
         if($validate->fails()) {
@@ -32,7 +32,7 @@ class Login extends Controller
         }
 
         $data = $request->all();
-        $users =User::where('email', $data['email'])->get();
+        $users =User::where('username', $data['username'])->get();
         if(count($users)===1){
             if(password_verify($data['password'], $users[0]['password'])){
                 $data = [
@@ -49,7 +49,7 @@ class Login extends Controller
         return view('login',[
             "css" => "login",
             "title" => "Masuk",
-            "message" => "Email atau Kata Sandi Salah!"
+            "message" => "Nama pengguna atau Kata Sandi Salah!"
         ]);  
     }
 }

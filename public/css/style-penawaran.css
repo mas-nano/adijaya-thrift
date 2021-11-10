@@ -148,9 +148,22 @@
     font-weight: 600;
     font-size: 12px;
 }
+.btn:hover{
+    cursor: pointer;
+}
 .bg-orange{
     background-color: #FF8D44;
 }
 .bg-red{
     background-color: #BA0000;
+}
+.warn{
+    text-align: center;
+    color: red;
+    font-family: 'Montserrat', sans-serif;
+}
+.grey{
+    height: 1px;
+    background-color: #e1e1e1;
+    border: none;
 }

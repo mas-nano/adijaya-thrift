@@ -21,7 +21,8 @@ function showTawar(data){
                         <button class="btn bg-orange">Terima</button>
                         <button class="btn bg-red">Tolak</button>
                     </div>
-                </div>`;
+                </div>
+                ${(index+1==data.length)?"":'<hr class="grey">'}`;
                 
                 $("#tawar").append(append);
                 });

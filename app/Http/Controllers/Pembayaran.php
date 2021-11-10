@@ -76,6 +76,11 @@ class Pembayaran extends Controller
             $pembayaran->update($request->except(['_token', 'produk_id', 'aksi']));
             $pembayaran->pemesanan->produk->update($request->only(['stok']));
             $pembayaran->pemesanan->update($request->only(['status_pembeli']));
+            if($tawar = $pembayaran->pemesanan->produk->produk->where('user_id', session('dataUser')['id'])->all()){
+                foreach($tawar as $t){
+                    $t->delete();
+                }
+            }
             return redirect()->to('/riwayat')->send();
         }catch(QueryException $e){
             return $e->errorInfo;

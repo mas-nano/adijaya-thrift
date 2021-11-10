@@ -10,7 +10,7 @@
                 <p class="detail">{{ $data->pembeli->name }}</p>
                 <p class="detail">{{ $data->pembayaran->alamat }}</p>
                 <p class="detail">{{ $data->pembayaran->kota }}, {{ $data->pembayaran->provinsi }}</p>
-                <p class="detail">{{ (is_null($data->pembeli->tel)?"Nomor telepon Anda tidak tersedia":$data->pembeli->tel) }}</p>
+                <p class="detail">{{ (is_null($data->pembeli->tel)?"Nomor telepon tidak tersedia":$data->pembeli->tel) }}</p>
                 @endif
             </div>
             <p><i class="fa fa-print" aria-hidden="true"></i></p>
@@ -23,7 +23,7 @@
                 <div class="produk">
                     <img src="../img/uploads/produk/{{ $data->produk->foto }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ $data->produk->nama_produk }}</p>
-                    <p class="template harga-produk">Rp{{ (is_null($data->produk->promo)?number_format($data->produk->harga, 0, ',', '.'):number_format($data->produk->promo, 0, ',', '.')) }}</p>
+                    <p class="template harga-produk">Rp{{ number_format($data->pembayaran->total, 0, ',', '.') }}</p>
                 </div>
                 
                 <hr>
@@ -37,22 +37,29 @@
                         <p class="align-kanan total">TOTAL</p>
                     </div>
                     <div class="template">
-                        <p class="align-kanan">Rp{{ (is_null($data->produk->promo)?number_format($data->produk->harga, 0, ',', '.'):number_format($data->produk->promo, 0, ',', '.')) }}</p>
+                        <p class="align-kanan">Rp{{ number_format($data->pembayaran->total, 0, ',', '.') }}</p>
                         <p class="align-kanan">Rp20.000</p>
                         <p class="align-kanan">Rp2.000</p>
                         <br>
-                        <p class="align-kanan total">Rp{{ (is_null($data->produk->promo)?number_format($data->produk->harga+22000, 0, ',', '.'):number_format($data->produk->promo+22000, 0, ',', '.')) }}</p>
+                        <p class="align-kanan total">Rp{{ number_format($data->pembayaran->total, 0, ',', '.') }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="btn-wrapper">
-        @if ($data->status_pembeli=="Proses")
-        <button class="btn terima" type="button" id="modal">Paket diterima</button>
+        @if (session('dataUser')['id']==$data->user_id)
+            @if ($data->status_pembeli=="Proses")
+            <button class="btn terima" type="button" id="modal">Paket diterima</button>
+            @endif
         @endif
-        @if ($data->status_penjual=="Sudah dibayar")
-        <button class="btn terima" type="button">Paket dikirim</button>
+        @if (session('dataUser')['id']==$data->penjual_id)    
+            @if ($data->status_penjual=="Belum dikirim")
+            <form action="" method="post">
+                @csrf
+                <button class="btn terima" type="submit" name="kirim">Paket dikirim</button>
+            </form>
+            @endif
         @endif
         @if ($data->status_pembeli=="Menunggu Pembayaran")
         <button class="btn terima" type="button"><a href="/pembayaran/{{ $data->pembayaran_id }}" class="link-bayar">Bayar Sekarang</a></button>
@@ -70,9 +77,10 @@
             <span class="fa fa-star fa-2x" id="5"></span>
         </div>
         <form action="" method="POST">
+            @csrf
             <p class="sub-modal">Review</p>
-            <textarea name="tawar" id="" rows="5" cols="25"></textarea>
-            <button type="submit">Kirim</button>
+            <textarea name="review" id="" rows="5" cols="25"></textarea>
+            <button type="submit" name="terima">Kirim</button>
         </form>
     </div>
 </div>

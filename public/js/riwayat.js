@@ -44,7 +44,8 @@ function showTawar(data){
                         <p class="louis-16 ${(obj.status=='Ditolak')?"red":""} ${(obj.status=='Diterima')?"green":""}">${obj.status}</p>
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/checkout/${obj.produk.id}" class="link-detail">${(obj.status=='Diterima')?"Detail":""}</a></p>
-                </div>`;
+                </div>
+                ${(index+1==data.length)?"":'<hr class="grey">'}`;
                 
                 $("#tawar").append(append);
                 });

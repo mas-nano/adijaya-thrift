@@ -44,4 +44,8 @@ class Produk extends Model
     {
         return $this->belongsTo(User::class, 'id_penjual');
     }
+    public function produk()
+    {
+        return $this->hasMany(Tawar::class);
+    }
 }

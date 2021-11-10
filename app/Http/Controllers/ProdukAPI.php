@@ -27,7 +27,7 @@ class ProdukAPI extends Controller
     public function get($take)
     {
         try{
-            $data = json_decode(Produk::filter(request(['search', 'daerah', 'kategori', 'sort', 'promo', 'min', 'max']))->take($take)->get(), true);
+            $data = json_decode(Produk::filter(request(['search', 'daerah', 'kategori', 'sort', 'promo', 'min', 'max']))->where('stok', '>', 0)->take($take)->get(), true);
             for($i=0;$i<count($data);$i++){
                 $data[$i]['harga']=number_format($data[$i]['harga'],0,',','.');
                 if($data[$i]['promo']!=null){

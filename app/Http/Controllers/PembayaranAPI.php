@@ -79,8 +79,13 @@ class PembayaranAPI extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pembayaran $pembayaran)
+    public function destroy(Pembayaran $pembayaran, Request $request)
     {
+        if($tawar = $pembayaran->pemesanan->produk->produk->where('user_id', $request->user_id)->all()){
+            foreach($tawar as $t){
+                $t->delete();
+            }
+        }
         $pembayaran->pemesanan->delete();
         $pembayaran->delete();
         return response()->json([

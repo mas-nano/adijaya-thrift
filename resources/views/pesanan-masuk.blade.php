@@ -29,7 +29,10 @@
             </div>
         </div>
     </div>
-    <div class="split"></div>
+    <div class="split">
+        <input type="hidden" name="" id="user_id" value="{{ session('dataUser')['id'] }}">
+        <input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
+    </div>
     <div class="right">
         <div class="box-radius-18">
             <div class="width-90">
@@ -38,33 +41,28 @@
                     <option value="Belum Dikirim">Belum Dikirim</option>
                     <option value="Sudah Dikirim">Sudah Dikirim</option>
                 </select>
-                <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Sepatu Nike</p>
-                        <p class="louis fs-14">Belum Dikirim</p>
-                    </div>
-                    <p class="flex-5 align-r louis-16">Detail</p>
+                <div id="hasil">
+                    @if(count($pemesanan)>0)
+                        @foreach ($pemesanan as $p)
+                        <div class="status-produk">
+                            <img src="img/uploads/produk/{{ $p->produk->foto }}" alt="">
+                            <div class="flex-5 mg-l-3">
+                                <p class="louis-16">{{ $p->produk->nama_produk }}</p>
+                                <p class="louis fs-14 {{ ($p->status_penjual=="Sudah dikirim"?"green":"") }}">{{ $p->status_penjual }}</p>
+                            </div>
+                            <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/{{ $p->id }}" class="td-0 black">Detail</a></p>
+                        </div>
+                            @if (++$i!=count($pemesanan))
+                                <hr class='grey'>
+                            @endif
+                        @endforeach
+                    @else
+                    <p class="warn">Penjualan tidak ditemukan</p>
+                    @endif
                 </div>
-                <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Sepatu Nike</p>
-                        <p class="louis fs-14">Belum Dikirim</p>
-                    </div>
-                    <p class="flex-5 align-r louis-16">Detail</p>
-                </div>
-                <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Sepatu Nike</p>
-                        <p class="louis fs-14 green">Sudah Dikirim</p>
-                    </div>
-                    <p class="flex-5 align-r louis-16">Detail</p>
-                </div>
-                
             </div>
         </div>
     </div>
 </div>
+<script src="js/pesanan.js"></script>
 @endsection

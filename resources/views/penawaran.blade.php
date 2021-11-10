@@ -35,11 +35,14 @@
     <div class="right">
         <div class="box-radius-18">
             <div class="width-90" id="tawar">
+                @if (count($tawar)<1)
+                    <p class="warn">Tidak ada penawaran</p>
+                @endif
                 @foreach ($tawar as $t)
                 <div class="status-produk">
                     <img src="img/uploads/produk/{{ $t->produk->foto }}" alt="">
                     <div class="flex-5 mg-l-3">
-                        <p class="louis-16">{{ $t->user->name }}</p>
+                        <p class="louis-16">{{ $t->user->name }} menawar</p>
                         <p class="louis-16">{{ $t->produk->nama_produk }}</p>
                     </div>
                     <div class="flex-5 align-r">
@@ -54,31 +57,10 @@
                         @endif
                     </div>
                 </div>
+                @if (++$i!=count($pemesanan))
+                    <hr class='grey'>
+                @endif
                 @endforeach
-                {{-- <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Nike</p>
-                    </div>
-                    <div class="flex-5 align-r">
-                        <p class="louis-16">Rp5000</p>
-                    </div>
-                </div>
-                
-                <div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
-                    <div class="flex-5 mg-l-3">
-                        <p class="louis-16">Laras Wahyu menawar</p>
-                        <p class="louis-16">Sepatu Nike</p>
-                    </div>
-                    <div class="flex-5 align-r">
-                        <p class="louis-16">Rp5000</p>
-                        <button class="btn bg-orange">Terima</button>
-                        <button class="btn bg-red">Tolak</button>
-                    </div>
-                </div>
-                 --}}
             </div>
         </div>
     </div>

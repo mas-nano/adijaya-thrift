@@ -21,6 +21,7 @@ class CreateProduksTable extends Migration
             $table->string('deskripsi');
             $table->string('harga');
             $table->string('foto');
+            $table->string('stok');
             $table->string('promo')->nullable();
             $table->timestamps();
         });

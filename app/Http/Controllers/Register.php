@@ -41,11 +41,11 @@ class Register extends Controller
         try {
             $user = User::create($data);
             $data = [
-                'nama' => $user[0]['name'],
-                'id' => $user[0]['id'],
-                'email' => $user[0]['email'],
-                'username' => $user[0]['username'],
-                'gambar' => $user[0]['photo']
+                'nama' => $user['name'],
+                'id' => $user['id'],
+                'email' => $user['email'],
+                'username' => $user['username'],
+                'gambar' => $user['photo']
             ];
             $request->session()->put('dataUser', $data);
             return redirect()->to('/')->send();

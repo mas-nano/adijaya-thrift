@@ -20,7 +20,7 @@ class Pesanan extends Controller
     {
         $pesanan = Pemesanan::where('penjual_id', $request['user_id']);
         if(isset($request['filter'])){
-            $pesanan->where('status_penjual', $request['filter']);
+            $pesanan->where('status_kirim', $request['filter']);
         }
         $pesanan = $pesanan->get();
         foreach ($pesanan as $p) {

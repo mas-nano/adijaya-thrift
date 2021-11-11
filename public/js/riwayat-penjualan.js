@@ -6,7 +6,6 @@ $("#filter").change(function(){
     if($("#filter").val()!=""){
         post.filter = $("#filter").val();
     }
-    console.log(post);
     $.ajax({
         url: "http://localhost:8000/riwayat-penjualan",
         type: "POST",
@@ -20,12 +19,12 @@ $("#filter").change(function(){
                     <img src="img/uploads/produk/${obj.produk.foto}" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">${obj.produk.nama_produk}</p>
-                        <p class="louis-12 ${(obj.status_penjual=='Sudah dicairkan')?"green":""}">${(obj.status_penjual=='Sudah dikirim')?"Belum Diterima":obj.status_penjual}</p>
+                        <p class="louis-12 ${(obj.status_ajukan=='Sudah dicairkan')?"green":""}">${(!obj.status_ajukan)?obj.status_terima:obj.status_ajukan}</p>
                     </div>
-                    <p class="flex-5 align-r louis-12"><a href="/detail-pemesanan/${obj.id}" class="td-0 black link-detail${(obj.status_penjual=='Selesai')?" "+obj.status_penjual:""}">`;
-                    if(obj.status_penjual=='Selesai'){
+                    <p class="flex-5 align-r louis-12"><a href="/detail-pemesanan/${obj.id}" class="td-0 black link-detail${(obj.status_terima=='Selesai')?" "+obj.status_terima:""}" data-pemesanan_id="${obj.id}">`;
+                    if(obj.status_terima=='Selesai'&&!obj.status_ajukan){
                         append = append+`Ajukan pencairan`
-                    }else if(obj.status_penjual=='Sudah dicairkan'&&obj.status_penjual=='Proses'){
+                    }else if(obj.status_ajukan){
                     }else{
                         append = append+`Detail`;
                     }
@@ -40,5 +39,22 @@ $("#filter").change(function(){
                 $("#hasil").append(append);
             }
         }
-    })
-})
+    });
+});
+$("#hasil").on("click", ".Selesai", function(e){
+    e.preventDefault();
+    $.ajax({
+        url: "http://localhost:8000/riwayat-penjualan/ajukan",
+        type: "POST",
+        dataType: 'json',
+        data: {
+            user_id: $("#user_id").val(),
+            _token: $("#_token").val(),
+            pemesanan_id: $(this).data('pemesanan_id'),
+            status_ajukan: 'Belum dicairkan'
+        },
+        success: function(data){
+            window.location.href = "http://localhost:8000/riwayat-penjualan"
+        }
+    });
+});

@@ -48,12 +48,12 @@
                             <img src="img/uploads/produk/{{ $r->produk->foto }}" alt="">
                             <div class="flex-5 mg-l-3">
                                 <p class="louis-16">{{ $r->produk->nama_produk }}</p>
-                                <p class="louis-12">{{ ($r->status_penjual=='Sudah dikirim'?"Belum Diterima":$r->status_penjual) }}</p>
+                                <p class="louis-12 {{ ($r->status_ajukan=='Sudah dicairkan'?"green":"") }}">{{ (is_null($r->status_ajukan)?$r->status_terima:$r->status_ajukan) }}</p>
                             </div>
-                            <p class="flex-5 align-r louis-12"><a href="/detail-pemesanan/{{ $r->id }}" class="td-0 black link-detail{{ ($r->status_penjual=='Selesai'?' '.$r->status_penjual:"") }}">
-                                @if ($r->status_penjual=='Selesai')
+                            <p class="flex-5 align-r louis-12"><a href="/detail-pemesanan/{{ $r->id }}" class="td-0 black link-detail{{ ($r->status_terima=='Selesai'?' '.$r->status_terima:"") }}" data-pemesanan_id="{{ $r->id }}">
+                                @if ($r->status_terima=='Selesai'&&is_null($r->status_ajukan))
                                     Ajukan pencairan
-                                @elseif($r->status_penjual=='Sudah dicairkan'&&$r->status_penjual=='Proses')
+                                @elseif(!is_null($r->status_ajukan))
                                 @else
                                 Detail
                                 @endif

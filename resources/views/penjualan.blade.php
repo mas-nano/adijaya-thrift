@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="center">
-                <p class="link">Profil</p>
+                <p class="link"><a class="link" href="/toko/{{ session('dataUser')['id'] }}">Profil</a></p>
                 <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>

@@ -15,7 +15,8 @@ function show(data){
                         <p class="louis-16">${data['status_pembeli'][i]}</p>
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/${data['pemesanan_id'][i]}" class="link-detail">Detail</a></p>
-                </div>`;
+                </div>
+                ${(i+1==data['bayar'].length)?"":'<hr class="grey">'}`;
                 $("#produk").append(append);
                 }
             }else{
@@ -45,7 +46,7 @@ function showTawar(data){
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/checkout/${obj.produk.id}" class="link-detail">${(obj.status=='Diterima')?"Detail":""}</a></p>
                 </div>
-                ${(index+1==data.length)?"":'<hr class="grey">'}`;
+                ${(index+1==data['tawar'].length)?"":'<hr class="grey">'}`;
                 
                 $("#tawar").append(append);
                 });

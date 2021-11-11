@@ -23,13 +23,14 @@ class DetailPesan extends Controller
     public function update(Pemesanan $pemesanan, Request $request)
     {
         if(isset($request['kirim'])){
-            $request['status_penjual'] = 'Sudah dikirim';
+            $request['status_kirim'] = 'Sudah dikirim';
+            $request['status_terima'] = 'Belum diterima';
             $request['status_pembeli'] = 'Proses';
             $pemesanan->update($request->all());
             return redirect()->to('/pesanan-masuk')->send();
         }
         if(isset($request['terima'])){
-            $request['status_penjual'] = 'Selesai';
+            $request['status_terima'] = 'Selesai';
             $request['status_pembeli'] = 'Selesai';
             $pemesanan->update($request->except('review'));
             return redirect()->to('/riwayat')->send();

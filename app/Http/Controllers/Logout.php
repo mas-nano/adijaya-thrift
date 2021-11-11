@@ -11,4 +11,9 @@ class Logout extends Controller
         $request->session()->flush();
         return redirect()->to('/')->send();
     }
+    public function admin(Request $request)
+    {
+        $request->session()->flush();
+        return redirect()->to('/admin')->send();
+    }
 }

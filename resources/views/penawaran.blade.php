@@ -57,7 +57,7 @@
                         @endif
                     </div>
                 </div>
-                @if (++$i!=count($pemesanan))
+                @if (++$i!=count($tawar))
                     <hr class='grey'>
                 @endif
                 @endforeach

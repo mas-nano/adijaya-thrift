@@ -54,7 +54,7 @@
             @endif
         @endif
         @if (session('dataUser')['id']==$data->penjual_id)    
-            @if ($data->status_penjual=="Belum dikirim")
+            @if ($data->status_kirim=="Belum dikirim")
             <form action="" method="post">
                 @csrf
                 <button class="btn terima" type="submit" name="kirim">Paket dikirim</button>

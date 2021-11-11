@@ -40,7 +40,15 @@ class Register extends Controller
 
         try {
             $user = User::create($data);
-            return redirect()->to('/login')->send();
+            $data = [
+                'nama' => $user[0]['name'],
+                'id' => $user[0]['id'],
+                'email' => $user[0]['email'],
+                'username' => $user[0]['username'],
+                'gambar' => $user[0]['photo']
+            ];
+            $request->session()->put('dataUser', $data);
+            return redirect()->to('/')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

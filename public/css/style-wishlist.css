@@ -132,3 +132,11 @@
 .fs-20{
     font-size: 20px;
 }
+#link:hover{
+    cursor: pointer;
+}
+.warn{
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+    text-align: center;
+}

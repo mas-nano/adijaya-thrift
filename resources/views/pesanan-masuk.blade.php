@@ -44,16 +44,20 @@
                 <div id="hasil">
                     @if(count($pemesanan)>0)
                         @foreach ($pemesanan as $p)
-                        <div class="status-produk">
-                            <img src="img/uploads/produk/{{ $p->produk->foto }}" alt="">
-                            <div class="flex-5 mg-l-3">
-                                <p class="louis-16">{{ $p->produk->nama_produk }}</p>
-                                <p class="louis fs-14 {{ ($p->status_penjual=="Sudah dikirim"?"green":"") }}">{{ $p->status_penjual }}</p>
-                            </div>
-                            <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/{{ $p->id }}" class="td-0 black">Detail</a></p>
-                        </div>
-                            @if (++$i!=count($pemesanan))
-                                <hr class='grey'>
+                            @if ($p->status_kirim)
+                                <div class="status-produk">
+                                    <img src="img/uploads/produk/{{ $p->produk->foto }}" alt="">
+                                    <div class="flex-5 mg-l-3">
+                                        <p class="louis-16">{{ $p->produk->nama_produk }}</p>
+                                        <p class="louis fs-14 {{ ($p->status_kirim=="Sudah dikirim"?"green":"") }}">{{ $p->status_kirim}}</p>
+                                    </div>
+                                    <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/{{ $p->id }}" class="td-0 black">Detail</a></p>
+                                </div>
+                                @if (++$i!=count($pemesanan))
+                                    <hr class='grey'>
+                                @endif
+                            @else
+                            <p class="warn">Penjualan tidak ditemukan</p>
                             @endif
                         @endforeach
                     @else

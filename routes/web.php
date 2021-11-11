@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Akun;
 use App\Http\Controllers\Bantuan;
 use App\Http\Controllers\Checkout;
@@ -101,24 +102,20 @@ Route::get('/laporan-penjualan', function () {
 });
 Route::get('/riwayat-penjualan', [Riwayat::class, 'index']);
 Route::post('/riwayat-penjualan', [Riwayat::class, 'search']);
+Route::post('/riwayat-penjualan/ajukan', [Riwayat::class, 'ajukan']);
 Route::get('/penawaran', [Penawaran::class, 'index']);
 Route::post('/penawaran', [Penawaran::class, 'update']);
-Route::get('/admin/login', function () {
-    return view('admin-login',[
-        "title" => "Login"
-    ]);
-});
+Route::get('/admin', [AdminController::class, 'login']);
+Route::post('/admin', [AdminController::class, 'postLogin']);
 Route::get('/admin/dashboard', function () {
     return view('admin-dashboard',[
         "title" => "Dashboard"
     ]);
 });
 Route::get('/admin/kelolaUser', [KelolaAdmin::class, 'index']);
-Route::get('/admin/admin', function () {
-    return view('admin-list',[
-        "title" => "Admin"
-    ]);
-});
+Route::get('/admin/admin', [AdminController::class, 'listAdmin']);
+Route::get('/admin/admin/tambah', [AdminController::class, 'tambahAdmin']);
+Route::post('/admin/admin/tambah', [AdminController::class, 'postTambahAdmin']);
 Route::get('/admin/pengguna', function () {
     return view('admin-penggunaList',[
         "title" => "Pengguna"
@@ -175,3 +172,4 @@ Route::get('/admin/kelolaProduk', function () {
     ]);
 });
 Route::get('/logout', [Logout::class, 'index']);
+Route::get('/admin/logout', [Logout::class, 'admin']);

@@ -117,6 +117,9 @@ body{
 .mg-v-1{
     margin: 10px 0px;
 }
+.mg-l-1{
+    margin-left: 10px;
+}
 .mg-l-4{
     margin-left: 40px;
 }
@@ -285,6 +288,9 @@ body{
 }
 .ta-r{
     text-align: right;
+}
+.align-r{
+    justify-content: right;
 }
 /* background */
 .bg-grey{

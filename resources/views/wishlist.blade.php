@@ -27,18 +27,22 @@
                 </div>
             </div>
             <div class="center">
-                <p class="link">Profil</p>
+                <p class="link"><a class="link" href="/toko/{{ session('dataUser')['id'] }}">Profil</a></p>
                 <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>
         <div class="split"></div>
         <div class="right">
             <ul class="hasil">
+                @if (count($wishlist)<1)
+                    <p class="warn">Tidak ada produk yang disukai</p>
+                @endif
                 @foreach ($wishlist as $w)
+                @if ($w->produk->stok>0)
                 <li>
-                    <div class="produk">
+                    <div class="produk" id="link" data-id="{{ $w->produk->id }}">
                         <img src="img/uploads/produk/{{ $w->produk->foto }}" alt="" srcset="" class="gambar-produk">
-                        <p class="harga-barang"><a href="http://localhost:8000/produk/{{ $w->produk->id }}" class="link-produk">{{ $w->produk->nama_produk }}</a></p>
+                        <p class="harga-barang">{{ $w->produk->nama_produk }}</p>
                         @if (!is_null($w->produk->promo))
                             <p class="harga-barang fs-18">Rp<strike>{{ number_format($w->produk->harga, 0, ',', '.') }}</strike></p>
                             <p class="harga-barang fs-20 orange">Rp{{ number_format($w->produk->promo, 0, ',', '.') }}</p>
@@ -47,8 +51,14 @@
                             @endif
                     </div>
                 </li>
+                @endif
                 @endforeach
             </ul>
         </div>
     </div>
+    <script>
+        $("#link").click(function(){
+            window.location.href = `http://localhost:8000/produk/${$('#link').data('id')}`
+        })
+    </script>
 @endsection

@@ -1,9 +1,11 @@
+var id = '';
 // Get modal element
 var modal = document.getElementById('modalBox');
 // Get open modal button
 var modalBtn = document.querySelectorAll('#modal');
 // Get close button
 var closeBtn = document.getElementsByClassName('close')[0];
+var tidak = document.getElementById('tidak');
 // Listen for open click
 for(let i=0; i<modalBtn.length; i++){
     modalBtn[i].addEventListener('click', openModal);
@@ -14,12 +16,12 @@ closeBtn.addEventListener('click', closeModal);
  
 // Listen for outside click
 window.addEventListener('click', outsideClick);
- 
+tidak.addEventListener('click', closeModal);
  
 // Function to open modal
 function openModal(){
     modal.style.display = 'block';
- 
+    id = $(this).data("id");
 }
  
 // Function to close modal
@@ -37,7 +39,6 @@ function outsideClick(e){
 }
 var id = $(".fa-heart-o").data("id");
 $(".fa-heart-o").click(function(){
-    console.log("cihuy");
     if($(".fa-heart-o").hasClass("red")){
         $.ajax({
             url: `http://localhost:8000/api/wishlist/${id}`,
@@ -70,3 +71,31 @@ $(".fa-heart-o").click(function(){
         })
     }
 });
+$("#yakin-admin").click(function(){
+    let url = `http://localhost:8000/admin/admin/hapus/${id}`;
+    let loc = 'admin';
+    hapus(url,loc);
+})
+$("#yakin-user").click(function(){
+    let url = `http://localhost:8000/admin/pengguna/hapus/${id}`;
+    let loc = 'pengguna';
+    hapus(url,loc);
+})
+$("#yakin-produk").click(function(){
+    let url = `http://localhost:8000/admin/produk/hapus/${id}`;
+    let loc = 'produk';
+    hapus(url,loc);
+})
+function hapus(url, loc){
+    $.ajax({
+        url: url,
+        type: 'DELETE',
+        dataType: 'json',
+        data: {
+            _token: $("#_token").val()
+        },
+        success: function(data){
+            window.location.href = `http://localhost:8000/admin/${loc}`
+        }
+    });
+}

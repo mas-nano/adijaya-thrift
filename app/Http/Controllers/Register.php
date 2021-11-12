@@ -35,7 +35,7 @@ class Register extends Controller
         }
 
         $data = $request->all();
-        $data['photo'] = 'default.jpg';
+        $data['photo'] = 'default.png';
         $data['password'] = password_hash($request->password, PASSWORD_DEFAULT);
 
         try {

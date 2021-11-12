@@ -98,6 +98,7 @@ body{
 .img{
     border-radius: 50%;
     border: 1px solid black;
+    max-width: 100px;
 }
 .dropdown{
     border-radius: 18px;
@@ -218,6 +219,9 @@ body{
 }
 .mwp-50{
     max-width: 50%;
+}
+.mw-500{
+    max-width: 500px;
 }
 /* height */
 .h-300{

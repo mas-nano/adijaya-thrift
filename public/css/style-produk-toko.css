@@ -166,6 +166,9 @@
     padding: 14px 12px;
     box-shadow: none;
 }
+.btn:hover{
+    cursor: pointer;
+}
 .black{
     color:black;
 }

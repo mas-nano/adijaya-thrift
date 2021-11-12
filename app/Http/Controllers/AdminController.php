@@ -2,61 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function login()
-    {
-        if(session('dataAdmin')){
-            redirect()->to("admin/dashboard")->send();
-        }
-        return view('admin-login',[
-            "title" => "Login"
-        ]);
-    }
-    public function postLogin(Request $request)
-    {
-        $validate = Validator::make($request->all(), [
-            'password' => ['required'],
-            'username' => ['required']
-        ]);
-        
-        if($validate->fails()) {
-            return view('admin-login',[
-                "title" => "Login",
-                "data" => 'salah'
-            ]);
-        }
-        $user =Admin::where('username', $request->username)->first();
-        if($user){
-            if(password_verify($request->password, $user->password)){
-                $data = [
-                    'nama' => $user->name,
-                    'id' => $user->id,
-                    'username' => $user->username
-                ];
-                $request->session()->put('dataAdmin', $data);
-                return redirect()->to('admin/dashboard')->send();
-            }
-        }
-        return view('admin-login',[
-            "title" => "Login",
-            "data" => 'salah'
-        ]);
-    }
-    public function listAdmin()
+    public function listAdmin(Request $request)
     {
         if(!session('dataAdmin')){
             redirect()->to("admin")->send();
         }
         return view('admin-list',[
             "title" => "Admin",
-            "admin" => Admin::all(),
-            "i" => 0
+            "admin" => Admin::where('nama', 'like', '%'.$request->search.'%')->orWhere('id_admin', $request->search)->get(),
         ]);
     }
     public function tambahAdmin()
@@ -65,7 +29,7 @@ class AdminController extends Controller
             redirect()->to("admin")->send();
         }
         return view('admin-kelolaAdmin',[
-            "title" => "Tambah Admin",
+            "title" => "Admin",
             "aksi" => 'tambah-admin'
         ]);
     }
@@ -81,7 +45,7 @@ class AdminController extends Controller
         
         if($validate->fails()) {
             return view('admin-kelolaAdmin',[
-                "title" => "Tambah Admin",
+                "title" => "Admin",
                 "aksi" => 'tambah-admin',
                 "data" => json_decode($validate->errors())
             ]);
@@ -92,6 +56,60 @@ class AdminController extends Controller
         try {
             $user = Admin::create($request->all());
             return redirect()->to('admin/admin')->send();
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
+    }
+    public function ubahAdmin(Admin $admin)
+    {
+        if(!session('dataAdmin')){
+            redirect()->to("admin")->send();
+        }
+        return view('admin-kelolaAdmin',[
+            "title" => "Admin",
+            "aksi" => 'ubah-admin',
+            "admin" => $admin
+        ]);
+    }
+    public function postUbahAdmin(Admin $admin, Request $request)
+    {
+        $validate = Validator::make($request->all(), [
+            'nama' => ['required'],
+            'email' => ['required', 'email'],
+            'id_admin' => ['required']
+        ]);
+        if($validate->fails()) {
+            return view('admin-kelolaAdmin',[
+                "title" => "Admin",
+                "aksi" => 'ubah-admin',
+                "data" => json_decode($validate->errors()),
+                "admin" => $admin
+            ]);
+        }
+        if(isset($request->password)){
+            $request['password'] = password_hash($request->password, PASSWORD_DEFAULT);
+        }
+        try {
+            if(isset($request->password)){
+                $admin->update($request->all());
+            }else{
+                $admin->update($request->except('password'));
+            }
+            return redirect()->to("admin/admin")->send();
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
+    }
+    public function hapusAdmin(Admin $admin)
+    {
+        if(!session('dataAdmin')){
+            redirect()->to("admin")->send();
+        }
+        try {
+            $admin->delete();
+            return response()->json([
+                'message' => 'Sukses'
+            ], Response::HTTP_OK);
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

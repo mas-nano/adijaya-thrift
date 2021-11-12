@@ -39,8 +39,8 @@ class LoginAPI extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'username' => ['required'],
-            'email' => ['required', 'email']
+            'password' => ['required'],
+            'username' => ['required']
         ]);
         
         if($validate->fails()) {
@@ -69,7 +69,7 @@ class LoginAPI extends Controller
             }
         }else{
             return response()->json([
-                'message' => 'Email salah'
+                'message' => 'Nama pengguna salah'
             ],Response::HTTP_OK);      
         }
     }

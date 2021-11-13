@@ -20,6 +20,7 @@ class CreatePemesanansTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('penjual_id');
             $table->string('status_pembeli')->nullable();
+            $table->string('status_admin')->nullable();
             $table->string('status_kirim')->nullable();
             $table->string('status_terima')->nullable();
             $table->string('status_ajukan')->nullable();

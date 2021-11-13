@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\AdminBantuan;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDana;
+use App\Http\Controllers\AdminDashboard;
+use App\Http\Controllers\AdminKonfirmasi;
 use App\Http\Controllers\AdminLogin;
+use App\Http\Controllers\AdminPencairan;
 use App\Http\Controllers\AdminProduk;
 use App\Http\Controllers\AdminUser;
 use App\Http\Controllers\Akun;
@@ -76,6 +80,9 @@ Route::post('/kelolaProduk', [ProdukController::class, 'store']);
 Route::get('/kelolaProduk/{produk}', [ProdukController::class, 'show']);
 Route::post('/kelolaProduk/{produk}', [ProdukController::class, 'update']);
 Route::get('/riwayat', function () {
+    if(!session('dataUser')){
+        return redirect()->to('/login')->send();
+    }
     return view('pemesanan',[
         "css" => "pemesanan",
         "title" => "Riwayat"
@@ -90,6 +97,9 @@ Route::get('/produk-toko', [ProdukToko::class, 'index']);
 Route::get('/akun', [Akun::class, 'index']);
 Route::post('/akun', [Akun::class, 'update']);
 Route::get('/penjualan', function () {
+    if(!session('dataUser')){
+        return redirect()->to('/login')->send();
+    }
     return view('penjualan',[
         "css" => "penjualan",
         "title" => "Penjualan"
@@ -111,11 +121,7 @@ Route::get('/penawaran', [Penawaran::class, 'index']);
 Route::post('/penawaran', [Penawaran::class, 'update']);
 Route::get('/admin', [AdminLogin::class, 'login']);
 Route::post('/admin', [AdminLogin::class, 'postLogin']);
-Route::get('/admin/dashboard', function () {
-    return view('admin-dashboard',[
-        "title" => "Dashboard"
-    ]);
-});
+Route::get('/admin/dashboard', [AdminDashboard::class, 'index']);
 Route::get('/admin/admin', [AdminController::class, 'listAdmin']);
 Route::get('/admin/admin/tambah', [AdminController::class, 'tambahAdmin']);
 Route::post('/admin/admin/tambah', [AdminController::class, 'postTambahAdmin']);
@@ -131,36 +137,16 @@ Route::delete('/admin/pengguna/hapus/{user}', [AdminUser::class, 'hapusUser']);
 Route::get('/admin/bantuan', [AdminBantuan::class, 'index']);
 Route::get('/admin/bantuan/{bantuan}', [AdminBantuan::class, 'show']);
 Route::post('/admin/bantuan/balas/{bantuan}', [AdminBantuan::class, 'update']);
-Route::get('/admin/perusahaan', function () {
-    return view('admin-perusahaan',[
-        "title" => "Perusahaan"
-    ]);
-});
-Route::get('/admin/kelolaDana', function () {
-    return view('admin-kelolaDana',[
-        "title" => "Perusahaan"
-    ]);
-});
-Route::get('/admin/pencairan', function () {
-    return view('admin-pencairanList',[
-        "title" => "Pencairan"
-    ]);
-});
-Route::get('/admin/kelolaPencairan', function () {
-    return view('admin-pencairan',[
-        "title" => "Pencairan"
-    ]);
-});
-Route::get('/admin/konfirmasi', function () {
-    return view('admin-konfirmasiList',[
-        "title" => "Konfirmasi"
-    ]);
-});
-Route::get('/admin/kelolaKonfirmasi', function () {
-    return view('admin-konfirmasi',[
-        "title" => "Konfirmasi"
-    ]);
-});
+Route::get('/admin/perusahaan', [AdminDana::class, 'index']);
+Route::get('/admin/perusahaan/tambah', [AdminDana::class, 'tambah']);
+Route::post('/admin/perusahaan/tambah', [AdminDana::class, 'postTambah']);
+Route::get('/admin/perusahaan/{pengeluaran}', [AdminDana::class, 'show']);
+Route::get('/admin/pencairan', [AdminPencairan::class, 'index']);
+Route::get('/admin/pencairan/{penarikan}', [AdminPencairan::class, 'show']);
+Route::post('/admin/pencairan/{penarikan}', [AdminPencairan::class, 'update']);
+Route::get('/admin/konfirmasi', [AdminKonfirmasi::class, 'index']);
+Route::get('/admin/konfirmasi/{pemesanan}', [AdminKonfirmasi::class, 'show']);
+Route::post('/admin/konfirmasi/{pemesanan}', [AdminKonfirmasi::class, 'update']);
 Route::get('/admin/produk', [AdminProduk::class, 'index']);
 Route::get('/admin/produk/ubah/{produk}', [AdminProduk::class, 'ubah']);
 Route::post('/admin/produk/ubah/{produk}', [AdminProduk::class, 'postUbah']);

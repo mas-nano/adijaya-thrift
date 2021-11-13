@@ -10,6 +10,9 @@ class AdminBantuan extends Controller
 {
     public function index(Request $request)
     {
+        if(!session('dataAdmin')){
+            return redirect()->to('/admin')->send();
+        }
         return view('admin-bantuanList',[
             "title" => "Bantuan",
             "bantuan" => Bantuan::where('status', 'like', '%'.$request->filter.'%')->get(),
@@ -18,6 +21,9 @@ class AdminBantuan extends Controller
     }
     public function show(Bantuan $bantuan)
     {
+        if(!session('dataAdmin')){
+            return redirect()->to('/admin')->send();
+        }
         return view('admin-bantuan',[
             "title" => "Bantuan",
             "bantuan" => $bantuan

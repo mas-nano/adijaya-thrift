@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,12 @@ class Pesanan extends Controller
 {
     public function index()
     {
+        if(!session('dataUser')){
+            return redirect()->to('/login')->send();
+        }
+        if(!User::find(session('dataUser')['id'])->lengkap){
+            return redirect()->to('/akun')->send();
+        }
         return view('pesanan-masuk',[
             "css" => "pesanan-masuk",
             "title" => "Pesanan Masuk",

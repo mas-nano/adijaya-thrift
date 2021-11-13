@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Pemesanan;
 use App\Models\Penarikan;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Database\QueryException;
 
 class Riwayat extends Controller
 {
     public function index()
     {
+        if(!session('dataUser')){
+            return redirect()->to('/login')->send();
+        }
+        if(!User::find(session('dataUser')['id'])->lengkap){
+            return redirect()->to('/akun')->send();
+        }
         return view('riwayat-penjualan',[
             "css" => "riwayat-penjualan",
             "title" => "Riwayat Penjualan",

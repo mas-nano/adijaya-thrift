@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenarikansTable extends Migration
+class CreatePemasukansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePenarikansTable extends Migration
      */
     public function up()
     {
-        Schema::create('penarikans', function (Blueprint $table) {
+        Schema::create('pemasukans', function (Blueprint $table) {
             $table->id();
-            $table->date('tgl_ajukan');
-            $table->date('tgl_cair');
-            $table->foreignId('pemesanan_id');
+            $table->date('tgl');
+            $table->string('nominal');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePenarikansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penarikans');
+        Schema::dropIfExists('pemasukans');
     }
 }

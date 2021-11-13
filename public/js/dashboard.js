@@ -4,8 +4,8 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
         datasets: [{
-            label: '# of Votes',
-            data: [100000, 160000, 90000, 100000, 200000, 30000, 176000, 120000, 210000, 90000, 100000, 20000],
+            label: 'Pemasukan per Bulan',
+            data: data,
             backgroundColor: [
                 'rgba(255, 141, 68, 1)'
             ],
@@ -16,6 +16,7 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             y: {
                 beginAtZero: true

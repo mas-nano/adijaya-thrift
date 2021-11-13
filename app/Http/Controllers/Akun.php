@@ -24,6 +24,8 @@ class Akun extends Controller
                 "data" => json_decode($data, true),
                 "prov" => $prov
             ]);
+        }else{
+            return redirect()->to('/login')->send();
         }
     }
     public function update(Request $request)
@@ -77,6 +79,7 @@ class Akun extends Controller
             $data["photo"] = $filename;
         }
         try {
+            $data['lengkap'] = 1;
             $user = User::where('id', session('dataUser')['id'])->update($data);
             $dataUser = User::where('id', $id)->get();
             $sesi = [

@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Tawar;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class Penawaran extends Controller
 {
     public function index()
     {
+        if(!session('dataUser')){
+            return redirect()->to('/login')->send();
+        }
+        if(!User::find(session('dataUser')['id'])->lengkap){
+            return redirect()->to('/akun')->send();
+        }
         $query = Tawar::where('penjual_id', session('dataUser')['id'])->get();
         foreach($query as $q){
             $q->produk;

@@ -12,6 +12,9 @@ class AdminProduk extends Controller
 {
     public function index(Request $request)
     {
+        if(!session('dataAdmin')){
+            return redirect()->to('/admin')->send();
+        }
         return view('admin-produkList',[
             "title" => "Produk",
             "produk" => Produk::where('id', $request->search)->orWhere('nama_produk', 'like', '%'.$request->search.'%')->get()
@@ -20,6 +23,9 @@ class AdminProduk extends Controller
     }
     public function ubah(Produk $produk)
     {
+        if(!session('dataAdmin')){
+            return redirect()->to('/admin')->send();
+        }
         return view('admin-kelolaProduk',[
             "title" => "Produk",
             "produk" => $produk

@@ -5,8 +5,8 @@
     <div class="flex jc-r ai-c">
         <select name="sort" id="sort" class="louis fs-20 br-18">
             <option value="">Filter</option>
-            <option value="Sudah Dicairkan">Sudah Dicairkan</option>
-            <option value="Belum Dicairkan">Belum Dicairkan</option>
+            <option value="Sudah Dicairkan" {{ ($req=='Sudah Dicairkan'?"selected":"") }}>Sudah Dicairkan</option>
+            <option value="Belum Dicairkan" {{ ($req=='Belum Dicairkan'?"selected":"") }}>Belum Dicairkan</option>
         </select>
     </div>
     <table class="bg-grey table mg-t-3 louis fs-14">
@@ -20,26 +20,30 @@
             <td class="pd-h-2">Status</td>
             <td class="pd-h-2"></td>
         </thead>
+        @foreach ($pencairan as $p)    
         <tbody class="bg-white ta-c">
-            <td class="pd-h-2">001</td>
-            <td class="pd-h-2">03/10/2021</td>
-            <td class="pd-h-2">03/10/2021</td>
-            <td class="pd-h-2">@yefichlr</td>
-            <td class="pd-h-2">BCA</td>
-            <td class="pd-h-2">50006543</td>
-            <td class="pd-h-2 green">Sudah Dicairkan</td>
-            <td class="pd-h-2"><span class="pointer mg-h-1"><a href="kelolaPencairan" class="td-0 black"><i class="fas fa-exchange-alt"></i></a></span></td>
+            <td class="pd-h-2">{{ $p->pemesanan->id }}</td>
+            <td class="pd-h-2">{{ $p->tgl_ajukan }}</td>
+            <td class="pd-h-2">{{ ($p->tgl_cair?$p->tgl_cair:"-") }}</td>
+            <td class="pd-h-2">{{ '@'.$p->pemesanan->penjual->username }}</td>
+            <td class="pd-h-2">{{ $p->pemesanan->penjual->bank }}</td>
+            <td class="pd-h-2">{{ $p->pemesanan->penjual->rek }}</td>
+            <td class="pd-h-2 {{ ($p->pemesanan->status_ajukan=="Sudah dicairkan"?"green":"red") }}">{{ $p->pemesanan->status_ajukan }}</td>
+            <td class="pd-h-2"><span class="mg-h-1">
+                @if ($p->pemesanan->status_ajukan=="Belum dicairkan")    
+                <a href="pencairan/{{ $p->id }}" class="td-0 black"><i class="fas fa-exchange-alt"></i></a>
+                @endif
+            </span></td>
         </tbody>
-        <tbody class="bg-white ta-c">
-            <td class="pd-h-2">002</td>
-            <td class="pd-h-2">03/10/2021</td>
-            <td class="pd-h-2">03/10/2021</td>
-            <td class="pd-h-2">@yefichlr</td>
-            <td class="pd-h-2">BCA</td>
-            <td class="pd-h-2">50006543</td>
-            <td class="pd-h-2 red">Belum Dicairkan</td>
-            <td class="pd-h-2"><span class="pointer mg-h-1"><a href="kelolaPencairan" class="td-0 black"><i class="fas fa-exchange-alt"></i></a></span></td>
-        </tbody>
+        @endforeach
     </table>
+    @if (count($pencairan)<1)
+        <p class="louis ta-c">Pencairan dana tidak ditemukan</p>
+    @endif
 </div>
+<script>
+    $("#sort").change(function(){
+        window.location.href = `http://localhost:8000/admin/pencairan?sort=${$("#sort").val()}`;
+    })
+</script>
 @endsection

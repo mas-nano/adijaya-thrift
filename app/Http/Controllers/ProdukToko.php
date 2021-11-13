@@ -13,6 +13,12 @@ class ProdukToko extends Controller
 {
     public function index()
     {
+        if(!session('dataUser')){
+            return redirect()->to('/login')->send();
+        }
+        if(!User::find(session('dataUser')['id'])->lengkap){
+            return redirect()->to('/akun')->send();
+        }
         $id = session('dataUser')['id'];
         $data = Produk::where('id_penjual', $id)->get();
         return view('produk-toko',[

@@ -2,6 +2,7 @@
 @section('content')
 <div class="wrapper">
     <p class="montserrat fs-22 ta-c fw-600">Dana Perusahaan</p>
+    <p class="ta-r"><i class="fas fa-print"></i></p>
     <div class="flex">
         <div class="box bg-grey pd-h-3 pd-v-5 flex-5">
             <p class="montserrat fs-22 ta-c fw-600 mg-v-1">Pemasukan</p>

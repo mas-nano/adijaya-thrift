@@ -13,7 +13,11 @@
                 <p class="detail">{{ (is_null($data->pembeli->tel)?"Nomor telepon tidak tersedia":$data->pembeli->tel) }}</p>
                 @endif
             </div>
-            <p><i class="fa fa-print" aria-hidden="true"></i></p>
+            @if (session('dataUser')['id']==$data->penjual_id)    
+                @if ($data->status_terima=="Selesai")
+                    <p><i class="fa fa-print" aria-hidden="true"></i></p>
+                @endif
+            @endif
         </div>
         <div class="split"></div>
         <div class="right">

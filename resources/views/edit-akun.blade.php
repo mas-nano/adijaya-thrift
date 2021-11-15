@@ -9,12 +9,9 @@
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
                     <p class="nama-pengguna">{{ '@'.session('dataUser')['username'] }}</p>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span>(3)</span>
+                    @for ($j = 1; $j <= 5; $j++)
+                        <i class="{{ ($j<=$rating?"fas":"far") }} fa-star checked"></i>
+                    @endfor
                 </div>
             </div>
             <div class="pilihan">

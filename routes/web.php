@@ -1,32 +1,34 @@
 <?php
 
-use App\Http\Controllers\AdminBantuan;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminDana;
-use App\Http\Controllers\AdminDashboard;
-use App\Http\Controllers\AdminKonfirmasi;
-use App\Http\Controllers\AdminLogin;
-use App\Http\Controllers\AdminPencairan;
-use App\Http\Controllers\AdminProduk;
-use App\Http\Controllers\AdminUser;
+use App\Models\User;
 use App\Http\Controllers\Akun;
-use App\Http\Controllers\Bantuan;
-use App\Http\Controllers\Checkout;
-use App\Http\Controllers\DetailPesan;
-use App\Http\Controllers\KelolaAdmin;
+use App\Http\Controllers\Toko;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
-use App\Http\Controllers\Pembayaran;
-use App\Http\Controllers\Penawaran;
-use App\Http\Controllers\Pesanan;
-use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\ProdukToko;
-use App\Http\Controllers\Register;
-use App\Http\Controllers\Riwayat;
 use App\Http\Controllers\Search;
-use App\Http\Controllers\Toko;
+use App\Http\Controllers\Bantuan;
+use App\Http\Controllers\Pesanan;
+use App\Http\Controllers\Riwayat;
+use App\Http\Controllers\Checkout;
+use App\Http\Controllers\Register;
 use App\Http\Controllers\Wishlist;
+use App\Http\Controllers\AdminDana;
+use App\Http\Controllers\AdminUser;
+use App\Http\Controllers\Penawaran;
+use App\Http\Controllers\Penjualan;
+use App\Http\Controllers\AdminLogin;
+use App\Http\Controllers\Pembayaran;
+use App\Http\Controllers\ProdukToko;
+use App\Http\Controllers\AdminProduk;
+use App\Http\Controllers\DetailPesan;
+use App\Http\Controllers\KelolaAdmin;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminBantuan;
+use App\Http\Controllers\AdminDashboard;
+use App\Http\Controllers\AdminPencairan;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminKonfirmasi;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,7 @@ Route::get('/notifikasi', function () {
     ]);
 });
 Route::get('/toko/{user}', [Toko::class, 'index']);
+Route::get('/toko/{user}/produk', [Toko::class, 'produk']);
 Route::get('/checkout/{produk}', [Checkout::class, 'index']);
 Route::post('/checkout/{produk}', [Checkout::class, 'store']);
 Route::get('/panduan', function () {
@@ -85,7 +88,8 @@ Route::get('/riwayat', function () {
     }
     return view('pemesanan',[
         "css" => "pemesanan",
-        "title" => "Riwayat"
+        "title" => "Riwayat",
+        "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
     ]);
 });
 Route::get('/pesanan-masuk', [Pesanan::class, 'index']);
@@ -96,24 +100,11 @@ Route::post('/bantuan', [Bantuan::class, 'store']);
 Route::get('/produk-toko', [ProdukToko::class, 'index']);
 Route::get('/akun', [Akun::class, 'index']);
 Route::post('/akun', [Akun::class, 'update']);
-Route::get('/penjualan', function () {
-    if(!session('dataUser')){
-        return redirect()->to('/login')->send();
-    }
-    return view('penjualan',[
-        "css" => "penjualan",
-        "title" => "Penjualan"
-    ]);
-});
+Route::get('/penjualan', [Penjualan::class, 'index']);
 Route::get('/wishlist', [Wishlist::class, 'index']);
 Route::get('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'index']);
 Route::post('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'update']);
-Route::get('/laporan-penjualan', function () {
-    return view('laporan-penjualan',[
-        "css" => "laporan-penjualan",
-        "title" => "Laporan Penjualan"
-    ]);
-});
+Route::get('/laporan-penjualan', [Penjualan::class, 'detail']);
 Route::get('/riwayat-penjualan', [Riwayat::class, 'index']);
 Route::post('/riwayat-penjualan', [Riwayat::class, 'search']);
 Route::post('/riwayat-penjualan/ajukan', [Riwayat::class, 'ajukan']);

@@ -143,6 +143,7 @@ label{
 .modalContent textarea{
     display: block;
     margin:auto;
+    width: 46%;
     margin-bottom: 20px;
     background-color:white;
     border-radius: 18px;
@@ -153,6 +154,7 @@ label{
 }
 .close{
     margin-left: 20px;
+    padding-top: 20px;
 }
 .sub-modal{
     width: 55%;
@@ -181,7 +183,7 @@ label{
     margin: auto;
 }
 .checked {
-    color: orange;
+    color: #FFCB44;
 }
 span{
     font-size: 20px;
@@ -193,4 +195,12 @@ span{
 .link-bayar{
     text-decoration: none;
     color: white;
+}
+.far:hover, .fas:hover{
+    cursor: pointer;
+}
+.center{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: red;
 }

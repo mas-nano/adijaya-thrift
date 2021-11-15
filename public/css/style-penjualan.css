@@ -38,7 +38,7 @@
 }
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: orange;
+    color: #FFCB44;
 }
 .pilihan{
     background-color: white;
@@ -79,6 +79,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 16px;
+}
+.link-detail{
+    text-decoration: none;
+    color: black;
 }
 .center p{
     text-align: center;
@@ -138,6 +142,9 @@
 }
 .louis-b{
     font-family: 'Louis George Cafe';
+}
+.ta-c{
+    text-align: center;
 }
 .mt-1{
     margin-top: 10px;

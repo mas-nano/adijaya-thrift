@@ -70,22 +70,30 @@
         @endif
     </div>
 </div>
-<div class="modal" id="modalBox">
+<div class="modal" id="modalBox" {!! (isset($error)?"style='display: block;'":"") !!}>
     <div class="modalContent">
-        <p class="close fa fa-chevron-left"></p>
+        <p class="close"><i class="fas fa-chevron-left"></i></p>
         <div class="star">
-            <span class="fa fa-star fa-2x" id="1"></span>
-            <span class="fa fa-star fa-2x" id="2"></span>
-            <span class="fa fa-star fa-2x" id="3"></span>
-            <span class="fa fa-star fa-2x" id="4"></span>
-            <span class="fa fa-star fa-2x" id="5"></span>
+            <i class="far fa-star fa-2x checked" id="1"></i>
+            <i class="far fa-star fa-2x checked" id="2"></i>
+            <i class="far fa-star fa-2x checked" id="3"></i>
+            <i class="far fa-star fa-2x checked" id="4"></i>
+            <i class="far fa-star fa-2x checked" id="5"></i>
         </div>
         <form action="" method="POST">
             @csrf
+            <input type="hidden" name="rating" id="rating">
             <p class="sub-modal">Review</p>
-            <textarea name="review" id="" rows="5" cols="25"></textarea>
+            <textarea name="review" id="" rows="5"></textarea>
             <button type="submit" name="terima">Kirim</button>
         </form>
+        @if (isset($error))
+            @foreach ($error as $item)
+                @foreach ($item as $msg)
+                <p class="center">{{ $msg }}</p>
+                @endforeach
+            @endforeach
+        @endif
     </div>
 </div>
 <script src="../js/review.js">

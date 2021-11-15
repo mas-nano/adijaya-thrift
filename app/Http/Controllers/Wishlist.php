@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Wishlist as ModelsWishlist;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Wishlist as ModelsWishlist;
 
 class Wishlist extends Controller
 {
@@ -15,7 +16,8 @@ class Wishlist extends Controller
         return view('wishlist',[
             "css" => "wishlist",
             "title" => "Wishlist",
-            "wishlist" => ModelsWishlist::where('user_id', session('dataUser')['id'])->get()
+            "wishlist" => ModelsWishlist::where('user_id', session('dataUser')['id'])->get(),
+            "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
         ]);
     }
 }

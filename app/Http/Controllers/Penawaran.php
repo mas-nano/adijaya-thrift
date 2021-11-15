@@ -27,6 +27,7 @@ class Penawaran extends Controller
             "title" => "Penawaran",
             "tawar" => $query,
             "i"=> 0,
+            "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
         ]);
     }
     public function update(Request $request)

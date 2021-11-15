@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemesanan;
+use App\Models\Review;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DetailPesan extends Controller
 {
@@ -30,9 +33,29 @@ class DetailPesan extends Controller
             return redirect()->to('/pesanan-masuk')->send();
         }
         if(isset($request['terima'])){
+            $validate = Validator::make($request->all(), [
+                'review' => ['required'],
+                'rating' => ['required']
+            ]);
+            if($validate->fails()) {
+                return view('detail-pemesanan',[
+                    "css" => "detail-pemesanan",
+                    "title" => "Detail Pemesanan",
+                    "data" => $pemesanan,
+                    "error" => json_decode($validate->errors(), true)
+                ]);
+            }
             $request['status_terima'] = 'Selesai';
             $request['status_pembeli'] = 'Selesai';
-            $pemesanan->update($request->except('review'));
+            try {
+                $pemesanan->update($request->except(['review', 'rating']));
+                $request['user_id'] = session('dataUser')['id'];
+                $request['penjual_id'] = $pemesanan->penjual_id;
+                $request['produk_id'] = $pemesanan->produk_id;
+                Review::create($request->except(['status_terima', 'status_pembeli']));
+            } catch (QueryException $e) {
+                return $e->errorInfo;
+            }
             return redirect()->to('/riwayat')->send();
         }
     }

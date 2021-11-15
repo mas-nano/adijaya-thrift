@@ -22,7 +22,8 @@ class Akun extends Controller
                 "css" => "edit-akun",
                 "title" => "Edit Akun",
                 "data" => json_decode($data, true),
-                "prov" => $prov
+                "prov" => $prov,
+                "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
             ]);
         }else{
             return redirect()->to('/login')->send();
@@ -45,7 +46,8 @@ class Akun extends Controller
                 "title" => "Edit Akun",
                 "data" => $dataUser,
                 "message" => json_decode($validate->errors(),true),
-                "prov" => $prov
+                "prov" => $prov,
+                "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
             ]);
         }
         $data = $request->all();
@@ -71,7 +73,8 @@ class Akun extends Controller
                     "title" => "Edit Akun",
                     "data" => $dataUser,
                     "gambar" => "File bukan gambar",
-                    "prov" => $prov
+                    "prov" => $prov,
+                    "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
                 ]);
             }
             $filename = time().'.'.$extention;
@@ -95,7 +98,8 @@ class Akun extends Controller
                 "css" => "edit-akun",
                 "title" => "Edit Akun",
                 "data" => json_decode($dataUser, true),
-                "prov" => $prov
+                "prov" => $prov,
+                "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
             ]);
         } catch (QueryException $e) {
             return $e->errorInfo;

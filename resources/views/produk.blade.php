@@ -12,12 +12,9 @@
         <div>
             <p class="nama-toko"><a href="/toko/{{ (isset($data->id)?$data->id:"") }}" class="nama-toko">{{ (isset($data->name)?$data->name:"") }}</a></p>
             <p class="nama-pengguna">{{ (isset($data->username)?"@".$data->username:"") }}</p>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span>(3)</span>
+            @for ($j = 1; $j <= 5; $j++)
+                <i class="{{ ($j<=$rating?"fas":"far") }} fa-star checked"></i>
+            @endfor
         </div>
     </div>
     <p class="louis fs-20">ID: #{{ (isset($produk['id'])?$produk['id']:"") }}</p>
@@ -35,8 +32,8 @@
     <div>
         @if (session('dataUser'))
             @if (session('dataUser')['id']!=$produk['id_penjual'])
-            <i class="fa fa-fw fa-comment-o fa-lg icon"></i>
-            <i class="fa fa-fw fa-heart-o fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
+            <i class="far fa-comment-alt fa-lg icon"></i>
+            <i class="far fa-heart fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
             @endif
         @endif
         <i class="fa fa-fw fa-share-alt fa-lg icon"></i>

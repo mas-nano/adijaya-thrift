@@ -20,7 +20,8 @@ class Pesanan extends Controller
             "css" => "pesanan-masuk",
             "title" => "Pesanan Masuk",
             "pemesanan" => Pemesanan::where('penjual_id', session('dataUser')['id'])->get(),
-            "i" => 0
+            "i" => 0,
+            "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
         ]);
     }
     public function search(Request $request)

@@ -39,7 +39,7 @@
 }
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: orange;
+    color: #FFCB44;
 }
 .pilihan{
     background-color: white;
@@ -87,7 +87,7 @@
 .pt-10{
     padding: 10px 0px;
 }
-.pt-10 p,.box p{
+.sub,.center{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 20px;
@@ -108,4 +108,9 @@ canvas{
 .center{
     text-align: center;
     padding: 10px 0px;
+}
+.harga{
+    font-family: 'Louis George Cafe';
+    font-size: 48px;
+    margin: 5px 0px;
 }

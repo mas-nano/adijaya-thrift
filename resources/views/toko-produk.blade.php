@@ -4,48 +4,63 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="../img/uploads/profile_images/{{ (isset($data['photo'])?$data['photo']:"") }}" alt="">
+            <img src="../../img/uploads/profile_images/{{ $user->photo }}" alt="">
         </div>
         <div>
-            <p class="nama-toko">{{ (isset($data['name'])?$data['name']:"") }}</p>
-            <p class="nama-pengguna">{{ (isset($data['username'])?"@".$data['username']:"") }}</p>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span>(3)</span>
+            <p class="nama-toko">{{ $user->name }}</p>
+            <p class="nama-pengguna">{{ '@'.$user->username }}</p>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="far fa-star checked"></i>
+            <i class="far fa-star checked"></i>
         </div>
     </div>
     <div class="pilihan">
-        <a href="1" class="atas">Review</a>
-        <a href="?produk=true" class="bawah terpilih">Produk</a>
+        <a href="/toko/{{ $user->id }}" class="atas">Review</a>
+        <a href="{{ $user->id }}/produk" class="bawah terpilih">Produk</a>
     </div>
     <div class="wrapper-maps">
-        <div id="maps" data-lat="{{ (isset($data['lat'])?$data['lat']:"") }}" data-lng="{{ (isset($data['lng'])?$data['lng']:"") }}">
+        @if (!isset($user->lat))
+            <p class="center">Belum mengatur lokasi</p>
+        @else
+        <div id="maps" data-lat="{{ (isset($user->lat)?$user->lat:"") }}" data-lng="{{ (isset($user->lng)?$user->lng:"") }}">
         </div>
+        @endif
     </div>
 </div>
 <div class="split"></div>
-<div class="ulasan">
+<div class="ulasan {{ (count($produk)<1?"flex":"") }}">
+    @if (count($produk)<1)
+    <p class="warn">Laman ini kosong</p>
+    @else
     <ul class="hasil">
-        @if (isset($produk))
-            @for ($i = 0; $i < count($produk); $i++)
+        @foreach ($produk as $p)
             <li>
-                <div class="produk">
-                    <img src="../img/uploads/produk/{{ $produk[$i]['foto'] }}" alt="" srcset="" class="gambar-produk">
-                    <p class="nama-barang">{{ $produk[$i]['nama_produk'] }}</p>
-                    <p class="harga-barang">Rp{{ number_format($produk[$i]['harga'],0,',','.') }}</p>
+                <div class="produk" data-id="{{ $p->id }}">
+                    <img src="../../img/uploads/produk/{{ $p->foto }}" alt="" srcset="" class="gambar-produk">
+                    <p class="nama-barang">{{ $p->nama_produk }}</p>
+                    @if (isset($p->promo))
+                    <p class="harga-barang">Rp<strike>{{ number_format($p->harga,0,',','.') }}</strike></p>
+                    <p class="harga-barang fs-20 orange">Rp{{ number_format($p->promo,0,',','.') }}</p>
+                    @else
+                    <p class="harga-barang">Rp{{ number_format($p->harga,0,',','.') }}</p>
+                    @endif
                 </div>
             </li>
-            @endfor
-        @endif
+        @endforeach
     </ul>
+    @endif
 </div>
 </div>
 <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
 async
 ></script>
-<script src="../js/profilToko.js"></script>
+<script src="http://localhost:8000/js/profilToko.js"></script>
+<script>
+    $(".produk").click(function(){
+        window.location.href = `http://localhost:8000/produk/${$(this).data("id")}`
+    })
+</script>
 @endsection

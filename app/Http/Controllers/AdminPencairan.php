@@ -37,6 +37,7 @@ class AdminPencairan extends Controller
     public function update(Penarikan $penarikan)
     {
         $data['status_ajukan'] = 'Sudah dicairkan';
+        $data['tgl_cair'] = date('Y-m-d');
         $pemasukan['tgl'] = date('Y-m-d');
         $pemasukan['nominal'] = 2000;
         try {

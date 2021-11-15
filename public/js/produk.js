@@ -37,7 +37,7 @@ function outsideClick(e){
     }
  
 }
-var id = $(".fa-heart-o").data("id");
+var id = $(".fa-heart").data("id");
 $(".fa-heart-o").click(function(){
     if($(".fa-heart-o").hasClass("red")){
         $.ajax({

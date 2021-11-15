@@ -9,12 +9,9 @@
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
                     <p class="nama-pengguna">{{ '@'.session('dataUser')['username'] }}</p>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span>(3)</span>
+                    @for ($j = 1; $j <= 5; $j++)
+                        <i class="{{ ($j<=$rating?"fas":"far") }} fa-star checked"></i>
+                    @endfor
                 </div>
             </div>
             <div class="pilihan">
@@ -39,28 +36,25 @@
             <div class="box">
                 <div class="width-90 pt-10">
                     <p class="montserrat fw-5 fs-24 mb-0">Total penjualan hari ini:</p>
-                    <p class="louis-b fs-48 mt-1">Rp1230000</p>
+                    <p class="louis-b fs-48 mt-1">Rp{{ number_format($total, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="box">
                 <div class="width-90 pt-10">
                     <p class="montserrat fw-5 fs-24">Riwayat Penjualan</p>
+                    @foreach ($pemesanan as $p)    
                     <div class="flex mb-3">
-                        <img src="img/sepatu.png" alt="">
+                        <img src="img/uploads/produk/{{ $p->produk->foto }}" alt="">
                         <div class="flex-5">
-                            <p class="louis fs-23">Sepatu Nike</p>
-                            <p class="louis fs-14">Sudah Dibayar</p>
+                            <p class="louis fs-23">{{ $p->produk->nama_produk }}</p>
+                            <p class="louis fs-14">{{ (is_null($p->status_terima)?"Belum Dikirim":$p->status_terima) }}</p>
                         </div>
-                        <p class="flex-1 louis fs-23">Detail</p>
+                        <p class="flex-1 louis fs-23"><a href="/detail-pemesanan/{{ $p->id }}" class="link-detail">Detail</a></p>
                     </div>
-                    <div class="flex mb-3">
-                        <img src="img/sepatu.png" alt="">
-                        <div class="flex-5">
-                            <p class="louis fs-23">Sepatu Nike</p>
-                            <p class="louis fs-14">Sudah Dibayar</p>
-                        </div>
-                        <p class="flex-1 louis fs-23">Detail</p>
-                    </div>
+                    @endforeach
+                    @if (count($pemesanan)<1)
+                    <p class="montserrat ta-c">Konfirmasi pembayaran tidak ditemukan</p>
+                    @endif
                 </div>
             </div>
         </div>

@@ -24,7 +24,8 @@ class ProdukToko extends Controller
         return view('produk-toko',[
             "css" => "produk-toko",
             "title" => "Produk Toko",
-            "data" => json_decode($data, true)
+            "data" => json_decode($data, true),
+            "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
         ]);
     }
     public function show(Produk $produk)
@@ -39,12 +40,14 @@ class ProdukToko extends Controller
                 $id = false;
             }
         }
+        $rating = User::findOrFail($produk->id_penjual)->review->avg('rating');
         return view('produk',[
             "css" => "produk",
             "title" => "Produk",
             "produk" => json_decode($produk, true),
             "data" => $data,
-            "wishlist" => $id
+            "wishlist" => $id,
+            "rating" => floor($rating)
         ]);
     }
     public function store(Produk $produk, Request $request)
@@ -63,12 +66,14 @@ class ProdukToko extends Controller
                 }else{
                     $id = false;
                 }
+                $rating = User::findOrFail($produk->id_penjual)->review->avg('rating');
                 return view('produk',[
                     "css" => "produk",
                     "title" => "Produk",
                     "produk" => json_decode($produk, true),
                     "data" => $data,
-                    "wishlist" => $id
+                    "wishlist" => $id,
+                    "rating" => floor($rating)
                 ]);
             }
             $request['produk_id'] = $produk->id;
@@ -81,12 +86,20 @@ class ProdukToko extends Controller
                 }else{
                     $tawar->update($request->all());
                 }
+                $wishlist = User::findOrFail(session('dataUser')['id']);
+                if(isset($wishlist->wishlist->where('produk_id', $produk->id)->first()->id)){
+                    $id = $wishlist->wishlist->where('produk_id', $produk->id)->first()->id;
+                }else{
+                    $id = false;
+                }
+                $rating = User::findOrFail($produk->id_penjual)->review->avg('rating');
                 return view('produk',[
                     "css" => "produk",
                     "title" => "Produk",
                     "produk" => json_decode($produk, true),
                     "data" => $data,
-                    "wishlist" => $id
+                    "wishlist" => $id,
+                    "rating" => floor($rating)
                 ]);
             } catch (QueryException $e) {
                 return $e->errorInfo;

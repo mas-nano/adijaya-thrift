@@ -15,4 +15,12 @@ class User extends Model
     {
         return $this->hasMany(Wishlist::class);
     }
+    public function review()
+    {
+        return $this->hasMany(Review::class, 'penjual_id');
+    }
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'id_penjual');
+    }
 }

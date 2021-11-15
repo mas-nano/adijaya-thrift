@@ -41,9 +41,12 @@
     font-size: 14px;
     margin-top: 5px;
 }
+.nama-pengguna{
+    margin: 10px 0px;
+}
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: orange;
+    color: #FFCB44;
 }
 .pilihan{
     background-color: white;
@@ -108,7 +111,7 @@
     height: 200px;
     object-fit: cover;
 }
-.produk p{
+.nama-barang, .harga-barang{
     font-family: 'Louis George Cafe';
     margin: 10px 0px;
     font-size: 18px;
@@ -140,12 +143,15 @@
 .ulasan-rinci img{
     border-radius: 50%;
     border: 1px solid black;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
 }
 .ulasan-rinci div{
     display: inline-block;
     margin-right: 30px;
 }
-.ulasan-rinci p{
+.nama-produk, .deskripsi-ulasan, .star{
     margin: 3px 0px;
 }
 .heading{
@@ -169,4 +175,32 @@
     background-color:transparent;
 }
 /* end content */
-
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.warn{
+    font-family: 'Louis George Cafe';
+    font-size: 24px;
+    
+}
+.fs-20{
+    font-size: 20px;
+}
+.orange{
+    color: #FF8D44;
+}
+.produk:hover{
+    cursor: pointer;
+}
+.grey{
+    height: 1px;
+    background-color: #e1e1e1;
+    border: none;
+    margin: 25px 0px;
+}
+.center{
+    font-family: 'Louis George Cafe Std';
+    text-align: center;
+}

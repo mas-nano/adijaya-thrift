@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\Pemesanan;
 use App\Models\Penarikan;
@@ -18,6 +19,11 @@ class Riwayat extends Controller
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
             return redirect()->to('/akun')->send();
+        }
+        try {
+            Notification::where('user_id', session('dataUser')['id'])->where('destinasi', 'riwayat-penjualan')->delete();
+        } catch (QueryException $e) {
+            return $e->errorInfo;
         }
         return view('riwayat-penjualan',[
             "css" => "riwayat-penjualan",
@@ -51,5 +57,21 @@ class Riwayat extends Controller
         } catch (QueryException $e) {
             return $e->errorInfo;
         } 
+    }
+    public function pembeli()
+    {
+        if(!session('dataUser')){
+            return redirect()->to('/login')->send();
+        }
+        try {
+            Notification::where('user_id', session('dataUser')['id'])->where('destinasi', 'riwayat')->delete();
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
+        return view('pemesanan',[
+            "css" => "pemesanan",
+            "title" => "Riwayat",
+            "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
+        ]);
     }
 }

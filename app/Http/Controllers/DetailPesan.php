@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Pemesanan;
 use App\Models\Review;
 use Illuminate\Database\QueryException;
@@ -29,7 +30,16 @@ class DetailPesan extends Controller
             $request['status_kirim'] = 'Sudah dikirim';
             $request['status_terima'] = 'Belum diterima';
             $request['status_pembeli'] = 'Proses';
-            $pemesanan->update($request->all());
+            $notif['user_id'] = $pemesanan->user_id;
+            $notif['subjudul'] = $pemesanan->produk->nama_produk;
+            $notif['pesan'] = $pemesanan->produk->nama_produk.' dalam proses pengiriman';
+            $notif['destinasi'] = 'riwayat';
+            try {
+                $pemesanan->update($request->all());
+                Notification::create($notif);
+            } catch (QueryException $e) {
+                return $e->errorInfo;
+            }
             return redirect()->to('/pesanan-masuk')->send();
         }
         if(isset($request['terima'])){
@@ -47,12 +57,17 @@ class DetailPesan extends Controller
             }
             $request['status_terima'] = 'Selesai';
             $request['status_pembeli'] = 'Selesai';
+            $notif['user_id'] = $pemesanan->penjual_id;
+            $notif['subjudul'] = $pemesanan->produk->nama_produk;
+            $notif['pesan'] = $pemesanan->produk->nama_produk.' sudah diterima '.$pemesanan->pembeli->name;
+            $notif['destinasi'] = 'riwayat-penjualan';
             try {
                 $pemesanan->update($request->except(['review', 'rating']));
                 $request['user_id'] = session('dataUser')['id'];
                 $request['penjual_id'] = $pemesanan->penjual_id;
                 $request['produk_id'] = $pemesanan->produk_id;
                 Review::create($request->except(['status_terima', 'status_pembeli']));
+                Notification::create($notif);
             } catch (QueryException $e) {
                 return $e->errorInfo;
             }

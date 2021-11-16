@@ -48,6 +48,8 @@
                             <form action="" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $t->id }}">
+                                <input type="hidden" name="user_id" value="{{ $t->user->id }}">
+                                <input type="hidden" name="nama_produk" value="{{ $t->produk->nama_produk }}">
                                 <button class="btn bg-orange" type="submit" name="terima">Terima</button>
                                 <button class="btn bg-red" type="submit" name="tolak">Tolak</button>
                             </form>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class BantuanController extends Controller
+class Notif extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,14 @@ class BantuanController extends Controller
      */
     public function index()
     {
-        //
+        if(session('dataUser')){
+            return view('notif',[
+                "css" => "notif",
+                "title" => "Notifikasi",
+                "notif" => Notification::where('user_id', session('dataUser')['id'])->orderBy('created_at', 'desc')->get()
+            ]);
+        }
+        return redirect()->to('/login')->send();
     }
 
     /**
@@ -66,9 +76,16 @@ class BantuanController extends Controller
      * @param  \App\Models\Bantuan  $bantuan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bantuan $bantuan)
+    public function update(Request $request, Notification $notification)
     {
-        //
+        try {
+            $notification->delete();
+            return response()->json([
+                'message'=>'sukses'
+            ], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
     }
 
     /**

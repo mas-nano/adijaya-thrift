@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\Tawar;
 use App\Models\Produk;
@@ -80,6 +81,10 @@ class ProdukToko extends Controller
             $request['user_id'] = session('dataUser')['id'];
             $request['penjual_id'] = $produk->id_penjual;
             $request['status'] = 'Proses';
+            $notif['user_id'] = $produk->id_penjual;
+            $notif['subjudul'] = session('dataUser')['nama'];
+            $notif['pesan'] = 'Mengajukan penawaran untuk '.$produk->nama_produk;
+            $notif['destinasi'] = 'penawaran';
             try {
                 if(is_null($tawar = Tawar::where('user_id', session('dataUser')['id'])->where('produk_id', $produk->id)->where('status',' Proses')->first())){
                     Tawar::create($request->all());
@@ -93,6 +98,7 @@ class ProdukToko extends Controller
                     $id = false;
                 }
                 $rating = User::findOrFail($produk->id_penjual)->review->avg('rating');
+                Notification::create($notif);
                 return view('produk',[
                     "css" => "produk",
                     "title" => "Produk",

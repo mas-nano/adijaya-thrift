@@ -26,3 +26,16 @@
 .mv-1{
     margin: 10px 0px;
 }
+.orange{
+    color: orange;
+}
+.notif:hover{
+    cursor: pointer;
+    background-color: #e1e1e1;
+}
+.mg-l-1{
+    margin-left: 10px;
+}
+.ta-c{
+    text-align: center;
+}

@@ -28,6 +28,7 @@ use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\AdminPencairan;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminKonfirmasi;
+use App\Http\Controllers\Notif;
 use App\Http\Controllers\ProdukController;
 
 /*
@@ -53,12 +54,8 @@ Route::get('/daftar', [Register::class, 'index']);
 Route::post('/daftar', [Register::class, 'create']);
 Route::get('/produk/{produk}', [ProdukToko::class, 'show']);
 Route::post('/produk/{produk}', [ProdukToko::class, 'store']);
-Route::get('/notifikasi', function () {
-    return view('notif',[
-        "css" => "notif",
-        "title" => "Notifikasi"
-    ]);
-});
+Route::get('/notifikasi', [Notif::class, 'index']);
+Route::post('/notifikasi/{notification}', [Notif::class, 'update']);
 Route::get('/toko/{user}', [Toko::class, 'index']);
 Route::get('/toko/{user}/produk', [Toko::class, 'produk']);
 Route::get('/checkout/{produk}', [Checkout::class, 'index']);
@@ -82,16 +79,7 @@ Route::get('/kelolaProduk', [ProdukController::class, 'index']);
 Route::post('/kelolaProduk', [ProdukController::class, 'store']);
 Route::get('/kelolaProduk/{produk}', [ProdukController::class, 'show']);
 Route::post('/kelolaProduk/{produk}', [ProdukController::class, 'update']);
-Route::get('/riwayat', function () {
-    if(!session('dataUser')){
-        return redirect()->to('/login')->send();
-    }
-    return view('pemesanan',[
-        "css" => "pemesanan",
-        "title" => "Riwayat",
-        "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
-    ]);
-});
+Route::get('/riwayat', [Riwayat::class, 'pembeli']);
 Route::get('/pesanan-masuk', [Pesanan::class, 'index']);
 Route::post('/pesanan-masuk', [Pesanan::class, 'search']);
 Route::get('/produk', [Search::class, 'index']);

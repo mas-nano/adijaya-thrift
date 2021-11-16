@@ -15,7 +15,8 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('penerima');
+            $table->string('subjudul');
             $table->string('pesan');
             $table->string('destinasi');
             $table->timestamps();

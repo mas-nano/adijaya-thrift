@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Pemasukan;
 use App\Models\Penarikan;
 use Illuminate\Database\QueryException;
@@ -40,9 +41,14 @@ class AdminPencairan extends Controller
         $data['tgl_cair'] = date('Y-m-d');
         $pemasukan['tgl'] = date('Y-m-d');
         $pemasukan['nominal'] = 2000;
+        $notif['user_id'] = $penarikan->pemesanan->penjual_id;
+        $notif['subjudul'] = 'Admin';
+        $notif['pesan'] = 'Pengajuan untuk '.$penarikan->pemesanan->produk->nama_produk.' telah dicairkan';
+        $notif['destinasi'] = 'riwayat-penjualan';
         try {
             $penarikan->pemesanan->update($data);
             Pemasukan::create($pemasukan);
+            Notification::create($notif);
             return redirect()->to('/admin/pencairan')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Pemesanan;
+use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class Pesanan extends Controller
 {
@@ -15,6 +17,11 @@ class Pesanan extends Controller
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
             return redirect()->to('/akun')->send();
+        }
+        try {
+            Notification::where('user_id', session('dataUser')['id'])->where('destinasi', 'pesanan-masuk')->delete();
+        } catch (QueryException $e) {
+            return $e->errorInfo;
         }
         return view('pesanan-masuk',[
             "css" => "pesanan-masuk",

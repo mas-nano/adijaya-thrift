@@ -6,8 +6,10 @@ use App\Models\Notification;
 use App\Models\User;
 use App\Models\Tawar;
 use App\Models\Produk;
+use App\Models\UserChat;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
 class ProdukToko extends Controller
@@ -112,6 +114,23 @@ class ProdukToko extends Controller
             }
         }else{
             return redirect()->to("/login")->send();
+        }
+    }
+    public function chat(Produk $produk)
+    {
+        $data['user_id'] = session('dataUser')['id'];
+        $data['penerima_id'] = 7;
+        try {
+            if(UserChat::where('user_id', session('dataUser')['id'])->where('penerima_id', 7)->first() || UserChat::where('user_id', 7)->where('penerima_id', session('dataUser')['id'])->first()){
+                UserChat::where('user_id', session('dataUser')['id'])->where('penerima_id', $produk->id_penjual)->first()->update(['updated_at' => date('Y-m-d H:i:s')]);
+            }else{
+                UserChat::create($data);
+            }
+            return response()->json([
+                'message' => 'berhasil'
+            ], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
         }
     }
 }

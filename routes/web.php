@@ -28,6 +28,7 @@ use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\AdminPencairan;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminKonfirmasi;
+use App\Http\Controllers\Chat;
 use App\Http\Controllers\Notif;
 use App\Http\Controllers\ProdukController;
 
@@ -54,6 +55,7 @@ Route::get('/daftar', [Register::class, 'index']);
 Route::post('/daftar', [Register::class, 'create']);
 Route::get('/produk/{produk}', [ProdukToko::class, 'show']);
 Route::post('/produk/{produk}', [ProdukToko::class, 'store']);
+Route::post('/produk/{produk}/chat', [ProdukToko::class, 'chat']);
 Route::get('/notifikasi', [Notif::class, 'index']);
 Route::post('/notifikasi/{notification}', [Notif::class, 'update']);
 Route::get('/toko/{user}', [Toko::class, 'index']);
@@ -67,12 +69,7 @@ Route::get('/panduan', function () {
     ]);
 });
 
-Route::get('/chat', function () {
-    return view('chat',[
-        "css" => "chat",
-        "title" => "Chat"
-    ]);
-});
+Route::get('/chat', [Chat::class, 'index']);
 Route::get('/pembayaran/{pembayaran}', [Pembayaran::class, 'index']);
 Route::post('/pembayaran/{pembayaran}', [Pembayaran::class, 'update']);
 Route::get('/kelolaProduk', [ProdukController::class, 'index']);

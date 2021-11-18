@@ -54,8 +54,12 @@ class AdminUser extends Controller
                 "prov" => $prov
             ]);
         }
+        $data = $request->all();
+        unset($data["_token"]);
         if(isset($request->password)){
-            $request['password'] = password_hash($request->password, PASSWORD_DEFAULT);
+            $data['password'] = password_hash($request->password, PASSWORD_DEFAULT);
+        }else{
+            unset($data['password']);
         }
         if($request->hasfile('photo')){
             $destination = 'img/uploads/profile_images/'.$user->photo;
@@ -78,14 +82,11 @@ class AdminUser extends Controller
             }
             $filename = time().'.'.$extention;
             $file->move('img/uploads/profile_images/', $filename);
-            $data["photo"] = $filename;
+            $data['photo'] = $filename;
+            // dd($request->photo);
         }
         try {
-            if(isset($request->password)){
-                $user->update($request->all());
-            }else{
-                $user->update($request->except('password'));
-            }
+            $user->update($data);
             return redirect()->to('admin/pengguna')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;

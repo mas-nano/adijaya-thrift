@@ -32,7 +32,8 @@
     <div>
         @if (session('dataUser'))
             @if (session('dataUser')['id']!=$produk['id_penjual'])
-            <i class="far fa-comment-alt fa-lg icon"></i>
+            <input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
+            <i class="far fa-comment-alt fa-lg icon" data-id="{{ $produk['id'] }}"></i>
             <i class="far fa-heart fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
             @endif
         @endif

@@ -16,7 +16,9 @@ closeBtn.addEventListener('click', closeModal);
  
 // Listen for outside click
 window.addEventListener('click', outsideClick);
-tidak.addEventListener('click', closeModal);
+if(tidak){
+    tidak.addEventListener('click', closeModal);
+}
  
 // Function to open modal
 function openModal(){
@@ -41,7 +43,7 @@ var id = $(".fa-heart").data("id");
 $(".fa-heart-o").click(function(){
     if($(".fa-heart-o").hasClass("red")){
         $.ajax({
-            url: `http://localhost:8000/api/wishlist/${id}`,
+            url: `/api/wishlist/${id}`,
             type: "DELETE",
             dataType: "json",
             success: function(){
@@ -53,7 +55,7 @@ $(".fa-heart-o").click(function(){
         })
     }else{
         $.ajax({
-            url: "http://localhost:8000/api/wishlist",
+            url: "/api/wishlist",
             type: "POST",
             dataType: "json",
             data: {
@@ -72,17 +74,17 @@ $(".fa-heart-o").click(function(){
     }
 });
 $("#yakin-admin").click(function(){
-    let url = `http://localhost:8000/admin/admin/hapus/${id}`;
+    let url = `/admin/admin/hapus/${id}`;
     let loc = 'admin';
     hapus(url,loc);
 })
 $("#yakin-user").click(function(){
-    let url = `http://localhost:8000/admin/pengguna/hapus/${id}`;
+    let url = `/admin/pengguna/hapus/${id}`;
     let loc = 'pengguna';
     hapus(url,loc);
 })
 $("#yakin-produk").click(function(){
-    let url = `http://localhost:8000/admin/produk/hapus/${id}`;
+    let url = `/admin/produk/hapus/${id}`;
     let loc = 'produk';
     hapus(url,loc);
 })
@@ -95,7 +97,21 @@ function hapus(url, loc){
             _token: $("#_token").val()
         },
         success: function(data){
-            window.location.href = `http://localhost:8000/admin/${loc}`
+            window.location.href = `/admin/${loc}`
         }
     });
 }
+$(".fa-comment-alt").click(function(){
+    console.log('uy');
+    $.ajax({
+        url: `/produk/${$(this).data("id")}/chat`,
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            _token: $("#_token").val()
+        },
+        success: function(){
+            window.location.href = '/chat'
+        }
+    })
+})

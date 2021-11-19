@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <img src="../img/phooo 2.png" alt="" class="mg-l-4 absolute z-1">
+    <img src="{{ asset('img/phooo 2.png') }}" alt="" class="mg-l-4 absolute z-1">
     <div class="full flex vh-c">
         <form action="" method="post" class="w-350">
             @csrf

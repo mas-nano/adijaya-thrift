@@ -21,14 +21,14 @@
     $(".notif").click(function(){
         var des = $(this).data("des");
         $.ajax({
-            url: `http://localhost:8000/notifikasi/${$(this).data("id")}`,
+            url: `/notifikasi/${$(this).data("id")}`,
             type: "POST",
             dataType: "json",
             data: {
                 _token: $("#_token").val()
             },
             success: function(){
-                window.location.href = `http://localhost:8000/${des}`
+                window.location.href = `/${des}`
             }
         })
     })

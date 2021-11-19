@@ -72,7 +72,7 @@ class ProdukController extends Controller
                 ]);
             }
             $filename = time().'.'.$extention;
-            $file->move('img/uploads/produk/', $filename);
+            $file->move('assets/img/uploads/produk/', $filename);
             $data["foto"] = $filename;
         }
 
@@ -141,7 +141,7 @@ class ProdukController extends Controller
         $data['id_penjual'] = session('dataUser')['id'];
         if($request->hasfile('foto'))
         {
-            $destination = 'img/uploads/profile_images/'.$produk->foto;
+            $destination = 'assets/img/uploads/profile_images/'.$produk->foto;
             if(File::exists($destination))
             {
                 File::delete($destination);
@@ -158,7 +158,7 @@ class ProdukController extends Controller
                 ]);
             }
             $filename = time().'.'.$extention;
-            $file->move('img/uploads/produk/', $filename);
+            $file->move('assets/img/uploads/produk/', $filename);
             $data["foto"] = $filename;
         }
 

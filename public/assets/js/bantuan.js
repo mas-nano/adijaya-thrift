@@ -1,5 +1,5 @@
 $("#sort").change(function(){
-    window.location.href = `http://localhost:8000/admin/bantuan?filter=${$("#sort").val()}`;
+    window.location.href = `/admin/bantuan?filter=${$("#sort").val()}`;
 })
 var balas = document.querySelectorAll(".balas");
 for(let i=0; i<balas.length; i++){
@@ -8,14 +8,14 @@ for(let i=0; i<balas.length; i++){
 function balasBantuan(){
     console.log($(this).data("id"));
     $.ajax({
-        url: `http://localhost:8000/admin/bantuan/balas/${$(this).data("id")}`,
+        url: `/admin/bantuan/balas/${$(this).data("id")}`,
         type: 'POST',
         dataType: 'json',
         data: {
             _token: $("#_token").val()
         },
         success: function(){
-            window.location.href = `http://localhost:8000/admin/bantuan`;
+            window.location.href = `/admin/bantuan`;
         }
     })
 }

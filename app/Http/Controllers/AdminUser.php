@@ -62,7 +62,7 @@ class AdminUser extends Controller
             unset($data['password']);
         }
         if($request->hasfile('photo')){
-            $destination = 'img/uploads/profile_images/'.$user->photo;
+            $destination = 'assets/img/uploads/profile_images/'.$user->photo;
             if(File::exists($destination)){
                 File::delete($destination);
             }
@@ -81,7 +81,7 @@ class AdminUser extends Controller
                 ]);
             }
             $filename = time().'.'.$extention;
-            $file->move('img/uploads/profile_images/', $filename);
+            $file->move('assets/img/uploads/profile_images/', $filename);
             $data['photo'] = $filename;
             // dd($request->photo);
         }

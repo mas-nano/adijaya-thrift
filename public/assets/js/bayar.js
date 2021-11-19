@@ -28,14 +28,14 @@ $("#provinsi").change(function(){
 });
 $("#batal").click(function(){
   $.ajax({
-    url: `http://localhost:8000/api/pembayaran/${$("#id").val()}`,
+    url: `/api/pembayaran/${$("#id").val()}`,
     type: "DELETE",
     dataType: "json",
     data: {
       user_id: $("#user_id").val()
     },
     success: function(data){
-        window.location.href = "http://localhost:8000/riwayat";
+        window.location.href = "/riwayat";
       }
 });
 })

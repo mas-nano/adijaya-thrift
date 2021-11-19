@@ -15,7 +15,7 @@
                 @csrf
                 @if ($aksi=='ubah-user')
                 <div class="flex ai-c">
-                    <img src="http://localhost:8000/img/uploads/profile_images/{{ $user->photo }}" alt="" class="img">
+                    <img src="{{ asset('img/uploads/profile_images/'.$user->photo) }}" alt="" class="img">
                     <button class="btn-foto mg-l-3 pointer bg-white" type="button">Unggah Foto</button>
                     <input type="text" id="file-name" disabled class="bg-white b-0">
                     <input type="file" name="photo" id="foto" style="display: none;">
@@ -112,6 +112,6 @@
     @if ($aksi=='ubah-user')    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
     async></script>
-    <script src="http://localhost:8000/js/edit-akun.js"></script>
+    <script src="{{ asset('js/edit-akun.js') }}"></script>
     @endif
 @endsection

@@ -70,6 +70,10 @@ Route::get('/panduan', function () {
 });
 
 Route::get('/chat', [Chat::class, 'index']);
+Route::get('/chat/{userChat}', [Chat::class, 'showMessage']);
+Route::post('/chat/{userChat}', [Chat::class, 'send']);
+Route::get('/chat/latest/{userChat}', [Chat::class, 'latestMessage']);
+Route::get('/chat/latest/user/get', [Chat::class, 'userLatest']);
 Route::get('/pembayaran/{pembayaran}', [Pembayaran::class, 'index']);
 Route::post('/pembayaran/{pembayaran}', [Pembayaran::class, 'update']);
 Route::get('/kelolaProduk', [ProdukController::class, 'index']);

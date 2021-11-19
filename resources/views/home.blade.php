@@ -6,7 +6,7 @@
         <p class="ta-c mv-0"><a href="/produk?promo=true" class="montserrat fw-500 fs-20 brown">PROMO!!</a></p>
     </div>
     <div class="banner">
-        <img src="img/banner.png" alt="" class="cover full">
+        <img src="{{ asset('img/banner.png') }}" alt="" class="cover full">
     </div>
 </div>
 <div class="rekomendasi">
@@ -19,5 +19,5 @@
     </div>
 </div>
 </div>
-<script src="js/home.js"></script>
+<script src="{{ asset('js/home.js') }}"></script>
 @endsection

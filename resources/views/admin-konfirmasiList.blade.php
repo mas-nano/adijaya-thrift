@@ -35,7 +35,7 @@
 </div>
 <script>
     $("#sort").change(function(){
-        window.location.href = `http://localhost:8000/admin/konfirmasi?search=${$("#sort").val()}`;
+        window.location.href = `/admin/konfirmasi?search=${$("#sort").val()}`;
     })
 </script>
 @endsection

@@ -6,7 +6,7 @@ $(".lebih").click(function(e){
 });
 function showRekom(jml){
     $.ajax({
-        url: `http://localhost:8000/api/produk/${jml}`,
+        url: `api/produk/${jml}`,
         type: "GET",
         dataType: "json",
         success: function(data){
@@ -14,7 +14,7 @@ function showRekom(jml){
             for(let i=0; i<data.length; i++){
                 let append = `<li>
                 <div class="produk" data-id="${data[i]["id"]}">
-                    <img src="img/uploads/produk/${data[i]["foto"]}" alt="" srcset="" class="gambar-produk">
+                    <img src="/assets/img/uploads/produk/${data[i]["foto"]}" alt="" srcset="" class="gambar-produk">
                     <p class="nama-barang fs-24"><a href="/produk/${data[i]["id"]}">${data[i]["nama_produk"]}</a></p>
                     <p class="harga-barang fs-24">Rp${(data[i]["promo"])?"<strike>"+data[i]["harga"]+"</strike>":data[i]["harga"]}</p>
                     ${(data[i]["promo"])?'<p class="harga-barang orange fs-26">Rp'+data[i]["promo"]+"</p>":""}
@@ -27,5 +27,5 @@ function showRekom(jml){
 }
 $(".rekom").on("click",".produk",function(){
     let id = $(this).data("id");
-    window.location.href = `http://localhost:8000/produk/${id}`;
+    window.location.href = `/produk/${id}`;
 })

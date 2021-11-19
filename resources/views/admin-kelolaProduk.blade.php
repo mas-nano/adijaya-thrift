@@ -41,7 +41,7 @@
                     <div class="flex mg-v-2">
                         <label for="" class="flex-1">Foto Produk</label>
                         <div class="flex-5">
-                            <img src="http://localhost:8000/img/uploads/produk/{{ $produk->foto }}" alt="" class="mw-500">
+                            <img src="{{ asset('img/uploads/produk/'.$produk->foto) }}" alt="" class="mw-500">
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">

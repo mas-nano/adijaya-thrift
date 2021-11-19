@@ -43,7 +43,7 @@
                 <input type="file" name="foto" id="foto" style="display: block">
                 @if (isset($data['foto']))
                     
-                    <img src="http://localhost:8000/img/uploads/produk/{{ $data['foto'] }}" alt="" class="fotoProduk">
+                    <img src="{{ asset('img/uploads/produk/'.$data['foto']) }}" alt="" class="fotoProduk">
                 @endif
             </div>
         </div>

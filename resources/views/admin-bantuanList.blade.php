@@ -44,5 +44,5 @@
         <p class="louis ta-c">Bantuan tidak ditemukan</p>
     @endif
 </div>
-<script src="http://localhost:8000/js/bantuan.js"></script>
+<script src="{{ asset('js/bantuan.js') }}"></script>
 @endsection

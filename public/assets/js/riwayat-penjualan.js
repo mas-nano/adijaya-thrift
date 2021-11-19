@@ -44,7 +44,7 @@ $("#filter").change(function(){
 $("#hasil").on("click", ".Selesai", function(e){
     e.preventDefault();
     $.ajax({
-        url: "http://localhost:8000/riwayat-penjualan/ajukan",
+        url: "/riwayat-penjualan/ajukan",
         type: "POST",
         dataType: 'json',
         data: {
@@ -54,7 +54,7 @@ $("#hasil").on("click", ".Selesai", function(e){
             status_ajukan: 'Belum dicairkan'
         },
         success: function(data){
-            window.location.href = "http://localhost:8000/riwayat-penjualan"
+            window.location.href = "/riwayat-penjualan"
         }
     });
 });

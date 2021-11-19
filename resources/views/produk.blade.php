@@ -3,11 +3,11 @@
     
 <div class="profil-produk">
     <div class="foto-produk">
-        <img src="../img/uploads/produk/{{ (isset($produk['foto'])?$produk['foto']:"") }}" alt="">
+        <img src="{{ asset('img/uploads/produk/'.$produk['foto']) }}" alt="">
     </div>
     <div class="profil-toko">
         <div>
-            <img src="../img/uploads/profile_images/{{ (isset($data->photo)?$data->photo:"") }}" alt="">
+            <img src="{{ asset('img/uploads/profile_images/'.$data->photo) }}" alt="">
         </div>
         <div>
             <p class="nama-toko"><a href="/toko/{{ (isset($data->id)?$data->id:"") }}" class="nama-toko">{{ (isset($data->name)?$data->name:"") }}</a></p>
@@ -43,11 +43,11 @@
     @if (session("dataUser"))
         @if (session('dataUser')['id']!=$produk['id_penjual'])    
             <button type="button" name="beli" id="beli"><a href="/checkout/{{ (isset($produk['id'])?$produk['id']:"") }}" class="beli">Beli</a></button>
+            <button type="button" name="tawar" id="modal">Tawar</button>
         @endif
     @else
     <button type="button" name="beli" id="beli"><a href="/login" class="beli">Beli</a></button>
     @endif
-    <button type="button" name="tawar" id="modal">Tawar</button>
     </section>
 </div>
 </div>
@@ -62,5 +62,5 @@
         </form>
     </div>
 </div>
-<script src="../js/produk.js"></script>
+<script src="{{ asset('js/produk.js') }}"></script>
 @endsection

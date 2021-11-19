@@ -25,7 +25,7 @@
                 <span class="subpesan">Pesan</span>
                 <span class="subtotal">Subtotal</span>
                 <div class="produk">
-                    <img src="../img/uploads/produk/{{ $data->produk->foto }}" alt="" class="template foto">
+                    <img src="{{ asset('/img/uploads/produk/'.$data->produk->foto) }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ $data->produk->nama_produk }}</p>
                     <p class="template harga-produk">Rp{{ number_format($data->pembayaran->total, 0, ',', '.') }}</p>
                 </div>
@@ -96,7 +96,7 @@
         @endif
     </div>
 </div>
-<script src="../js/review.js">
+<script src="{{ asset('/js/review.js') }}">
 </script>
-<script src="../js/produk.js"></script>
+<script src="{{ asset('/js/produk.js') }}"></script>
 @endsection

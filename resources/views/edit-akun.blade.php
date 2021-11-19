@@ -4,7 +4,7 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -33,7 +33,7 @@
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="flex-center">
-                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="" class="foto-profil">
+                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="" class="foto-profil">
                     <button class="btn-foto" type="button">Unggah Foto</button>
                     <input type="text" id="file-name" disabled class="input-hidden">
                     <input type="file" name="photo" id="foto" style="display: none;">
@@ -97,5 +97,5 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
 async
 ></script>
-    <script src="js/edit-akun.js"></script>
+    <script src="{{ asset('js/edit-akun.js') }}"></script>
 @endsection

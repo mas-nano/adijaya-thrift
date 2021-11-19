@@ -19,4 +19,8 @@ class UserChat extends Model
     {
         return $this->belongsTo(User::class, 'penerima_id');
     }
+    public function user_message()
+    {
+        return $this->hasMany(UserMessage::class);
+    }
 }

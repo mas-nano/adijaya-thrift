@@ -4,7 +4,7 @@
     <div class="left">
         <div class="profil">
             <div>
-                <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
             </div>
             <div>
                 <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -42,7 +42,7 @@
                     @if(count($riwayat)>0)
                         @foreach ($riwayat as $r)
                         <div class="status-produk">
-                            <img src="img/uploads/produk/{{ $r->produk->foto }}" alt="">
+                            <img src="{{ asset('img/uploads/produk/'.$r->produk->foto) }}" alt="">
                             <div class="flex-5 mg-l-3">
                                 <p class="louis-16">{{ $r->produk->nama_produk }}</p>
                                 <p class="louis-12 {{ ($r->status_ajukan=='Sudah dicairkan'?"green":"") }}">{{ (is_null($r->status_ajukan)?$r->status_terima:$r->status_ajukan) }}</p>
@@ -68,5 +68,5 @@
         </div>
     </div>
 </div>
-<script src="js/riwayat-penjualan.js"></script>
+<script src="{{ asset('js/riwayat-penjualan.js') }}"></script>
 @endsection

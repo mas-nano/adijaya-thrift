@@ -4,7 +4,7 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="../../img/uploads/profile_images/{{ $user->photo }}" alt="">
+            <img src="{{ asset('img/uploads/profile_images/'.$user->photo) }}" alt="">
         </div>
         <div>
             <p class="nama-toko">{{ $user->name }}</p>
@@ -38,7 +38,7 @@
         @foreach ($produk as $p)
             <li>
                 <div class="produk" data-id="{{ $p->id }}">
-                    <img src="../../img/uploads/produk/{{ $p->foto }}" alt="" srcset="" class="gambar-produk">
+                    <img src="{{ asset('img/uploads/produk/'.$p->foto) }}" alt="" srcset="" class="gambar-produk">
                     <p class="nama-barang">{{ $p->nama_produk }}</p>
                     @if (isset($p->promo))
                     <p class="harga-barang">Rp<strike>{{ number_format($p->harga,0,',','.') }}</strike></p>
@@ -57,10 +57,10 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
 async
 ></script>
-<script src="http://localhost:8000/js/profilToko.js"></script>
+<script src="{{ asset('js/profilToko.js') }}"></script>
 <script>
     $(".produk").click(function(){
-        window.location.href = `http://localhost:8000/produk/${$(this).data("id")}`
+        window.location.href = `/produk/${$(this).data("id")}`
     })
 </script>
 @endsection

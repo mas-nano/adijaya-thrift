@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }} - Adijaya Thrift</title>
-    <link rel="stylesheet" href="http://localhost:8000/css/navfoot.css">
-    <link rel="stylesheet" href="http://localhost:8000/css/style-{{ $css }}.css">
+    <link rel="stylesheet" href="{{ asset('css/navfoot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-'.$css.'.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,500">
     <script src="https://kit.fontawesome.com/e4b2ccaaa5.js" crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -18,7 +18,7 @@
         <div class="wrapper-navbar">
             <div class="navbar">
                 <div class="brand-logo">
-                    <img src="http://localhost:8000/img/phooo%201.png" alt="">
+                    <img src="{{ asset('img/phooo 1.png') }}" alt="">
                 </div>
                 <div class="search">
                     <form action="/produk" method="get">

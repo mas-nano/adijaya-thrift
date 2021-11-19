@@ -49,5 +49,5 @@
         </div>
     </div>
 </div>
-<script src="../js/produk.js"></script>
+<script src="{{ asset('js/produk.js') }}"></script>
 @endsection

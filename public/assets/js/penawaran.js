@@ -1,6 +1,6 @@
 function showTawar(data){
     $.ajax({
-        url: "http://localhost:8000/api/penawaran",
+        url: "/api/penawaran",
         method: "GET",
         dataType: "json",
         data: data,
@@ -11,7 +11,7 @@ function showTawar(data){
                 $.each(data['tawar'], function(index, obj){
                     console.log(obj);
                     let append = `<div class="status-produk">
-                    <img src="img/sepatu.png" alt="">
+                    <img src="/assets/img/${obj.produk.foto}" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">${obj.user.name}</p>
                         <p class="louis-16">${obj.produk.nama_produk}</p>

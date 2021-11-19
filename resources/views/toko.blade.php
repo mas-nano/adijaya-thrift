@@ -6,7 +6,7 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="../img/uploads/profile_images/{{ $user->photo }}" alt="">
+            <img src="{{ asset('img/uploads/profile_images/'.$user->photo) }}" alt="">
         </div>
         <div>
             <p class="nama-toko">{{ $user->name }}</p>
@@ -46,7 +46,7 @@
             @foreach ($review as $r)
             <div class="ulasan-rinci">
                 <div>
-                    <img src="../img/uploads/produk/{{ $r->produk->foto }}" alt="">
+                    <img src="{{ asset('img/uploads/produk'.$r->produk->foto) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-pengguna">{{ '@'.$r->user->username }}</p>
@@ -72,5 +72,5 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
 async
 ></script>
-<script src="../js/profilToko.js"></script>
+<script src="{{ asset('js/profilToko.js') }}"></script>
 @endsection

@@ -4,7 +4,7 @@
     <div class="left">
         <div class="profil">
             <div>
-                <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
             </div>
             <div>
                 <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -37,7 +37,7 @@
                 @endif
                 @foreach ($tawar as $t)
                 <div class="status-produk">
-                    <img src="img/uploads/produk/{{ $t->produk->foto }}" alt="">
+                    <img src="{{ asset('img/uploads/produk/'.$t->produk->foto) }}" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">{{ $t->user->name }} menawar</p>
                         <p class="louis-16">{{ $t->produk->nama_produk }}</p>
@@ -64,5 +64,5 @@
         </div>
     </div>
 </div>
-<script src="js/penawaran.js"></script>
+<script src="{{ asset('js/penawaran.js') }}"></script>
 @endsection

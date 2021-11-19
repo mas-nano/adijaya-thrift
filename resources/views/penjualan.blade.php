@@ -4,7 +4,7 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -44,7 +44,7 @@
                     <p class="montserrat fw-5 fs-24">Riwayat Penjualan</p>
                     @foreach ($pemesanan as $p)    
                     <div class="flex mb-3">
-                        <img src="img/uploads/produk/{{ $p->produk->foto }}" alt="">
+                        <img src="{{ asset('img/uploads/produk/'.$p->produk->foto) }}" alt="">
                         <div class="flex-5">
                             <p class="louis fs-23">{{ $p->produk->nama_produk }}</p>
                             <p class="louis fs-14">{{ (is_null($p->status_terima)?"Belum Dikirim":$p->status_terima) }}</p>

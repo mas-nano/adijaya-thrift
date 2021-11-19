@@ -36,7 +36,7 @@ $(".more").click(function(e){
 })
 function show(data=null, take){
     $.ajax({
-        url: `http://localhost:8000/api/produk/${take}`,
+        url: `/api/produk/${take}`,
         type: "GET",
         dataType: "json",
         data: data,
@@ -46,7 +46,7 @@ function show(data=null, take){
                 for(let i=0; i<data.length; i++){
                     let append = `<li>
                     <div class="produk" data-id="${data[i]["id"]}">
-                        <img src="img/uploads/produk/${data[i]['foto']}" alt="" srcset="" class="gambar-produk">
+                        <img src="/assets/img/uploads/produk/${data[i]['foto']}" alt="" srcset="" class="gambar-produk">
                         <p class="nama-barang fs-18">${data[i]["nama_produk"]}</p>
                         <p class="harga-barang fs-18">Rp${(data[i]["promo"])?"<strike>"+data[i]["harga"]+"</strike>":data[i]["harga"]}</p>
                         ${(data[i]["promo"])?'<p class="harga-barang orange fs-26">Rp'+data[i]["promo"]+"</p>":""}
@@ -65,5 +65,5 @@ function show(data=null, take){
 $(".hasil").on("click",".produk",function(){
     console.log($(this).data("id"));
     let id = $(this).data("id");
-    window.location.href = `http://localhost:8000/produk/${id}`;
+    window.location.href = `/produk/${id}`;
 })

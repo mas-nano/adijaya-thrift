@@ -12,7 +12,7 @@
                 <pre>Transfer Bank</pre>
                 <p>Silahkan transfer sesuai dengan jumlah ke rekening berikut:</p>
                 <div class="wrapper-bca">
-                    <img src="../img/bca.png" alt="">
+                    <img src="{{ asset('img/bca.png') }}" alt="">
                     <div class="detail-bca">
                         <p>Bank: BCA</p>
                         <p>Nomor Rekening: 1234567890</p>
@@ -72,5 +72,5 @@
         <button type="button" name="batal" class="btn red" id="batal">Batalkan</button>
     </div>
 </form>
-<script src="../js/bayar.js"></script>
+<script src="{{ asset('js/bayar.js') }}"></script>
     @endsection

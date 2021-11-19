@@ -4,7 +4,7 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -60,5 +60,5 @@
             </div>
         </div>
     </div>
-    <script src="js/riwayat.js"></script>
+    <script src="{{ asset('js/riwayat.js') }}"></script>
 @endsection

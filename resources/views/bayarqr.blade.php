@@ -6,7 +6,7 @@
         <div class="left">
             <p class="montserrat fw-6 fs-30">Scan QR Code</p>
             <p class="louis fs-20">Silahkan membayar sesuai dengan jumlah ke rekening berikut:</p>
-            <img src="../img/image 15.png" alt="" class="img block center">
+            <img src="{{ asset('img/image 15.png') }}" alt="" class="img block center">
         </div>
         <div class="split">
             <input type="hidden" name="" value="{{ session('dataUser')['id'] }}" id="user_id">
@@ -65,5 +65,5 @@
     </div>
 </form>
 </div>
-<script src="../js/bayar.js"></script>
+<script src="{{ asset('js/bayar.js') }}"></script>
 @endsection

@@ -17,7 +17,6 @@ class CreateUserMessagesTable extends Migration
             $table->id();
             $table->foreignId('user_chat_id');
             $table->foreignId('user_id');
-            $table->foreignId('penerima_id');
             $table->string('pesan');
             $table->timestamps();
         });

@@ -59,7 +59,7 @@ class Akun extends Controller
         }
         if($request->hasfile('photo'))
         {
-            $destination = 'img/uploads/profile_images/'.$dataUser[0]['photo'];
+            $destination = 'assets/img/uploads/profile_images/'.$dataUser[0]['photo'];
             if(File::exists($destination))
             {
                 File::delete($destination);
@@ -78,7 +78,7 @@ class Akun extends Controller
                 ]);
             }
             $filename = time().'.'.$extention;
-            $file->move('img/uploads/profile_images/', $filename);
+            $file->move('assets/img/uploads/profile_images/', $filename);
             $data["photo"] = $filename;
         }
         try {

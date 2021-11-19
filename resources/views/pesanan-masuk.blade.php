@@ -4,7 +4,7 @@
     <div class="left">
         <div class="profil">
             <div>
-                <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
             </div>
             <div>
                 <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -43,7 +43,7 @@
                         @foreach ($pemesanan as $p)
                             @if ($p->status_kirim)
                                 <div class="status-produk">
-                                    <img src="img/uploads/produk/{{ $p->produk->foto }}" alt="">
+                                    <img src="{{ asset('img/uploads/produk/'.$p->produk->foto) }}" alt="">
                                     <div class="flex-5 mg-l-3">
                                         <p class="louis-16">{{ $p->produk->nama_produk }}</p>
                                         <p class="louis fs-14 {{ ($p->status_kirim=="Sudah dikirim"?"green":"") }}">{{ $p->status_kirim}}</p>
@@ -65,5 +65,5 @@
         </div>
     </div>
 </div>
-<script src="js/pesanan.js"></script>
+<script src="{{ asset('js/pesanan.js') }}"></script>
 @endsection

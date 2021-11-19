@@ -4,7 +4,8 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="img/uploads/profile_images/{{ (session('dataUser')['gambar']?session('dataUser')['gambar']:"phooo 1.png") }}" alt="">
+                    
+                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -38,7 +39,7 @@
                 @if ($w->produk->stok>0)
                 <li>
                     <div class="produk" id="link" data-id="{{ $w->produk->id }}">
-                        <img src="img/uploads/produk/{{ $w->produk->foto }}" alt="" srcset="" class="gambar-produk">
+                        <img src="{{ asset('img/uploads/produk/'.$w->produk->foto) }}" alt="" srcset="" class="gambar-produk">
                         <p class="harga-barang">{{ $w->produk->nama_produk }}</p>
                         @if (!is_null($w->produk->promo))
                             <p class="harga-barang fs-18">Rp<strike>{{ number_format($w->produk->harga, 0, ',', '.') }}</strike></p>
@@ -55,7 +56,7 @@
     </div>
     <script>
         $("#link").click(function(){
-            window.location.href = `http://localhost:8000/produk/${$('#link').data('id')}`
+            window.location.href = `/produk/${$('#link').data('id')}`
         })
     </script>
 @endsection

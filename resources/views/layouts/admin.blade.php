@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin - {{ $title }}</title>
-    <link rel="stylesheet" href="http://localhost:8000/css/style-admin.css">
+    <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,500">
     <script src="https://kit.fontawesome.com/e4b2ccaaa5.js" crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -16,7 +16,7 @@
     @if ($title!="Login")    
     <div class="sidenav">
         <div class="" id="logo">
-            <img src="http://localhost:8000/img/phooo 1.png" alt="" class="logo mg-v-1 pointer">
+            <img src="{{ asset('img/phooo 1.png') }}" alt="" class="logo mg-v-1 pointer">
         </div>
         <p class="ta-c mg-b-4 icon"><a href="/admin/dashboard" class="{{ ($title=="Dashboard"?"orange":"black") }} td-0"><i class="fas fa-home fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Beranda</span></a></p>
         <p class="ta-c mg-b-4 icon"><a href="/admin/pengguna" class="{{ ($title=="Pengguna"?"orange":"black") }} td-0"><i class="fas fa-users fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Pengguna</span></p>
@@ -32,6 +32,6 @@
     <div class="content">
         @yield('content')
     </div>
-    <script src="http://localhost:8000/js/sidenav.js"></script>
+    <script src="{{ asset('js/sidenav.js') }}"></script>
 </body>
 </html>

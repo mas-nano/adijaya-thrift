@@ -43,7 +43,7 @@
 </div>
 <script>
     $("#sort").change(function(){
-        window.location.href = `http://localhost:8000/admin/pencairan?sort=${$("#sort").val()}`;
+        window.location.href = `/admin/pencairan?sort=${$("#sort").val()}`;
     })
 </script>
 @endsection

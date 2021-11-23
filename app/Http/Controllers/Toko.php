@@ -23,7 +23,8 @@ class Toko extends Controller
             "css" => "profilToko-review",
             "title" => $user->name,
             "user" => $user,
-            "produk" => $user->produk
+            "produk" => $user->produk,
+            "review" => $user->review
         ]);
     }
 }

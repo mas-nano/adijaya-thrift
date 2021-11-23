@@ -9,11 +9,9 @@
         <div>
             <p class="nama-toko">{{ $user->name }}</p>
             <p class="nama-pengguna">{{ '@'.$user->username }}</p>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="far fa-star checked"></i>
-            <i class="far fa-star checked"></i>
+            @for ($j = 1; $j <= 5; $j++)
+                <i class="{{ ($j<=floor($review->avg('rating'))?"fas":"far") }} fa-star checked"></i>
+            @endfor
         </div>
     </div>
     <div class="pilihan">

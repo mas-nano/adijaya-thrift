@@ -31,6 +31,7 @@ class Bantuan extends Controller
             ]);
         }
         $request['status'] = 'Belum dibalas';
+        $request['tgl_pengajuan'] = date('Y-m-d');
         try {
             $user = ModelsBantuan::create($request->all());
             return redirect()->to('/')->send();

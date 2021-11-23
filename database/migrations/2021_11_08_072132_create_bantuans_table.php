@@ -17,9 +17,10 @@ class CreateBantuansTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('pesan');
+            $table->string('permasalahan');
             $table->string('status');
             $table->date('tgl_pengajuan');
-            $table->date('tgl_dibalas');
+            $table->date('tgl_dibalas')->nullable();
             $table->timestamps();
         });
     }

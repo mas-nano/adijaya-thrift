@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use App\Http\Controllers\Akun;
 use App\Http\Controllers\Toko;
 use App\Http\Controllers\Login;
@@ -21,7 +20,6 @@ use App\Http\Controllers\Pembayaran;
 use App\Http\Controllers\ProdukToko;
 use App\Http\Controllers\AdminProduk;
 use App\Http\Controllers\DetailPesan;
-use App\Http\Controllers\KelolaAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminBantuan;
 use App\Http\Controllers\AdminDashboard;
@@ -29,6 +27,7 @@ use App\Http\Controllers\AdminPencairan;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminKonfirmasi;
 use App\Http\Controllers\Chat;
+use App\Http\Controllers\Home;
 use App\Http\Controllers\Notif;
 use App\Http\Controllers\ProdukController;
 
@@ -43,12 +42,8 @@ use App\Http\Controllers\ProdukController;
 |
 */
 
-Route::get('/', function () {
-    return view('home',[
-        "css" => "home",
-        "title" => "Beranda"
-    ]);
-});
+Route::get('/', [Home::class, 'index']);
+Route::get('/home/{take}', [Home::class, 'more']);
 Route::get('/login', [Login::class, 'index'])->name('login');
 Route::post('/login', [Login::class, 'login']);
 Route::get('/daftar', [Register::class, 'index']);
@@ -76,14 +71,18 @@ Route::get('/chat/latest/{userChat}', [Chat::class, 'latestMessage']);
 Route::get('/chat/latest/user/get', [Chat::class, 'userLatest']);
 Route::get('/pembayaran/{pembayaran}', [Pembayaran::class, 'index']);
 Route::post('/pembayaran/{pembayaran}', [Pembayaran::class, 'update']);
+Route::delete('/pembayaran/{pembayaran}', [Pembayaran::class, 'destroy']);
 Route::get('/kelolaProduk', [ProdukController::class, 'index']);
 Route::post('/kelolaProduk', [ProdukController::class, 'store']);
 Route::get('/kelolaProduk/{produk}', [ProdukController::class, 'show']);
 Route::post('/kelolaProduk/{produk}', [ProdukController::class, 'update']);
 Route::get('/riwayat', [Riwayat::class, 'pembeli']);
+Route::get('/riwayat/pemesanan', [Riwayat::class, 'pemesanan']);
+Route::get('/riwayat/penawaran', [Riwayat::class, 'penawaran']);
 Route::get('/pesanan-masuk', [Pesanan::class, 'index']);
 Route::post('/pesanan-masuk', [Pesanan::class, 'search']);
 Route::get('/produk', [Search::class, 'index']);
+Route::get('/produk/search/{take}', [Search::class, 'search']);
 Route::get('/bantuan', [Bantuan::class, 'index']);
 Route::post('/bantuan', [Bantuan::class, 'store']);
 Route::get('/produk-toko', [ProdukToko::class, 'index']);
@@ -131,10 +130,5 @@ Route::get('/admin/produk', [AdminProduk::class, 'index']);
 Route::get('/admin/produk/ubah/{produk}', [AdminProduk::class, 'ubah']);
 Route::post('/admin/produk/ubah/{produk}', [AdminProduk::class, 'postUbah']);
 Route::delete('/admin/produk/hapus/{produk}', [AdminProduk::class, 'hapus']);
-Route::get('/admin/kelolaProduk', function () {
-    return view('admin-kelolaProduk',[
-        "title" => "Produk"
-    ]);
-});
 Route::get('/logout', [Logout::class, 'index']);
 Route::get('/admin/logout', [Logout::class, 'admin']);

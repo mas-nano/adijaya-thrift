@@ -28,11 +28,11 @@ $("#provinsi").change(function(){
 });
 $("#batal").click(function(){
   $.ajax({
-    url: `/api/pembayaran/${$("#id").val()}`,
+    url: `/pembayaran/${$("#id").val()}`,
     type: "DELETE",
     dataType: "json",
     data: {
-      user_id: $("#user_id").val()
+      _token: $("#_token").val()
     },
     success: function(data){
         window.location.href = "/riwayat";

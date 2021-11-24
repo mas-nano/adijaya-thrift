@@ -45,6 +45,7 @@
         </div>
         <div class="content">
             @yield('content')
+        </div>
         <div class="footer">
             <div class="wrapper-footer">
                 <p class="title">ADIJAYA THRIFT</p>

@@ -24,7 +24,6 @@ class Chat extends Controller
             return $e->errorInfo;
         }
         $chat = UserChat::where('user_id', session('dataUser')['id'])->orWhere('penerima_id', session('dataUser')['id'])->orderBy('updated_at', 'desc')->get();
-        // dd($chat->first());
         if(!$chat->first()){
             return view('chat',[
                 "css" => "chat",

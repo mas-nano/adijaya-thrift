@@ -1,6 +1,6 @@
 function show(data){
     $.ajax({
-        url: "/api/pemesanan",
+        url: "/riwayat/pemesanan",
         method: "GET",
         dataType: "json",
         data: data,
@@ -29,7 +29,7 @@ function show(data){
 }
 function showTawar(data){
     $.ajax({
-        url: "/api/penawaran",
+        url: "/riwayat/penawaran",
         method: "GET",
         dataType: "json",
         data: data,
@@ -37,7 +37,6 @@ function showTawar(data){
             if(data['tawar'].length>0){
                 $("#tawar").empty();
                 $.each(data['tawar'], function(index, obj){
-                    console.log(obj);
                     let append = `<div class="status-produk">
                     <img src="/assets/img/uploads/produk/${obj.produk.foto}" alt="">
                     <div class="flex-5 mg-l-3">
@@ -71,4 +70,13 @@ $("#filter").change(function(){
         data.filter = $("#filter").val();
     }
     show(data);
+});
+$("#f-tawar").change(function(){
+    let data = {
+        user_id: $("#user_id").val(),
+    }
+    if($("#f-tawar").val()!=""){
+        data.filter = $("#f-tawar").val();
+    }
+    showTawar(data);
 });

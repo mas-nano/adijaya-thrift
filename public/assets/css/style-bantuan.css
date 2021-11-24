@@ -57,4 +57,24 @@
 .btn-bantuan:hover{
     cursor: pointer;
 }
+.centang{
+    text-align: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.fs-48{
+    font-size: 100px;
+}
+.louis{
+    font-family: 'Louis George Cafe';
+}
+.fs-20{
+    font-size: 20px;
+}
+.green{
+    color: #22C308;
+}
 /* end container */

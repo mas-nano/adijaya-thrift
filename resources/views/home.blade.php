@@ -12,7 +12,20 @@
 <div class="rekomendasi">
     <p class="title">REKOMENDASI</p>
     <ul class="rekom">
-        
+        @if (count($produk)>0)
+            @foreach ($produk as $p)
+            <li>
+                <div class="produk" data-id="{{ $p->id }}">
+                    <img src="{{ asset('img/uploads/produk/'.$p->foto) }}" alt="" srcset="" class="gambar-produk">
+                    <p class="nama-barang fs-24"><a href="/produk/{{ $p->id }}">{{ $p->nama_produk }}</a></p>
+                    <p class="harga-barang fs-24">Rp{!! $p->promo?'<strike>'.number_format($p->harga, 0, ',', '.').'</strike>':number_format($p->harga, 0, ',', '.') !!}</p>
+                    @if ($p->promo)
+                        <p class="harga-barang orange fs-26">Rp{{ number_format($p->promo, 0, ',', '.') }}</p>
+                    @endif
+                </div>
+            </li>
+            @endforeach
+        @endif
     </ul>
     <div class="more">
         <a href="" class="lebih">Lihat Lebih Banyak</a>

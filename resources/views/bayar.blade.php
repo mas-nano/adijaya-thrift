@@ -72,5 +72,6 @@
         <button type="button" name="batal" class="btn red" id="batal">Batalkan</button>
     </div>
 </form>
+<input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
 <script src="{{ asset('js/bayar.js') }}"></script>
     @endsection

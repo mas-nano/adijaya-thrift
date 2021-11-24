@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Pembayaran as Bayar;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\QueryException;
@@ -86,5 +87,18 @@ class Pembayaran extends Controller
         }catch(QueryException $e){
             return $e->errorInfo;
         }
+    }
+    public function destroy(Bayar $pembayaran)
+    {
+        if($tawar = $pembayaran->pemesanan->produk->produk->where('user_id', session('dataUser')['id'])->all()){
+            foreach($tawar as $t){
+                $t->delete();
+            }
+        }
+        $pembayaran->pemesanan->delete();
+        $pembayaran->delete();
+        return response()->json([
+            'message' => 'Berhasil Dihapus'
+        ], Response::HTTP_OK);
     }
 }

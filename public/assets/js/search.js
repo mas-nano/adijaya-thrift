@@ -36,7 +36,7 @@ $(".more").click(function(e){
 })
 function show(data=null, take){
     $.ajax({
-        url: `/api/produk/${take}`,
+        url: `/produk/search/${take}`,
         type: "GET",
         dataType: "json",
         data: data,

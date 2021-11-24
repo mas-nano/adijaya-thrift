@@ -64,6 +64,7 @@
         <button type="button" name="batal" class="btn montserrat fw-6 red" id="batal">Batalkan</button>
     </div>
 </form>
+<input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
 </div>
 <script src="{{ asset('js/bayar.js') }}"></script>
 @endsection

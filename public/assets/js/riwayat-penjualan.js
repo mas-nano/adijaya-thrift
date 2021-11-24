@@ -7,7 +7,7 @@ $("#filter").change(function(){
         post.filter = $("#filter").val();
     }
     $.ajax({
-        url: "http://localhost:8000/riwayat-penjualan",
+        url: "/riwayat-penjualan",
         type: "POST",
         dataType: 'json',
         data: post,

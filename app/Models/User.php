@@ -23,4 +23,8 @@ class User extends Model
     {
         return $this->hasMany(Produk::class, 'id_penjual');
     }
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class);
+    }
 }

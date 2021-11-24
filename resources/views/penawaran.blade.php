@@ -64,5 +64,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/penawaran.js') }}"></script>
 @endsection

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Produk;
-use Illuminate\Database\QueryException;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Database\QueryException;
 
 class ProdukAPI extends Controller
 {
@@ -14,9 +17,17 @@ class ProdukAPI extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user, Request $request)
     {
-        //
+        $produk = Produk::where('stok', '>', 0)->take($request->take)->get();
+        if(!is_null($kategori = $user->pemesanan->last())){
+            if($kategori = $kategori->produk->kategori){
+                if(!$produk = Produk::where('kategori', $kategori)->where('stok', '>', 0)->take($request->take)->get()){
+                    $produk = Produk::where('stok', '>', 0)->take($request->take)->get();
+                }
+            }
+        }
+        return response()->json($produk, Response::HTTP_OK);
     }
 
     /**
@@ -24,10 +35,10 @@ class ProdukAPI extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function get($take)
+    public function get(Request $request)
     {
         try{
-            $data = json_decode(Produk::filter(request(['search', 'daerah', 'kategori', 'sort', 'promo', 'min', 'max']))->where('stok', '>', 0)->take($take)->get(), true);
+            $data = json_decode(Produk::filter(request(['search', 'daerah', 'kategori', 'sort', 'promo', 'min', 'max']))->where('stok', '>', 0)->take($request->take)->get(), true);
             for($i=0;$i<count($data);$i++){
                 $data[$i]['harga']=number_format($data[$i]['harga'],0,',','.');
                 if($data[$i]['promo']!=null){
@@ -57,9 +68,16 @@ class ProdukAPI extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $produk)
+    public function show(Produk $produk, Request $request)
     {
-        //
+        if($request->user_id){
+            $wishlist = Wishlist::where('user_id', $request->user_id)->where('produk_id', $produk->id)->first();
+            $produk->user->review;
+            return response()->json([$produk, $wishlist], Response::HTTP_OK);
+        }
+        return response()->json([
+            'message' => 'Masukkan parameter user_id'
+        ], Response::HTTP_BAD_REQUEST);
     }
 
     /**

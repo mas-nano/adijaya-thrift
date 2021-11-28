@@ -45,6 +45,7 @@ class LoginAPI extends Controller
         
         if($validate->fails()) {
             $response = [
+                'status' => 400,
                 'messages' => 'Gagal',
                 'data' => $validate->errors()
             ];
@@ -57,6 +58,7 @@ class LoginAPI extends Controller
         if(count($users)===1){
             if(password_verify($data['password'], $users[0]['password'])){
                 return response()->json([
+                    'status' => 200,
                     'messages' => 'Sukses',
                     'nama' => $users[0]['name'],
                     'id' => $users[0]['id'],
@@ -64,11 +66,13 @@ class LoginAPI extends Controller
                 ],Response::HTTP_OK);
             }else{
                 return response()->json([
+                    'status' => 200,
                     'message' => 'Kata Sandi salah'
                 ],Response::HTTP_OK);      
             }
         }else{
             return response()->json([
+                'status' => 200,
                 'message' => 'Nama pengguna salah'
             ],Response::HTTP_OK);      
         }

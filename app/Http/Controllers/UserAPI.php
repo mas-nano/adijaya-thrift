@@ -51,6 +51,7 @@ class UserAPI extends Controller
         try {
             $user = User::create($data);
             $repsonse = [
+                'status' => 201,
                 'messages' => 'Sukses',
                 'data' => $user
             ];
@@ -71,7 +72,7 @@ class UserAPI extends Controller
      */
     public function show(User $user)
     {
-        return response()->json($user,
+        return response()->json(['status' => 200, 'user' => $user],
             Response::HTTP_OK);
     }
 
@@ -84,7 +85,32 @@ class UserAPI extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validate = Validator::make($request->all(), [
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'username' => ['required']
+        ]);
+        if($validate->fails()) {
+            return response()->json([
+                'status' => 400,
+                'error' => $validate->errors()
+            ], Response::HTTP_BAD_REQUEST);
+        }
+        $data = $request->all();
+        if(isset($data['password'])){
+            $data['password'] = password_hash($request->password, PASSWORD_DEFAULT);
+        }else{
+            unset($data['password']);
+        }
+        try {
+            $user = $user->update($data);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Berhasil di update'
+            ], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
     }
 
     /**

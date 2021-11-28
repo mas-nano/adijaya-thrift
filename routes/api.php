@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ChatAPI;
+use App\Http\Controllers\TokoAPI;
 use App\Http\Controllers\UserAPI;
 use App\Http\Controllers\LoginAPI;
 use App\Http\Controllers\ProdukAPI;
@@ -9,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PemesananAPI;
 use App\Http\Controllers\PenawaranAPI;
 use App\Http\Controllers\PembayaranAPI;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +33,14 @@ Route::get('produk', [ProdukAPI::class, 'get']);
 Route::get('produk/{produk}', [ProdukAPI::class, 'show']);
 Route::get('rekomendasi/{user}', [ProdukAPI::class, 'index']);
 Route::delete('pembayaran/{pembayaran}', [PembayaranAPI::class, 'destroy']);
+Route::get('pembayaran/{pembayaran}', [PembayaranAPI::class, 'getPembayaran']);
+Route::post('pembayaran/{pembayaran}', [PembayaranAPI::class, 'postPembayaran']);
+Route::get('checkout/{produk}', [PembayaranAPI::class, 'index']);
+Route::post('checkout/{produk}', [PembayaranAPI::class, 'postCheckout']);
 Route::get('pemesanan', [PemesananAPI::class, 'index']);
 Route::post('penawaran/{produk}', [PenawaranAPI::class, 'index']);
 Route::post('wishlist', [WishlistAPI::class, 'store']);
 Route::delete('wishlist/{wishlist}', [WishlistAPI::class, 'destroy']);
+Route::get('toko/{user}', [TokoAPI::class, 'index']);
+Route::get('chat/{user}', [ChatAPI::class, 'index']);
+Route::get('chat/{user}/messages', [ChatAPI::class, 'index']);

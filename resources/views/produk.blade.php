@@ -37,7 +37,8 @@
             <i class="far fa-heart fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
             @endif
         @endif
-        <i class="fa fa-fw fa-share-alt fa-lg icon"></i>
+        <input type="hidden" name="" id="link" value="{{ url()->full() }}">
+        <i class="fa fa-fw fa-share-alt fa-lg icon" id="share"></i>
     </div>
     <section>
     @if (session("dataUser"))
@@ -63,4 +64,12 @@
     </div>
 </div>
 <script src="{{ asset('js/produk.js') }}"></script>
+<script>
+    $("#share").click(function(){
+        let copy = $("#link")
+        copy.select()
+        navigator.clipboard.writeText(copy.val())
+        alert("Link telah disalin ke papan klip")
+    })
+</script>
 @endsection

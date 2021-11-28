@@ -27,7 +27,7 @@ class ProdukAPI extends Controller
                 }
             }
         }
-        return response()->json($produk, Response::HTTP_OK);
+        return response()->json(['status'=>200, 'produk'=>$produk], Response::HTTP_OK);
     }
 
     /**
@@ -45,7 +45,7 @@ class ProdukAPI extends Controller
                     $data[$i]['promo']=number_format($data[$i]['promo'],0,',','.');
                 }
             }
-            return response()->json($data, Response::HTTP_OK);
+            return response()->json(['status'=>200, 'produk'=>$data], Response::HTTP_OK);
         }catch(QueryException $e){
             return $e->errorInfo;
         }
@@ -73,9 +73,10 @@ class ProdukAPI extends Controller
         if($request->user_id){
             $wishlist = Wishlist::where('user_id', $request->user_id)->where('produk_id', $produk->id)->first();
             $produk->user->review;
-            return response()->json([$produk, $wishlist], Response::HTTP_OK);
+            return response()->json(['status'=>200,'produk'=>$produk, 'wishlist'=>$wishlist], Response::HTTP_OK);
         }
         return response()->json([
+            'status'=>400,
             'message' => 'Masukkan parameter user_id'
         ], Response::HTTP_BAD_REQUEST);
     }
@@ -93,9 +94,10 @@ class ProdukAPI extends Controller
             for($i=0;$i<count($produk);$i++){
                 $produk[$i]->harga=number_format($produk[$i]->harga,0,',','.');
             }
-            return response()->json($produk, Response::HTTP_OK);
+            return response()->json(['status'=>200,'produk'=>$produk], Response::HTTP_OK);
         }else{
             return response()->json([
+                'status'=>400,
                 'message' => 'Masukkan parameter "take"'
             ],Response::HTTP_BAD_REQUEST);
         }

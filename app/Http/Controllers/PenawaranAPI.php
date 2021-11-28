@@ -22,7 +22,7 @@ class PenawaranAPI extends Controller
             ]);
             
             if($validate->fails()) {
-                return response()->json($validate->errors(), Response::HTTP_BAD_REQUEST);
+                return response()->json(['status'=>400, 'errors'=>$validate->errors()], Response::HTTP_BAD_REQUEST);
             }
             $request['produk_id'] = $produk->id;
             $request['user_id'] = $user->id;
@@ -40,6 +40,7 @@ class PenawaranAPI extends Controller
                 }
                 Notification::create($notif);
                 return response()->json([
+                    'status'=>200,
                     'message' => 'Berhasil'
                 ], Response::HTTP_OK);
             } catch (QueryException $e) {
@@ -47,6 +48,7 @@ class PenawaranAPI extends Controller
             }
         }else{
             return response()->json([
+                'status'=>400,
                 'message' => 'Masukkan parameter user_id (pembeli)'
             ], Response::HTTP_BAD_REQUEST);
         }

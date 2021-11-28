@@ -27,6 +27,7 @@ class PemesananAPI extends Controller
                 array_push($status, $query[$i]->status_pembeli);
             }
             return response()->json([
+                'status'=>200,
                 "bayar"=>$bayar, 
                 "produk"=>$produk,
                 "pemesanan_id"=>$pemesanan_id,
@@ -34,9 +35,9 @@ class PemesananAPI extends Controller
             ], Response::HTTP_OK);
         }else{
             return response()->json([
+                'status'=>400,
                 'message' => 'masukkan parameter user_id'
             ], Response::HTTP_BAD_REQUEST);           
         }
-        // dd($query);
     }
 }

@@ -40,6 +40,7 @@ class WishlistAPI extends Controller
         try {
             $wishlist = Wishlist::create($request->all());
             return response()->json([
+                'status'=>200,
                 'message' => 'Sukses',
                 'data' => $wishlist
             ], Response::HTTP_OK);
@@ -92,6 +93,7 @@ class WishlistAPI extends Controller
     {
         $wishlist->delete();
         return response()->json([
+            'status'=>200,
             'message' => 'Berhasil Dihapus'
         ], Response::HTTP_OK);
     }

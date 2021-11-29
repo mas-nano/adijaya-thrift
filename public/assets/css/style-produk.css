@@ -189,3 +189,21 @@
 .orange{
     color: #FF8D44;
 }
+.td-0{
+    text-decoration: none;
+}
+.black{
+    color: black;
+}
+.flex{
+    display: flex;
+}
+.ai-center{
+    align-items: center;
+}
+.jc-sa{
+    justify-content: space-around;
+}
+.mt-1{
+    margin-top: 10px;
+}

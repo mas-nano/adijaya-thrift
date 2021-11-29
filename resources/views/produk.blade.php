@@ -54,19 +54,16 @@
 </div>
 <div class="modal" id="modalBox">
     <div class="modalContent">
+        <div id="fb-root"></div>
         <p class="close fa fa-chevron-left"></p>
-        <div class="fill">
-            
-        </div>
+        <form action="" method="POST">
+            @csrf
+            <div class="fill">
+                
+            </div>
+        </form>
     </div>
 </div>
 <script src="{{ asset('js/produk.js') }}"></script>
-<script>
-    $("#share").click(function(){
-        let copy = $("#link")
-        copy.select()
-        navigator.clipboard.writeText(copy.val())
-        alert("Link telah disalin ke papan klip")
-    })
-</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v12.0" nonce="OuhrkDs0"></script>
 @endsection

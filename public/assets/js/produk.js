@@ -11,17 +11,27 @@ for(let i=0; i<modalBtn.length; i++){
     modalBtn[i].addEventListener('click', openModal);
 }
 $(".fa-share-alt").click(function(){
+    $(".fill").empty()
+    let append = `<p class="sub">Bagikan ke</p>
+    <div class="flex ai-center jc-sa mt-1">
+    <i class="fas fa-link fa-5x icon"></i>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=${$("#link").val()}" class="td-0 black" target="_blank">
+    <i class="fab fa-facebook-square fa-5x"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Produk%20-%20Adijaya%20Thrift&url=${$("#link").val()}" target="_blank"><i class="fab fa-twitter-square fa-5x td-0 black"></i></a>
+</div>`
+    $(".fill").append(append)
     openModal()
-
+    $(".fa-link").click(function(){
+        navigator.clipboard.writeText($("#link").val())
+        alert('Link sudah tersalin di papan klip')
+    })
 })
 $("#tawar").click(function(){
     $(".fill").empty()
     $(".fill").append(`<p class="sub">Buat Penawaran</p>
-    <form action="" method="POST">
-        @csrf
         <input type="text" name="nominal" id="" placeholder="Masukkan Harga...">
-        <button type="submit">Buat Penawaran</button>
-    </form>`)
+        <button type="submit">Buat Penawaran</button>`)
     openModal();
 })
 // Listen for close click

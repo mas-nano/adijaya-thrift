@@ -15,7 +15,7 @@ class Home extends Controller
         if(session('dataUser')){
             if(!is_null($kategori = User::find(session('dataUser')['id'])->pemesanan->last())){
                 if($kategori = User::find(session('dataUser')['id'])->pemesanan->last()->produk->kategori){
-                    if(!$produk = Produk::where('kategori', $kategori)->where('stok', '>', 0)->take(6)->get()){
+                    if(count($produk = Produk::where('kategori', $kategori)->where('stok', '>', 0)->take(6)->get())==0){
                         $produk = Produk::where('stok', '>', 0)->take(6)->get();
                     }
                 }

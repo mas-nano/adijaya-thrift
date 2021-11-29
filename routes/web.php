@@ -57,13 +57,6 @@ Route::get('/toko/{user}', [Toko::class, 'index']);
 Route::get('/toko/{user}/produk', [Toko::class, 'produk']);
 Route::get('/checkout/{produk}', [Checkout::class, 'index']);
 Route::post('/checkout/{produk}', [Checkout::class, 'store']);
-Route::get('/panduan', function () {
-    return view('panduan',[
-        "css" => "panduan",
-        "title" => "Panduan"
-    ]);
-});
-
 Route::get('/chat', [Chat::class, 'index']);
 Route::get('/chat/{userChat}', [Chat::class, 'showMessage']);
 Route::post('/chat/{userChat}', [Chat::class, 'send']);
@@ -90,6 +83,8 @@ Route::get('/akun', [Akun::class, 'index']);
 Route::post('/akun', [Akun::class, 'update']);
 Route::get('/penjualan', [Penjualan::class, 'index']);
 Route::get('/wishlist', [Wishlist::class, 'index']);
+Route::post('/wishlist', [Wishlist::class, 'store']);
+Route::delete('/wishlist/{wishlist}', [Wishlist::class, 'destroy']);
 Route::get('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'index']);
 Route::post('/detail-pemesanan/{pemesanan}', [DetailPesan::class, 'update']);
 Route::get('/laporan-penjualan', [Penjualan::class, 'detail']);

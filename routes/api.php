@@ -43,4 +43,5 @@ Route::post('wishlist', [WishlistAPI::class, 'store']);
 Route::delete('wishlist/{wishlist}', [WishlistAPI::class, 'destroy']);
 Route::get('toko/{user}', [TokoAPI::class, 'index']);
 Route::get('chat/{user}', [ChatAPI::class, 'index']);
-Route::get('chat/{user}/messages', [ChatAPI::class, 'index']);
+Route::get('chat/{userChat}/messages', [ChatAPI::class, 'getMessage']);
+Route::post('chat/{userChat}/messages', [ChatAPI::class, 'postMessage']);

@@ -38,7 +38,16 @@ class Akun extends Controller
         $validate = Validator::make($request->all(), [
             'name' => ['required'],
             'email' => ['required', 'email'],
-            'username' => ['required']
+            'username' => ['required'],
+            'tel' => ['required'], 
+            'bank' => ['required'],
+            'rek' => ['required'],
+            'rekowner' => ['required'],
+            'alamat' => ['required'],
+            'provinsi' => ['required'],
+            'kota' => ['required'],
+            'lng' => ['lng'],
+            'lat' => ['lat']
         ]);
         if($validate->fails()) {
             return view('edit-akun',[
@@ -66,7 +75,7 @@ class Akun extends Controller
             }
             $file = $request->file('photo');
             $extention = $file->getClientOriginalExtension();
-            $eksGambar = ['jpeg', 'jpg', 'png'];
+            $eksGambar = ['jpeg', 'jpg', 'png', 'JPEG', 'JPG', 'PNG'];
             if(!in_array($extention, $eksGambar)){
                 return view('edit-akun',[
                     "css" => "edit-akun",

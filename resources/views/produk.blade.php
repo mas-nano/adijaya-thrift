@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    
+<input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
 <div class="profil-produk">
     <div class="foto-produk">
         <img src="{{ asset('img/uploads/produk/'.$produk['foto']) }}" alt="">
@@ -44,7 +44,7 @@
     @if (session("dataUser"))
         @if (session('dataUser')['id']!=$produk['id_penjual'])    
             <button type="button" name="beli" id="beli"><a href="/checkout/{{ (isset($produk['id'])?$produk['id']:"") }}" class="beli">Beli</a></button>
-            <button type="button" name="tawar" id="modal">Tawar</button>
+            <button type="button" name="tawar" id="tawar">Tawar</button>
         @endif
     @else
     <button type="button" name="beli" id="beli"><a href="/login" class="beli">Beli</a></button>
@@ -55,12 +55,9 @@
 <div class="modal" id="modalBox">
     <div class="modalContent">
         <p class="close fa fa-chevron-left"></p>
-        <p class="sub">Buat Penawaran</p>
-        <form action="" method="POST">
-            @csrf
-            <input type="text" name="nominal" id="" placeholder="Masukkan Harga...">
-            <button type="submit">Buat Penawaran</button>
-        </form>
+        <div class="fill">
+            
+        </div>
     </div>
 </div>
 <script src="{{ asset('js/produk.js') }}"></script>

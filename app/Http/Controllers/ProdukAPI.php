@@ -22,7 +22,7 @@ class ProdukAPI extends Controller
         $produk = Produk::where('stok', '>', 0)->take($request->take)->get();
         if(!is_null($kategori = $user->pemesanan->last())){
             if($kategori = $kategori->produk->kategori){
-                if(!$produk = Produk::where('kategori', $kategori)->where('stok', '>', 0)->take($request->take)->get()){
+                if(count($produk = Produk::where('kategori', $kategori)->where('stok', '>', 0)->take($request->take)->get())==0){
                     $produk = Produk::where('stok', '>', 0)->take($request->take)->get();
                 }
             }

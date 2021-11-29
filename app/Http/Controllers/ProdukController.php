@@ -41,13 +41,24 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        $validate = Validator::make($request->all(), [
-            'nama_produk' => ['required'],
-            'kategori' => ['required'],
-            'deskripsi' => ['required'],
-            'harga' => ['required', 'numeric'],
-            'foto' => ['required']
-        ]);
+        if(isset($request->promo)){
+            $validate = Validator::make($request->all(), [
+                'nama_produk' => ['required'],
+                'kategori' => ['required'],
+                'deskripsi' => ['required'],
+                'harga' => ['required', 'numeric'],
+                'foto' => ['required'],
+                'promo' => ['lt:harga']
+            ]);
+        }else{
+            $validate = Validator::make($request->all(), [
+                'nama_produk' => ['required'],
+                'kategori' => ['required'],
+                'deskripsi' => ['required'],
+                'harga' => ['required', 'numeric'],
+                'foto' => ['required']
+            ]);
+        }
         
         if($validate->fails()) {
             return view('upload',[
@@ -63,7 +74,7 @@ class ProdukController extends Controller
         {
             $file = $request->file('foto');
             $extention = $file->getClientOriginalExtension();
-            $eksGambar = ['jpeg', 'jpg', 'png'];
+            $eksGambar = ['jpeg', 'jpg', 'png', 'JPEG', 'JPG', 'PNG'];
             if(!in_array($extention, $eksGambar)){
                 return view('upload',[
                     "css" => "upload",
@@ -119,12 +130,22 @@ class ProdukController extends Controller
      */
     public function update(Request $request, Produk $produk)
     {
-        $validate = Validator::make($request->all(), [
-            'nama_produk' => ['required'],
-            'kategori' => ['required'],
-            'deskripsi' => ['required'],
-            'harga' => ['required', 'numeric'],
-        ]);
+        if(isset($request->promo)){
+            $validate = Validator::make($request->all(), [
+                'nama_produk' => ['required'],
+                'kategori' => ['required'],
+                'deskripsi' => ['required'],
+                'harga' => ['required', 'numeric'],
+                'promo' => ['lt:harga']
+            ]);
+        }else{
+            $validate = Validator::make($request->all(), [
+                'nama_produk' => ['required'],
+                'kategori' => ['required'],
+                'deskripsi' => ['required'],
+                'harga' => ['required', 'numeric']
+            ]);
+        }
         
         if($validate->fails()) {
             return view('upload',[

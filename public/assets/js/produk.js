@@ -10,7 +10,20 @@ var tidak = document.getElementById('tidak');
 for(let i=0; i<modalBtn.length; i++){
     modalBtn[i].addEventListener('click', openModal);
 }
- 
+$(".fa-share-alt").click(function(){
+    openModal()
+
+})
+$("#tawar").click(function(){
+    $(".fill").empty()
+    $(".fill").append(`<p class="sub">Buat Penawaran</p>
+    <form action="" method="POST">
+        @csrf
+        <input type="text" name="nominal" id="" placeholder="Masukkan Harga...">
+        <button type="submit">Buat Penawaran</button>
+    </form>`)
+    openModal();
+})
 // Listen for close click
 closeBtn.addEventListener('click', closeModal);
  
@@ -40,14 +53,17 @@ function outsideClick(e){
  
 }
 var id = $(".fa-heart").data("id");
-$(".fa-heart-o").click(function(){
-    if($(".fa-heart-o").hasClass("red")){
+$(".fa-heart").click(function(){
+    if($(".fa-heart").hasClass("red")){
         $.ajax({
-            url: `/api/wishlist/${id}`,
+            url: `/wishlist/${id}`,
             type: "DELETE",
             dataType: "json",
+            data: {
+                _token: $("#_token").val()
+            },
             success: function(){
-                $(".fa-heart-o").removeClass("red")
+                $(".fa-heart").removeClass("red")
             },
             error: function(e){
                 console.log(e);
@@ -55,16 +71,16 @@ $(".fa-heart-o").click(function(){
         })
     }else{
         $.ajax({
-            url: "/api/wishlist",
+            url: "/wishlist",
             type: "POST",
             dataType: "json",
             data: {
+                _token: $("#_token").val(),
                 user_id: $(this).data("user"),
                 produk_id: $(this).data("produk")
             },
             success: function(data){
-                console.log(data.data.id);
-                $(".fa-heart-o").addClass("red")
+                $(".fa-heart").addClass("red")
                 id = data.data.id
             },
             error: function(e){

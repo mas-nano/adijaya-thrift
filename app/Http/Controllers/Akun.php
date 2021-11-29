@@ -46,8 +46,8 @@ class Akun extends Controller
             'alamat' => ['required'],
             'provinsi' => ['required'],
             'kota' => ['required'],
-            'lng' => ['lng'],
-            'lat' => ['lat']
+            'lng' => ['required'],
+            'lat' => ['required']
         ]);
         if($validate->fails()) {
             return view('edit-akun',[

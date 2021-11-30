@@ -43,7 +43,7 @@ class Login extends Controller
                     'gambar' => $users[0]['photo']
                 ];
                 $request->session()->put('dataUser', $data);
-                return redirect()->to('/')->secure()->send();
+                return redirect()->secure('/')->send();
             }
         }
         return view('login',[

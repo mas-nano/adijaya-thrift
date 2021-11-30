@@ -111,7 +111,6 @@
 }
 .send{
     max-width: 270px;
-    min-height: 50px;
     align-self: flex-end;
     background-color: #746F6C;
     color: white;
@@ -129,7 +128,6 @@
 .receive{
     margin-bottom: 5px;
     max-width: 270px;
-    min-height: 50px;
     align-self: flex-start;
     background-color: #E1E1E1;
     border-radius: 18px;

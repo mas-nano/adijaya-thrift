@@ -34,7 +34,7 @@ class Pembayaran extends Controller
                 ]);
             }
         }else{
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
     }
     public function update(Bayar $pembayaran, Request $request)
@@ -83,7 +83,7 @@ class Pembayaran extends Controller
                     $t->delete();
                 }
             }
-            return redirect()->to('/riwayat')->send();
+            return redirect()->secure('/riwayat')->send();
         }catch(QueryException $e){
             return $e->errorInfo;
         }

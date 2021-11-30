@@ -13,7 +13,7 @@ class Penjualan extends Controller
     public function index()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         $total = [];
         $tmp = Pemesanan::where('penjual_id', session('dataUser')['id'])->where('status_terima', 'Selesai')->whereDate('updated_at', date('Y-m-d'))->get();
@@ -32,10 +32,10 @@ class Penjualan extends Controller
     public function detail()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
-            return redirect()->to('/akun')->send();
+            return redirect()->secure('/akun')->send();
         }
         $en = CarbonImmutable::now()->locale('en_US');
         $jml = 0;

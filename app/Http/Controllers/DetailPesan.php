@@ -20,7 +20,7 @@ class DetailPesan extends Controller
                 "data" => $pemesanan
             ]);
         }else{
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
             
     }
@@ -40,7 +40,7 @@ class DetailPesan extends Controller
             } catch (QueryException $e) {
                 return $e->errorInfo;
             }
-            return redirect()->to('/pesanan-masuk')->send();
+            return redirect()->secure('/pesanan-masuk')->send();
         }
         if(isset($request['terima'])){
             $validate = Validator::make($request->all(), [
@@ -71,7 +71,7 @@ class DetailPesan extends Controller
             } catch (QueryException $e) {
                 return $e->errorInfo;
             }
-            return redirect()->to('/riwayat')->send();
+            return redirect()->secure('/riwayat')->send();
         }
     }
 }

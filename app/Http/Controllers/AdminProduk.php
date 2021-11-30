@@ -13,7 +13,7 @@ class AdminProduk extends Controller
     public function index(Request $request)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-produkList',[
             "title" => "Produk",
@@ -24,7 +24,7 @@ class AdminProduk extends Controller
     public function ubah(Produk $produk)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-kelolaProduk',[
             "title" => "Produk",
@@ -48,7 +48,7 @@ class AdminProduk extends Controller
         }
         try {
             $produk->update($request->all());
-            return redirect()->to("/admin/produk")->send();
+            return redirect()->secure("/admin/produk")->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

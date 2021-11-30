@@ -25,13 +25,13 @@ class Bantuan extends Controller
         ]);
         
         if($validate->fails()) {
-            return redirect()->to("/bantuan")->with(["data"=>json_decode($validate->errors(),true)]);
+            return redirect()->secure("/bantuan")->with(["data"=>json_decode($validate->errors(),true)]);
         }
         $request['status'] = 'Belum dibalas';
         $request['tgl_pengajuan'] = date('Y-m-d');
         try {
             $user = ModelsBantuan::create($request->all());
-            return redirect()->to("/bantuan")->with("success", '<div class="centang">
+            return redirect()->secure("/bantuan")->with("success", '<div class="centang">
             <p><i class="fas fa-check fs-48 green"></i></p>
             <p class="louis fs-20">Telah terkirim</p>
             </div>');

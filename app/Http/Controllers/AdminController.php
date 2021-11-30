@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function listAdmin(Request $request)
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         return view('admin-list',[
             "title" => "Admin",
@@ -26,7 +26,7 @@ class AdminController extends Controller
     public function tambahAdmin()
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         return view('admin-kelolaAdmin',[
             "title" => "Admin",
@@ -55,7 +55,7 @@ class AdminController extends Controller
 
         try {
             $user = Admin::create($request->all());
-            return redirect()->to('admin/admin')->send();
+            return redirect()->secure('admin/admin')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -63,7 +63,7 @@ class AdminController extends Controller
     public function ubahAdmin(Admin $admin)
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         return view('admin-kelolaAdmin',[
             "title" => "Admin",
@@ -95,7 +95,7 @@ class AdminController extends Controller
             }else{
                 $admin->update($request->except('password'));
             }
-            return redirect()->to("admin/admin")->send();
+            return redirect()->secure("admin/admin")->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -103,7 +103,7 @@ class AdminController extends Controller
     public function hapusAdmin(Admin $admin)
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         try {
             $admin->delete();

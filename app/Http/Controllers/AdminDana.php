@@ -16,7 +16,7 @@ class AdminDana extends Controller
     public function index()
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         $bulan = [];
         $data['title'] = 'Perusahaan';
@@ -36,7 +36,7 @@ class AdminDana extends Controller
     public function tambah()
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-kelolaDana',[
             "title" => "Perusahaan"
@@ -59,7 +59,7 @@ class AdminDana extends Controller
         $request['tgl'] = date("Y-m-d");
         try {
             Pengeluaran::create($request->all());
-            return redirect()->to('/admin/perusahaan')->send();
+            return redirect()->secure('/admin/perusahaan')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -67,7 +67,7 @@ class AdminDana extends Controller
     public function show(Pengeluaran $pengeluaran)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-kelolaDana',[
             "title" => "Perusahaan",

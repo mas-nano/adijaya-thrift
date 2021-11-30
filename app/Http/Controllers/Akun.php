@@ -26,7 +26,7 @@ class Akun extends Controller
                 "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
             ]);
         }else{
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
     }
     public function update(Request $request)

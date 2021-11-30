@@ -17,10 +17,10 @@ class ProdukToko extends Controller
     public function index()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
-            return redirect()->to('/akun')->send();
+            return redirect()->secure('/akun')->send();
         }
         $id = session('dataUser')['id'];
         $data = Produk::where('id_penjual', $id)->get();
@@ -113,7 +113,7 @@ class ProdukToko extends Controller
                 return $e->errorInfo;
             }
         }else{
-            return redirect()->to("/login")->send();
+            return redirect()->secure("/login")->send();
         }
     }
     public function chat(Produk $produk)

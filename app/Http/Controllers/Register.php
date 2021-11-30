@@ -48,7 +48,7 @@ class Register extends Controller
                 'gambar' => $user->photo
             ];
             $request->session()->put('dataUser', $data);
-            return redirect()->to('/')->send();
+            return redirect()->secure('/')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

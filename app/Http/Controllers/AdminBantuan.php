@@ -11,7 +11,7 @@ class AdminBantuan extends Controller
     public function index(Request $request)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-bantuanList',[
             "title" => "Bantuan",
@@ -22,7 +22,7 @@ class AdminBantuan extends Controller
     public function show(Bantuan $bantuan)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-bantuan',[
             "title" => "Bantuan",

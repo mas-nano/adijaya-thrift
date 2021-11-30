@@ -13,7 +13,7 @@ class AdminPencairan extends Controller
     public function index(Request $request)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         $sort = $request->sort;
         $penarikan = Penarikan::whereHas('pemesanan', function($query) use ($sort){
@@ -28,7 +28,7 @@ class AdminPencairan extends Controller
     public function show(Penarikan $penarikan)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-pencairan',[
             "title" => "Pencairan",
@@ -49,7 +49,7 @@ class AdminPencairan extends Controller
             $penarikan->pemesanan->update($data);
             Pemasukan::create($pemasukan);
             Notification::create($notif);
-            return redirect()->to('/admin/pencairan')->send();
+            return redirect()->secure('/admin/pencairan')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

@@ -16,7 +16,7 @@ class Chat extends Controller
     public function index()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         try {
             Notification::where('user_id', session('dataUser')['id'])->where('destinasi', 'chat')->delete();

@@ -32,7 +32,7 @@ class KelolaAdmin extends Controller
                 ]);
             }
         }else{
-            return redirect()->to('/admin/admin')->send();
+            return redirect()->secure('/admin/admin')->send();
         }
     }
 }

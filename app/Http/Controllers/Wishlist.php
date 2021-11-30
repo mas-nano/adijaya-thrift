@@ -13,7 +13,7 @@ class Wishlist extends Controller
     public function index()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         return view('wishlist',[
             "css" => "wishlist",

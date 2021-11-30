@@ -12,7 +12,7 @@ class AdminKonfirmasi extends Controller
     public function index(Request $request)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-konfirmasiList',[
             "title" => "Konfirmasi",
@@ -23,7 +23,7 @@ class AdminKonfirmasi extends Controller
     public function show(Pemesanan $pemesanan)
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         return view('admin-konfirmasi',[
             "title" => "Konfirmasi",
@@ -42,7 +42,7 @@ class AdminKonfirmasi extends Controller
         try {
             Notification::create($notif);
             $pemesanan->update($data);
-            return redirect()->to('/admin/konfirmasi');
+            return redirect()->secure('/admin/konfirmasi');
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

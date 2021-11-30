@@ -13,10 +13,10 @@ class Penawaran extends Controller
     public function index()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
-            return redirect()->to('/akun')->send();
+            return redirect()->secure('/akun')->send();
         }
         try {
             Notification::where('user_id', session('dataUser')['id'])->where('destinasi', 'penawaran')->delete();
@@ -47,7 +47,7 @@ class Penawaran extends Controller
             try {
                 Notification::create($notif);
                 Tawar::findOrFail($request->id)->update($request->only('status'));
-                return redirect()->to("/penawaran")->send();
+                return redirect()->secure("/penawaran")->send();
             } catch (QueryException $e) {
                 return $e->errorInfo;
             }
@@ -61,7 +61,7 @@ class Penawaran extends Controller
             try {
                 Notification::create($notif);
                 Tawar::findOrFail($request->id)->update($request->only('status'));
-                return redirect()->to("/penawaran")->send();
+                return redirect()->secure("/penawaran")->send();
             } catch (QueryException $e) {
                 return $e->errorInfo;
             }

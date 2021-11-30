@@ -23,7 +23,7 @@ class Checkout extends Controller
                 "tawar" => $tawar
             ]);
         }
-        return redirect()->to('/login')->send();
+        return redirect()->secure('/login')->send();
     }
     public function store(Produk $produk, Request $request)
     {
@@ -39,7 +39,7 @@ class Checkout extends Controller
                 $dataBayar = $request->except(['_token', 'aksi']);
                 $dataBayar['tanggal'] = date('Y-m-d');
                 if($pemesanan = Pemesanan::where('user_id', session('dataUser')['id'])->where('produk_id', $produk['id'])->where('status_pembeli', 'Menunggu Pembayaran')->first()){
-                    return redirect()->to('/pembayaran/'.$pemesanan->pembayaran_id)->send();
+                    return redirect()->secure('/pembayaran/'.$pemesanan->pembayaran_id)->send();
                 }
                 try {
                     $pembayaran = Pembayaran::create($dataBayar);
@@ -58,7 +58,7 @@ class Checkout extends Controller
                 } catch (QueryException $e) {
                     return $e->errorInfo;
                 }
-                return redirect()->to('/pembayaran/'.$pembayaran['id'])->send();
+                return redirect()->secure('/pembayaran/'.$pembayaran['id'])->send();
             }
         }
     }

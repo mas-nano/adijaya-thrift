@@ -89,7 +89,7 @@ class ProdukController extends Controller
 
         try {
             $user = Produk::create($data);
-            return redirect()->to('/produk-toko')->send();
+            return redirect()->secure('/produk-toko')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -185,7 +185,7 @@ class ProdukController extends Controller
 
         try {
             Produk::where('id', $produk['id'])->update($data);
-            return redirect()->to('/produk-toko')->send();
+            return redirect()->secure('/produk-toko')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

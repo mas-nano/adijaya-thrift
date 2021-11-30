@@ -13,10 +13,10 @@ class Pesanan extends Controller
     public function index()
     {
         if(!session('dataUser')){
-            return redirect()->to('/login')->send();
+            return redirect()->secure('/login')->send();
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
-            return redirect()->to('/akun')->send();
+            return redirect()->secure('/akun')->send();
         }
         try {
             Notification::where('user_id', session('dataUser')['id'])->where('destinasi', 'pesanan-masuk')->delete();

@@ -12,7 +12,7 @@ class AdminDashboard extends Controller
     public function index()
     {
         if(!session('dataAdmin')){
-            return redirect()->to('/admin')->send();
+            return redirect()->secure('/admin')->send();
         }
         $bulan = [];
         $data['title'] = 'Dashboard';

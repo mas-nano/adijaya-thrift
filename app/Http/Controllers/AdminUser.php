@@ -15,7 +15,7 @@ class AdminUser extends Controller
     public function listUser(Request $request)
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         return view('admin-penggunaList',[
             "title" => "Pengguna",
@@ -25,7 +25,7 @@ class AdminUser extends Controller
     public function ubahUser(User $user)
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
         $prov = json_decode($res->getBody(), true);
@@ -87,7 +87,7 @@ class AdminUser extends Controller
         }
         try {
             $user->update($data);
-            return redirect()->to('admin/pengguna')->send();
+            return redirect()->secure('admin/pengguna')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -95,7 +95,7 @@ class AdminUser extends Controller
     public function tambahUser()
     {
         if(!session('dataAdmin')){
-            redirect()->to("admin")->send();
+            redirect()->secure("admin")->send();
         }
         return view('admin-kelolaAdmin',[
             "title" => "Pengguna",
@@ -124,7 +124,7 @@ class AdminUser extends Controller
         $request['photo'] ='default.png';
         try {
             $user = User::create($request->all());
-            return redirect()->to('admin/pengguna')->send();
+            return redirect()->secure('admin/pengguna')->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

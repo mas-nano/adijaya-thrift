@@ -11,7 +11,7 @@ class AdminLogin extends Controller
     public function login()
     {
         if(session('dataAdmin')){
-            redirect()->to("admin/dashboard")->send();
+            redirect()->secure("admin/dashboard")->send();
         }
         return view('admin-login',[
             "title" => "Login"
@@ -39,7 +39,7 @@ class AdminLogin extends Controller
                     'username' => $user->username
                 ];
                 $request->session()->put('dataAdmin', $data);
-                return redirect()->to('admin/dashboard')->send();
+                return redirect()->secure('admin/dashboard')->send();
             }
         }
         return view('admin-login',[

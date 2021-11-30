@@ -23,7 +23,7 @@ class Notif extends Controller
                 "notif" => Notification::where('user_id', session('dataUser')['id'])->orderBy('created_at', 'desc')->get()
             ]);
         }
-        return redirect()->to('/login')->send();
+        return redirect()->secure('/login')->send();
     }
 
     /**

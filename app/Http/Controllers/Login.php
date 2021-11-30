@@ -11,6 +11,9 @@ class Login extends Controller
 {
     public function index()
     {
+        if(session('dataUser')){
+            return redirect()->secure('/');
+        }
         return view('login',[
             "css" => "login",
             "title" => "Masuk"

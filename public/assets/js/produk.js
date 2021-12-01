@@ -64,7 +64,7 @@ function outsideClick(e){
 }
 var id = $(".fa-heart").data("id");
 $(".fa-heart").click(function(){
-    if($(".fa-heart").hasClass("red")){
+    if($(".fa-heart").hasClass("orange")){
         $.ajax({
             url: `/wishlist/${id}`,
             type: "DELETE",
@@ -73,7 +73,9 @@ $(".fa-heart").click(function(){
                 _token: $("#_token").val()
             },
             success: function(){
-                $(".fa-heart").removeClass("red")
+                $(".fa-heart").removeClass("orange")
+                $(".fa-heart").removeClass("fas")
+                $(".fa-heart").addClass("far")
             },
             error: function(e){
                 console.log(e);
@@ -90,7 +92,9 @@ $(".fa-heart").click(function(){
                 produk_id: $(this).data("produk")
             },
             success: function(data){
-                $(".fa-heart").addClass("red")
+                $(".fa-heart").addClass("orange")
+                $(".fa-heart").removeClass("far")
+                $(".fa-heart").addClass("fas")
                 id = data.data.id
             },
             error: function(e){
@@ -141,3 +145,64 @@ $(".fa-comment-alt").click(function(){
         }
     })
 })
+$(".fa-print").click(()=>{
+    PrintDiv("print", "Nota Pembelian")
+})
+function PrintDiv(divid,title) {
+    var contents = document.getElementById(divid).innerHTML;
+    var frame1 = document.createElement('iframe');
+    frame1.name = "frame1";
+    frame1.style.position = "absolute";
+    frame1.style.top = "-1000000px";
+    document.body.appendChild(frame1);
+    var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+    frameDoc.document.open();
+    frameDoc.document.write(`<html><head><style>* {
+        font-size: 12px;
+        font-family: 'Times New Roman';
+    }
+    
+    td,
+    th,
+    tr,
+    table {
+        border-top: 1px solid black;
+        border-collapse: collapse;
+    }
+    td.quantity,
+    th.quantity {
+        width: 20px;
+        max-width: 20px;
+        word-break: break-all;
+        text-align: center;
+    }
+    .centered {
+        text-align: center;
+        align-content: center;
+    }
+    .ticket {
+        width: 60mm;
+        max-width: 200px;
+    }
+    .mh{
+        height: 50px;
+        width: 100px;
+        object-fit: cover;
+        margin: auto;
+        display: block;
+    }
+    .m-0{
+        margin: 0px;
+    }
+    </style>`);
+    frameDoc.document.write('</head><body>');
+    frameDoc.document.write(contents);
+    frameDoc.document.write('</body></html>');
+    frameDoc.document.close();
+    setTimeout(function () {
+        window.frames["frame1"].focus();
+        window.frames["frame1"].print();
+        document.body.removeChild(frame1);
+    }, 500);
+    return false;
+}

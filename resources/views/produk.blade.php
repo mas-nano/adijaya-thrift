@@ -28,13 +28,13 @@
     @else
     <p class="harga-produk fs-16">Rp{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</p>
         @endif
-    <pre class="montserrat fs-16">{{ (isset($produk['deskripsi'])?$produk['deskripsi']:"") }}</pre>
+    <textarea class="montserrat fs-16 mw" disabled>{{ (isset($produk['deskripsi'])?$produk['deskripsi']:"") }}</textarea>
     <div>
         @if (session('dataUser'))
             @if (session('dataUser')['id']!=$produk['id_penjual'])
             <input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
             <i class="far fa-comment-alt fa-lg icon" data-id="{{ $produk['id'] }}"></i>
-            <i class="far fa-heart fa-lg icon  {{ ($wishlist?"red":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
+            <i class="{{ $wishlist?"fas":"far" }} fa-heart fa-lg icon  {{ ($wishlist?"orange":"") }}" data-produk="{{ $produk['id'] }}" data-user="{{ session('dataUser')['id'] }}" data-id="{{ ($wishlist?$wishlist:"") }}"></i>
             @endif
         @endif
         <input type="hidden" name="" id="link" value="{{ url()->full() }}">

@@ -53,4 +53,39 @@ class PenawaranAPI extends Controller
             ], Response::HTTP_BAD_REQUEST);
         }
     }
+    public function getPenawaran(Request $request)
+    {
+        $tawar = Tawar::where('penjual_id', $request->user_id)->get();
+        foreach ($tawar as $t) {
+            $t->produk;
+            $t->user;
+        }
+        return response()->json([
+            'status'=>200,
+            'tawar'=>$tawar
+        ], Response::HTTP_OK);
+    }
+    public function update(Request $request, Tawar $tawar)
+    {
+        if($request->aksi=="terima"){
+            $request['status'] = 'Diterima';
+            $notif['pesan'] = 'Menerima penawaran anda untuk '.$tawar->produk->nama_produk;
+        }elseif($request->aksi=="tolak"){
+            $request['status'] = 'Ditolak';
+            $notif['pesan'] = 'Menolak penawaran anda untuk '.$tawar->produk->nama_produk;
+        }
+        $notif['user_id'] = $request->id_pembeli;
+        $notif['subjudul'] = $request->nama_penjual;
+        $notif['destinasi'] = 'riwayat';
+        try {
+            Notification::create($notif);
+            $tawar->update($request->only('status'));
+            return response()->json([
+                'status'=>200,
+                'message'=>'Berhasil'
+            ], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
+    }
 }

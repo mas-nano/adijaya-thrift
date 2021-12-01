@@ -34,6 +34,7 @@
     @else
     <ul class="hasil">
         @foreach ($produk as $p)
+            @if ($p->stok>0)
             <li>
                 <div class="produk" data-id="{{ $p->id }}">
                     <img src="{{ asset('img/uploads/produk/'.$p->foto) }}" alt="" srcset="" class="gambar-produk">
@@ -46,6 +47,7 @@
                     @endif
                 </div>
             </li>
+        @endif
         @endforeach
     </ul>
     @endif

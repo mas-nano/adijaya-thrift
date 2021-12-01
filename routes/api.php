@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BantuanAPI;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ChatAPI;
 use App\Http\Controllers\TokoAPI;
@@ -39,8 +40,13 @@ Route::post('pembayaran/{pembayaran}', [PembayaranAPI::class, 'postPembayaran'])
 Route::get('checkout/{produk}', [PembayaranAPI::class, 'index']);
 Route::post('checkout/{produk}', [PembayaranAPI::class, 'postCheckout']);
 Route::get('pemesanan', [PemesananAPI::class, 'index']);
+Route::get('pemesanan/{pemesanan}', [PemesananAPI::class, 'getPemesanan']);
+Route::post('pemesanan/{pemesanan}', [PemesananAPI::class, 'postPemesanan']);
 Route::post('penawaran/{produk}', [PenawaranAPI::class, 'index']);
+Route::get('penawaran', [PenawaranAPI::class, 'getPenawaran']);
+Route::put('penawaran/{tawar}', [PenawaranAPI::class, 'update']);
 Route::post('wishlist', [WishlistAPI::class, 'store']);
+Route::get('wishlist', [WishlistAPI::class, 'index']);
 Route::delete('wishlist/{wishlist}', [WishlistAPI::class, 'destroy']);
 Route::get('toko/{user}', [TokoAPI::class, 'index']);
 Route::get('chat/{user}', [ChatAPI::class, 'index']);
@@ -48,3 +54,4 @@ Route::get('chat/{userChat}/messages', [ChatAPI::class, 'getMessage']);
 Route::post('chat/{userChat}/messages', [ChatAPI::class, 'postMessage']);
 Route::get('notif', [NotifAPI::class, 'index']);
 Route::delete('notif', [NotifAPI::class, 'destroy']);
+Route::post('bantuan',[BantuanAPI::class, 'index']);

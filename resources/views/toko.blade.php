@@ -46,7 +46,7 @@
             @foreach ($review as $r)
             <div class="ulasan-rinci">
                 <div>
-                    <img src="{{ asset('img/uploads/produk'.$r->produk->foto) }}" alt="">
+                    <img src="{{ asset('img/uploads/produk/'.$r->produk->foto) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-pengguna">{{ '@'.$r->user->username }}</p>

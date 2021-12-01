@@ -207,3 +207,10 @@
 .mt-1{
     margin-top: 10px;
 }
+.mw{
+    width: 100%;
+    height: 60%;
+    background-color: transparent;
+    border: none;
+    color: black;
+}

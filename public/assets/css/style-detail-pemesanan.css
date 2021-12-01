@@ -204,3 +204,9 @@ span{
     font-family: 'Montserrat', sans-serif;
     color: red;
 }
+.fa-print:hover{
+    cursor: pointer;
+}
+#print{
+    display: none;
+}

@@ -96,6 +96,38 @@
         @endif
     </div>
 </div>
+<div id="print">
+    <div class="ticket">
+        <p class="centered">Nota Pembelian</p>
+            <p class="centered m-0">ID: 1</p>
+            <img src="{{ asset('img/phooo 1.png') }}" alt="" class="mh">
+            <p class="m-0">Tanggal Pembelian : {{ $data->created_at->format('d-m-Y') }}</p>
+            <p>Tanggal Cetak : {{ date('d-m-Y') }}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="quantity">Q.</th>
+                    <th class="description">Deskripsi</th>
+                    <th class="price">Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="quantity">1</td>
+                    <td class="description">{{ $data->produk->nama_produk }}</td>
+                    <td class="price">Rp{{ number_format($data->pembayaran->total, 0, ',', '.') }}</td>
+                </tr>
+                <tr>
+                    <td class="quantity"></td>
+                    <td class="description">TOTAL</td>
+                    <td class="price">Rp{{ number_format($data->pembayaran->total, 0, ',', '.') }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="centered">Terima kasih telah berbelanja di
+            <br>Adijaya Thrift</p>
+    </div>
+</div>
 <script src="{{ asset('/js/review.js') }}">
 </script>
 <script src="{{ asset('/js/produk.js') }}"></script>

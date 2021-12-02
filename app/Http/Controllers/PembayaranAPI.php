@@ -79,19 +79,6 @@ class PembayaranAPI extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function getPembayaran(Pemesanan $pemesanan)
-    {
-        $pemesanan->produk;
-        $pemesanan->pembayaran;
-        return response()->json(['status'=>200, 'pembayaran'=>$pemesanan], Response::HTTP_OK);
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Pembayaran  $pembayaran
@@ -112,13 +99,10 @@ class PembayaranAPI extends Controller
         if($validate->fails()) {
             return response()->json(['status'=>400, 'error'=>$validate->errors()], Response::HTTP_BAD_REQUEST);
         }
-        $stok = $pemesanan->produk->stok;
-        $request['stok'] = $stok-1;
         $request['status_pembeli'] = 'Konfirmasi admin';
         $request['status_admin'] = 'Belum Dikonfirmasi';
         try{
-            $pemesanan->pembayaran->update($request->except(['stok', 'status_pembeil', 'status_admin']));
-            $pemesanan->produk->update($request->only(['stok']));
+            $pemesanan->pembayaran->update($request->except(['status_pembeil', 'status_admin']));
             $pemesanan->update($request->only(['status_pembeli', 'status_admin']));
             if($tawar = $pemesanan->produk->produk->where('user_id', $request->user_id)->all()){
                 foreach($tawar as $t){
@@ -170,6 +154,8 @@ class PembayaranAPI extends Controller
                 $t->delete();
             }
         }
+        $stok = $pemesanan->produk->stok;
+        $pemesanan->produk->update(['stok', $stok+1]);
         $pemesanan->pembayaran->delete();
         $pemesanan->delete();
         return response()->json([

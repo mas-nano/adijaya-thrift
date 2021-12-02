@@ -35,7 +35,6 @@ Route::get('produk', [ProdukAPI::class, 'get']);
 Route::get('produk/{produk}', [ProdukAPI::class, 'show']);
 Route::get('rekomendasi/{user}', [ProdukAPI::class, 'index']);
 Route::delete('pembayaran/{pemesanan}', [PembayaranAPI::class, 'destroy']);
-Route::get('pembayaran/{pemesanan}', [PembayaranAPI::class, 'getPembayaran']);
 Route::post('pembayaran/{pemesanan}', [PembayaranAPI::class, 'postPembayaran']);
 Route::get('checkout/{produk}', [PembayaranAPI::class, 'index']);
 Route::post('checkout/{produk}', [PembayaranAPI::class, 'postCheckout']);

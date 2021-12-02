@@ -71,12 +71,10 @@ class Pembayaran extends Controller
                 ]);
             }
         }
-        $request['stok'] = $request['stok']-1;
         $request['status_pembeli'] = 'Konfirmasi admin';
         $request['status_admin'] = 'Belum Dikonfirmasi';
         try{
             $pembayaran->update($request->except(['_token', 'produk_id', 'aksi']));
-            $pembayaran->pemesanan->produk->update($request->only(['stok']));
             $pembayaran->pemesanan->update($request->only(['status_pembeli', 'status_admin']));
             if($tawar = $pembayaran->pemesanan->produk->produk->where('user_id', session('dataUser')['id'])->all()){
                 foreach($tawar as $t){
@@ -95,6 +93,8 @@ class Pembayaran extends Controller
                 $t->delete();
             }
         }
+        $stok = $pembayaran->pemesanan->produk->stok;
+        $pembayaran->pemesanan->produk->update(['stok', $stok+1]);
         $pembayaran->pemesanan->delete();
         $pembayaran->delete();
         return response()->json([

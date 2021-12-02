@@ -114,4 +114,8 @@ class Akun extends Controller
             return $e->errorInfo;
         }
     }
+    public function getKota(Request $request)
+    {
+        return response()->json(json_decode(Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/regencies/'.$request->id.'.json')->getBody()));
+    }
 }

@@ -1,8 +1,11 @@
 function kota(id, sel){
     $.ajax({
-        url: `https://emsifa.github.io/api-wilayah-indonesia/api/regencies/${id}.json`,
-        type: "GET",
-        dataType: "json",
+      url: `/kota`,
+      type: "GET",
+      dataType: "json",
+      data: {
+          id: id
+      },
         success: function(data){
             for(let i=0; i<data.length;i++){
               sel.append($("<option></option>")

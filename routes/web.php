@@ -127,3 +127,4 @@ Route::post('/admin/produk/ubah/{produk}', [AdminProduk::class, 'postUbah']);
 Route::delete('/admin/produk/hapus/{produk}', [AdminProduk::class, 'hapus']);
 Route::get('/logout', [Logout::class, 'index']);
 Route::get('/admin/logout', [Logout::class, 'admin']);
+Route::get('kota', [Akun::class, 'getKota']);

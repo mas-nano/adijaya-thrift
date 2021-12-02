@@ -51,12 +51,6 @@ class PembayaranAPI extends Controller
                 'status_kirim' => 'Sudah dikirim',
                 'status_terima' => 'Belum diterima'
             ];
-            $stok = $produk->stok;
-            try {
-                $produk->update(['stok'=>$stok-1]);
-            } catch (QueryException $e) {
-                return $e->errorInfo;
-            }
         }else{
             $data = [
                 'pembayaran_id' => $pembayaran->id,
@@ -65,6 +59,12 @@ class PembayaranAPI extends Controller
                 'penjual_id' => intval($produk->id_penjual),
                 'status_pembeli' => 'Menunggu Pembayaran'
             ];
+        }
+        $stok = $produk->stok;
+        try {
+            $produk->update(['stok'=>$stok-1]);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
         }
         try {
             $pemesanan = Pemesanan::create($data);

@@ -23,6 +23,7 @@ class CreateProduksTable extends Migration
             $table->string('foto');
             $table->string('stok');
             $table->string('promo')->nullable();
+            $table->string('wishlist')->default(0);
             $table->timestamps();
         });
     }

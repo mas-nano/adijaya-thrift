@@ -48,9 +48,10 @@
                                 <p class="louis-12 {{ ($r->status_ajukan=='Sudah dicairkan'?"green":"") }}">{{ (is_null($r->status_ajukan)?$r->status_terima:$r->status_ajukan) }}</p>
                             </div>
                             <p class="flex-5 align-r louis-12"><a href="/detail-pemesanan/{{ $r->id }}" class="td-0 black link-detail{{ ($r->status_terima=='Selesai'?' '.$r->status_terima:"") }}" data-pemesanan_id="{{ $r->id }}">
-                                @if ($r->status_terima=='Selesai'&&is_null($r->status_ajukan))
+                                @if ($r->status_terima=='Selesai')
+                                    @if (is_null($r->status_ajukan)&&$r->pembayaran->metode_bayar!="cod")
                                     Ajukan pencairan
-                                @elseif(!is_null($r->status_ajukan))
+                                    @endif
                                 @else
                                 Detail
                                 @endif

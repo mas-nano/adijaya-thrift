@@ -137,7 +137,9 @@
     margin-left: 30px;
 }
 .status-produk img{
-    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 .montserrat-18{
     font-family: 'Montserrat', sans-serif;

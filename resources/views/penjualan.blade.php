@@ -53,7 +53,7 @@
                     </div>
                     @endforeach
                     @if (count($pemesanan)<1)
-                    <p class="montserrat ta-c">Konfirmasi pembayaran tidak ditemukan</p>
+                    <p class="montserrat ta-c">Riwayat penjualan tidak ditemukan</p>
                     @endif
                 </div>
             </div>

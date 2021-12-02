@@ -11,7 +11,7 @@ class Search extends Controller
 {
     public function index()
     {
-        $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
         $res_json = json_decode($res->getBody(), true);
         return view('cari',[
             "css" => "cari",

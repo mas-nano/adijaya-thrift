@@ -14,7 +14,7 @@ class Akun extends Controller
     public function index()
     {
         if(session('dataUser')){
-            $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+            $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
             $prov = json_decode($res->getBody(), true);
             $id = session('dataUser')['id'];
             $data = User::where('id', $id)->get();
@@ -33,7 +33,7 @@ class Akun extends Controller
     {
         $id = session('dataUser')['id'];
         $dataUser = json_decode(User::where('id', $id)->get(), true);
-        $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
         $prov = json_decode($res->getBody(), true);
         $validate = Validator::make($request->all(), [
             'name' => ['required'],

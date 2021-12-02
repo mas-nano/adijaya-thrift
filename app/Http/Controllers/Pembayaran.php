@@ -14,7 +14,7 @@ class Pembayaran extends Controller
     public function index(Bayar $pembayaran)
     {
         if(session('dataUser')){
-            $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+            $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
             $prov = json_decode($res->getBody(), true);
             if($pembayaran->metode_bayar=='transfer'){
                 return view('bayar',[
@@ -49,7 +49,7 @@ class Pembayaran extends Controller
         ]);
         
         if($validate->fails()) {
-            $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+            $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
             $prov = json_decode($res->getBody(), true);
             if($pembayaran->metode_bayar=='transfer'){
                 return view('bayar',[

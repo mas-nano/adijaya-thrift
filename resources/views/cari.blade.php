@@ -25,13 +25,13 @@
                 <select name="sort" id="sort">
                     <option value="">Urutkan</option>
                     <option value="Terbaru">Terbaru</option>
-                    <option value="Terlama">Terlama</option>
+                    <option value="Terpopuler">Terpopuler</option>
                 </select>
             <p>Pilih Provinsi</p>
                 <select name="daerah" id="daerah">
                     <option value="">Pilih Provinsi</option>
-                    @for ($i = 0; $i < count($data['provinsi']); $i++)
-                    <option value="{{ $data['provinsi'][$i]['nama'] }}">{{ $data['provinsi'][$i]['nama'] }}</option>
+                    @for ($i = 0; $i < count($data); $i++)
+                    <option value="{{ $data[$i]['name'] }}">{{ $data[$i]['name'] }}</option>
                     @endfor
                 </select>
             <p>Harga</p>

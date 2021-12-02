@@ -53,6 +53,9 @@
                             @endforeach
                         @endforeach
                     @endif
+                    @if (session("lengkap"))
+                        <p class="warn">{{ session("lengkap") }}</p>
+                    @endif
                     <label for="nama" class="block">Nama</label>
                     <input type="text" id="nama" class="block input" name="name" value="{{ (isset($data[0]['name'])?$data[0]['name']:"") }}">
                     <label for="username" class="block">Nama Pengguna</label>
@@ -74,8 +77,8 @@
                     <label for="provinsi" class="block">Provinsi</label>
                     <select name="provinsi" id="provinsi" class="block" name="provinsi">
                         <option value="">Pilih Provinsi</option>
-                        @for ($i = 0; $i < count($prov['provinsi']); $i++)
-                        <option value="{{ $prov['provinsi'][$i]['nama'] }}" id="{{ $prov['provinsi'][$i]['id'] }}" {{ (isset($data[0]['provinsi'])&&$data[0]['provinsi']==$prov['provinsi'][$i]['nama']?'selected':'') }}>{{ $prov['provinsi'][$i]['nama'] }}</option>
+                        @for ($i = 0; $i < count($prov); $i++)
+                        <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($data[0])&&$data[0]['provinsi']==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                         @endfor
                     </select>
                     <label for="kota" class="block">Kota</label>

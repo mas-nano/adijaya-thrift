@@ -57,23 +57,23 @@
                         <p class="align-kanan">Rp{{ (isset($produk['harga'])?number_format($produk['harga'], 0, ',', '.'):"") }}</p>
                         @endif
                         <p class="align-kanan">Rp20.000</p>
-                        <p class="align-kanan">Rp2.000</p>
+                        <p class="align-kanan">Rp2.500</p>
                         <br>
                         @if (isset($tawar->nominal))
-                        <p class="align-kanan total">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal+22000, 0, ',', '.'):"") }}</p>
+                        <p class="align-kanan total">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal+22500, 0, ',', '.'):"") }}</p>
                         @elseif(isset($produk['promo']))
-                        <p class="align-kanan total">Rp{{ (isset($produk['promo'])?number_format($produk['promo']+22000, 0, ',', '.'):"") }}</p>
+                        <p class="align-kanan total">Rp{{ (isset($produk['promo'])?number_format($produk['promo']+22500, 0, ',', '.'):"") }}</p>
                         @elseif(isset($produk['harga']))
-                        <p class="align-kanan total">Rp{{ (isset($produk['harga'])?number_format($produk['harga']+22000, 0, ',', '.'):"") }}</p>
+                        <p class="align-kanan total">Rp{{ (isset($produk['harga'])?number_format($produk['harga']+22500, 0, ',', '.'):"") }}</p>
                         @endif
                     </div>
                 </div>
                 @if (isset($tawar->nominal))
-                <input type="hidden" name="total" value="{{ (isset($tawar->nominal)?$tawar->nominal+22000:"") }}">
+                <input type="hidden" name="total" value="{{ (isset($tawar->nominal)?$tawar->nominal+22500:"") }}">
                 @elseif (isset($produk['promo']))
-                <input type="hidden" name="total" value="{{ (isset($produk['promo'])?$produk['promo']+22000:"") }}">
+                <input type="hidden" name="total" value="{{ (isset($produk['promo'])?$produk['promo']+22500:"") }}">
                 @elseif(isset($produk['harga']))
-                <input type="hidden" name="total" value="{{ (isset($produk['harga'])?$produk['harga']+22000:"") }}">
+                <input type="hidden" name="total" value="{{ (isset($produk['harga'])?$produk['harga']+22500:"") }}">
                 @endif
             </div>
         </div>

@@ -42,13 +42,13 @@ class Penjualan extends Controller
         $total = $tgl = $sub = [];
         $tmp = Pemesanan::where('penjual_id', session('dataUser')['id'])->where('status_terima', 'Selesai')->whereDate('updated_at', date('Y-m-d'))->get();
         foreach ($tmp as $t) {
-            array_push($total, $t->pembayaran->total-22000);
+            array_push($total, $t->pembayaran->total-22500);
         }
         for($i=0; $i<5; $i++){
             $tmp = Pemesanan::where('penjual_id', session('dataUser')['id'])->where('status_terima', 'Selesai')->where('updated_at', '>=', $en->startOfWeek()->subweek($i)->format('Y-m-d H:i'))->where('updated_at', '<=', $en->endOfWeek()->subweek($i)->format('Y-m-d H:i'))->get();
             array_push($tgl, $en->startOfWeek()->subweek($i)->format('d/m').'-'.$en->endOfWeek()->subweek($i)->format('d/m'));
             foreach ($tmp as $t) {
-                $jml = $jml + $t->pembayaran->total-22000;
+                $jml = $jml + $t->pembayaran->total-22500;
             }
             array_push($sub, $jml);
             $jml = 0;

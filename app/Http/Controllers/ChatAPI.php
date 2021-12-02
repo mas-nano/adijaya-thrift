@@ -14,14 +14,17 @@ class ChatAPI extends Controller
 {
     public function index(User $user)
     {
+        $message=[];
         $chat = UserChat::where('user_id', $user->id)->orWhere('penerima_id', $user->id)->orderBy('updated_at', 'desc')->get();
         foreach ($chat as $c) {
             $c->user;
             $c->penerima;
+            array_push($message, UserMessage::where('user_chat_id', $c->id)->get()->last());
         }
         return response()->json([
             'status'=>200,
-            'userChat' => $chat
+            'userChat' => $chat,
+            'message' => $message
         ], Response::HTTP_OK);
     }
     public function getMessage(UserChat $userChat)

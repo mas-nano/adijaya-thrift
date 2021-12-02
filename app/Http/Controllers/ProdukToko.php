@@ -20,7 +20,7 @@ class ProdukToko extends Controller
             return redirect()->secure('/login')->send();
         }
         if(!User::find(session('dataUser')['id'])->lengkap){
-            return redirect()->secure('/akun')->send();
+            return redirect()->secure('/akun')->with('lengkap', 'Mohon melengkapi data Anda beserta lokasi toko Anda');
         }
         $id = session('dataUser')['id'];
         $data = Produk::where('id_penjual', $id)->get();
@@ -46,7 +46,7 @@ class ProdukToko extends Controller
         $rating = User::findOrFail($produk->id_penjual)->review->avg('rating');
         return view('produk',[
             "css" => "produk",
-            "title" => "Produk",
+            "title" => $produk->nama_produk,
             "produk" => json_decode($produk, true),
             "data" => $data,
             "wishlist" => $id,

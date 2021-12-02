@@ -1,15 +1,12 @@
 function kota(id, sel){
     $.ajax({
-        url: `https://dev.farizdotid.com/api/daerahindonesia/kota`,
+        url: `https://emsifa.github.io/api-wilayah-indonesia/api/regencies/${id}.json`,
         type: "GET",
         dataType: "json",
-        data: {
-            id_provinsi: id
-        },
         success: function(data){
-            for(let i=0; i<data["kota_kabupaten"].length;i++){
+            for(let i=0; i<data.length;i++){
               sel.append($("<option></option>")
-              .attr("value", data["kota_kabupaten"][i]["nama"]).text(data["kota_kabupaten"][i]["nama"]));
+              .attr("value", data[i]["name"]).text(data[i]["name"]));
             }
           }
     });

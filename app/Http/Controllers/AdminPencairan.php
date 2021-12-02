@@ -40,7 +40,7 @@ class AdminPencairan extends Controller
         $data['status_ajukan'] = 'Sudah dicairkan';
         $data['tgl_cair'] = date('Y-m-d');
         $pemasukan['tgl'] = date('Y-m-d');
-        $pemasukan['nominal'] = 2000;
+        $pemasukan['nominal'] = 2500;
         $notif['user_id'] = $penarikan->pemesanan->penjual_id;
         $notif['subjudul'] = 'Admin';
         $notif['pesan'] = 'Pengajuan untuk '.$penarikan->pemesanan->produk->nama_produk.' telah dicairkan';

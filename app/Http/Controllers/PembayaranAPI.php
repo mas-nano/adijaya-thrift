@@ -34,7 +34,6 @@ class PembayaranAPI extends Controller
         $dataBayar = $request->except(['user_id']);
         $dataBayar['tanggal'] = date('Y-m-d');
         if($pemesanan = Pemesanan::where('user_id', $request->user_id)->where('produk_id', $produk->id)->where('status_pembeli', 'Menunggu Pembayaran')->first()){
-            $pemesanan = $pemesanan->pembayaran;
             return response()->json(['status'=>200, 'pemesanan'=>$pemesanan], Response::HTTP_OK);
         }
         try {
@@ -42,19 +41,41 @@ class PembayaranAPI extends Controller
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
-        $data = [
-            'pembayaran_id' => $pembayaran->id,
-            'produk_id' => intval($produk->id),
-            'user_id' => intval($request->user_id),
-            'penjual_id' => intval($produk->id_penjual),
-            'status_pembeli' => 'Menunggu Pembayaran'
-        ];
+        if($request->metode_bayar=="cod"){
+            $data = [
+                'pembayaran_id' => $pembayaran->id,
+                'produk_id' => intval($produk->id),
+                'user_id' => intval($request->user_id),
+                'penjual_id' => intval($produk->id_penjual),
+                'status_pembeli' => 'Proses',
+                'status_kirim' => 'Sudah dikirim',
+                'status_terima' => 'Belum diterima'
+            ];
+            $stok = $produk->stok;
+            try {
+                $produk->update(['stok'=>$stok-1]);
+            } catch (QueryException $e) {
+                return $e->errorInfo;
+            }
+        }else{
+            $data = [
+                'pembayaran_id' => $pembayaran->id,
+                'produk_id' => intval($produk->id),
+                'user_id' => intval($request->user_id),
+                'penjual_id' => intval($produk->id_penjual),
+                'status_pembeli' => 'Menunggu Pembayaran'
+            ];
+        }
         try {
-            Pemesanan::create($data);
+            $pemesanan = Pemesanan::create($data);
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
-        return response()->json(['status'=>200, 'pemesanan'=>$pembayaran], Response::HTTP_OK);
+        if($request->metode_bayar=="cod"){
+            return response()->json(['status'=>200, 'message'=>'COD'], Response::HTTP_OK);
+        }else{
+            return response()->json(['status'=>200, 'pemesanan'=>$pemesanan], Response::HTTP_OK);
+        }
     }
 
     /**
@@ -63,10 +84,11 @@ class PembayaranAPI extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getPembayaran(Pembayaran $pembayaran)
+    public function getPembayaran(Pemesanan $pemesanan)
     {
-        $pembayaran->pemesanan->produk;
-        return response()->json(['status'=>200, 'pemesanan'=>$pembayaran], Response::HTTP_OK);
+        $pemesanan->produk;
+        $pemesanan->pembayaran;
+        return response()->json(['status'=>200, 'pembayaran'=>$pemesanan], Response::HTTP_OK);
     }
 
     /**
@@ -75,7 +97,7 @@ class PembayaranAPI extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function postPembayaran(Pembayaran $pembayaran, Request $request)
+    public function postPembayaran(Pemesanan $pemesanan, Request $request)
     {
         $validate = Validator::make($request->all(), [
             'nama_bank' => ['required'],
@@ -90,14 +112,15 @@ class PembayaranAPI extends Controller
         if($validate->fails()) {
             return response()->json(['status'=>400, 'error'=>$validate->errors()], Response::HTTP_BAD_REQUEST);
         }
-        $request['stok'] = $request['stok']-1;
+        $stok = $pemesanan->produk->stok;
+        $request['stok'] = $stok-1;
         $request['status_pembeli'] = 'Konfirmasi admin';
         $request['status_admin'] = 'Belum Dikonfirmasi';
         try{
-            $pembayaran->update($request->except(['stok', 'status_pembeil', 'status_admin']));
-            $pembayaran->pemesanan->produk->update($request->only(['stok']));
-            $pembayaran->pemesanan->update($request->only(['status_pembeli', 'status_admin']));
-            if($tawar = $pembayaran->pemesanan->produk->produk->where('user_id', $request->user_id)->all()){
+            $pemesanan->pembayaran->update($request->except(['stok', 'status_pembeil', 'status_admin']));
+            $pemesanan->produk->update($request->only(['stok']));
+            $pemesanan->update($request->only(['status_pembeli', 'status_admin']));
+            if($tawar = $pemesanan->produk->produk->where('user_id', $request->user_id)->all()){
                 foreach($tawar as $t){
                     $t->delete();
                 }
@@ -140,15 +163,15 @@ class PembayaranAPI extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pembayaran $pembayaran, Request $request)
+    public function destroy(Pemesanan $pemesanan, Request $request)
     {
-        if($tawar = $pembayaran->pemesanan->produk->produk->where('user_id', $request->user_id)->all()){
+        if($tawar = $pemesanan->produk->produk->where('user_id', $request->user_id)->all()){
             foreach($tawar as $t){
                 $t->delete();
             }
         }
-        $pembayaran->pemesanan->delete();
-        $pembayaran->delete();
+        $pemesanan->pembayaran->delete();
+        $pemesanan->delete();
         return response()->json([
             'status'=>200,
             'message' => 'Berhasil Dihapus'

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
-use App\Models\Pembayaran;
-use App\Models\Pemesanan;
 use App\Models\Tawar;
+use App\Models\Produk;
+use App\Models\Pemesanan;
+use App\Models\Pembayaran;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Validator;
@@ -46,17 +47,45 @@ class Checkout extends Controller
                 } catch (QueryException $e) {
                     return $e->errorInfo;
                 }
-                $data = [
-                    'pembayaran_id' => $pembayaran['id'],
-                    'produk_id' => intval($produk['id']),
-                    'user_id' => intval(session('dataUser')['id']),
-                    'penjual_id' => intval($produk['id_penjual']),
-                    'status_pembeli' => 'Menunggu Pembayaran'
-                ];
+                if($request->metode_bayar=="cod"){
+                    $data = [
+                        'pembayaran_id' => $pembayaran['id'],
+                        'produk_id' => intval($produk['id']),
+                        'user_id' => intval(session('dataUser')['id']),
+                        'penjual_id' => intval($produk['id_penjual']),
+                        'status_pembeli' => 'Proses',
+                        'status_kirim' => 'Sudah dikirim',
+                        'status_terima' => 'Belum diterima'
+                    ];
+                    $notif = [
+                        'user_id'=>$produk->id_penjual,
+                        'subjudul'=>session('dataUser')['nama'],
+                        'pesan'=>'Melakukan transaksi COD untuk '.$produk->nama_produk,
+                        'destinasi'=>'riwayat-penjualan'
+                    ];
+                    $stok = $produk->stok;
+                    try {
+                        Notification::create($notif);
+                        $produk->update(['stok'=>$stok-1]);
+                    } catch (QueryException $e) {
+                        return $e->errorInfo;
+                    }
+                }else{
+                    $data = [
+                        'pembayaran_id' => $pembayaran['id'],
+                        'produk_id' => intval($produk['id']),
+                        'user_id' => intval(session('dataUser')['id']),
+                        'penjual_id' => intval($produk['id_penjual']),
+                        'status_pembeli' => 'Menunggu Pembayaran'
+                    ];
+                }
                 try {
                     Pemesanan::create($data);
                 } catch (QueryException $e) {
                     return $e->errorInfo;
+                }
+                if($request->metode_bayar=="cod"){
+                    return redirect()->secure('/riwayat')->send();
                 }
                 return redirect()->secure('/pembayaran/'.$pembayaran['id'])->send();
             }

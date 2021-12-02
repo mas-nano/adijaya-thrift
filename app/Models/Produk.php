@@ -21,8 +21,8 @@ class Produk extends Model
             });
         });
         $query->when($filters['sort']??false, function($query, $sort){
-            if($sort=='Terlama'){
-                return $query->orderBy('created_at', 'asc');
+            if($sort=='Terpopuler'){
+                return $query->orderBy('wishlist', 'desc');
             }else{
                 return $query->orderBy('created_at', 'desc');
             }

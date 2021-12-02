@@ -49,8 +49,8 @@
             <label for="provinsi" class="block montserrat fw-6 fs-24">Provinsi</label>
             <select name="provinsi" id="provinsi" class="dropdown white louis fs-20 w-92">
                 <option value="">Pilih Provinsi</option>
-                @for ($i = 0; $i < count($prov['provinsi']); $i++)
-                <option value="{{ $prov['provinsi'][$i]['nama'] }}" id="{{ $prov['provinsi'][$i]['id'] }}">{{ $prov['provinsi'][$i]['nama'] }}</option>
+                @for ($i = 0; $i < count($prov); $i++)
+                <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}">{{ $prov[$i]['name'] }}</option>
                 @endfor
             </select>
             <label for="Kota" class="block montserrat fw-6 fs-24">Kota</label>

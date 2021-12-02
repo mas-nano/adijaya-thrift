@@ -57,8 +57,8 @@
             <label for="provinsi" class="input">Provinsi</label>
             <select name="provinsi" id="provinsi" class="input">
                 <option value="">Pilih Provinsi</option>
-                @for ($i = 0; $i < count($prov['provinsi']); $i++)
-                <option value="{{ $prov['provinsi'][$i]['nama'] }}" id="{{ $prov['provinsi'][$i]['id'] }}">{{ $prov['provinsi'][$i]['nama'] }}</option>
+                @for ($i = 0; $i < count($prov); $i++)
+                <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}">{{ $prov[$i]['name'] }}</option>
                 @endfor
             </select>
             <label for="Kota" class="input">Kota</label>

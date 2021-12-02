@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -26,6 +27,8 @@ class Wishlist extends Controller
     {
         try {
             $wishlist = ModelsWishlist::create($request->all());
+            $produk = Produk::find($request->produk_id);
+            $produk->update(['wishlist'=>$produk->wishlist+1]);
             return response()->json([
                 'status'=>200,
                 'message' => 'Sukses',
@@ -37,6 +40,8 @@ class Wishlist extends Controller
     }
     public function destroy(ModelsWishlist $wishlist)
     {
+        $produk = $wishlist->produk;
+        $produk->update(['wishlist'=>$produk->wishlist-1]);
         $wishlist->delete();
         return response()->json([
             'status'=>200,

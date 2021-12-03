@@ -53,7 +53,7 @@ class ChatAPI extends Controller
             return $e->errorInfo;
         }
     }
-    public function chat(Produk $produk, Request $request)
+    public function newChat(Produk $produk, Request $request)
     {
         $data['user_id'] = $request->user_id;
         $data['penerima_id'] = $produk->id_penjual;

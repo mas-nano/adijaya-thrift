@@ -41,7 +41,7 @@
                                 <p class="mg-0">Rp{{ number_format($pemesanan->pembayaran->total-22500, 0, ',', '.') }}</p>
                                 <p class="mg-0">Rp20.000</p>
                                 <p class="mg-0">Rp2.500</p>
-                                <p class="montserrat fw-600 fs-24">Rp{{ $pemesanan->pembayaran->total, 0, ',', '.' }}</p>
+                                <p class="montserrat fw-600 fs-24">Rp{{ number_format($pemesanan->pembayaran->total, 0, ',', '.') }}</p>
                             </div>
                         </div>
                     </div>

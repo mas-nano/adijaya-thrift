@@ -60,6 +60,7 @@
                             @php
                                 $kosong = $kosong + 1;
                             @endphp
+                            @endif
                         @endforeach
                     @endif
                     @if ($kosong == count($pemesanan))

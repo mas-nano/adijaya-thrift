@@ -18,7 +18,7 @@ class Penjualan extends Controller
         $total = [];
         $tmp = Pemesanan::where('penjual_id', session('dataUser')['id'])->where('status_terima', 'Selesai')->whereDate('updated_at', date('Y-m-d'))->get();
         foreach ($tmp as $t) {
-            array_push($total, $t->pembayaran->total-22000);
+            array_push($total, $t->pembayaran->total-22500);
         }
         $pemesanan = Pemesanan::where('penjual_id', session('dataUser')['id'])->orderBy('created_at', 'desc')->get();
         return view('penjualan',[

@@ -55,7 +55,7 @@ class PenawaranAPI extends Controller
     }
     public function getPenawaran(Request $request)
     {
-        $tawar = Tawar::where('penjual_id', $request->user_id)->get();
+        $tawar = Tawar::where('user_id', $request->user_id)->get();
         foreach ($tawar as $t) {
             $t->produk;
             $t->user;

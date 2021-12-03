@@ -1,4 +1,5 @@
 var interval;
+start()
 if($(".last").length){
     $('.wrapper-pesan').animate({
         scrollTop: $(".wrapper-pesan").get(0).scrollHeight

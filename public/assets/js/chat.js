@@ -5,7 +5,7 @@ if($(".last").length){
     });
 }
 $(".left").on("click", ".pengirim", function(){
-    interval.clearInterval()
+    clearInterval(interval)
     $(".pengirim").removeClass("click")
     $(this).addClass("click")
     $("#userChatId").val($(this).data("id"))

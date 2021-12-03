@@ -45,7 +45,7 @@ function start() {
             type: "GET",
             dataType: "json",
             success: function(data){
-                if(data){
+                if(data.length>0){
                     if(data[data.length-1].id!=id){
                         $(".wrapper-pesan").empty()
                         $.each(data, function(index, obj){

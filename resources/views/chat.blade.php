@@ -49,7 +49,7 @@
         @if(count($pesan)>0)
         var id = {{ $pesan[count($pesan)-1]->id }}
         @else
-        0
+        var id = 0
         @endif
     </script>
     <script src="{{ asset('js/chat.js') }}"></script>

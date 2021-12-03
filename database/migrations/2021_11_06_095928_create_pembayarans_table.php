@@ -25,6 +25,7 @@ class CreatePembayaransTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('provinsi')->nullable();
             $table->string('kota')->nullable();
+            $table->string('tel')->nullable();
             $table->timestamps();
         });
     }

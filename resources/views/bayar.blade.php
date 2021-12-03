@@ -52,6 +52,8 @@
                 @endforeach
             @endforeach
             @endif
+            <label for="tel" class="input">Nomor Telepon</label>
+            <input type="text" name="tel" id="tel" class="input" placeholder="Nomor Telepon">
             <label for="alamat" class="input">Alamat</label>
             <input type="text" name="alamat" id="alamat" class="input" placeholder="Alamat">
             <label for="provinsi" class="input">Provinsi</label>

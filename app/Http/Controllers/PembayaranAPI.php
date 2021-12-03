@@ -93,7 +93,8 @@ class PembayaranAPI extends Controller
             'alamat' => ['required'],
             'provinsi' => ['required'],
             'kota' => ['required'],
-            'user_id' => ['required', 'numeric']
+            'user_id' => ['required', 'numeric'],
+            'tel' => ['required', 'numeric']
         ]);
         
         if($validate->fails()) {

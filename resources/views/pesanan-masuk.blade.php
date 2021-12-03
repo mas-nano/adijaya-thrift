@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('content')
+@php
+    $kosong = 0;
+@endphp
 <div class="wrapper">
     <div class="left">
         <div class="profil">
@@ -41,7 +44,7 @@
                 <div id="hasil">
                     @if(count($pemesanan)>0)
                         @foreach ($pemesanan as $p)
-                            @if ($p->status_kirim)
+                            @if (!is_null($p->status_kirim))
                                 <div class="status-produk">
                                     <img src="{{ asset('img/uploads/produk/'.$p->produk->foto) }}" alt="">
                                     <div class="flex-5 mg-l-3">
@@ -54,11 +57,13 @@
                                     <hr class='grey'>
                                 @endif
                             @else
-                            <p class="warn">Penjualan tidak ditemukan</p>
-                            @endif
+                            @php
+                                $kosong = $kosong + 1;
+                            @endphp
                         @endforeach
-                    @else
-                    <p class="warn">Penjualan tidak ditemukan</p>
+                    @endif
+                    @if ($kosong == count($pemesanan))
+                        <p class="warn">Penjualan tidak ditemukan</p>
                     @endif
                 </div>
             </div>

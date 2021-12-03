@@ -9,7 +9,7 @@
                     <p class="montserrat fw-600 fs-30">Alamat</p>
                     <p class="louis-b fs-20 mg-0">{{ $pemesanan->pembeli->name }}</p>
                     <p class="louis-b fs-20 mg-0">{{ $pemesanan->pembayaran->alamat }}, {{ $pemesanan->pembayaran->kota }}, {{ $pemesanan->pembayaran->provinsi }}</p>
-                    <p class="louis-b fs-20 mg-0">{{ (isset($pemesanan->pembeli->tel)?$pemesanan->pembeli->tel:"Nomor pembeli tidak tersedia") }}</p>
+                    <p class="louis-b fs-20 mg-0">{{ $pemesanan->pembayaran->tel }}</p>
                 </div>
                 <div class="box pd-5 mg-b-4">
                     <p class="montserrat fw-600 fs-30">Rekening</p>
@@ -27,7 +27,7 @@
                         <div class="flex mg-v-2 louis fs-20">
                             <img src="{{ asset('img/uploads/produk/'.$pemesanan->produk->foto) }}" alt="" class="img-produk flex-1">
                             <p class="flex-1 mg-l-3">{{ $pemesanan->produk->nama_produk }}</p>
-                            <p class="flex-1 ta-r">Rp{{ number_format($pemesanan->pembayaran->total-22000, 0, ',', '.') }}</p>
+                            <p class="flex-1 ta-r">Rp{{ number_format($pemesanan->pembayaran->total-22500, 0, ',', '.') }}</p>
                         </div>
                         <hr>
                         <div class="flex">
@@ -38,9 +38,9 @@
                                 <p class="montserrat fw-600 fs-24">TOTAL</p>
                             </div>
                             <div class="flex-3 ta-r louis fs-20">
-                                <p class="mg-0">Rp{{ number_format($pemesanan->pembayaran->total-22000, 0, ',', '.') }}</p>
+                                <p class="mg-0">Rp{{ number_format($pemesanan->pembayaran->total-22500, 0, ',', '.') }}</p>
                                 <p class="mg-0">Rp20.000</p>
-                                <p class="mg-0">Rp2.000</p>
+                                <p class="mg-0">Rp2.500</p>
                                 <p class="montserrat fw-600 fs-24">Rp{{ $pemesanan->pembayaran->total, 0, ',', '.' }}</p>
                             </div>
                         </div>

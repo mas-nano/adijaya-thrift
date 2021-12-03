@@ -43,18 +43,18 @@ class ProdukController extends Controller
     {
         if(isset($request->promo)){
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required'],
+                'nama_produk' => ['required', 'max:255'],
                 'kategori' => ['required'],
-                'deskripsi' => ['required'],
+                'deskripsi' => ['required','max:255'],
                 'harga' => ['required', 'numeric'],
                 'foto' => ['required'],
                 'promo' => ['lt:harga']
             ]);
         }else{
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required'],
+                'nama_produk' => ['required','max:255'],
                 'kategori' => ['required'],
-                'deskripsi' => ['required'],
+                'deskripsi' => ['required','max:255'],
                 'harga' => ['required', 'numeric'],
                 'foto' => ['required']
             ]);
@@ -132,17 +132,17 @@ class ProdukController extends Controller
     {
         if(isset($request->promo)){
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required'],
+                'nama_produk' => ['required','max:255'],
                 'kategori' => ['required'],
-                'deskripsi' => ['required'],
+                'deskripsi' => ['required','max:255'],
                 'harga' => ['required', 'numeric'],
                 'promo' => ['lt:harga']
             ]);
         }else{
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required'],
+                'nama_produk' => ['required','max:255'],
                 'kategori' => ['required'],
-                'deskripsi' => ['required'],
+                'deskripsi' => ['required','max:255'],
                 'harga' => ['required', 'numeric']
             ]);
         }

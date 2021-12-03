@@ -56,8 +56,8 @@
                 <label for="provinsi" class="block montserrat fs-16 fw-600 mg-t-3">Provinsi</label>
                 <select name="provinsi" id="provinsi" class="block input montserrat wp-97 fs-16 fw-600 mg-t-3">
                     <option value="">Pilih Provinsi</option>
-                    @for ($i = 0; $i < count($prov['provinsi']); $i++)
-                    <option value="{{ $prov['provinsi'][$i]['nama'] }}" id="{{ $prov['provinsi'][$i]['id'] }}" {{ (isset($user->provinsi)&&$user->provinsi==$prov['provinsi'][$i]['nama']?'selected':'') }}>{{ $prov['provinsi'][$i]['nama'] }}</option>
+                    @for ($i = 0; $i < count($prov); $i++)
+                    <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($user->provinsi)&&$user->provinsi==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                     @endfor
                 </select>
                 <label for="kota" class="block montserrat fs-16 fw-600 mg-t-3">Kota/Kabupaten</label>

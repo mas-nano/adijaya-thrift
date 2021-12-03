@@ -27,7 +27,7 @@ class AdminUser extends Controller
         if(!session('dataAdmin')){
             redirect()->secure("admin")->send();
         }
-        $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
         $prov = json_decode($res->getBody(), true);
         return view('admin-kelolaAdmin',[
             "title" => "Pengguna",
@@ -44,7 +44,7 @@ class AdminUser extends Controller
             'username' => ['required']
         ]);
         if($validate->fails()) {
-            $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+            $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
             $prov = json_decode($res->getBody(), true);
             return view('admin-kelolaAdmin',[
                 "title" => "Pengguna",
@@ -70,7 +70,7 @@ class AdminUser extends Controller
             $extention = $file->getClientOriginalExtension();
             $eksGambar = ['jpeg', 'jpg', 'png'];
             if(!in_array($extention, $eksGambar)){
-                $res = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+                $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
                 $prov = json_decode($res->getBody(), true);
                 return view('admin-kelolaAdmin',[
                     "title" => "Pengguna",

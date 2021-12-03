@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin - {{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('css/style-admin.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/favicon.png') }}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,500">
     <script src="https://kit.fontawesome.com/e4b2ccaaa5.js" crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>

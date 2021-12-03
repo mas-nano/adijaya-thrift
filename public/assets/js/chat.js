@@ -45,20 +45,22 @@ function start() {
             type: "GET",
             dataType: "json",
             success: function(data){
-                if(data[data.length-1].id!=id){
-                    $(".wrapper-pesan").empty()
-                    $.each(data, function(index, obj){
-                        let append = `<div class="${(obj.user_id==$("#user_id").val())?"send":"receive"} ${(index+1==data.length)?"last":""}">
-                            <p>${obj.pesan}</p>
-                        </div>`
-                        $(".wrapper-pesan").append(append)
-                        if(index+1==data.length){
-                            id = obj.id
-                        }
-                    })
-                    $('.wrapper-pesan').animate({
-                        scrollTop: $(".wrapper-pesan").get(0).scrollHeight
-                    });
+                if(data){
+                    if(data[data.length-1].id!=id){
+                        $(".wrapper-pesan").empty()
+                        $.each(data, function(index, obj){
+                            let append = `<div class="${(obj.user_id==$("#user_id").val())?"send":"receive"} ${(index+1==data.length)?"last":""}">
+                                <p>${obj.pesan}</p>
+                            </div>`
+                            $(".wrapper-pesan").append(append)
+                            if(index+1==data.length){
+                                id = obj.id
+                            }
+                        })
+                        $('.wrapper-pesan').animate({
+                            scrollTop: $(".wrapper-pesan").get(0).scrollHeight
+                        });
+                    }
                 }
             }
         })

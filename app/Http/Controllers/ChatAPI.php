@@ -60,11 +60,13 @@ class ChatAPI extends Controller
         try {
             if(UserChat::where('user_id', $request->user_id)->where('penerima_id', $produk->id_penjual)->first() || UserChat::where('user_id', $produk->id_penjual)->where('penerima_id', $request->user_id)->first()){
                 UserChat::where('user_id', $request->user_id)->where('penerima_id', $produk->id_penjual)->first()->update(['updated_at' => date('Y-m-d H:i:s')]);
+                $userChat = UserChat::where('user_id', $request->user_id)->where('penerima_id', $produk->id_penjual)->first();
             }else{
-                UserChat::create($data);
+                $userChat = UserChat::create($data);
             }
             return response()->json([
-                'message' => 'berhasil'
+                'status' => 200,
+                'user_chat' => $userChat
             ], Response::HTTP_OK);
         } catch (QueryException $e) {
             return $e->errorInfo;

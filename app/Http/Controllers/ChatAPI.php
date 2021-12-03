@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Produk;
 use App\Models\UserChat;
 use App\Models\UserMessage;
 use App\Models\Notification;
@@ -47,7 +48,24 @@ class ChatAPI extends Controller
                 'pesan' => 'Telah mengirim pesan',
                 'destinasi' => 'chat'
             ]);
-            return response()->json(['status'=>200, 'chat'=>$userChat->user_message->last()], Response::HTTP_OK);
+            return response()->json(['status'=>200, 'message'=>'Berhasil'], Response::HTTP_OK);
+        } catch (QueryException $e) {
+            return $e->errorInfo;
+        }
+    }
+    public function chat(Produk $produk, Request $request)
+    {
+        $data['user_id'] = $request->user_id;
+        $data['penerima_id'] = $produk->id_penjual;
+        try {
+            if(UserChat::where('user_id', $request->user_id)->where('penerima_id', $produk->id_penjual)->first() || UserChat::where('user_id', $produk->id_penjual)->where('penerima_id', $request->user_id)->first()){
+                UserChat::where('user_id', $request->user_id)->where('penerima_id', $produk->id_penjual)->first()->update(['updated_at' => date('Y-m-d H:i:s')]);
+            }else{
+                UserChat::create($data);
+            }
+            return response()->json([
+                'message' => 'berhasil'
+            ], Response::HTTP_OK);
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

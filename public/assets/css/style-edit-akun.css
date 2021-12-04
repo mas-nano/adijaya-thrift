@@ -173,8 +173,9 @@
 .foto-profil{
     border-radius: 50%;
     border: 1px solid black;
-    max-width: 100px;
-    max-height: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 .input-hidden{
     background-color: white;

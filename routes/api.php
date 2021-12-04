@@ -53,5 +53,5 @@ Route::get('chat/{userChat}/messages', [ChatAPI::class, 'getMessage']);
 Route::post('chat/{userChat}/messages', [ChatAPI::class, 'postMessage']);
 Route::post('chat/{produk}/new', [ChatAPI::class, 'newChat']);
 Route::get('notif', [NotifAPI::class, 'index']);
-Route::delete('notif', [NotifAPI::class, 'destroy']);
+Route::delete('notif/{notification}', [NotifAPI::class, 'destroy']);
 Route::post('bantuan',[BantuanAPI::class, 'index']);

@@ -20,13 +20,16 @@
 .profil img{
     border-radius: 50%;
     border: 1px solid black;
-    max-width: 90px;
-    max-height: 90px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
 }
 .img-change{
     border-radius: 50%;
     border: 1px solid black;
-    max-width: 110px;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
 }
 .profil div{
     display: inline-block;

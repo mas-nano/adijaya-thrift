@@ -85,6 +85,13 @@
         </form>
     </div>
 </div>
+<div class="modal" id="modalLoading">
+    <div class="modalLoading">
+        <div class="wraploading">
+            <div class="dot-elastic"></div>
+        </div>
+    </div>
+</div>
 <script src="{{ asset('js/produk.js') }}"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v12.0" nonce="OuhrkDs0"></script>
 @endsection

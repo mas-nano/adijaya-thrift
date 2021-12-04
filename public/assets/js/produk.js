@@ -21,7 +21,7 @@ $("#tawar").click(function(){
     modal.style.display = 'block';
 })
 // Listen for close click
-$(".close").click(closeModal)
+$(".modal").on("click",".close",closeModal)
  
 // Listen for outside click
 window.addEventListener('click', outsideClick);
@@ -39,6 +39,7 @@ function openModal(){
 function closeModal(){
     modal.style.display = 'none';
     modalShare.style.display = 'none';
+    $("#modalLoading").css("display", "none")
 }
  
 // Function to close modal if outside click
@@ -118,7 +119,7 @@ function hapus(url, loc){
     });
 }
 $(".fa-comment-alt").click(function(){
-    console.log('uy');
+    $("#modalLoading").css("display", "block")
     $.ajax({
         url: `/produk/${$(this).data("id")}/chat`,
         type: 'POST',
@@ -128,6 +129,14 @@ $(".fa-comment-alt").click(function(){
         },
         success: function(){
             window.location.href = '/chat'
+        },
+        error: function () {
+            $(".modalLoading").empty()
+            $(".modalLoading").css("background-color", "white")
+            let append = `<p class="close fa fa-chevron-left"></p>
+            <p class="sub">Terjadi kesalahan jaringan</p>
+            <button type="button" class="btnBack"><a href="/" class="beli">Kembali</a></button>`
+            $(".modalLoading").append(append)
         }
     })
 })

@@ -51,7 +51,9 @@
 .profil-toko img{
     border-radius: 50%;
     border: 1px solid black;
-    max-width: 90px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
 }
 .profil-toko div{
     display: inline-block;
@@ -89,7 +91,7 @@
     display: flex;
     justify-content: flex-end;
 }
-.deskripsi-produk button{
+.deskripsi-produk button, .btnBack{
     display: inline-block;
     margin:auto;
     padding: 10px 63px;
@@ -100,6 +102,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
+}
+.btnBack{
+    display: block;
+    margin-top: 10px;
 }
 .deskripsi-produk section{
     margin-top: 50px;
@@ -114,8 +120,8 @@
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     width: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
     
 }
@@ -124,6 +130,15 @@
     margin: 20% auto;
     padding-bottom: 20px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
+    width:25%;
+    align-items: center;
+    animation-name : modalopen;
+    animation-duration : 1s;
+}
+.modalLoading{
+    background-color: transparent;
+    margin: 20% auto;
+    padding-bottom: 20px;
     width:25%;
     align-items: center;
     animation-name : modalopen;
@@ -214,3 +229,100 @@
     border: none;
     color: black;
 }
+.wraploading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.dot-elastic {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #FF8D44;
+    color: #FF8D44;
+    animation: dotElastic 1s infinite linear;
+  }
+  
+  .dot-elastic::before, .dot-elastic::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot-elastic::before {
+    left: -25px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #FF8D44;
+    color: #FF8D44;
+    animation: dotElasticBefore 1s infinite linear;
+  }
+  
+  .dot-elastic::after {
+    left: 25px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #FF8D44;
+    color: #FF8D44;
+    animation: dotElasticAfter 1s infinite linear;
+  }
+  
+  @keyframes dotElasticBefore {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1.5);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  
+  @keyframes dotElastic {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 1.5);
+    }
+    75% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+  
+  @keyframes dotElasticAfter {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1, 0.67);
+    }
+    75% {
+      transform: scale(1, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }

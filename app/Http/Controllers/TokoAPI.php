@@ -11,7 +11,10 @@ class TokoAPI extends Controller
     public function index(User $user)
     {
         $user->produk;
-        $user->review;
+        foreach ($user->review as $r) {
+            $r->user;
+            $r->produk;
+        }
         return response()->json([
             'status' => 200,
             'toko' => $user

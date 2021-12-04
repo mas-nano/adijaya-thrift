@@ -121,8 +121,10 @@ class ProdukToko extends Controller
         $data['user_id'] = session('dataUser')['id'];
         $data['penerima_id'] = $produk->id_penjual;
         try {
-            if(UserChat::where('user_id', session('dataUser')['id'])->where('penerima_id', $produk->id_penjual)->first() || UserChat::where('user_id', $produk->id_penjual)->where('penerima_id', session('dataUser')['id'])->first()){
+            if(UserChat::where('user_id', session('dataUser')['id'])->where('penerima_id', $produk->id_penjual)->first()){
                 UserChat::where('user_id', session('dataUser')['id'])->where('penerima_id', $produk->id_penjual)->first()->update(['updated_at' => date('Y-m-d H:i:s')]);
+            }elseif(UserChat::where('user_id', $produk->id_penjual)->where('penerima_id', session('dataUser')['id'])->first()){
+                UserChat::where('user_id', $produk->id_penjual)->where('penerima_id', session('dataUser')['id'])->first()->update(['updated_at' => date('Y-m-d H:i:s')]);
             }else{
                 UserChat::create($data);
             }

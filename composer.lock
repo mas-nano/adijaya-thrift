@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e64455f64e1fab5491eff12f7a25224",
+    "content-hash": "c451d3a55223ec0e10598ab710d968b1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1211,16 +1211,16 @@
         },
         {
             "name": "grpc/grpc",
-            "version": "1.42.0",
+            "version": "1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grpc/grpc-php.git",
-                "reference": "9fa44f104cb92e924d4da547323a97f3d8aca6d4"
+                "reference": "e1687963fb0b087d0c70e75d3bfff9062eaeb215"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/9fa44f104cb92e924d4da547323a97f3d8aca6d4",
-                "reference": "9fa44f104cb92e924d4da547323a97f3d8aca6d4",
+                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/e1687963fb0b087d0c70e75d3bfff9062eaeb215",
+                "reference": "e1687963fb0b087d0c70e75d3bfff9062eaeb215",
                 "shasum": ""
             },
             "require": {
@@ -1249,9 +1249,9 @@
                 "rpc"
             ],
             "support": {
-                "source": "https://github.com/grpc/grpc-php/tree/v1.42.0"
+                "source": "https://github.com/grpc/grpc-php/tree/v1.38.0"
             },
-            "time": "2021-11-19T08:13:51+00:00"
+            "time": "2021-05-24T20:45:41+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

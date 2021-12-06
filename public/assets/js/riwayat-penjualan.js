@@ -16,7 +16,7 @@ $("#filter").change(function(){
                 $("#hasil").empty();
                 $.each(data, function(index, obj){
                     let append = `<div class="status-produk">
-                    <img src="img/uploads/produk/${obj.produk.foto}" alt="">
+                    <img src="${obj.produk.url}" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">${obj.produk.nama_produk}</p>
                         <p class="louis-12 ${(obj.status_ajukan=='Sudah dicairkan')?"green":""}">${(!obj.status_ajukan)?obj.status_terima:obj.status_ajukan}</p>

@@ -40,6 +40,7 @@ class Pesanan extends Controller
         $pesanan = $pesanan->get();
         foreach ($pesanan as $p) {
             $p->produk;
+            $p->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$p->produk->foto)->signedUrl(new \DateTime('tomorrow'));
         }
         return response()->json($pesanan);
     } 

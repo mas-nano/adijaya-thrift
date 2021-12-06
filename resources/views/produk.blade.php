@@ -3,11 +3,11 @@
 <input type="hidden" name="" id="_token" value="{{ csrf_token() }}">
 <div class="profil-produk">
     <div class="foto-produk">
-        <img src="{{ asset('img/uploads/produk/'.$produk['foto']) }}" alt="">
+        <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$produk['foto'])->signedUrl(new \DateTime('tomorrow')) }}" alt="">
     </div>
     <div class="profil-toko">
         <div>
-            <img src="{{ asset('img/uploads/profile_images/'.$data->photo) }}" alt="">
+            <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".$data->photo)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
         </div>
         <div>
             <p class="nama-toko"><a href="/toko/{{ (isset($data->id)?$data->id:"") }}" class="nama-toko">{{ (isset($data->name)?$data->name:"") }}</a></p>

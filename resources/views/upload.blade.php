@@ -43,7 +43,7 @@
                 <input type="file" name="foto" id="foto" style="display: block">
                 @if (isset($data['foto']))
                     
-                    <img src="{{ asset('img/uploads/produk/'.$data['foto']) }}" alt="" class="fotoProduk">
+                <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data['foto'])->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="fotoProduk">
                 @endif
             </div>
         </div>

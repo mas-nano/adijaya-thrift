@@ -6,7 +6,7 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="{{ asset('img/uploads/profile_images/'.$user->photo) }}" alt="">
+            <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".$user->photo)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
         </div>
         <div>
             <p class="nama-toko">{{ $user->name }}</p>
@@ -37,7 +37,7 @@
     <div class="ulasan-wrap-luar">
         <div class="ulasan-wrap-dalam">
             <p class="heading">{{ count($review) }} Ulasan Produk</p>
-            <p class="subheading">{{ $review->avg('rating') }} dari 5 
+            <p class="subheading">{{ round($review->avg('rating'),1) }} dari 5 
                 @for ($j = 1; $j <= 5; $j++)
                 <i class="{{ ($j<=floor($review->avg('rating'))?"fas":"far") }} fa-star checked"></i>
                 @endfor
@@ -46,7 +46,7 @@
             @foreach ($review as $r)
             <div class="ulasan-rinci">
                 <div>
-                    <img src="{{ asset('img/uploads/produk/'.$r->produk->foto) }}" alt="">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$r->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-pengguna">{{ '@'.$r->user->username }}</p>

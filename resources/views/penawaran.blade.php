@@ -4,7 +4,7 @@
     <div class="left">
         <div class="profil">
             <div>
-                <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
+                <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".session('dataUser')['gambar'])->signedUrl(new \DateTime('tomorrow')) }}" alt="">
             </div>
             <div>
                 <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -37,7 +37,7 @@
                 @endif
                 @foreach ($tawar as $t)
                 <div class="status-produk">
-                    <img src="{{ asset('img/uploads/produk/'.$t->produk->foto) }}" alt="">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$t->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
                     <div class="flex-5 mg-l-3">
                         <p class="louis-16">{{ $t->user->name }} menawar</p>
                         <p class="louis-16">{{ $t->produk->nama_produk }}</p>

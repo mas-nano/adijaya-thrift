@@ -4,7 +4,7 @@
         <div class="left">
             <div class="profil">
                 <div>
-                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".session('dataUser')['gambar'])->signedUrl(new \DateTime('tomorrow')) }}" alt="">
                 </div>
                 <div>
                     <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -33,7 +33,7 @@
             <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="flex-center">
-                    <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="" class="foto-profil">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".$data[0]['photo'])->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="foto-profil">
                     <button class="btn-foto" type="button">Unggah Foto</button>
                     <input type="text" id="file-name" disabled class="input-hidden">
                     <input type="file" name="photo" id="foto" style="display: none;">

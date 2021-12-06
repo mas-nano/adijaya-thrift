@@ -43,6 +43,7 @@ class Riwayat extends Controller
         $pesanan = $pesanan->get();
         foreach ($pesanan as $p) {
             $p->produk;
+            $p->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$p->produk->foto)->signedUrl(new \DateTime('tomorrow'));
         }
         return response()->json($pesanan);
     }
@@ -85,6 +86,7 @@ class Riwayat extends Controller
             $query = $query->get();
             foreach($query as $q){
                 $q->produk;
+                $q->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$q->produk->foto)->signedUrl(new \DateTime('tomorrow'));
             }
             return response()->json([
                 'tawar' => $query
@@ -107,6 +109,7 @@ class Riwayat extends Controller
             $pemesanan_id = [];
             $status = [];
             for($i=0;$i<count($query);$i++){
+                $query[$i]->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$query[$i]->produk->foto)->signedUrl(new \DateTime('tomorrow'));
                 array_push($bayar, $query[$i]->pembayaran);
                 array_push($produk, $query[$i]->produk);
                 array_push($pemesanan_id, $query[$i]->id);

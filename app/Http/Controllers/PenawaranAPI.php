@@ -58,7 +58,9 @@ class PenawaranAPI extends Controller
         $tawar = Tawar::where('user_id', $request->user_id)->get();
         foreach ($tawar as $t) {
             $t->produk;
+            $t->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$t->produk->foto)->signedUrl(new \DateTime('tomorrow'));
             $t->user;
+            $t->user->url = app('firebase.storage')->getBucket()->object("img/profil/".$t->user->photo)->signedUrl(new \DateTime('tomorrow'));
         }
         return response()->json([
             'status'=>200,

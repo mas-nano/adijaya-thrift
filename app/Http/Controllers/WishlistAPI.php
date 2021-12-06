@@ -19,6 +19,7 @@ class WishlistAPI extends Controller
         $wishlist = Wishlist::where('user_id', $request->user_id)->get();
         foreach ($wishlist as $w) {
             $w->produk;
+            $w->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$w->produk->foto)->signedUrl(new \DateTime('tomorrow'));
         }
         return response()->json([
             'status'=>200,

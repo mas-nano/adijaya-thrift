@@ -37,6 +37,9 @@ class Home extends Controller
                 }
             }
         }
+        foreach ($produk as $p) {
+            $p->url = app('firebase.storage')->getBucket()->object("img/produk/".$p->foto)->signedUrl(new \DateTime('tomorrow'));
+        }
         return response()->json($produk, Response::HTTP_OK);
     }
 }

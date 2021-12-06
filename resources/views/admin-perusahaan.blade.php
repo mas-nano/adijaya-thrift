@@ -17,7 +17,7 @@
             </div>
             <div class="box bg-grey inline-block wp-100 pd-v-10 mg-t-1">
                 <p class="montserrat fs-22 mg-v-1 mg-l-4">Pendapatan Tahunan</p>
-                <p class="montserrat fs-30 fw-600 mg-v-1 mg-l-4">{{ $pertumbuhan }}%</p>
+                <p class="montserrat fs-30 fw-600 mg-v-1 mg-l-4">{{ round($pertumbuhan,2) }}%</p>
             </div>
         </div>
     </div>

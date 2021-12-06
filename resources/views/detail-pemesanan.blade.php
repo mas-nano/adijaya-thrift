@@ -25,7 +25,7 @@
                 <span class="subpesan">Pesan</span>
                 <span class="subtotal">Subtotal</span>
                 <div class="produk">
-                    <img src="{{ asset('/img/uploads/produk/'.$data->produk->foto) }}" alt="" class="template foto">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ $data->produk->nama_produk }}</p>
                     <p class="template harga-produk">Rp{{ number_format($data->pembayaran->total-22500, 0, ',', '.') }}</p>
                 </div>
@@ -65,7 +65,7 @@
             </form>
             @endif
         @endif
-        @if ($data->status_pembeli=="Menunggu Pembayaran")
+        @if ($data->status_pembeli=="Menunggu Pembayaran"&&$data->user_id==session('dataUser')['id'])
         <button class="btn terima" type="button"><a href="/pembayaran/{{ $data->pembayaran_id }}" class="link-bayar">Bayar Sekarang</a></button>
         @endif
     </div>

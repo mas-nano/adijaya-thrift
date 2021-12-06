@@ -21,6 +21,7 @@ class PembayaranAPI extends Controller
     public function index(Produk $produk, Request $request)
     {
         $tawar = Tawar::where('user_id', $request->user_id)->where('produk_id', $produk->id)->where('status','Diterima')->latest()->first();
+        $produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$produk->foto)->signedUrl(new \DateTime('tomorrow'));
         return response()->json(['status'=>200, 'produk'=>$produk, 'tawar'=>$tawar], Response::HTTP_OK);
     }
 

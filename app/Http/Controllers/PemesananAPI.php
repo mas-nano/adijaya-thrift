@@ -22,6 +22,7 @@ class PemesananAPI extends Controller
             $query = $query->get();
             foreach ($query as $q) {
                 $q->produk;
+                $q->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$q->produk->foto)->signedUrl(new \DateTime('tomorrow'));
                 $q->pembayaran;
             }
             return response()->json([
@@ -38,6 +39,7 @@ class PemesananAPI extends Controller
     public function getPemesanan(Pemesanan $pemesanan)
     {
         $pemesanan->produk;
+        $pemesanan->produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$pemesanan->produk->foto)->signedUrl(new \DateTime('tomorrow'));
         $pemesanan->pembayaran;
         return response()->json([
             'status'=>200,

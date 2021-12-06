@@ -27,7 +27,7 @@
                 <span class="subpesan">Pesan</span>
                 <span class="subtotal">Subtotal</span>
                 <div class="produk">
-                    <img src="{{ asset('/img/uploads/produk/'.$produk['foto']) }}" alt="" class="template foto">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$produk['foto'])->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ (isset($produk['nama_produk'])?$produk['nama_produk']:"") }}</p>
                     @if (isset($tawar->nominal))
                     <p class="template harga-produk">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal, 0, ',', '.'):"") }}</p>

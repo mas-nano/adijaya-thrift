@@ -25,7 +25,7 @@
                         <span class="montserrat fw-600 fs-30 inline-block wcalc-custom">Produk</span>
                         <span class="montserrat fw-500 fs-24 inline-block ta-r wcalc-custom">Subtotal</span>
                         <div class="flex mg-v-2 louis fs-20">
-                            <img src="{{ asset('img/uploads/produk/'.$pemesanan->produk->foto) }}" alt="" class="img-produk flex-1">
+                            <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$pemesanan->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="img-produk flex-1">
                             <p class="flex-1 mg-l-3">{{ $pemesanan->produk->nama_produk }}</p>
                             <p class="flex-1 ta-r">Rp{{ number_format($pemesanan->pembayaran->total-22500, 0, ',', '.') }}</p>
                         </div>

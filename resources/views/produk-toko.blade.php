@@ -4,7 +4,7 @@
     <div class="left">
         <div class="profil">
             <div>
-                <img src="{{ asset('img/uploads/profile_images/'.session('dataUser')['gambar']) }}" alt="">
+                <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".session('dataUser')['gambar'])->signedUrl(new \DateTime('tomorrow')) }}" alt="">
             </div>
             <div>
                 <p class="nama-toko">{{ session('dataUser')['nama'] }}</p>
@@ -34,7 +34,7 @@
                 @for ($i = 0; $i < count($data); $i++)
                 <li>
                     <div class="produk">
-                        <img src="{{ asset('img/uploads/produk/'.$data[$i]["foto"]) }}" alt="" srcset="" class="gambar-produk">
+                        <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data[$i]['foto'])->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
                         <p class="nama-barang fs-18"><a href="/produk/{{ $data[$i]['id'] }}" class="td-0 black">{{ $data[$i]['nama_produk'] }}</a></p>
                         @if (isset($data[$i]['promo']))
                         <p class="harga-barang fs-18">Rp<strike>{{ number_format($data[$i]['harga'],0,',','.') }}</strike></p>

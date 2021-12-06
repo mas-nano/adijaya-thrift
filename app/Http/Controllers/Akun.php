@@ -68,10 +68,12 @@ class Akun extends Controller
         }
         if($request->hasfile('photo'))
         {
-            $destination = 'assets/img/uploads/profile_images/'.$dataUser[0]['photo'];
-            if(File::exists($destination))
-            {
-                File::delete($destination);
+            if($dataUser[0]['photo']!='default.png'){
+                $imageReference = app('firebase.storage')->getBucket()->object("img/profil/".$dataUser[0]['photo']);
+                if($imageReference->exists())
+                {
+                    $imageReference->delete();
+                }
             }
             $file = $request->file('photo');
             $extention = $file->getClientOriginalExtension();
@@ -86,8 +88,13 @@ class Akun extends Controller
                     "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
                 ]);
             }
+            $temp = public_path('firebase-temp').'/';
             $filename = time().'.'.$extention;
-            $file->move('assets/img/uploads/profile_images/', $filename);
+            if($file->move($temp, $filename)){
+                $uploadedfile = fopen($temp.$filename, 'r');  
+                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => 'img/profil/' . $filename]);  
+                unlink($temp . $filename);
+            }
             $data["photo"] = $filename;
         }
         try {

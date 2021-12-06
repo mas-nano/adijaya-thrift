@@ -16,7 +16,7 @@
             @foreach ($produk as $p)
             <li>
                 <div class="produk" data-id="{{ $p->id }}">
-                    <img src="{{ asset('img/uploads/produk/'.$p->foto) }}" alt="" srcset="" class="gambar-produk">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
                     <p class="nama-barang fs-24"><a href="/produk/{{ $p->id }}">{{ $p->nama_produk }}</a></p>
                     <p class="harga-barang fs-24">Rp{!! $p->promo?'<strike>'.number_format($p->harga, 0, ',', '.').'</strike>':number_format($p->harga, 0, ',', '.') !!}</p>
                     @if ($p->promo)

@@ -18,7 +18,7 @@ $("#filter").change(function(){
                 $.each(data, function(index, obj){
                     if(obj.status_kirim){
                         let append = `<div class="status-produk">
-                        <img src="/assets/img/uploads/produk/${obj.produk.foto}" alt="">
+                        <img src="${obj.produk.url}" alt="">
                         <div class="flex-5 mg-l-3">
                             <p class="louis-16">${obj.produk.nama_produk}</p>
                             <p class="louis fs-14 ${(obj.status_kirim=='Sudah dikirim')?"green":""}">${obj.status_kirim}</p>

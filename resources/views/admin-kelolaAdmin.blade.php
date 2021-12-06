@@ -15,7 +15,7 @@
                 @csrf
                 @if ($aksi=='ubah-user')
                 <div class="flex ai-c">
-                    <img src="{{ asset('img/uploads/profile_images/'.$user->photo) }}" alt="" class="img">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".$user->photo)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="img">
                     <button class="btn-foto mg-l-3 pointer bg-white" type="button">Unggah Foto</button>
                     <input type="text" id="file-name" disabled class="bg-white b-0">
                     <input type="file" name="photo" id="foto" style="display: none;">

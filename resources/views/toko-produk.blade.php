@@ -4,7 +4,7 @@
 <div class="profil-toko">
     <div class="profil">
         <div>
-            <img src="{{ asset('img/uploads/profile_images/'.$user->photo) }}" alt="">
+            <img src="{{ app('firebase.storage')->getBucket()->object("img/profil/".$user->photo)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
         </div>
         <div>
             <p class="nama-toko">{{ $user->name }}</p>
@@ -37,7 +37,7 @@
             @if ($p->stok>0)
             <li>
                 <div class="produk" data-id="{{ $p->id }}">
-                    <img src="{{ asset('img/uploads/produk/'.$p->foto) }}" alt="" srcset="" class="gambar-produk">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
                     <p class="nama-barang">{{ $p->nama_produk }}</p>
                     @if (isset($p->promo))
                     <p class="harga-barang">Rp<strike>{{ number_format($p->harga,0,',','.') }}</strike></p>

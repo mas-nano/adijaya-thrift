@@ -28,6 +28,7 @@ class Search extends Controller
                 if($data[$i]['promo']!=null){
                     $data[$i]['promo']=number_format($data[$i]['promo'],0,',','.');
                 }
+                $data[$i]['url'] = app('firebase.storage')->getBucket()->object("img/produk/".$data[$i]['foto'])->signedUrl(new \DateTime('tomorrow'));
             }
             return response()->json($data, Response::HTTP_OK);
         }catch(QueryException $e){

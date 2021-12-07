@@ -1,17 +1,17 @@
 /* content */
-.content{
+.content {
     width: 1050px;
     margin: auto;
     display: flex;
     padding-top: 70px;
 }
 /* profil toko */
-.profil-toko{
-    flex:3;
+.profil-toko {
+    flex: 3;
     background-color: transparent;
 }
 
-.profil{
+.profil {
     margin: 30px 0px;
     height: 100px;
     padding: 10px 0px 10px 30px;
@@ -21,35 +21,37 @@
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.profil img{
+.profil img {
     border-radius: 50%;
     border: 1px solid black;
-    max-width: 90px;
-    max-height: 90px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
 }
-.profil div{
+.profil div {
     display: inline-block;
     margin-right: 30px;
 }
-.nama-toko{
-    font-family: 'Louis George Cafe';
+.nama-toko {
+    font-family: "Louis George Cafe";
     font-size: 16px;
     margin-bottom: 5px;
 }
 /* deskripsi ulasan dari ulasan */
-.nama-pengguna, .deskripsi-ulasan{
-    font-family: 'Louis George Cafe Std';
+.nama-pengguna,
+.deskripsi-ulasan {
+    font-family: "Louis George Cafe Std";
     font-size: 14px;
     margin-top: 5px;
 }
-.nama-pengguna{
+.nama-pengguna {
     margin: 10px 0px;
 }
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: #FFCB44;
+    color: #ffcb44;
 }
-.pilihan{
+.pilihan {
     background-color: white;
     margin-top: 10px;
     display: flex;
@@ -58,150 +60,152 @@
     justify-content: space-around;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.pilihan a{
+.pilihan a {
     padding: 25px 0px;
     display: block;
     padding-left: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: black;
     text-decoration: none;
 }
-.terpilih{
-    background-color: #E1E1E1;
+.terpilih {
+    background-color: #e1e1e1;
 }
-.atas{
+.atas {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
 }
-.bawah{
+.bawah {
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
 }
-.wrapper-maps{
+.wrapper-maps {
     margin-top: 10px;
     border-radius: 18px;
     padding: 15px;
     height: 400px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-#maps{
+#maps {
     height: 100%;
 }
 /* end profil toko */
 /* ulasan */
-.ulasan{
-    flex:5;
+.ulasan {
+    flex: 5;
 }
-.hasil{
+.hasil {
     display: block;
     padding-left: 0px;
 }
-.hasil li{
+.hasil li {
     display: inline-block;
     width: calc(50% - 2px);
 }
-.container-hasil p{
-    font-family: 'Montserrat', sans-serif;
+.container-hasil p {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-.gambar-produk{
+.gambar-produk {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-.nama-barang, .harga-barang{
-    font-family: 'Louis George Cafe';
+.nama-barang,
+.harga-barang {
+    font-family: "Louis George Cafe";
     margin: 10px 0px;
     font-size: 18px;
     padding: 5px 0px;
     margin: auto;
 }
-.produk{
+.produk {
     padding: 10px;
     max-width: 200px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin: 8px;
 }
-.ulasan-wrap-luar{
+.ulasan-wrap-luar {
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin: 30px 0px;
     border-radius: 18px;
     padding: 20px 0px;
 }
-.ulasan-wrap-dalam{
+.ulasan-wrap-dalam {
     width: 70%;
     margin: auto;
 }
-.ulasan-rinci{
+.ulasan-rinci {
     display: flex;
     align-items: flex-start;
 }
-.ulasan-rinci img{
+.ulasan-rinci img {
     border-radius: 50%;
     border: 1px solid black;
     width: 75px;
     height: 75px;
     object-fit: cover;
 }
-.ulasan-rinci div{
+.ulasan-rinci div {
     display: inline-block;
     margin-right: 30px;
 }
-.nama-produk, .deskripsi-ulasan, .star{
+.nama-produk,
+.deskripsi-ulasan,
+.star {
     margin: 3px 0px;
 }
-.heading{
-    font-family: 'Montserrat', sans-serif;
+.heading {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 30px;
 }
-.subheading{
-    font-family: 'Montserrat', sans-serif;
+.subheading {
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
-.nama-produk{
-    font-family: 'Louis George Cafe';
+.nama-produk {
+    font-family: "Louis George Cafe";
     font-size: 14px;
     margin-top: 5px;
 }
 /* end ulasan */
-.split{
-    flex:1;
-    background-color:transparent;
+.split {
+    flex: 1;
+    background-color: transparent;
 }
 /* end content */
-.flex{
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.warn{
-    font-family: 'Louis George Cafe';
+.warn {
+    font-family: "Louis George Cafe";
     font-size: 24px;
-    
 }
-.fs-20{
+.fs-20 {
     font-size: 20px;
 }
-.orange{
-    color: #FF8D44;
+.orange {
+    color: #ff8d44;
 }
-.produk:hover{
+.produk:hover {
     cursor: pointer;
 }
-.grey{
+.grey {
     height: 1px;
     background-color: #e1e1e1;
     border: none;
     margin: 25px 0px;
 }
-.center{
-    font-family: 'Louis George Cafe Std';
+.center {
+    font-family: "Louis George Cafe Std";
     text-align: center;
 }

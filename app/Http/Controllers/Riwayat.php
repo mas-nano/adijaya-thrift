@@ -29,14 +29,14 @@ class Riwayat extends Controller
         return view('riwayat-penjualan',[
             "css" => "riwayat-penjualan",
             "title" => "Riwayat Penjualan",
-            "riwayat" => Pemesanan::where('penjual_id', session('dataUser')['id'])->get(),
+            "riwayat" => Pemesanan::where('penjual_id', session('dataUser')['id'])->whereNotNull('status_terima')->get(),
             "i" => 0,
             "rating" => floor(User::findOrFail(session('dataUser')['id'])->review->avg('rating'))
         ]);
     }
     public function search(Request $request)
     {
-        $pesanan = Pemesanan::where('penjual_id', $request['user_id']);
+        $pesanan = Pemesanan::where('penjual_id', $request['user_id'])->whereNotNull('status_terima');
         if(isset($request['filter'])){
             $pesanan->where('status_terima', $request['filter']);
         }

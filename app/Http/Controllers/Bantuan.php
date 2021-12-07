@@ -12,6 +12,9 @@ class Bantuan extends Controller
 {
     public function index()
     {
+        if(!session('dataUser')){
+            return redirect()->secure('/login');
+        }
         return view('bantuan',[
             "css" => "bantuan",
             "title" => "Bantuan"

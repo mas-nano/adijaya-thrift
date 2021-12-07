@@ -7,7 +7,7 @@
 <p class="title bantuan">BANTUAN</p>
 <form action="" method="post" class="form-bantuan">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <input type="hidden" name="user_id" value="{{ session('dataUser')['id'] }}">
+    <input type="hidden" name="user_id" value="{{ session('dataUser')?session('dataUser')['id']:"" }}">
     <label for="permasalahan">Permasalahan</label>
     <input type="text" name="permasalahan" id="permasalahan" class="form-input" placeholder="Permasalahan">
     <label for="deskripsi">Deskripsi</label>

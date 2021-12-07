@@ -82,9 +82,13 @@ class ProdukController extends Controller
                     "gambar" => "File bukan gambar"
                 ]);
             }
+            $temp = public_path('firebase-temp').'/';
             $filename = time().'.'.$extention;
-            $file->move('assets/img/uploads/produk/', $filename);
-            $data["foto"] = $filename;
+            if($file->move($temp, $filename)){
+                $uploadedfile = fopen($temp.$filename, 'r');  
+                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => 'img/produk/' . $filename]);  
+                unlink($temp . $filename);
+            }
         }
 
         try {
@@ -162,10 +166,10 @@ class ProdukController extends Controller
         $data['id_penjual'] = session('dataUser')['id'];
         if($request->hasfile('foto'))
         {
-            $destination = 'assets/img/uploads/profile_images/'.$produk->foto;
-            if(File::exists($destination))
+            $imageReference = app('firebase.storage')->getBucket()->object("img/produk/".$produk->foto);
+            if($imageReference->exists())
             {
-                File::delete($destination);
+                $imageReference->delete();
             }
             $file = $request->file('foto');
             $extention = $file->getClientOriginalExtension();
@@ -178,9 +182,13 @@ class ProdukController extends Controller
                     "data" => json_decode($produk,true)
                 ]);
             }
+            $temp = public_path('firebase-temp').'/';
             $filename = time().'.'.$extention;
-            $file->move('assets/img/uploads/produk/', $filename);
-            $data["foto"] = $filename;
+            if($file->move($temp, $filename)){
+                $uploadedfile = fopen($temp.$filename, 'r');  
+                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => 'img/produk/' . $filename]);  
+                unlink($temp . $filename);
+            }
         }
 
         try {

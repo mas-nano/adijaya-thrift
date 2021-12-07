@@ -42,15 +42,17 @@
             <div class="box">
                 <div class="width-90 pt-10">
                     <p class="montserrat fw-5 fs-24">Riwayat Penjualan</p>
-                    @foreach ($pemesanan as $p)    
-                    <div class="flex mb-3">
-                        <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
-                        <div class="flex-5">
-                            <p class="louis fs-23">{{ $p->produk->nama_produk }}</p>
-                            <p class="louis fs-14">{{ (is_null($p->status_terima)?"Belum Dikirim":$p->status_terima) }}</p>
+                    @foreach ($pemesanan as $p)
+                        @if (!is_null($p->status_terima))
+                        <div class="flex mb-3">
+                            <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
+                            <div class="flex-5">
+                                <p class="louis fs-23">{{ $p->produk->nama_produk }}</p>
+                                <p class="louis fs-14">{{ $p->status_terima }}</p>
+                            </div>
+                            <p class="flex-1 louis fs-23"><a href="/detail-pemesanan/{{ $p->id }}" class="link-detail">Detail</a></p>
                         </div>
-                        <p class="flex-1 louis fs-23"><a href="/detail-pemesanan/{{ $p->id }}" class="link-detail">Detail</a></p>
-                    </div>
+                        @endif        
                     @endforeach
                     @if (count($pemesanan)<1)
                     <p class="montserrat ta-c">Riwayat penjualan tidak ditemukan</p>

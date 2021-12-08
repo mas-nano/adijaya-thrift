@@ -27,7 +27,7 @@
         <p class="ta-c mg-b-4 icon"><a href="/admin/konfirmasi" class="{{ ($title=="Konfirmasi"?"orange":"black") }} td-0"><i class="fas fa-clipboard-check fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Konfirmasi</span></p>
         <p class="ta-c mg-b-4 icon"><a href="/admin/admin" class="{{ ($title=="Admin"?"orange":"black") }} td-0"><i class="fas fa-id-card fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Admin</span></p>
         <p class="ta-c mg-b-4 icon"><a href="/admin/produk" class="{{ ($title=="Produk"?"orange":"black") }} td-0"><i class="fas fa-box-open fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Produk</span></p>
-        <p class="ta-c mg-b-4 icon absolute b0 l0"><a href="/logout" class="td-0 black"><i class="fas fa-sign-out-alt fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Keluar</span></a></p>
+        <p class="ta-c mg-b-4 icon absolute b0 l0"><a href="/admin/logout" class="td-0 black"><i class="fas fa-sign-out-alt fs-22 fa-fw"></i> <span class="montserrat fs-16 none mg-l-1 icon-det">Keluar</span></a></p>
     </div>
     @endif
     <div class="content">

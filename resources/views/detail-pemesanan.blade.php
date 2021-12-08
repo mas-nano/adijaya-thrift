@@ -13,10 +13,8 @@
                 <p class="detail">{{ $data->pembayaran->tel }}</p>
                 @endif
             </div>
-            @if (session('dataUser')['id']==$data->penjual_id)    
-                @if ($data->status_terima=="Selesai")
-                    <p><i class="fa fa-print" aria-hidden="true"></i></p>
-                @endif
+            @if ($data->status_terima=="Selesai")
+                <p><i class="fa fa-print" aria-hidden="true"></i></p>
             @endif
         </div>
         <div class="split"></div>

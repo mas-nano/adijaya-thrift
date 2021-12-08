@@ -10,7 +10,7 @@
             <form action="" method="post" class="wp-50 center">
                 @csrf
                 <label for="nominal" class="block montserrat fs-16 fw-600 mg-t-3">Nominal pencairan</label>
-                <input type="text" name="nominal" id="nominal" class="block input bg-grey montserrat fs-16 fw-600" value="{{ (isset($pengeluaran)?$pengeluaran->nominal:"") }}" {{ (isset($pengeluaran)?"disabled":"") }}>
+                <input type="text" name="nominal" id="nominal" class="block input bg-grey montserrat fs-16 fw-600" value="{{ (isset($pengeluaran)?'Rp'.number_format($pengeluaran->nominal, 0, ',', '.'):"") }}" {{ (isset($pengeluaran)?"disabled":"") }}>
                 <label for="bank" class="block montserrat fs-16 fw-600 mg-t-3">Bank</label>
                 <input type="text" name="bank" id="bank" class="block input bg-grey montserrat fs-16 fw-600" value="{{ (isset($pengeluaran)?$pengeluaran->bank:"") }}" {{ (isset($pengeluaran)?"disabled":"") }}>
                 <label for="rek" class="block montserrat fs-16 fw-600 mg-t-3">Rekening</label>

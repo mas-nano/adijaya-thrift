@@ -2,7 +2,7 @@
 @section('content')
 <div class="wrapper">
     <p class="montserrat fs-22 ta-c fw-600">Dana Perusahaan</p>
-    <p class="ta-r"><i class="fas fa-print"></i></p>
+    <p class="ta-r gone"><i class="fas fa-print pointer gone"></i></p>
     <div class="flex">
         <div class="box bg-grey pd-h-3 pd-v-5 flex-5">
             <p class="montserrat fs-22 ta-c fw-600 mg-v-1">Pemasukan</p>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="flex jc-r ai-c mg-t-3">
-        <a href="perusahaan/tambah" class="btn-tambah bg-orange td-0 louis fs-20">+ Tambah</a>
+        <a href="perusahaan/tambah" class="btn-tambah bg-orange td-0 louis fs-20 gone">+ Tambah</a>
     </div>
     <table class="bg-grey table mg-t-3 louis fs-14">
         <thead class="ta-c">
@@ -36,7 +36,7 @@
         @foreach ($pengeluaran as $p)    
         <tbody class="bg-white ta-c">
             <td class="pd-h-2">{{ $p->tgl }}</td>
-            <td class="pd-h-2">Rp{{ $p->nominal }}</td>
+            <td class="pd-h-2">Rp{{ number_format($p->nominal, 0, ',', '.') }}</td>
             <td class="pd-h-2">{{ $p->bank }}</td>
             <td class="pd-h-2">{{ $p->rek }}</td>
             <td class="pd-h-2">{{ Str::words($p->ket, 3, '...') }}</td>
@@ -54,6 +54,9 @@
         {{ $bulan[$i] }}{{ ($i==count($bulan)-1?"":",") }}
         @endfor
     ]
+    $(".fa-print").click(()=>{
+        window.print()
+    })
 </script>
 <script src="{{ asset('js/dashboard.js') }}"></script>
 @endsection

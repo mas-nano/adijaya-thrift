@@ -6,70 +6,70 @@
     font-family: Louis George Cafe Std;
     src: url(../font/Louis\ George\ Café\ 400.ttf);
 }
-body{
+body {
     margin: 0;
-    background-color: #FAF8F8;
+    background-color: #faf8f8;
 }
 /* component */
-.sidenav{
+.sidenav {
     height: 100%;
     width: 80px;
     position: fixed;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.content{
+.content {
     padding: 10px 0px;
 }
-.wrapper{
+.wrapper {
     width: 1050px;
     margin: auto;
 }
-.logo{
+.logo {
     height: 50px;
     width: 80px;
     object-fit: cover;
 }
-.input{
+.input {
     border-radius: 18px;
     height: 50px;
     width: 89%;
     padding: 0px 20px 0px 20px;
 }
-.btn{
+.btn {
     padding: 10px 63px;
     color: white;
     border-radius: 24px;
     border: none;
 }
-.box{
+.box {
     border-radius: 18px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.input-search{
+.input-search {
     border-radius: 28px;
     height: 30px;
     width: 63%;
     padding: 0px 20px 0px 20px;
 }
-.btn-tambah{
+.btn-tambah {
     padding: 10px 15px;
     color: white;
     border-radius: 10px;
     border: none;
 }
-.btn-foto{
+.btn-foto {
     border-radius: 18px;
     border-color: black;
     padding: 5px 20px;
 }
-.table{
+.table {
     width: 100%;
     border-radius: 8px;
-    border-color: #E1E1E1;
+    border-color: #e1e1e1;
 }
-.modal{
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -79,125 +79,130 @@ body{
     width: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    
 }
-.modalContent{
+.modalContent {
     background-color: white;
     margin: 20% auto;
     padding-bottom: 20px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
-    width:25%;
+    width: 25%;
     align-items: center;
-    animation-name : modalopen;
-    animation-duration : 1s;
+    animation-name: modalopen;
+    animation-duration: 1s;
 }
-@keyframes modalopen{
-    from{ opacity: 0}
-    to { opacity: 1}
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-.img{
+.img {
     border-radius: 50%;
     border: 1px solid black;
-    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
-.dropdown{
+.dropdown {
     border-radius: 18px;
 }
-.img-produk{
+.img-produk {
     max-width: 110px;
     height: 110px;
     object-fit: cover;
 }
-.chart-cont{
+.chart-cont {
     position: relative;
     width: 100%;
     height: 389px;
 }
 /* Margin */
-.mg-0{
+.mg-0 {
     margin: 0px;
 }
-.mg-v-2{
+.mg-v-2 {
     margin: 20px 0px;
 }
-.mg-v-1{
+.mg-v-1 {
     margin: 10px 0px;
 }
-.mg-l-1{
+.mg-l-1 {
     margin-left: 10px;
 }
-.mg-l-4{
+.mg-l-4 {
     margin-left: 40px;
 }
-.mg-b-2{
+.mg-b-2 {
     margin-bottom: 20px;
 }
-.mg-b-6{
+.mg-b-6 {
     margin-bottom: 60px;
 }
-.mg-b-4{
+.mg-b-4 {
     margin-bottom: 40px;
 }
-.mg-l-3{
+.mg-l-3 {
     margin-left: 30px;
 }
-.mg-t-3{
+.mg-t-3 {
     margin-top: 30px;
 }
-.mg-t-1{
+.mg-t-1 {
     margin-top: 10px;
 }
-.mg-ha-v-3{
+.mg-ha-v-3 {
     margin: 30px auto;
 }
-.mg-r-2{
+.mg-r-2 {
     margin-right: 20px;
 }
-.mg-h-1{
+.mg-h-1 {
     margin: 0px 10px;
 }
 /* padding */
-.pd-5{
+.pd-5 {
     padding: 50px;
 }
-.pd-3{
+.pd-3 {
     padding: 30px;
 }
-.pd-v-10{
+.pd-v-10 {
     padding-top: 100px;
     padding-bottom: 100px;
 }
-.pd-v-5{
+.pd-v-5 {
     padding-left: 50px;
     padding-right: 50px;
 }
-.pd-h-3{
+.pd-h-3 {
     padding-top: 30px;
     padding-bottom: 30px;
 }
-.pd-h-5{
+.pd-h-5 {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.pd-h-2{
+.pd-h-2 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
 /* position */
-.absolute{
+.absolute {
     position: absolute;
 }
-.b0{
+.b0 {
     bottom: 0;
 }
-.l0{
+.l0 {
     left: 33%;
 }
 /* z-index */
-.z-1{
+.z-1 {
     z-index: 1;
 }
-.full{
+.full {
     position: absolute;
     top: 0;
     left: 0;
@@ -205,182 +210,190 @@ body{
     height: 100%;
 }
 /* width */
-.w-350{
+.w-350 {
     width: 350px;
 }
-.wp-50{
+.wp-50 {
     width: 50%;
 }
-.w-300{
+.w-300 {
     width: 300px;
 }
-.wp-97{
+.wp-97 {
     width: 97%;
 }
-.wp-100{
+.wp-100 {
     width: 100%;
 }
-.wp-90{
+.wp-90 {
     width: 90%;
 }
-.wcalc-custom{
+.wcalc-custom {
     width: calc(50% - 2px);
 }
-.mwp-70{
+.mwp-70 {
     max-width: 70%;
 }
-.mwp-50{
+.mwp-50 {
     max-width: 50%;
 }
-.mw-500{
+.mw-500 {
     max-width: 500px;
 }
 /* height */
-.h-300{
+.h-300 {
     height: 300px;
 }
 /* display */
-.flex{
+.flex {
     display: flex;
 }
-.f-col{
+.f-col {
     flex-direction: column;
 }
-.block{
+.block {
     display: block;
 }
-.none{
+.none {
     display: none;
 }
-.inline-block{
+.inline-block {
     display: inline-block;
 }
 /* placing */
-.jus-con-sa{
-    justify-content:space-between;
+.jus-con-sa {
+    justify-content: space-between;
 }
-.vh-c{
+.vh-c {
     justify-content: center;
     align-items: center;
 }
-.ai-c{
+.ai-c {
     align-items: center;
 }
-.ta-c{
+.ta-c {
     text-align: center;
 }
-.center{
+.center {
     margin: auto;
 }
-.ta-l{
+.ta-l {
     text-align: left;
 }
-.fl-b{
+.fl-b {
     float: inherit;
 }
-.jc-r{
+.jc-r {
     justify-content: right;
 }
-.flex-1{
+.flex-1 {
     flex: 1;
 }
-.flex-2{
+.flex-2 {
     flex: 2;
 }
-.flex-8{
+.flex-8 {
     flex: 8;
 }
-.flex-5{
+.flex-5 {
     flex: 5;
 }
-.flex-3{
+.flex-3 {
     flex: 3;
 }
-.flex-9{
+.flex-9 {
     flex: 9;
 }
-.jc-c{
+.jc-c {
     justify-content: center;
 }
-.ta-r{
+.ta-r {
     text-align: right;
 }
-.align-r{
+.align-r {
     justify-content: right;
 }
 /* background */
-.bg-grey{
-    background-color: #E1E1E1;
+.bg-grey {
+    background-color: #e1e1e1;
 }
-.bg-orange{
-    background-color: #FF8D44;
+.bg-orange {
+    background-color: #ff8d44;
 }
-.bg-white{
+.bg-white {
     background-color: white;
 }
-.bg-red{
-    background-color: #BA0000;
+.bg-red {
+    background-color: #ba0000;
 }
 /* font */
-.montserrat{
-    font-family: 'Montserrat', sans-serif;
+.montserrat {
+    font-family: "Montserrat", sans-serif;
 }
-.fw-600{
+.fw-600 {
     font-weight: 600;
 }
-.fw-500{
+.fw-500 {
     font-weight: 500;
 }
-.fs-14{
+.fs-14 {
     font-size: 14px;
 }
-.fs-16{
+.fs-16 {
     font-size: 16px;
 }
-.fs-22{
+.fs-22 {
     font-size: 22px;
 }
-.fs-30{
+.fs-30 {
     font-size: 30px;
 }
-.fs-24{
+.fs-24 {
     font-size: 24px;
 }
-.fs-36{
+.fs-36 {
     font-size: 36px;
 }
-.fs-20{
+.fs-20 {
     font-size: 20px;
 }
-.louis{
-    font-family: 'Louis George Cafe Std';
+.louis {
+    font-family: "Louis George Cafe Std";
 }
-.louis-b{
-    font-family: 'Louis George Cafe';
+.louis-b {
+    font-family: "Louis George Cafe";
 }
-.td-0{
+.td-0 {
     text-decoration: none;
 }
 /* color */
-.red{
-    color: #FF0000;
+.red {
+    color: #ff0000;
 }
-.orange{
-    color: #FF8D44;
+.orange {
+    color: #ff8d44;
 }
-.black{
+.black {
     color: black;
 }
-.green{
-    color: #22C308;
+.green {
+    color: #22c308;
 }
 /* misc */
-.pointer:hover{
+.pointer:hover {
     cursor: pointer;
 }
-.b-0{
+.b-0 {
     border: none;
 }
-.br-18{
+.br-18 {
     border-radius: 18px;
+}
+@media print {
+    .gone {
+        display: none;
+    }
+    .sidenav {
+        display: none;
+    }
 }

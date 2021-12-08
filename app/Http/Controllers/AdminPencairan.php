@@ -46,6 +46,7 @@ class AdminPencairan extends Controller
         $notif['pesan'] = 'Pengajuan untuk '.$penarikan->pemesanan->produk->nama_produk.' telah dicairkan';
         $notif['destinasi'] = 'riwayat-penjualan';
         try {
+            $penarikan->update($data);
             $penarikan->pemesanan->update($data);
             Pemasukan::create($pemasukan);
             Notification::create($notif);

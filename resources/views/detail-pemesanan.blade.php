@@ -97,7 +97,7 @@
 <div id="print">
     <div class="ticket">
         <p class="centered">Nota Pembelian</p>
-            <p class="centered m-0">ID: 1</p>
+            <p class="centered m-0">ID: {{ $data->id }}</p>
             <img src="{{ asset('img/phooo 1.png') }}" alt="" class="mh">
             <p class="m-0">Tanggal Pembelian : {{ $data->created_at->format('d-m-Y') }}</p>
             <p>Tanggal Cetak : {{ date('d-m-Y') }}</p>

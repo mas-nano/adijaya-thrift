@@ -157,7 +157,7 @@ class PembayaranAPI extends Controller
             }
         }
         $stok = $pemesanan->produk->stok;
-        $pemesanan->produk->update(['stok', $stok+1]);
+        $pemesanan->produk->update(['stok' => $stok+1]);
         $pemesanan->pembayaran->delete();
         $pemesanan->delete();
         return response()->json([

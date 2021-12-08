@@ -44,8 +44,8 @@
                 @endforeach
             @endforeach
             @endif
-            <label for="tel" class="input">Nomor Telepon</label>
-            <input type="text" name="tel" id="tel" class="input" placeholder="Nomor Telepon">
+            <label for="tel" class="block montserrat fw-6 fs-24">Nomor Telepon</label>
+            <input type="text" name="tel" id="tel" class="input louis fs-20 w-75" placeholder="Nomor Telepon">
             <label for="alamat" class="block montserrat fw-6 fs-24">Alamat</label>
             <input type="text" name="alamat" id="alamat" class="input louis fs-20 w-75" placeholder="Alamat">
             <label for="provinsi" class="block montserrat fw-6 fs-24">Provinsi</label>

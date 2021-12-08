@@ -78,6 +78,7 @@ class ProdukAPI extends Controller
             $wishlist = Wishlist::where('user_id', $request->user_id)->where('produk_id', $produk->id)->first();
             $produk->user->review;
             $produk->url = app('firebase.storage')->getBucket()->object("img/produk/".$produk->foto)->signedUrl(new \DateTime('tomorrow'));
+            $produk->user->url = app('firebase.storage')->getBucket()->object("img/profil/".$produk->user->photo)->signedUrl(new \DateTime('tomorrow'));
             return response()->json(['status'=>200,'produk'=>$produk, 'wishlist'=>$wishlist], Response::HTTP_OK);
         }
         return response()->json([

@@ -89,6 +89,7 @@ class ProdukController extends Controller
                 app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => 'img/produk/' . $filename]);  
                 unlink($temp . $filename);
             }
+            $data['foto'] = $filename;
         }
 
         try {

@@ -10,7 +10,7 @@
                 <p class="detail">{{ $data->pembeli->name }}</p>
                 <p class="detail">{{ $data->pembayaran->alamat }}</p>
                 <p class="detail">{{ $data->pembayaran->kota }}, {{ $data->pembayaran->provinsi }}</p>
-                <p class="detail">{{ (is_null($data->pembeli->tel)?"Nomor telepon tidak tersedia":$data->pembeli->tel) }}</p>
+                <p class="detail">{{ $data->pembayaran->tel }}</p>
                 @endif
             </div>
             @if (session('dataUser')['id']==$data->penjual_id)    

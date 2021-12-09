@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 @php
-    $kat = ['Sepatu', 'Tas', 'Jam Tangan', 'Baju', 'Baju Wanita', 'Handphone', 'Game Console', 'Sparepart'];
+    $kat = ['Sepatu', 'Tas', 'Jam Tangan', 'Baju', 'Baju Wanita', 'Handphone', 'Game Console', 'Sparepart', 'Lainya'];
 @endphp
     <div class="wrapper">
         <p class="montserrat fw-600 fs-36 ta-c">Ubah Data Produk</p>

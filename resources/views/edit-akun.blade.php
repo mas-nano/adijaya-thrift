@@ -92,7 +92,7 @@
                     </select>
                     <label for="kota" class="block">Kota/Kabupaten*</label>
                     <select name="kota" id="kota" class="block" name="kota">
-                        <option value="{{ (isset($data[0]['kota'])?$data[0]['kota']:"") }}">{{ (isset($data[0]['kota'])?$data[0]['kota']:"Pilih Kota") }}</option>
+                        <option value="{{ (isset($data[0]['kota'])?$data[0]['kota']:"") }}">{{ (isset($data[0]['kota'])?$data[0]['kota']:"Pilih Kota/Kabupaten") }}</option>
                     </select>
                     <input type="hidden" name="lat" id="lat" value="{{ (isset($data[0]['lat'])?$data[0]['lat']:"") }}">
                     <input type="hidden" name="lng" id="lng" value="{{ (isset($data[0]['lng'])?$data[0]['lng']:"") }}">

@@ -22,7 +22,7 @@
                     <option value="Handphone" {{ (isset($data['kategori'])&&$data['kategori']=='Handphone'?'selected':'') }}>Handphone</option>
                     <option value="Game Console" {{ (isset($data['kategori'])&&$data['kategori']=='Game Console'?'selected':'') }}>Game Console</option>
                     <option value="Sparepart" {{ (isset($data['kategori'])&&$data['kategori']=='Sparepart'?'selected':'') }}>Sparepart</option>
-                    <option value="Lainya" {{ (isset($data['kategori'])&&$data['kategori']=='Lainya'?'selected':'') }}>Sparepart</option>
+                    <option value="Lainya" {{ (isset($data['kategori'])&&$data['kategori']=='Lainya'?'selected':'') }}>Lainnya</option>
                 </select>
             </div>
         </div>

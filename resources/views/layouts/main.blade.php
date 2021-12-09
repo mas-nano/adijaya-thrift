@@ -53,6 +53,8 @@
                 <p class="subtitle">Menawarkan layanan jual beli barang bekas di Indonesia</p>
                 <p class="title">Layanan</p>
                 <p class="subtitle"><a href="/bantuan">Bantuan</a></p>
+                <p class="title">Unduh Aplikasi (Android)</p>
+                <p class="subtitle"><a href="" target="_blank">Klik disini</a></p>
             </div>
         </div>
     </div>

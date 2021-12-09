@@ -81,7 +81,7 @@
                         <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($data[0])&&$data[0]['provinsi']==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                         @endfor
                     </select>
-                    <label for="kota" class="block">Kota</label>
+                    <label for="kota" class="block">Kota/Kabupaten</label>
                     <select name="kota" id="kota" class="block" name="kota">
                         <option value="{{ (isset($data[0]['kota'])?$data[0]['kota']:"") }}">{{ (isset($data[0]['kota'])?$data[0]['kota']:"Pilih Kota") }}</option>
                     </select>

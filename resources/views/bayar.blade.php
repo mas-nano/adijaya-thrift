@@ -63,7 +63,7 @@
                 <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}">{{ $prov[$i]['name'] }}</option>
                 @endfor
             </select>
-            <label for="Kota" class="input">Kota</label>
+            <label for="Kota" class="input">Kota/Kabupaten</label>
             <select name="kota" id="kota" class="input">
                 <option value="">-</option>
             </select>

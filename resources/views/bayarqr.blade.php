@@ -55,7 +55,7 @@
                 <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}">{{ $prov[$i]['name'] }}</option>
                 @endfor
             </select>
-            <label for="Kota" class="block montserrat fw-6 fs-24">Kota</label>
+            <label for="Kota" class="block montserrat fw-6 fs-24">Kota/Kabupaten</label>
             <select name="kota" id="kota" class="dropdown white louis fs-20 w-92">
                 <option value="">-</option>
             </select>

@@ -46,11 +46,11 @@
                     @if (isset($message))
                         @foreach ($message as $item)
                             @foreach ($item as $msg)
-                                @if (strpos($msg, 'lat'))
+                                @if (strpos($msg, 'lat')===0)
                                 <div class="warn">
                                     <p class="center">Klik lokasi Anda di peta</p>
                                 </div>
-                                @elseif(strpos($msg, 'lng'))
+                                @elseif(strpos($msg, 'lng')===0)
                                 <div class="warn">
                                     <p class="center">Atur peta terlebih dahulu</p>
                                 </div>

@@ -45,13 +45,13 @@
                     @endif
                     @if (isset($message))
                         @foreach ($message as $item)
-                            @if ($item=='lat')
-                            <div class="warn">
-                                <p class="center">Atur peta terlebih dahulu</p>
-                            </div>
-                            @elseif($item == 'lng')
+                            @if ($message=='lat')
                             <div class="warn">
                                 <p class="center">Klik lokasi anda di peta</p>
+                            </div>
+                            @elseif($message == 'lng')
+                            <div class="warn">
+                                <p class="center">Atur peta terlebih dahulu</p>
                             </div>
                             @else
                                 @foreach ($item as $msg)

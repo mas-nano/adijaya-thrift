@@ -45,12 +45,21 @@
                     @endif
                     @if (isset($message))
                         @foreach ($message as $item)
-                            @foreach ($item as $msg)
+                            @if ($item=='lat')
                             <div class="warn">
-                                <p class="center">{{ $msg }}</p>
+                                <p class="center">Atur peta terlebih dahulu</p>
                             </div>
-                            
-                            @endforeach
+                            @elseif($item == 'lng')
+                            <div class="warn">
+                                <p class="center">Klik lokasi anda di peta</p>
+                            </div>
+                            @else
+                                @foreach ($item as $msg)
+                                <div class="warn">
+                                    <p class="center">{{ $msg }}</p>
+                                </div>
+                                @endforeach
+                            @endif
                         @endforeach
                     @endif
                     @if (session("lengkap"))

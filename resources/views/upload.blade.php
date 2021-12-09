@@ -4,13 +4,13 @@
     @csrf
     <div class="wrapper">
         <div class="wrap">
-            <label for="nama_produk">Nama Produk</label>
+            <label for="nama_produk">Nama Produk*</label>
             <div class="">
                 <input type="text" name="nama_produk" id="nama-produk" class="produk" value="{{ (isset($data['nama_produk'])?$data['nama_produk']:"") }}">
             </div>
         </div>
         <div class="wrap">
-            <label for="kategori">Kategori</label>
+            <label for="kategori">Kategori*</label>
             <div class="">
                 <select name="kategori" id="kategori" class="produk">
                     <option value="">Pilih Kategori</option>
@@ -22,23 +22,24 @@
                     <option value="Handphone" {{ (isset($data['kategori'])&&$data['kategori']=='Handphone'?'selected':'') }}>Handphone</option>
                     <option value="Game Console" {{ (isset($data['kategori'])&&$data['kategori']=='Game Console'?'selected':'') }}>Game Console</option>
                     <option value="Sparepart" {{ (isset($data['kategori'])&&$data['kategori']=='Sparepart'?'selected':'') }}>Sparepart</option>
+                    <option value="Lainya" {{ (isset($data['kategori'])&&$data['kategori']=='Lainya'?'selected':'') }}>Sparepart</option>
                 </select>
             </div>
         </div>
         <div class="wrap">
-            <label for="deskripsi">Deskripsi</label>
+            <label for="deskripsi">Deskripsi*</label>
             <div class="">
                 <textarea name="deskripsi" id="deskripsi" cols="33" rows="10" class="desk">{{ (isset($data['deskripsi'])?$data['deskripsi']:"") }}</textarea>
             </div>
         </div>
         <div class="wrap">
-            <label for="harga">Harga</label>
+            <label for="harga">Harga*</label>
             <div class="">
                 <input type="number" name="harga" id="harga" class="inp" value="{{ (isset($data['harga'])?$data['harga']:"") }}">
             </div>
         </div>
         <div class="wrap">
-            <label for="foto">Foto Produk</label>
+            <label for="foto">Foto Produk*</label>
             <div class="">
                 <input type="file" name="foto" id="foto" style="display: block">
                 @if (isset($data['foto']))
@@ -54,7 +55,7 @@
             </div>
         </div>
         <div class="wrap">
-            <label for="stok">Stok</label>
+            <label for="stok">Stok*</label>
             <div class="">
                 <input type="number" name="stok" id="stok" class="inp" value="{{ (isset($data['stok'])?$data['stok']:"") }}">
             </div>

@@ -45,58 +45,58 @@
                     @endif
                     @if (isset($message))
                         @foreach ($message as $item)
-                            @if ($message=='lat')
-                            <div class="warn">
-                                <p class="center">Klik lokasi anda di peta</p>
-                            </div>
-                            @elseif($message == 'lng')
-                            <div class="warn">
-                                <p class="center">Atur peta terlebih dahulu</p>
-                            </div>
-                            @else
-                                @foreach ($item as $msg)
+                            @foreach ($item as $msg)
+                                @if (strpos($msg, 'lat'))
+                                <div class="warn">
+                                    <p class="center">Klik lokasi Anda di peta</p>
+                                </div>
+                                @elseif(strpos($msg, 'lng'))
+                                <div class="warn">
+                                    <p class="center">Atur peta terlebih dahulu</p>
+                                </div>
+                                @else
                                 <div class="warn">
                                     <p class="center">{{ $msg }}</p>
                                 </div>
-                                @endforeach
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
                     @endif
                     @if (session("lengkap"))
                         <p class="warn">{{ session("lengkap") }}</p>
                     @endif
-                    <label for="nama" class="block">Nama</label>
+                    <label for="nama" class="block">Nama*</label>
                     <input type="text" id="nama" class="block input" name="name" value="{{ (isset($data[0]['name'])?$data[0]['name']:"") }}">
-                    <label for="username" class="block">Nama Pengguna</label>
+                    <label for="username" class="block">Nama Pengguna*</label>
                     <input type="text" id="username" class="block input" name="username" value="{{ (isset($data[0]['username'])?$data[0]['username']:"") }}">
-                    <label for="email" class="block">Email</label>
+                    <label for="email" class="block">Email*</label>
                     <input type="email" id="email" class="block input" name="email" value="{{ (isset($data[0]['email'])?$data[0]['email']:"") }}">
                     <label for="password" class="block">Kata Sandi</label>
                     <input type="password" id="password" class="block input" name="password">
-                    <label for="ponsel" class="block">Ponsel</label>
+                    <label for="ponsel" class="block">Ponsel*</label>
                     <input type="text" id="ponsel" class="block input" name="tel" value="{{ (isset($data[0]['tel'])?$data[0]['tel']:"") }}">
-                    <label for="bank" class="block">Bank</label>
+                    <label for="bank" class="block">Bank*</label>
                     <input type="text" name="bank" id="bank" class="block input" name="bank" value="{{ (isset($data[0]['bank'])?$data[0]['bank']:"") }}">
-                    <label for="rekening" class="block">Nomor Rekening</label>
+                    <label for="rekening" class="block">Nomor Rekening*</label>
                     <input type="text" id="rekening" class="block input" name="rek" value="{{ (isset($data[0]['rek'])?$data[0]['rek']:"") }}">
-                    <label for="pemilik" class="block">Nama Lengkap Pemilik</label>
+                    <label for="pemilik" class="block">Nama Lengkap Pemilik*</label>
                     <input type="text" id="pemilik" class="block input" name="rekowner" value="{{ (isset($data[0]['rekowner'])?$data[0]['rekowner']:"") }}">
-                    <label for="alamat" class="block">Alamat</label>
+                    <label for="alamat" class="block">Alamat*</label>
                     <input type="text" id="alamat" class="block input" name="alamat" value="{{ (isset($data[0]['alamat'])?$data[0]['alamat']:"") }}">
-                    <label for="provinsi" class="block">Provinsi</label>
+                    <label for="provinsi" class="block">Provinsi*</label>
                     <select name="provinsi" id="provinsi" class="block" name="provinsi">
                         <option value="">Pilih Provinsi</option>
                         @for ($i = 0; $i < count($prov); $i++)
                         <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($data[0])&&$data[0]['provinsi']==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                         @endfor
                     </select>
-                    <label for="kota" class="block">Kota/Kabupaten</label>
+                    <label for="kota" class="block">Kota/Kabupaten*</label>
                     <select name="kota" id="kota" class="block" name="kota">
                         <option value="{{ (isset($data[0]['kota'])?$data[0]['kota']:"") }}">{{ (isset($data[0]['kota'])?$data[0]['kota']:"Pilih Kota") }}</option>
                     </select>
                     <input type="hidden" name="lat" id="lat" value="{{ (isset($data[0]['lat'])?$data[0]['lat']:"") }}">
                     <input type="hidden" name="lng" id="lng" value="{{ (isset($data[0]['lng'])?$data[0]['lng']:"") }}">
-                    <label for="" class="block">Maps</label>
+                    <label for="" class="block">Maps*</label>
                         <div id="maps">
     
                         </div>

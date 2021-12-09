@@ -21,6 +21,7 @@
                     <option value="Handphone">Handphone</option>
                     <option value="Game Console">Game Console</option>
                     <option value="Sparepart">Sparepart</option>
+                    <option value="Lainya">Lainya</option>
                 </select>
                 <select name="sort" id="sort">
                     <option value="">Urutkan</option>

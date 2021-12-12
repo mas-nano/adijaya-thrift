@@ -27,7 +27,7 @@
                         <div class="flex mg-v-2 louis fs-20">
                             <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$pemesanan->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="img-produk flex-1">
                             <p class="flex-1 mg-l-3">{{ $pemesanan->produk->nama_produk }}</p>
-                            <p class="flex-1 ta-r">Rp{{ number_format($pemesanan->pembayaran->total-22500, 0, ',', '.') }}</p>
+                            <p class="flex-1 ta-r">Rp{{ number_format($pemesanan->pembayaran->total-($pemesanan->produk->berat*10000+2500), 0, ',', '.') }}</p>
                         </div>
                         <hr>
                         <div class="flex">
@@ -38,8 +38,8 @@
                                 <p class="montserrat fw-600 fs-24">TOTAL</p>
                             </div>
                             <div class="flex-3 ta-r louis fs-20">
-                                <p class="mg-0">Rp{{ number_format($pemesanan->pembayaran->total-22500, 0, ',', '.') }}</p>
-                                <p class="mg-0">Rp20.000</p>
+                                <p class="mg-0">Rp{{ number_format($pemesanan->pembayaran->total-($pemesanan->produk->berat*10000+2500), 0, ',', '.') }}</p>
+                                <p class="mg-0">Rp{{ number_format($pemesanan->produk->berat*10000, 0, ',', '.') }}</p>
                                 <p class="mg-0">Rp2.500</p>
                                 <p class="montserrat fw-600 fs-24">Rp{{ number_format($pemesanan->pembayaran->total, 0, ',', '.') }}</p>
                             </div>

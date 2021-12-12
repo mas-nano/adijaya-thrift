@@ -12,43 +12,62 @@ class AdminProduk extends Controller
 {
     public function index(Request $request)
     {
-        if(!session('dataAdmin')){
-            return redirect()->secure('/admin')->send();
+        if (!session("dataAdmin")) {
+            return redirect()
+                ->secure("/admin")
+                ->send();
         }
-        return view('admin-produkList',[
+        return view("admin-produkList", [
             "title" => "Produk",
-            "produk" => Produk::where('id', $request->search)->orWhere('nama_produk', 'like', '%'.$request->search.'%')->get()
+            "produk" => Produk::where("id", $request->search)
+                ->orWhere("nama_produk", "like", "%" . $request->search . "%")
+                ->get(),
         ]);
-    
     }
     public function ubah(Produk $produk)
     {
-        if(!session('dataAdmin')){
-            return redirect()->secure('/admin')->send();
+        if (!session("dataAdmin")) {
+            return redirect()
+                ->secure("/admin")
+                ->send();
         }
-        return view('admin-kelolaProduk',[
+        return view("admin-kelolaProduk", [
             "title" => "Produk",
-            "produk" => $produk
+            "produk" => $produk,
         ]);
     }
     public function postUbah(Produk $produk, Request $request)
     {
-        $validate = Validator::make($request->all(), [
-            'nama_produk' => ['required'],
-            'kategori' => ['required'],
-            'deskripsi' => ['required'],
-            'harga' => ['required', 'numeric'],
-        ]);
-        if($validate->fails()) {
-            return view('admin-kelolaProduk',[
+        if (isset($request->promo)) {
+            $validate = Validator::make($request->all(), [
+                "nama_produk" => ["required", "max:255"],
+                "kategori" => ["required"],
+                "deskripsi" => ["required", "max:255"],
+                "harga" => ["required", "numeric"],
+                "promo" => ["lt:harga"],
+                "berat" => ["required", "numeric"],
+            ]);
+        } else {
+            $validate = Validator::make($request->all(), [
+                "nama_produk" => ["required", "max:255"],
+                "kategori" => ["required"],
+                "deskripsi" => ["required", "max:255"],
+                "harga" => ["required", "numeric"],
+                "berat" => ["required", "numeric"],
+            ]);
+        }
+        if ($validate->fails()) {
+            return view("admin-kelolaProduk", [
                 "title" => "Produk",
                 "data" => json_decode($validate->errors()),
-                "produk" => $produk
+                "produk" => $produk,
             ]);
         }
         try {
             $produk->update($request->all());
-            return redirect()->secure("/admin/produk")->send();
+            return redirect()
+                ->secure("/admin/produk")
+                ->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -57,9 +76,12 @@ class AdminProduk extends Controller
     {
         try {
             $produk->delete();
-            return response()->json([
-                'message' => 'Sukses'
-            ], Response::HTTP_OK);
+            return response()->json(
+                [
+                    "message" => "Sukses",
+                ],
+                Response::HTTP_OK
+            );
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

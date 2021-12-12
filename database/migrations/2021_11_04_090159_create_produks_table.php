@@ -13,17 +13,18 @@ class CreateProduksTable extends Migration
      */
     public function up()
     {
-        Schema::create('produks', function (Blueprint $table) {
+        Schema::create("produks", function (Blueprint $table) {
             $table->id();
-            $table->string('id_penjual');
-            $table->string('nama_produk');
-            $table->string('kategori');
-            $table->string('deskripsi');
-            $table->string('harga');
-            $table->string('foto');
-            $table->string('stok');
-            $table->string('promo')->nullable();
-            $table->string('wishlist')->default(0);
+            $table->string("id_penjual");
+            $table->string("nama_produk");
+            $table->string("kategori");
+            $table->string("deskripsi");
+            $table->string("harga");
+            $table->string("foto");
+            $table->string("stok");
+            $table->string("promo")->nullable();
+            $table->string("wishlist")->default(0);
+            $table->string("berat");
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateProduksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produks');
+        Schema::dropIfExists("produks");
     }
 }

@@ -10,13 +10,13 @@
                 @csrf
                 <div class="louis fs-20">
                     <div class="flex ai-c mg-v-2">
-                        <label for="produk" class="flex-1">Nama Produk</label>
+                        <label for="produk" class="flex-1">Nama Produk*</label>
                         <div class="flex-5">
                             <input type="text" name="nama_produk" id="produk" value="{{ $produk->nama_produk }}" class="louis fs-20 input mwp-70">
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">
-                        <label for="kategori" class="flex-1">Kategori</label>
+                        <label for="kategori" class="flex-1">Kategori*</label>
                         <div class="flex-5">
                             <select name="kategori" id="kategori"class="louis fs-20 input mwp-50">
                                 <option value="">Pilih Kategori</option>
@@ -27,21 +27,27 @@
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">
-                        <label for="deskripsi" class="flex-1">Deskripsi</label>
+                        <label for="deskripsi" class="flex-1">Deskripsi*</label>
                         <div class="flex-5">
                             <textarea name="deskripsi" id="deskripsi" cols="50" rows="10"class="louis fs-20 br-18 pd-3">{{ $produk->deskripsi }}</textarea>
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">
-                        <label for="harga" class="flex-1">Harga</label>
+                        <label for="harga" class="flex-1">Harga*</label>
                         <div class="flex-5">
                             <input type="text" name="harga" id="harga" value="{{ $produk->harga }}" class="louis fs-20 input mwp-50 bg-grey">
                         </div>
                     </div>
                     <div class="flex mg-v-2">
-                        <label for="" class="flex-1">Foto Produk</label>
+                        <label for="" class="flex-1">Foto Produk*</label>
                         <div class="flex-5">
                             <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="mw-500">
+                        </div>
+                    </div>
+                    <div class="flex ai-c mg-v-2">
+                        <label for="berat" class="flex-1">Berat (Kg)*</label>
+                        <div class="flex-5">
+                            <input type="text" name="berat" id="berat" value="{{ $produk->berat }}" class="louis fs-20 input mwp-50 bg-grey">
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">

@@ -25,7 +25,7 @@
                 <div class="produk">
                     <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="template foto">
                     <p class="template nama-produk">{{ $data->produk->nama_produk }}</p>
-                    <p class="template harga-produk">Rp{{ number_format($data->pembayaran->total-22500, 0, ',', '.') }}</p>
+                    <p class="template harga-produk">Rp{{ number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.') }}</p>
                 </div>
                 
                 <hr>
@@ -39,11 +39,11 @@
                         <p class="align-kanan total">TOTAL</p>
                     </div>
                     <div class="template">
-                        <p class="align-kanan">Rp{{ number_format($data->pembayaran->total-22500, 0, ',', '.') }}</p>
-                        <p class="align-kanan">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?0: number_format(20000, 0, ',', '.')}}</p>
+                        <p class="align-kanan">Rp{{ number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.') }}</p>
+                        <p class="align-kanan">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?0: number_format($data->produk->berat*10000, 0, ',', '.')}}</p>
                         <p class="align-kanan">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?0: number_format(2500, 0, ',', '.')}}</p>
                         <br>
-                        <p class="align-kanan total">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?number_format($data->pembayaran->total-22500, 0, ',', '.'):number_format($data->pembayaran->total, 0, ',', '.') }}</p>
+                        <p class="align-kanan total">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.'):number_format($data->pembayaran->total, 0, ',', '.') }}</p>
                     </div>
                 </div>
             </div>

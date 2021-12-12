@@ -17,9 +17,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('upload',[
+        return view("upload", [
             "css" => "upload",
-            "title" => "Tambah Produk"
+            "title" => "Tambah Produk",
         ]);
     }
 
@@ -30,7 +30,6 @@ class ProdukController extends Controller
      */
     public function produkToko()
     {
-        
     }
 
     /**
@@ -41,60 +40,67 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        if(isset($request->promo)){
+        if (isset($request->promo)) {
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required', 'max:255'],
-                'kategori' => ['required'],
-                'deskripsi' => ['required','max:255'],
-                'harga' => ['required', 'numeric'],
-                'foto' => ['required'],
-                'promo' => ['lt:harga']
+                "nama_produk" => ["required", "max:255"],
+                "kategori" => ["required"],
+                "deskripsi" => ["required", "max:255"],
+                "harga" => ["required", "numeric"],
+                "foto" => ["required"],
+                "promo" => ["lt:harga"],
+                "berat" => ["required", "numeric"],
             ]);
-        }else{
+        } else {
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required','max:255'],
-                'kategori' => ['required'],
-                'deskripsi' => ['required','max:255'],
-                'harga' => ['required', 'numeric'],
-                'foto' => ['required']
+                "nama_produk" => ["required", "max:255"],
+                "kategori" => ["required"],
+                "deskripsi" => ["required", "max:255"],
+                "harga" => ["required", "numeric"],
+                "foto" => ["required"],
+                "berat" => ["required", "numeric"],
             ]);
         }
-        
-        if($validate->fails()) {
-            return view('upload',[
+
+        if ($validate->fails()) {
+            return view("upload", [
                 "css" => "upload",
                 "title" => "Tambah Produk",
-                "message" => json_decode($validate->errors(),true)
+                "message" => json_decode($validate->errors(), true),
             ]);
         }
 
         $data = $request->all();
-        $data['id_penjual'] = session('dataUser')['id'];
-        if($request->hasfile('foto'))
-        {
-            $file = $request->file('foto');
+        $data["id_penjual"] = session("dataUser")["id"];
+        if ($request->hasfile("foto")) {
+            $file = $request->file("foto");
             $extention = $file->getClientOriginalExtension();
-            $eksGambar = ['jpeg', 'jpg', 'png', 'JPEG', 'JPG', 'PNG'];
-            if(!in_array($extention, $eksGambar)){
-                return view('upload',[
+            $eksGambar = ["jpeg", "jpg", "png", "JPEG", "JPG", "PNG"];
+            if (!in_array($extention, $eksGambar)) {
+                return view("upload", [
                     "css" => "upload",
                     "title" => "Tambah Produk",
-                    "gambar" => "File bukan gambar"
+                    "gambar" => "File bukan gambar",
                 ]);
             }
-            $temp = public_path('firebase-temp').'/';
-            $filename = time().'.'.$extention;
-            if($file->move($temp, $filename)){
-                $uploadedfile = fopen($temp.$filename, 'r');  
-                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => 'img/produk/' . $filename]);  
+            $temp = public_path("firebase-temp") . "/";
+            $filename = time() . "." . $extention;
+            if ($file->move($temp, $filename)) {
+                $uploadedfile = fopen($temp . $filename, "r");
+                app("firebase.storage")
+                    ->getBucket()
+                    ->upload($uploadedfile, [
+                        "name" => "img/produk/" . $filename,
+                    ]);
                 unlink($temp . $filename);
             }
-            $data['foto'] = $filename;
+            $data["foto"] = $filename;
         }
 
         try {
             $user = Produk::create($data);
-            return redirect()->secure('/produk-toko')->send();
+            return redirect()
+                ->secure("/produk-toko")
+                ->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -108,10 +114,10 @@ class ProdukController extends Controller
      */
     public function show(Produk $produk)
     {
-        return view('upload',[
+        return view("upload", [
             "css" => "upload",
             "title" => "Ubah Produk",
-            "data" => json_decode($produk,true)
+            "data" => json_decode($produk, true),
         ]);
     }
 
@@ -135,67 +141,75 @@ class ProdukController extends Controller
      */
     public function update(Request $request, Produk $produk)
     {
-        if(isset($request->promo)){
+        if (isset($request->promo)) {
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required','max:255'],
-                'kategori' => ['required'],
-                'deskripsi' => ['required','max:255'],
-                'harga' => ['required', 'numeric'],
-                'promo' => ['lt:harga']
+                "nama_produk" => ["required", "max:255"],
+                "kategori" => ["required"],
+                "deskripsi" => ["required", "max:255"],
+                "harga" => ["required", "numeric"],
+                "promo" => ["lt:harga"],
+                "berat" => ["required", "numeric"],
             ]);
-        }else{
+        } else {
             $validate = Validator::make($request->all(), [
-                'nama_produk' => ['required','max:255'],
-                'kategori' => ['required'],
-                'deskripsi' => ['required','max:255'],
-                'harga' => ['required', 'numeric']
+                "nama_produk" => ["required", "max:255"],
+                "kategori" => ["required"],
+                "deskripsi" => ["required", "max:255"],
+                "harga" => ["required", "numeric"],
+                "berat" => ["required", "numeric"],
             ]);
         }
-        
-        if($validate->fails()) {
-            return view('upload',[
+
+        if ($validate->fails()) {
+            return view("upload", [
                 "css" => "upload",
                 "title" => "Ubah Produk",
-                "message" => json_decode($validate->errors(),true),
-                "data" => json_decode($produk,true)
+                "message" => json_decode($validate->errors(), true),
+                "data" => json_decode($produk, true),
             ]);
         }
 
         $data = $request->all();
         unset($data["_token"]);
         unset($data["simpan"]);
-        $data['id_penjual'] = session('dataUser')['id'];
-        if($request->hasfile('foto'))
-        {
-            $imageReference = app('firebase.storage')->getBucket()->object("img/produk/".$produk->foto);
-            if($imageReference->exists())
-            {
+        $data["id_penjual"] = session("dataUser")["id"];
+        if ($request->hasfile("foto")) {
+            $imageReference = app("firebase.storage")
+                ->getBucket()
+                ->object("img/produk/" . $produk->foto);
+            if ($imageReference->exists()) {
                 $imageReference->delete();
             }
-            $file = $request->file('foto');
+            $file = $request->file("foto");
             $extention = $file->getClientOriginalExtension();
-            $eksGambar = ['jpeg', 'jpg', 'png'];
-            if(!in_array($extention, $eksGambar)){
-                return view('upload',[
+            $eksGambar = ["jpeg", "jpg", "png"];
+            if (!in_array($extention, $eksGambar)) {
+                return view("upload", [
                     "css" => "upload",
                     "title" => "Tambah Produk",
                     "gambar" => "File bukan gambar",
-                    "data" => json_decode($produk,true)
+                    "data" => json_decode($produk, true),
                 ]);
             }
-            $temp = public_path('firebase-temp').'/';
-            $filename = time().'.'.$extention;
-            if($file->move($temp, $filename)){
-                $uploadedfile = fopen($temp.$filename, 'r');  
-                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => 'img/produk/' . $filename]);  
+            $temp = public_path("firebase-temp") . "/";
+            $filename = time() . "." . $extention;
+            if ($file->move($temp, $filename)) {
+                $uploadedfile = fopen($temp . $filename, "r");
+                app("firebase.storage")
+                    ->getBucket()
+                    ->upload($uploadedfile, [
+                        "name" => "img/produk/" . $filename,
+                    ]);
                 unlink($temp . $filename);
             }
-            $data['foto']=$filename;
+            $data["foto"] = $filename;
         }
 
         try {
-            Produk::where('id', $produk['id'])->update($data);
-            return redirect()->secure('/produk-toko')->send();
+            Produk::where("id", $produk["id"])->update($data);
+            return redirect()
+                ->secure("/produk-toko")
+                ->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

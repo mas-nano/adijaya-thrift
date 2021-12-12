@@ -55,6 +55,12 @@
             </div>
         </div>
         <div class="wrap">
+            <label for="berat">Berat (Kg)*</label>
+            <div class="">
+                <input type="number" name="berat" id="berat" class="inp" value="{{ (isset($data['berat'])?$data['berat']:"") }}">
+            </div>
+        </div>
+        <div class="wrap">
             <label for="stok">Stok*</label>
             <div class="">
                 <input type="number" name="stok" id="stok" class="inp" value="{{ (isset($data['stok'])?$data['stok']:"") }}">

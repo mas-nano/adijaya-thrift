@@ -23,10 +23,14 @@ class Penjualan extends Controller
             ->whereDate("updated_at", date("Y-m-d"))
             ->get();
         foreach ($tmp as $t) {
-            array_push(
-                $total,
-                $t->pembayaran->total - ($t->produk->berat * 10000 + 2500)
-            );
+            if ($t->pembayaran->metode_bayar == "cod") {
+                array_push($total, $t->pembayaran->total);
+            } else {
+                array_push(
+                    $total,
+                    $t->pembayaran->total - ($t->produk->berat * 10000 + 2500)
+                );
+            }
         }
         $pemesanan = Pemesanan::where("penjual_id", session("dataUser")["id"])
             ->orderBy("created_at", "desc")
@@ -63,10 +67,14 @@ class Penjualan extends Controller
             ->whereDate("updated_at", date("Y-m-d"))
             ->get();
         foreach ($tmp as $t) {
-            array_push(
-                $total,
-                $t->pembayaran->total - ($t->produk->berat * 10000 + 2500)
-            );
+            if ($t->pembayaran->metode_bayar == "cod") {
+                array_push($total, $t->pembayaran->total);
+            } else {
+                array_push(
+                    $total,
+                    $t->pembayaran->total - ($t->produk->berat * 10000 + 2500)
+                );
+            }
         }
         for ($i = 0; $i < 5; $i++) {
             $tmp = Pemesanan::where("penjual_id", session("dataUser")["id"])
@@ -101,10 +109,14 @@ class Penjualan extends Controller
                         ->format("d/m")
             );
             foreach ($tmp as $t) {
-                $jml =
-                    $jml +
-                    $t->pembayaran->total -
-                    ($t->produk->berat * 10000 + 2500);
+                if ($t->pembayaran->metode_bayar == "cod") {
+                    $jml = $jml + $t->pembayaran->total;
+                } else {
+                    $jml =
+                        $jml +
+                        $t->pembayaran->total -
+                        ($t->produk->berat * 10000 + 2500);
+                }
             }
             array_push($sub, $jml);
             $jml = 0;

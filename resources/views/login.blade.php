@@ -9,7 +9,7 @@
         <input type="password" name="password" id="password" class="form-input" placeholder="Kata Sandi">
         <p><a href="/login/reset">Lupa Kata Sandi?</a></p>
         <p>Tidak punya akun? <a href="/daftar">DAFTAR</a></p>
-        <button type="submit" name="login" class="btn-login">Login</button>
+        <button type="submit" name="login" class="btn-login">Masuk</button>
     </form>
 </div>
 @if (isset($message))

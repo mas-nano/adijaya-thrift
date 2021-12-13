@@ -35,36 +35,36 @@
                 <input type="password" name="password" id="password" class="block input bg-grey montserrat fs-16 fw-600">
                 @endif
                 @if ($aksi=='ubah-user')
-                <label for="nama" class="block montserrat fs-16 fw-600 mg-t-3">Nama</label>
+                <label for="nama" class="block montserrat fs-16 fw-600 mg-t-3">Nama*</label>
                 <input type="text" name="name" id="nama" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->name }}">
-                <label for="username" class="block montserrat fs-16 fw-600 mg-t-3">Nama Penguna</label>
+                <label for="username" class="block montserrat fs-16 fw-600 mg-t-3">Nama Penguna*</label>
                 <input type="text" name="username" id="username" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->username }}">
-                <label for="email" class="block montserrat fs-16 fw-600 mg-t-3">Email</label>
+                <label for="email" class="block montserrat fs-16 fw-600 mg-t-3">Email*</label>
                 <input type="email" name="email" id="email" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->email }}">
                 <label for="password" class="block montserrat fs-16 fw-600 mg-t-3">Kata Sandi</label>
                 <input type="password" name="password" id="password" class="block input bg-grey montserrat fs-16 fw-600">
-                <label for="tel" class="block montserrat fs-16 fw-600 mg-t-3">Ponsel</label>
+                <label for="tel" class="block montserrat fs-16 fw-600 mg-t-3">Ponsel*</label>
                 <input type="text" name="tel" id="tel" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->tel }}">
-                <label for="bank" class="block montserrat fs-16 fw-600 mg-t-3">Bank</label>
+                <label for="bank" class="block montserrat fs-16 fw-600 mg-t-3">Bank*</label>
                 <input type="text" name="bank" id="bank" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->bank }}">
-                <label for="rek" class="block montserrat fs-16 fw-600 mg-t-3">Nomor Rekening</label>
+                <label for="rek" class="block montserrat fs-16 fw-600 mg-t-3">Nomor Rekening*</label>
                 <input type="text" name="rek" id="rek" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->rek }}">
-                <label for="pemilik" class="block montserrat fs-16 fw-600 mg-t-3">Nama Lengkap Pemilik</label>
+                <label for="pemilik" class="block montserrat fs-16 fw-600 mg-t-3">Nama Lengkap Pemilik*</label>
                 <input type="text" name="rekowner" id="pemilik" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->rekowner }}">
-                <label for="alamat" class="block montserrat fs-16 fw-600 mg-t-3">Alamat</label>
+                <label for="alamat" class="block montserrat fs-16 fw-600 mg-t-3">Alamat*</label>
                 <input type="text" name="alamat" id="alamat" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->alamat }}">
-                <label for="provinsi" class="block montserrat fs-16 fw-600 mg-t-3">Provinsi</label>
+                <label for="provinsi" class="block montserrat fs-16 fw-600 mg-t-3">Provinsi*</label>
                 <select name="provinsi" id="provinsi" class="block input montserrat wp-97 fs-16 fw-600 mg-t-3">
                     <option value="">Pilih Provinsi</option>
                     @for ($i = 0; $i < count($prov); $i++)
                     <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($user->provinsi)&&$user->provinsi==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                     @endfor
                 </select>
-                <label for="kota" class="block montserrat fs-16 fw-600 mg-t-3">Kota/Kabupaten</label>
+                <label for="kota" class="block montserrat fs-16 fw-600 mg-t-3">Kota/Kabupaten*</label>
                 <select name="kota" id="kota" class="block input montserrat wp-97 fs-16 fw-600 mg-t-3">
                     <option value="{{ (isset($user->kota)?$user->kota:"") }}">{{ (isset($user->kota)?$user->kota:"Pilih Kota") }}</option>
                 </select>
-                <label for="" class="block montserrat fs-16 fw-600 mg-t-3">Maps</label>
+                <label for="" class="block montserrat fs-16 fw-600 mg-t-3">Lokasi*</label>
                 <input type="hidden" name="lng" id="lng" value="{{ $user->lng }}">
                 <input type="hidden" name="lat" id="lat" value="{{ $user->lat }}">
                 <div id="maps" class="wp-100 h-300"></div>

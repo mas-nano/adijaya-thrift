@@ -96,7 +96,7 @@
                     </select>
                     <input type="hidden" name="lat" id="lat" value="{{ (isset($data[0]['lat'])?$data[0]['lat']:"") }}">
                     <input type="hidden" name="lng" id="lng" value="{{ (isset($data[0]['lng'])?$data[0]['lng']:"") }}">
-                    <label for="" class="block">Maps*</label>
+                    <label for="" class="block">Lokasi*</label>
                         <div id="maps">
     
                         </div>

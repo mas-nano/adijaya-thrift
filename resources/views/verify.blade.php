@@ -37,7 +37,7 @@
     <div class="">
         <img src="https://adijayathrift.herokuapp.com/assets/img/phooo%202.png" alt="" width="300">
         <p>Verifikasi email Anda untuk melakukan konfirmasi perubahan kata sandi</p>
-        <a href="{{ url('/login/reset-password/'.$token) }}" class="btn-login">Klik Disini</a>
+        <a href="{{ secure_url('/login/reset-password/'.$token) }}" class="btn-login">Klik Disini</a>
         <p>Catatan: Abaikan email ini jika bukan Anda yang melakukan</p>
         <p class="center">Adiijaya Thrift - {{ date('Y') }}</p>
     </div>

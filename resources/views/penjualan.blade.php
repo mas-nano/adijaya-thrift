@@ -19,7 +19,7 @@
                     <a href="/akun" class="atas">Edit Profil</a>
                     <a href="/riwayat" class="">Riwayat</a>
                     <a href="" class="terpilih">Penjualan</a>
-                    <a href="/wishlist" class="">Wishlist</a>
+                    <a href="/wishlist" class="">Disukai</a>
                     <a href="/chat" class="bawah">Pesan</a>
                 </div>
             </div>

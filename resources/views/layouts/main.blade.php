@@ -37,7 +37,7 @@
                             <li><a class="{{ ($title === "Notifikasi")?"active":"" }}" href="/notifikasi"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
                             <li><a class="{{ ($title === "Edit Akun")?"active":"" }}" href="/akun">Hi, {{ session('dataUser')['username'] }}</a></li>
                         @else
-                            <li><a class="{{ ($title === "Masuk")?"active":"" }}" href="/login">Login</a></li>
+                            <li><a class="{{ ($title === "Masuk")?"active":"" }}" href="/login">Masuk</a></li>
                             <li><a class="{{ ($title === "Daftar")?"active":"" }}" href="/daftar">Daftar</a></li>
                         @endif
                     </ul>

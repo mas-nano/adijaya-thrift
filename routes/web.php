@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Akun;
+use App\Http\Controllers\Chat;
+use App\Http\Controllers\Home;
 use App\Http\Controllers\Toko;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\Notif;
 use App\Http\Controllers\Logout;
 use App\Http\Controllers\Search;
 use App\Http\Controllers\Bantuan;
@@ -22,13 +25,11 @@ use App\Http\Controllers\AdminProduk;
 use App\Http\Controllers\DetailPesan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminBantuan;
+use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\AdminPencairan;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminKonfirmasi;
-use App\Http\Controllers\Chat;
-use App\Http\Controllers\Home;
-use App\Http\Controllers\Notif;
 use App\Http\Controllers\ProdukController;
 
 /*

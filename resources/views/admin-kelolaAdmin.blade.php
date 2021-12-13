@@ -110,8 +110,8 @@
         </div>
     </div>
     @if ($aksi=='ubah-user')    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDMzbOwUZw-S8v7KzKj-d3-atmdr4nncE&callback=initMap&v=weekly"
     async></script>
-    <script src="{{ asset('js/edit-akun.js') }}"></script>
+    <script defer src="{{ asset('js/edit-akun.js') }}"></script>
     @endif
 @endsection

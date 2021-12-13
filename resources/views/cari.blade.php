@@ -19,7 +19,7 @@
                     <option value="Baju">Baju</option>
                     <option value="Baju Wanita">Baju Wanita</option>
                     <option value="Handphone">Handphone</option>
-                    <option value="Game Console">Game Console</option>
+                    <option value="Game Console">Permainan Konsol</option>
                     <option value="Sparepart">Sparepart</option>
                     <option value="Lainya">Lainnya</option>
                 </select>

@@ -81,7 +81,7 @@
         <form action="" method="POST">
             @csrf
             <input type="hidden" name="rating" id="rating">
-            <p class="sub-modal">Review</p>
+            <p class="sub-modal">Ulasan</p>
             <textarea name="review" id="" rows="5"></textarea>
             <button type="submit" name="terima">Kirim</button>
         </form>

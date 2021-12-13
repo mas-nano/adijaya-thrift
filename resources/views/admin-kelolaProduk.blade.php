@@ -21,7 +21,7 @@
                             <select name="kategori" id="kategori"class="louis fs-20 input mwp-50">
                                 <option value="">Pilih Kategori</option>
                                 @foreach ($kat as $k)
-                                <option value="{{ $k }}" {{ ($produk->kategori==$k?"selected":"") }}>{{ $k }}</option>
+                                <option value="{{ $k }}" {{ ($produk->kategori==$k?"selected":"") }}>{{ $k=='Game Console'?'Permainan Konsol':$k }}</option>
                                 @endforeach
                             </select>
                         </div>

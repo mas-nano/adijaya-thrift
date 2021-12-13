@@ -5,7 +5,7 @@
     <div class="flex jc-r ai-c">
         <a href="pengguna/tambah" class="btn-tambah bg-orange mg-r-2 td-0 louis fs-20">+ Tambah</a>
         <form action="" method="get" class="w-300">
-            <label for="search" class="louis fs-14 mg-r-2">Search</label>
+            <label for="search" class="louis fs-14 mg-r-2">Cari</label>
             <input type="text" name="search" id="search" class="input-search">
         </form>
     </div>

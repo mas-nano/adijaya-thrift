@@ -4,7 +4,7 @@
     <p class="ta-c montserrat fs-36 fw-600">Produk</p>
     <div class="flex jc-r ai-c">
         <form action="" method="get" class="w-300">
-            <label for="search" class="louis fs-14 mg-r-2">Search</label>
+            <label for="search" class="louis fs-14 mg-r-2">Cari</label>
             <input type="text" name="search" id="search" class="input-search">
         </form>
     </div>

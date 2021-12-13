@@ -20,7 +20,7 @@
                     <option value="Baju" {{ (isset($data['kategori'])&&$data['kategori']=='Baju'?'selected':'') }}>Baju</option>
                     <option value="Baju Wanita" {{ (isset($data['kategori'])&&$data['kategori']=='Baju Wanita'?'selected':'') }}>Baju Wanita</option>
                     <option value="Handphone" {{ (isset($data['kategori'])&&$data['kategori']=='Handphone'?'selected':'') }}>Handphone</option>
-                    <option value="Game Console" {{ (isset($data['kategori'])&&$data['kategori']=='Game Console'?'selected':'') }}>Game Console</option>
+                    <option value="Game Console" {{ (isset($data['kategori'])&&$data['kategori']=='Game Console'?'selected':'') }}>Permainan Konsol</option>
                     <option value="Sparepart" {{ (isset($data['kategori'])&&$data['kategori']=='Sparepart'?'selected':'') }}>Sparepart</option>
                     <option value="Lainya" {{ (isset($data['kategori'])&&$data['kategori']=='Lainya'?'selected':'') }}>Lainnya</option>
                 </select>

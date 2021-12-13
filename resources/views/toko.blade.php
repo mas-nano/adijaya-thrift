@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="pilihan">
-        <a href="/toko/{{ $user->id }}" class="atas terpilih">Review</a>
+        <a href="/toko/{{ $user->id }}" class="atas terpilih">Ulasan</a>
         <a href="{{ $user->id }}/produk" class="bawah">Produk</a>
     </div>
     <div class="wrapper-maps">

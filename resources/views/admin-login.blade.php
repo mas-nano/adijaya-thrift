@@ -10,7 +10,7 @@
             <button type="submit" class="btn bg-orange block montserrat fs-16 fw-600 center pointer">Masuk</button>
             <br>
             @if (isset($data))
-            <p class="louis fs-24 ta-c red">Login gagal nama pengguna/password salah</p>
+            <p class="louis fs-24 ta-c red">Mausk gagal nama pengguna/kata sandi salah</p>
             @endif
         </form>
     </div>

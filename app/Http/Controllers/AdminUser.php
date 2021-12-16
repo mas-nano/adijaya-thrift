@@ -14,117 +14,140 @@ class AdminUser extends Controller
 {
     public function listUser(Request $request)
     {
-        if(!session('dataAdmin')){
-            redirect()->secure("admin")->send();
+        if (!session("dataAdmin")) {
+            redirect()
+                ->secure("admin")
+                ->send();
         }
-        return view('admin-penggunaList',[
+        return view("admin-penggunaList", [
             "title" => "Pengguna",
-            "user" => User::where('name', 'like', '%'.$request->search.'%')->orWhere('username', $request->search)->get(),
+            "user" => User::where("name", "like", "%" . $request->search . "%")
+                ->orWhere("username", $request->search)
+                ->get(),
         ]);
     }
     public function ubahUser(User $user)
     {
-        if(!session('dataAdmin')){
-            redirect()->secure("admin")->send();
+        if (!session("dataAdmin")) {
+            redirect()
+                ->secure("admin")
+                ->send();
         }
-        $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
+        $res = Http::get(
+            "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json"
+        );
         $prov = json_decode($res->getBody(), true);
-        return view('admin-kelolaAdmin',[
+        return view("admin-kelolaAdmin", [
             "title" => "Pengguna",
-            "aksi" => 'ubah-user',
+            "aksi" => "ubah-user",
             "user" => $user,
-            "prov" => $prov
+            "prov" => $prov,
         ]);
     }
     public function postUbahUser(User $user, Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'name' => ['required'],
-            'email' => ['required', 'email'],
-            'username' => ['required']
+            "name" => ["required"],
+            "email" => ["required", "email"],
+            "username" => ["required"],
         ]);
-        if($validate->fails()) {
-            $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
+        if ($validate->fails()) {
+            $res = Http::get(
+                "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json"
+            );
             $prov = json_decode($res->getBody(), true);
-            return view('admin-kelolaAdmin',[
+            return view("admin-kelolaAdmin", [
                 "title" => "Pengguna",
                 "user" => $user,
-                "aksi" => 'ubah-user',
-                "data" => json_decode($validate->errors(),true),
-                "prov" => $prov
+                "aksi" => "ubah-user",
+                "data" => json_decode($validate->errors(), true),
+                "prov" => $prov,
             ]);
         }
         $data = $request->all();
         unset($data["_token"]);
-        if(isset($request->password)){
-            $data['password'] = password_hash($request->password, PASSWORD_DEFAULT);
-        }else{
-            unset($data['password']);
+        if (isset($request->password)) {
+            $data["password"] = password_hash(
+                $request->password,
+                PASSWORD_DEFAULT
+            );
+        } else {
+            unset($data["password"]);
         }
-        if($request->hasfile('photo')){
-            $destination = 'assets/img/uploads/profile_images/'.$user->photo;
-            if(File::exists($destination)){
+        if ($request->hasfile("photo")) {
+            $destination = "assets/img/uploads/profile_images/" . $user->photo;
+            if (File::exists($destination)) {
                 File::delete($destination);
             }
-            $file = $request->file('photo');
+            $file = $request->file("photo");
             $extention = $file->getClientOriginalExtension();
-            $eksGambar = ['jpeg', 'jpg', 'png'];
-            if(!in_array($extention, $eksGambar)){
-                $res = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
+            $eksGambar = ["jpeg", "jpg", "png"];
+            if (!in_array($extention, $eksGambar)) {
+                $res = Http::get(
+                    "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json"
+                );
                 $prov = json_decode($res->getBody(), true);
-                return view('admin-kelolaAdmin',[
+                return view("admin-kelolaAdmin", [
                     "title" => "Pengguna",
                     "user" => $user,
-                    "aksi" => 'ubah-user',
+                    "aksi" => "ubah-user",
                     "gambar" => "File bukan gambar",
-                    "prov" => $prov
+                    "prov" => $prov,
                 ]);
             }
-            $filename = time().'.'.$extention;
-            $file->move('assets/img/uploads/profile_images/', $filename);
-            $data['photo'] = $filename;
+            $filename = time() . "." . $extention;
+            $file->move("assets/img/uploads/profile_images/", $filename);
+            $data["photo"] = $filename;
             // dd($request->photo);
         }
         try {
             $user->update($data);
-            return redirect()->secure('admin/pengguna')->send();
+            return redirect()
+                ->secure("admin/pengguna")
+                ->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
     }
     public function tambahUser()
     {
-        if(!session('dataAdmin')){
-            redirect()->secure("admin")->send();
+        if (!session("dataAdmin")) {
+            redirect()
+                ->secure("admin")
+                ->send();
         }
-        return view('admin-kelolaAdmin',[
+        return view("admin-kelolaAdmin", [
             "title" => "Pengguna",
-            "aksi" => 'tambah-user'
+            "aksi" => "tambah-user",
         ]);
     }
     public function postTambahUser(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'password' => ['required', 'min:8'],
-            'name' => ['required'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'username' => ['required', 'unique:users,username'],
-            'tel' => ['required', 'numeric']
+            "password" => ["required", "min:8"],
+            "name" => ["required"],
+            "email" => ["required", "email", "unique:users,email"],
+            "username" => ["required", "unique:users,username"],
         ]);
-        
-        if($validate->fails()) {
-            return view('admin-kelolaAdmin',[
+
+        if ($validate->fails()) {
+            return view("admin-kelolaAdmin", [
                 "title" => "Pengguna",
-                "aksi" => 'tambah-user',
-                "data" => json_decode($validate->errors())
+                "aksi" => "tambah-user",
+                "data" => json_decode($validate->errors()),
             ]);
         }
 
-        $request['password'] = password_hash($request->password, PASSWORD_DEFAULT);
-        $request['photo'] ='default.png';
+        $request["password"] = password_hash(
+            $request->password,
+            PASSWORD_DEFAULT
+        );
+        $request["photo"] = "default.png";
         try {
             $user = User::create($request->all());
-            return redirect()->secure('admin/pengguna')->send();
+            return redirect()
+                ->secure("admin/pengguna")
+                ->send();
         } catch (QueryException $e) {
             return $e->errorInfo;
         }
@@ -133,9 +156,12 @@ class AdminUser extends Controller
     {
         try {
             $user->delete();
-            return response()->json([
-                'message' => 'Sukses'
-            ], Response::HTTP_OK);
+            return response()->json(
+                [
+                    "message" => "Sukses",
+                ],
+                Response::HTTP_OK
+            );
         } catch (QueryException $e) {
             return $e->errorInfo;
         }

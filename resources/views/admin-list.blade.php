@@ -42,7 +42,7 @@
 <div class="modal" id="modalBox">
     <div class="modalContent">
         <p class="pointer mg-l-3 fa fa-chevron-left close"></p>
-        <p class="montserrat fw-600 fs-30 ta-c">Apa anda yakin ingin menghapus user ini?</p>
+        <p class="montserrat fw-600 fs-30 ta-c">Apa anda yakin ingin menghapus admin ini?</p>
         <div class="flex jc-c">
             <button type="button" id="yakin-admin" class="btn bg-orange pointer mg-h-1">Yakin</button>
             <button type="button" id="tidak" class="btn bg-red pointer mg-h-1">Tidak</button>

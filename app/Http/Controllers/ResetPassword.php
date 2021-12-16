@@ -41,13 +41,16 @@ class ResetPassword extends Controller
             "token" => $token,
             "created_at" => Carbon::now(),
         ]);
-        Mail::send("verify", ["token" => $token], function ($message) use (
-            $request
-        ) {
-            $message->from("adijaya.abadi2021@gmail.com");
-            $message->to($request->email);
-            $message->subject("Pengaturan Ulang Kata Sandi");
-        });
+        $username = User::where("email", $request->email)->first()->username;
+        Mail::send(
+            "verify",
+            ["token" => $token, "username" => $username],
+            function ($message) use ($request) {
+                $message->from("adijaya.abadi2021@gmail.com");
+                $message->to($request->email);
+                $message->subject("Pengaturan Ulang Kata Sandi");
+            }
+        );
 
         return redirect()
             ->secure("/login")

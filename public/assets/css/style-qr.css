@@ -1,18 +1,18 @@
-.wrapper-luar{
+.wrapper-luar {
     width: 1050px;
     margin: auto;
     padding-top: 30px;
 }
-.sub{
-    font-family: 'Montserrat', sans-serif;
+.sub {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-.wrapper-dalam{
+.wrapper-dalam {
     display: flex;
 }
-.left{
-    flex:8;
+.left {
+    flex: 8;
     padding: 10px 30px;
     position: relative;
     background-color: white;
@@ -20,107 +20,111 @@
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.montserrat{
-    font-family: 'Montserrat', sans-serif;
+.montserrat {
+    font-family: "Montserrat", sans-serif;
 }
-.louis{
-    font-family: 'Louis George Cafe Std';
+.louis {
+    font-family: "Louis George Cafe Std";
 }
-.fw-6{
+.fw-6 {
     font-weight: 600;
 }
-.fs-30{
+.fs-30 {
     font-size: 30px;
 }
-.fs-20{
+.fs-20 {
     font-size: 20px;
 }
-.fs-24{
+.fs-24 {
     font-size: 24px;
 }
-.block{
+.block {
     display: block;
 }
-.w-35{
+.w-35 {
     width: 35%;
 }
-.center{
+.center {
     margin: auto;
 }
-.input{
+.input {
     height: 40px;
     padding: 0px 30px;
     margin-bottom: 10px;
     border-radius: 18px;
-    background-color: #E1E1E1;
+    background-color: #e1e1e1;
     border: none;
 }
-.img{
+.img {
     width: 300px;
 }
-.w-75{
+.w-75 {
     width: 75%;
 }
-.w-92{
+.w-92 {
     width: 92%;
 }
-.btn{
+.btn {
     margin: 20px 10px;
     padding: 10px 63px;
-    background-color: #FF8D44;
+    background-color: #ff8d44;
     color: white;
     border-radius: 24px;
     border: none;
     font-size: 16px;
 }
-.btn:hover{
-    cursor:pointer;
+.btn:hover {
+    cursor: pointer;
 }
-.mv-4{
+.mv-4 {
     margin: 40px auto;
 }
-.split{
-    flex:1;
+.split {
+    flex: 1;
     background-color: transparent;
 }
-.right{
-    flex:7;
-    
+.right {
+    flex: 7;
 }
-.box{
+.box {
     padding: 10px 0px 10px 30px;
     border-radius: 18px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.box pre{
+.box pre {
     tab-size: 8;
     font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
-.box p{
-    font-family: 'Louis George Cafe Std';
+.box p {
+    font-family: "Louis George Cafe Std";
     font-size: 16px;
     margin: 5px 0px;
 }
-.red{
-    background-color: #BA0000;
+.red {
+    background-color: #ba0000;
 }
-.orange{
-    background-color: #FF8D44;
+.orange {
+    background-color: #ff8d44;
 }
-.flex{
+.flex {
     display: flex;
     width: 25%;
     margin: auto;
     justify-content: center;
 }
-.dropdown{
+.dropdown {
     height: 40px;
     padding: 0px 30px;
     margin-bottom: 10px;
     border-radius: 18px;
     background-color: white;
+}
+.center {
+    color: red;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
 }

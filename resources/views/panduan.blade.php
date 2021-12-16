@@ -12,7 +12,7 @@
                 <br>
                 2. Pihak pemilik aplikasi tidak akan bertanggung jawab apabila produk yang dibeli oleh pembeli tidak sesuai. <br>
                 <br>
-                3. Pembayaran dengan sistem COD dilakukan secara langsung antara pihak pembeli dan penjual.</p>
+                3. Pembayaran dengan sistem Bayar di tempat dilakukan secara langsung antara pihak pembeli dan penjual.</p>
         </div>
         <div class="flex mt-3">
             <button type="button" class="btn red montserrat fw-6 fs-24"><a href="/produk/{{ $produk['id'] }}" class="td-0 white">Saya tidak menyetujui</a></button>

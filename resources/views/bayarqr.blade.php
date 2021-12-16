@@ -4,7 +4,7 @@
     <p class="sub">Pembayaran</p>
     <div class="wrapper-dalam">
         <div class="left">
-            <p class="montserrat fw-6 fs-30">Scan QR Code</p>
+            <p class="montserrat fw-6 fs-30">Pindai Kode QR</p>
             <p class="louis fs-20">Silahkan membayar sesuai dengan jumlah ke rekening berikut:</p>
             <img src="{{ asset('img/image 15.png') }}" alt="" class="img block center">
         </div>

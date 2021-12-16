@@ -30,9 +30,6 @@
     .center{
         text-align: center;
     }
-    body{
-        width: 500px;
-    }
     </style>
     <title>Document</title>
 </head>

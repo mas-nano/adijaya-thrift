@@ -18,7 +18,7 @@
                 <input type="radio" value="qris" name="metode_bayar" id="qris">
                 <label for="qris">QRIS</label><br>
                 <input type="radio" value="cod" name="metode_bayar" id="cod">
-                <label for="cod">COD</label>
+                <label for="cod">Bayar di tempat</label>
             </div>
         </div>
         <div class="split"></div>

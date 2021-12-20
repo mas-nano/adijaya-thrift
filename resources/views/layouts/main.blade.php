@@ -54,7 +54,7 @@
                 <p class="title">Layanan</p>
                 <p class="subtitle"><a href="/bantuan">Bantuan</a></p>
                 <p class="title">Unduh Aplikasi (Android)</p>
-                <p class="subtitle"><a href="" target="_blank">Klik disini</a></p>
+                <p class="subtitle"><a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40adiyatmabrian15/Thrift-d7155e1c05734b44a46c17382ff79ef0-signed.apk" target="_blank">Klik disini</a></p>
             </div>
         </div>
     </div>

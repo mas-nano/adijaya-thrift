@@ -158,6 +158,7 @@
     text-decoration: none;
     color: white;
     padding: 5px;
+    border-radius: 5px;
     background-color: #ff8d44;
 }
 .warn {

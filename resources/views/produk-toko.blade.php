@@ -41,7 +41,7 @@
                     @else
                     <p class="harga-barang fs-18">Rp{{ number_format($data[$i]['harga'],0,',','.') }}</p>
                     @endif
-                    <p class="louis-16 align-r"><a href="/kelolaProduk/{{ $data[$i]['id'] }}" class="td-0 white link">Ubah</a></p>
+                    <p class="louis-16 align-r"><a href="/kelolaProduk/{{ $data[$i]['id'] }}" class="td-0 white asdfg">Ubah</a></p>
                 </div>
                 @endfor
             @endif

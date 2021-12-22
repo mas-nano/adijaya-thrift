@@ -14,7 +14,7 @@
             <td class="pd-h-2">ID pesanan</td>
             <td class="pd-h-2">ID produk</td>
             <td class="pd-h-2">Nama produk</td>
-            <td class="pd-h-2">Nama penjual</td>
+            <td class="pd-h-2">Nama pembeli</td>
             <td class="pd-h-2">Bank</td>
             <td class="pd-h-2">Rekening</td>
             <td class="pd-h-2">Status</td>

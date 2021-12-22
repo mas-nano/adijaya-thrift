@@ -35,7 +35,6 @@
                         <li><a class="{{ ($title === "Produk")?"active":"" }}" href="/produk">Produk</a></li>
                         @if (session('dataUser'))
                             <li><a class="{{ ($title === "Notifikasi")?"active":"" }}" href="/notifikasi"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-                            <li><a class="{{ ($title === "Notifikasi")?"active":"" }}" href="/notifikasi"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
                             <li><span class="{{ ($title === "Edit Akun")?"active":"" }} qwerty"><span>Hi, {{ session('dataUser')['username'] }}</span>
                                 <div class="dropdown-content">
                                 <a href="/akun">Akun</a>

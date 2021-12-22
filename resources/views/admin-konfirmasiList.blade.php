@@ -12,6 +12,8 @@
     <table class="bg-grey table mg-t-3 louis fs-14">
         <thead class="ta-c">
             <td class="pd-h-2">ID pesanan</td>
+            <td class="pd-h-2">ID produk</td>
+            <td class="pd-h-2">Nama produk</td>
             <td class="pd-h-2">Nama penjual</td>
             <td class="pd-h-2">Bank</td>
             <td class="pd-h-2">Rekening</td>
@@ -21,6 +23,8 @@
         @foreach ($konfirmasi as $k)    
         <tbody class="bg-white ta-c">
             <td class="pd-h-2">{{ $k->id }}</td>
+            <td class="pd-h-2">{{ $k->produk->id }}</td>
+            <td class="pd-h-2">{{ $k->produk->nama_produk }}</td>
             <td class="pd-h-2">{{ "@".$k->pembeli->username }}</td>
             <td class="pd-h-2">{{ $k->pembayaran->nama_bank }}</td>
             <td class="pd-h-2">{{ $k->pembayaran->nomor_rekening }}</td>

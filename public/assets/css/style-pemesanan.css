@@ -156,7 +156,9 @@
 }
 .link-detail {
     text-decoration: none;
-    color: black;
+    color: white;
+    padding: 5px;
+    background-color: #ff8d44;
 }
 .warn {
     text-align: center;

@@ -49,9 +49,10 @@
                                     <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
                                     <div class="flex-5 mg-l-3">
                                         <p class="louis-16">{{ $p->produk->nama_produk }}</p>
+                                        <p class="louis fs-14"><i class="fas fa-user"></i> {{ '@'.$p->pembeli->username }}</p>
                                         <p class="louis fs-14 {{ ($p->status_kirim=="Sudah dikirim"?"green":"") }}">{{ $p->status_kirim}}</p>
                                     </div>
-                                    <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/{{ $p->id }}" class="td-0 black">Detail</a></p>
+                                    <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/{{ $p->id }}" class="td-0 pd-10">Detail</a></p>
                                 </div>
                                 @if (++$i!=count($pemesanan))
                                     <hr class='grey'>

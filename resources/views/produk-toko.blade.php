@@ -29,22 +29,20 @@
     <div class="split"></div>
     <div class="right">
         <p class="montserrat btn align-c"><a href="/kelolaProduk" class="white td-0">Tambah Produk</a></p>
-        <ul class="hasil">
+        <div class="hasil">
             @if (isset($data))
                 @for ($i = 0; $i < count($data); $i++)
-                <li>
-                    <div class="produk">
-                        <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data[$i]['foto'])->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
-                        <p class="nama-barang fs-18"><a href="/produk/{{ $data[$i]['id'] }}" class="td-0 black">{{ $data[$i]['nama_produk'] }}</a></p>
-                        @if (isset($data[$i]['promo']))
-                        <p class="harga-barang fs-18">Rp<strike>{{ number_format($data[$i]['harga'],0,',','.') }}</strike></p>
-                        <p class="harga-barang fs-20 orange">Rp{{ number_format($data[$i]['promo'],0,',','.') }}</p>
-                        @else
-                        <p class="harga-barang fs-18">Rp{{ number_format($data[$i]['harga'],0,',','.') }}</p>
-                        @endif
-                        <p class="louis-16 align-r"><a href="/kelolaProduk/{{ $data[$i]['id'] }}" class="td-0 black">Ubah</a></p>
-                    </div>
-                </li>
+                <div class="produk">
+                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data[$i]['foto'])->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
+                    <p class="nama-barang fs-18"><a href="/produk/{{ $data[$i]['id'] }}" class="td-0 black">{{ $data[$i]['nama_produk'] }}</a></p>
+                    @if (isset($data[$i]['promo']))
+                    <p class="harga-barang fs-18">Rp<strike>{{ number_format($data[$i]['harga'],0,',','.') }}</strike></p>
+                    <p class="harga-barang fs-20 orange">Rp{{ number_format($data[$i]['promo'],0,',','.') }}</p>
+                    @else
+                    <p class="harga-barang fs-18">Rp{{ number_format($data[$i]['harga'],0,',','.') }}</p>
+                    @endif
+                    <p class="louis-16 align-r"><a href="/kelolaProduk/{{ $data[$i]['id'] }}" class="td-0 black">Ubah</a></p>
+                </div>
                 @endfor
             @endif
         </ul>

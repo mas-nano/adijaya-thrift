@@ -22,22 +22,19 @@
                     <a href="/penjualan" class="">Penjualan</a>
                     <a href="" class="terpilih">Disukai</a>
                     <a href="/chat" class="bawah">Pesan</a>
+                    <a href="/toko/{{ session('dataUser')['id'] }}">Profil</a>
+                    <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a>
                 </div>
-            </div>
-            <div class="center">
-                <p class="link"><a class="link" href="/toko/{{ session('dataUser')['id'] }}">Profil</a></p>
-                <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>
         <div class="split"></div>
         <div class="right">
-            <ul class="hasil">
-                @if (count($wishlist)<1)
-                    <p class="warn">Tidak ada produk yang disukai</p>
-                @endif
+            @if (count($wishlist)<1)
+                <p class="warn">Tidak ada produk yang disukai</p>
+            @endif
+            <div class="hasil">
                 @foreach ($wishlist as $w)
                 @if ($w->produk->stok>0)
-                <li>
                     <div class="produk" id="link" data-id="{{ $w->produk->id }}">
                         <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$w->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
                         <p class="harga-barang">{{ $w->produk->nama_produk }}</p>
@@ -48,7 +45,6 @@
                             <p class="harga-barang fs-18">Rp{{ number_format($w->produk->harga, 0, ',', '.') }}</p>
                             @endif
                     </div>
-                </li>
                 @endif
                 @endforeach
             </ul>

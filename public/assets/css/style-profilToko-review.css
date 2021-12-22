@@ -97,12 +97,9 @@
     flex: 5;
 }
 .hasil {
-    display: block;
-    padding-left: 0px;
-}
-.hasil li {
-    display: inline-block;
-    width: calc(50% - 2px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
 }
 .container-hasil p {
     font-family: "Montserrat", sans-serif;

@@ -389,6 +389,9 @@ body {
 .br-18 {
     border-radius: 18px;
 }
+.b-input {
+    border: solid 1px #ff8d44;
+}
 @media print {
     .gone {
         display: none;

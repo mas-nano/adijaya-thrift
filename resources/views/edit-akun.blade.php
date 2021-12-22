@@ -21,11 +21,9 @@
                     <a href="/penjualan" class="">Penjualan</a>
                     <a href="wishlist" class="">Disukai</a>
                     <a href="/chat" class="bawah">Pesan</a>
+                    <a href="/toko/{{ session('dataUser')['id'] }}">Profil</a>
+                    <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a>
                 </div>
-            </div>
-            <div class="center">
-                <p class="link"><a class="link" href="/toko/{{ session('dataUser')['id'] }}">Profil</a></p>
-                <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>
         <div class="split"></div>
@@ -84,14 +82,14 @@
                     <label for="alamat" class="block">Alamat*</label>
                     <input type="text" id="alamat" class="block input" name="alamat" value="{{ (isset($data[0]['alamat'])?$data[0]['alamat']:"") }}">
                     <label for="provinsi" class="block">Provinsi*</label>
-                    <select name="provinsi" id="provinsi" class="block" name="provinsi">
+                    <select name="provinsi" id="provinsi" class="block b-input" name="provinsi">
                         <option value="">Pilih Provinsi</option>
                         @for ($i = 0; $i < count($prov); $i++)
                         <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($data[0])&&$data[0]['provinsi']==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                         @endfor
                     </select>
                     <label for="kota" class="block">Kota/Kabupaten*</label>
-                    <select name="kota" id="kota" class="block" name="kota">
+                    <select name="kota" id="kota" class="block b-input" name="kota">
                         <option value="{{ (isset($data[0]['kota'])?$data[0]['kota']:"") }}">{{ (isset($data[0]['kota'])?$data[0]['kota']:"Pilih Kota/Kabupaten") }}</option>
                     </select>
                     <input type="hidden" name="lat" id="lat" value="{{ (isset($data[0]['lat'])?$data[0]['lat']:"") }}">

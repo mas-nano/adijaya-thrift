@@ -23,11 +23,12 @@
 <div class="deskripsi-produk">
     <p class="nama-produk">{{ (isset($produk['nama_produk'])?$produk['nama_produk']:"") }}</p>
     @if (isset($produk['promo']))
-    <p class="harga-produk fs-16">Rp<strike>{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</strike></p>
-    <p class="harga-produk fs-18 orange"><b>Rp{{ number_format($produk['promo'],0,',','.') }}</b></p>
+    <p class="harga-produk fs-32">Rp<strike>{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</strike></p>
+    <p class="harga-produk fs-34 orange"><b>Rp{{ number_format($produk['promo'],0,',','.') }}</b></p>
     @else
     <p class="harga-produk fs-16">Rp{{ (isset($produk['harga'])?number_format($produk['harga'],0,',','.'):"") }}</p>
         @endif
+    <p class="harga-produk"><b>Deskripsi :</b></p>
     <textarea class="montserrat fs-16 mw" disabled>{{ (isset($produk['deskripsi'])?$produk['deskripsi']:"") }}</textarea>
     <div>
         @if (session('dataUser'))

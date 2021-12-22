@@ -1,124 +1,129 @@
-.wrapper-luar{
+.wrapper-luar {
     width: 1050px;
     margin: auto;
     padding-top: 30px;
 }
-.sub{
-    font-family: 'Montserrat', sans-serif;
+.sub {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-.wrapper-dalam{
+.wrapper-dalam {
     display: flex;
 }
-.left{
-    flex:6;
+.left {
+    flex: 6;
 }
-.alamat,.right{
+.alamat,
+.right {
     padding: 10px 0px 10px 30px;
     border-radius: 18px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.subalamat, .subpesan, .subtotal{
-    font-family: 'Montserrat', sans-serif;
+.subalamat,
+.subpesan,
+.subtotal {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 30px;
     margin: 10px 0px;
 }
-.detail{
-    font-family: 'Louis George Cafe Std';
+.detail {
+    font-family: "Louis George Cafe Std";
     font-size: 20px;
-    margin: 5px 0px
+    margin: 5px 0px;
 }
-label{
-    font-family: 'Montserrat', sans-serif;
+label {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 20px;
 }
-.split{
-    flex:1;
+.split {
+    flex: 1;
     background-color: transparent;
 }
-.right{
-    flex:8;
+.right {
+    flex: 8;
     padding: 10px 0px;
 }
-.detail-pesanan{
+.detail-pesanan {
     margin: auto;
     width: 90%;
 }
-.subpesan{
+.subpesan {
     display: inline-block;
     text-align: end;
     width: calc(50% - 2px);
     text-align: left;
 }
-.subtotal{
+.subtotal {
     display: inline-block;
     font-weight: 500;
     width: calc(50% - 2px);
     text-align: right;
 }
-.produk{
+.produk {
     display: flex;
     align-items: initial;
     margin-bottom: 10px;
 }
-.foto{
+.foto {
     max-width: 110px;
     height: 110px;
     object-fit: cover;
 }
-.template{
+.template {
     width: 40%;
 }
-.harga-produk{
+.harga-produk {
     text-align: right;
 }
-.nama-produk{
+.nama-produk {
     margin-left: 20px;
+    margin-bottom: 5px;
 }
-.nama-produk,.harga-produk{
-    font-family: 'Louis George Cafe';
+.nama-produk,
+.harga-produk {
+    font-family: "Louis George Cafe";
     font-size: 20px;
 }
-.align-kanan{
+.align-kanan {
     text-align: right;
-    font-family: 'Louis George Cafe';
+    font-family: "Louis George Cafe";
     font-size: 18px;
 }
-.total{
+.total {
     font-size: 20px;
     margin-top: 5px;
 }
-.btn-wrapper{
+.btn-wrapper {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
 }
-.btn{
+.btn {
     padding: 10px 40px;
     border: none;
     color: white;
     border-radius: 18px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
     margin-left: 5px;
 }
-.terima{
-    background-color: #FF8D44;
+.terima {
+    background-color: #ff8d44;
 }
-.bayar{
+.bayar {
     background-color: red;
 }
-.btn:hover{
+.btn:hover {
     cursor: pointer;
 }
-.modal{
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -128,85 +133,105 @@ label{
     width: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    
 }
-.modalContent{
+.modalContent {
     background-color: white;
     margin: 20% auto;
     padding-bottom: 20px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
-    width:25%;
+    width: 25%;
     align-items: center;
-    animation-name : modalopen;
-    animation-duration : 1s;
+    animation-name: modalopen;
+    animation-duration: 1s;
 }
-.modalContent textarea{
+.modalContent textarea {
     display: block;
-    margin:auto;
+    margin: auto;
     width: 46%;
     margin-bottom: 20px;
-    background-color:white;
+    background-color: white;
     border-radius: 18px;
     border-color: #e1e1e1;
     padding: 0px 20px 0px 20px;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 16px;
 }
-.close{
+.close {
     margin-left: 20px;
     padding-top: 20px;
 }
-.sub-modal{
+.sub-modal {
     width: 55%;
     margin: 10px auto;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
-.modalContent button{
+.modalContent button {
     display: block;
     margin: auto;
     padding: 10px 50px;
-    background-color: #FF8D44;
+    background-color: #ff8d44;
     color: white;
     border-radius: 24px;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
-.close:hover, button{
+.close:hover,
+button {
     cursor: pointer;
 }
-.star{
+.star {
     max-width: max-content;
     margin: auto;
 }
 .checked {
-    color: #FFCB44;
+    color: #ffcb44;
 }
-span{
-    font-size: 20px;
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-@keyframes modalopen{
-    from{ opacity: 0}
-    to { opacity: 1}
-}
-.link-bayar{
+.link-bayar {
     text-decoration: none;
     color: white;
 }
-.far:hover, .fas:hover{
+.far:hover,
+.fas:hover {
     cursor: pointer;
 }
-.center{
+.center {
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: red;
 }
-.fa-print:hover{
+.fa-print:hover {
     cursor: pointer;
 }
-#print{
+#print {
     display: none;
+}
+.louis {
+    font-family: "Louis George Cafe Std";
+}
+.fs-16 {
+    font-size: 16px;
+}
+.ml-2 {
+    margin-left: 20px;
+    margin-top: 0px;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+.td-0 {
+    text-decoration: none;
+    color: black;
 }

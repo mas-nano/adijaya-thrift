@@ -24,7 +24,10 @@
                 <span class="subtotal">Subtotal</span>
                 <div class="produk">
                     <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$data->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="template foto">
-                    <p class="template nama-produk">{{ $data->produk->nama_produk }}</p>
+                    <div class="template">
+                        <p class="nama-produk">{{ $data->produk->nama_produk }}</p>
+                        <p class="louis fs-16 ml-2 flex"><img src="{{ asset('img/shop.png') }}" width="16"><a href="/toko/{{ $data->penjual->id }}" class="td-0">{{ ' @'.$data->penjual->username }}</a></p>
+                    </div>
                     <p class="template harga-produk">Rp{{ number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.') }}</p>
                 </div>
                 
@@ -35,6 +38,9 @@
                         <p class="align-kanan">SUBTOTAL</p>
                         <p class="align-kanan">PENGIRIMAN</p>
                         <p class="align-kanan">BIAYA ADMIN</p>
+                        @if (session('dataUser')['id']==$data->user_id)
+                            <p class="align-kanan">KODE UNIK</p>
+                        @endif
                         <br>
                         <p class="align-kanan total">TOTAL</p>
                     </div>
@@ -42,8 +48,15 @@
                         <p class="align-kanan">Rp{{ number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.') }}</p>
                         <p class="align-kanan">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?0: number_format($data->produk->berat*10000, 0, ',', '.')}}</p>
                         <p class="align-kanan">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?0: number_format(2500, 0, ',', '.')}}</p>
+                        @if (session('dataUser')['id']==$data->user_id)
+                            <p class="align-kanan">{{ $data->pembayaran->metode_pembayaran=="cod"?0: $data->pembayaran->nounik }}</p>
+                        @endif
                         <br>
+                        @if (session('dataUser')['id']==$data->user_id)
+                        <p class="align-kanan total">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.'):number_format($data->pembayaran->total+$data->pembayaran->nounik, 0, ',', '.') }}</p>
+                        @else
                         <p class="align-kanan total">Rp{{ $data->pembayaran->metode_pembayaran=="cod"?number_format($data->pembayaran->total-($data->produk->berat*10000+2500), 0, ',', '.'):number_format($data->pembayaran->total, 0, ',', '.') }}</p>
+                        @endif
                     </div>
                 </div>
             </div>

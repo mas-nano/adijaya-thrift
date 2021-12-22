@@ -26,7 +26,10 @@
                         <span class="montserrat fw-500 fs-24 inline-block ta-r wcalc-custom">Subtotal</span>
                         <div class="flex mg-v-2 louis fs-20">
                             <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$pemesanan->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="img-produk flex-1">
-                            <p class="flex-1 mg-l-3">{{ $pemesanan->produk->nama_produk }}</p>
+                            <<div class="flex-1 mg-l-3">
+                                <p>{{ $pemesanan->produk->nama_produk }}</p>
+                                <p class="flex ai-c"><img src="{{ asset('img/shop.png') }}" width="18"><a href="/toko/{{ $pemesanan->penjual->id }}" class="td-0 black">{{ ' @'.$pemesanan->penjual->username }}</a></p>
+                            </div>
                             <p class="flex-1 ta-r">Rp{{ number_format($pemesanan->pembayaran->total-($pemesanan->produk->berat*10000+2500), 0, ',', '.') }}</p>
                         </div>
                         <hr>
@@ -35,13 +38,15 @@
                                 <p class="mg-0">SUBTOTAL</p>
                                 <p class="mg-0">PENGIRIMAN</p>
                                 <p class="mg-0">BIAYA ADMIN</p>
+                                <p class="mg-0">KODE UNIK</p>
                                 <p class="montserrat fw-600 fs-24">TOTAL</p>
                             </div>
                             <div class="flex-3 ta-r louis fs-20">
                                 <p class="mg-0">Rp{{ number_format($pemesanan->pembayaran->total-($pemesanan->produk->berat*10000+2500), 0, ',', '.') }}</p>
                                 <p class="mg-0">Rp{{ number_format($pemesanan->produk->berat*10000, 0, ',', '.') }}</p>
                                 <p class="mg-0">Rp2.500</p>
-                                <p class="montserrat fw-600 fs-24">Rp{{ number_format($pemesanan->pembayaran->total, 0, ',', '.') }}</p>
+                                <p class="mg-0">{{ $pemesanan->pembayaran->nounik }}</p>
+                                <p class="montserrat fw-600 fs-24">Rp{{ number_format($pemesanan->pembayaran->total+$pemesanan->pembayaran->nounik, 0, ',', '.') }}</p>
                             </div>
                         </div>
                     </div>

@@ -49,8 +49,8 @@
         @else
             <p class="hasil-text">Produk</p>
         @endif
-        <ul class="hasil">
-        </ul>
+        <div class="hasil">
+        </div>
         <div class="more">
             <a href="">Lihat Lebih Banyak</a>
         </div>

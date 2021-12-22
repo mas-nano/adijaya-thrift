@@ -1,13 +1,13 @@
-.wrapper{
+.wrapper {
     width: 1050px;
     margin: auto;
     display: flex;
     padding-top: 30px;
 }
-.left{
+.left {
     flex: 9;
 }
-.profil{
+.profil {
     margin-bottom: 30px;
     height: 100px;
     padding: 10px 0px 10px 30px;
@@ -17,40 +17,40 @@
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.profil img{
+.profil img {
     border-radius: 50%;
     border: 1px solid black;
     width: 90px;
     height: 90px;
     object-fit: cover;
 }
-.img-change{
+.img-change {
     border-radius: 50%;
     border: 1px solid black;
     width: 110px;
     height: 110px;
     object-fit: cover;
 }
-.profil div{
+.profil div {
     display: inline-block;
     margin-right: 30px;
 }
-.nama-toko{
-    font-family: 'Louis George Cafe';
+.nama-toko {
+    font-family: "Louis George Cafe";
     font-size: 16px;
     margin-bottom: 5px;
 }
 /* deskripsi ulasan dari ulasan */
-.nama-pengguna{
-    font-family: 'Louis George Cafe Std';
+.nama-pengguna {
+    font-family: "Louis George Cafe Std";
     font-size: 14px;
     margin-top: 5px;
 }
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: #FFCB44;
+    color: #ffcb44;
 }
-.pilihan{
+.pilihan {
     background-color: white;
     margin-top: 10px;
     display: flex;
@@ -59,125 +59,128 @@
     justify-content: space-around;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.pilihan a{
+.pilihan a {
     padding: 25px 0px;
     display: block;
     padding-left: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: black;
     text-decoration: none;
 }
-.pilihan a:hover{
+.pilihan a:hover {
     cursor: pointer;
 }
-.terpilih{
-    background-color: #E1E1E1;
+.terpilih {
+    background-color: #e1e1e1;
 }
-.atas{
+.atas {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
 }
-.bawah{
+.bawah {
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
 }
-.link{
+.link {
     text-decoration: none;
     color: black;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
-.center p{
+.center p {
     text-align: center;
     cursor: pointer;
 }
-.split{
+.split {
     flex: 1;
 }
-.right{
+.right {
     flex: 15;
     background-color: white;
     border-radius: 18px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.flex-center{
+.flex-center {
     display: flex;
     align-items: center;
     width: 80%;
     margin: 30px auto;
 }
-.btn-foto{
+.btn-foto {
     padding: 5px 20px;
     margin-left: 30px;
     border-radius: 18px;
     border-color: black;
     background-color: white;
 }
-.btn-foto:hover, .btn-simpan:hover{
+.btn-foto:hover,
+.btn-simpan:hover {
     cursor: pointer;
 }
-.width-45{
+.width-45 {
     width: 45%;
     margin: auto;
 }
-.block{
+.block {
     display: block;
     width: 100%;
 }
-.width-45 label{
+.width-45 label {
     margin-top: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
-.width-45 select{
+.width-45 select {
     height: 30px;
     border-radius: 18px;
     padding: 0px 20px;
     width: 114%;
 }
-.input{
-    background-color: #E1E1E1;
+.input {
     height: 30px;
-    border: none;
+    border: solid 1px #ff8d44;
     border-radius: 16px;
     padding: 0px 20px 0px 20px;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 20px;
 }
-#maps{
+#maps {
     height: 300px;
     width: 114%;
 }
-.btn-simpan{
+.btn-simpan {
     display: block;
     margin: 20px auto;
     padding: 10px 63px;
-    background-color: #FF8D44;
+    background-color: #ff8d44;
     color: white;
     border-radius: 24px;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
-.warn{
+.warn {
     color: red;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     text-align: center;
 }
-.foto-profil{
+.foto-profil {
     border-radius: 50%;
     border: 1px solid black;
     width: 100px;
     height: 100px;
     object-fit: cover;
 }
-.input-hidden{
+.input-hidden {
     background-color: white;
     border: none;
+}
+.b-input {
+    border: solid 1px #ff8d44;
 }

@@ -1,10 +1,10 @@
-.wrapper-luar{
+.wrapper-luar {
     display: flex;
     width: 1050px;
     margin: auto;
     padding-top: 30px;
 }
-.left{
+.left {
     flex: 7;
     height: 600px;
     overflow: auto;
@@ -13,62 +13,62 @@
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.pengirim{
+.pengirim {
     height: 97px;
     background-color: white;
     margin-bottom: 5px;
     display: flex;
     padding: 10px 0px 10px 30px;
 }
-.pengirim:hover{
+.pengirim:hover {
     cursor: pointer;
-    background-color: #E1E1E1;
+    background-color: #e1e1e1;
 }
-.click{
-    background-color: #E1E1E1;
+.click {
+    background-color: #e1e1e1;
 }
 ::-webkit-scrollbar {
     width: 5px;
 }
-  
-  /* Track */
+
+/* Track */
 ::-webkit-scrollbar-track {
-    background: transparent; 
+    background: transparent;
 }
-   
-  /* Handle */
+
+/* Handle */
 ::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background: #888; 
+    background: #888;
 }
-  
-  /* Handle on hover */
+
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
-.pengirim img{
+.pengirim img {
     border-radius: 50%;
     border: 1px solid black;
     object-fit: cover;
     margin-right: 10px;
 }
-.pengirim p{
+.pengirim p {
     margin: 1px 0px;
 }
-.nama-asli{
-    font-family: 'Montserrat',sans-serif;
+.nama-asli {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
-.username{
-    font-family: 'Louis George Cafe Std';
+.username {
+    font-family: "Louis George Cafe Std";
     font-size: 16px;
 }
-.split{
+.split {
     flex: 1;
 }
-.right{
-    flex:12;
+.right {
+    flex: 12;
     height: 600px;
     overflow: auto;
     background-color: white;
@@ -78,24 +78,24 @@
     display: flex;
     flex-direction: column;
 }
-.input{
+.input {
     flex: 2;
-    background-color: #E1E1E1;
+    border-top: solid 1px #746f6c;
 }
-.input input{
+.input input {
     margin-left: 20px;
     width: 86%;
     height: 30px;
     display: inline-block;
     background-color: transparent;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 20px;
     border: none;
 }
-.input input:focus{
+.input input:focus {
     outline: none;
 }
-.pesan{
+.pesan {
     overflow: hidden;
     max-height: 100%;
     flex: 20;
@@ -104,44 +104,44 @@
     flex-direction: column;
     padding: 10px;
 }
-.wrapper-pesan{
+.wrapper-pesan {
     overflow: auto;
     display: flex;
     flex-direction: column;
 }
-.send{
+.send {
     max-width: 270px;
     align-self: flex-end;
-    background-color: #746F6C;
+    background-color: #746f6c;
     color: white;
     border-radius: 18px;
     margin-bottom: 5px;
     padding: 5px 20px;
 }
-.send p,.receive p{
+.send p,
+.receive p {
     width: 100%;
     margin: 0px;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 20px;
-
 }
-.receive{
+.receive {
     margin-bottom: 5px;
     max-width: 270px;
     align-self: flex-start;
-    background-color: #E1E1E1;
+    background-color: #e1e1e1;
     border-radius: 18px;
     padding: 5px 20px;
 }
-.img-send{
+.img-send {
     width: 24px;
     display: inline-block;
     margin-left: 10px;
     margin-top: 10px;
 }
-.img-send:hover{
+.img-send:hover {
     cursor: pointer;
 }
-.nama{
+.nama {
     margin-top: 10px;
 }

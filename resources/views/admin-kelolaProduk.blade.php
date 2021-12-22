@@ -12,13 +12,13 @@
                     <div class="flex ai-c mg-v-2">
                         <label for="produk" class="flex-1">Nama Produk*</label>
                         <div class="flex-5">
-                            <input type="text" name="nama_produk" id="produk" value="{{ $produk->nama_produk }}" class="louis fs-20 input mwp-70">
+                            <input type="text" name="nama_produk" id="produk" value="{{ $produk->nama_produk }}" class="louis fs-20 input b-input mwp-70">
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">
                         <label for="kategori" class="flex-1">Kategori*</label>
                         <div class="flex-5">
-                            <select name="kategori" id="kategori"class="louis fs-20 input mwp-50">
+                            <select name="kategori" id="kategori"class="louis fs-20 b-input input mwp-50">
                                 <option value="">Pilih Kategori</option>
                                 @foreach ($kat as $k)
                                 <option value="{{ $k }}" {{ ($produk->kategori==$k?"selected":"") }}>{{ $k=='Game Console'?'Permainan Konsol':$k }}</option>
@@ -29,13 +29,13 @@
                     <div class="flex ai-c mg-v-2">
                         <label for="deskripsi" class="flex-1">Deskripsi*</label>
                         <div class="flex-5">
-                            <textarea name="deskripsi" id="deskripsi" cols="50" rows="10"class="louis fs-20 br-18 pd-3">{{ $produk->deskripsi }}</textarea>
+                            <textarea name="deskripsi" id="deskripsi" cols="50" rows="10"class="louis fs-20 br-18 b-input pd-3">{{ $produk->deskripsi }}</textarea>
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">
                         <label for="harga" class="flex-1">Harga*</label>
                         <div class="flex-5">
-                            <input type="text" name="harga" id="harga" value="{{ $produk->harga }}" class="louis fs-20 input mwp-50 bg-grey">
+                            <input type="text" name="harga" id="harga" value="{{ $produk->harga }}" class="louis fs-20 input mwp-50 bg-white b-input">
                         </div>
                     </div>
                     <div class="flex mg-v-2">
@@ -47,13 +47,13 @@
                     <div class="flex ai-c mg-v-2">
                         <label for="berat" class="flex-1">Berat (Kg)*</label>
                         <div class="flex-5">
-                            <input type="text" name="berat" id="berat" value="{{ $produk->berat }}" class="louis fs-20 input mwp-50 bg-grey">
+                            <input type="text" name="berat" id="berat" value="{{ $produk->berat }}" class="louis fs-20 input mwp-50 bg-white b-input">
                         </div>
                     </div>
                     <div class="flex ai-c mg-v-2">
                         <label for="promo" class="flex-1">Promo</label>
                         <div class="flex-5">
-                            <input type="text" name="promo" id="promo" value="{{ $produk->promo }}" class="louis fs-20 input mwp-50 bg-grey">
+                            <input type="text" name="promo" id="promo" value="{{ $produk->promo }}" class="louis fs-20 input mwp-50 bg-white b-input">
                         </div>
                     </div>
                 </div>

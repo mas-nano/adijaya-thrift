@@ -13,19 +13,20 @@ class CreatePembayaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayarans', function (Blueprint $table) {
+        Schema::create("pembayarans", function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
-            $table->string('total');
-            $table->string('metode_bayar');
-            $table->string('nomor_rekening')->nullable();
-            $table->string('nama')->nullable();
-            $table->string('nama_bank')->nullable();
-            $table->string('no_resi')->nullable();
-            $table->string('alamat')->nullable();
-            $table->string('provinsi')->nullable();
-            $table->string('kota')->nullable();
-            $table->string('tel')->nullable();
+            $table->date("tanggal");
+            $table->string("total");
+            $table->string("metode_bayar");
+            $table->string("nomor_rekening")->nullable();
+            $table->string("nama")->nullable();
+            $table->string("nama_bank")->nullable();
+            $table->string("no_resi")->nullable();
+            $table->string("alamat")->nullable();
+            $table->string("provinsi")->nullable();
+            $table->string("kota")->nullable();
+            $table->string("tel")->nullable();
+            $table->string("nounik")->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +38,6 @@ class CreatePembayaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayarans');
+        Schema::dropIfExists("pembayarans");
     }
 }

@@ -5,6 +5,7 @@
     <input type="hidden" name="metode_bayar" value="{{ $data['metode_bayar'] }}">
     <input type="hidden" name="total" value="{{ $data['total'] }}">
     <input type="hidden" name="aksi" value="true">
+    <input type="hidden" name="nounik" value="{{ $data['nounik'] }}">
     <div class="wrapper">
         <p class="montserrat fw-6 fs-36">Panduan</p>
         <div class="box">

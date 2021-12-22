@@ -1,13 +1,13 @@
-.wrapper{
+.wrapper {
     width: 1050px;
     margin: auto;
     display: flex;
     padding-top: 30px;
 }
-.left{
+.left {
     flex: 9;
 }
-.profil{
+.profil {
     margin-bottom: 30px;
     height: 100px;
     padding: 10px 0px 10px 30px;
@@ -17,33 +17,33 @@
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.profil img{
+.profil img {
     border-radius: 50%;
     border: 1px solid black;
     width: 90px;
     height: 90px;
     object-fit: cover;
 }
-.profil div{
+.profil div {
     display: inline-block;
     margin-right: 30px;
 }
-.nama-toko{
-    font-family: 'Louis George Cafe';
+.nama-toko {
+    font-family: "Louis George Cafe";
     font-size: 16px;
     margin-bottom: 5px;
 }
 /* deskripsi ulasan dari ulasan */
-.nama-pengguna{
-    font-family: 'Louis George Cafe Std';
+.nama-pengguna {
+    font-family: "Louis George Cafe Std";
     font-size: 14px;
     margin-top: 5px;
 }
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: #FFCB44;
+    color: #ffcb44;
 }
-.pilihan{
+.pilihan {
     background-color: white;
     margin-top: 10px;
     display: flex;
@@ -52,134 +52,132 @@
     justify-content: space-around;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.pilihan a{
+.pilihan a {
     padding: 25px 0px;
     display: block;
     padding-left: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: black;
     text-decoration: none;
 }
-.pilihan a:hover{
+.pilihan a:hover {
     cursor: pointer;
 }
-.terpilih{
-    background-color: #E1E1E1;
+.terpilih {
+    background-color: #e1e1e1;
 }
-.atas{
+.atas {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
 }
-.bawah{
+.bawah {
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
 }
-.link{
-    font-family: 'Montserrat', sans-serif;
+.link {
+    font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
-.center p{
+.center p {
     text-align: center;
     cursor: pointer;
 }
-.split{
-    flex:1;
+.split {
+    flex: 1;
 }
-.right{
+.right {
     flex: 15;
 }
-.hasil{
-    display: block;
-    padding-left: 0px;
+.hasil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
 }
-.hasil li{
-    display: inline-block;
-    width: calc(50% - 2px);
-}
-.container-hasil p{
-    font-family: 'Montserrat', sans-serif;
+.container-hasil p {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-.gambar-produk{
+.gambar-produk {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-.harga-barang, .nama-barang{
-    font-family: 'Louis George Cafe';
+.harga-barang,
+.nama-barang {
+    font-family: "Louis George Cafe";
     margin: 10px 0px;
     padding: 5px 0px;
     margin: auto;
 }
-.produk{
+.produk {
     padding: 10px;
     max-width: 200px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin: 8px;
 }
-.flex-5{
-    flex:5;
+.flex-5 {
+    flex: 5;
 }
-.flex-1{
+.flex-1 {
     flex: 1;
 }
-.align-r{
+.align-r {
     text-align: right;
 }
-.align-c{
+.align-c {
     text-align: center;
 }
-.mg-l-3{
+.mg-l-3 {
     margin-left: 30px;
 }
-.status-produk img{
+.status-produk img {
     max-width: 100px;
 }
-.montserrat-18{
-    font-family: 'Montserrat', sans-serif;
+.montserrat-18 {
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 600;
 }
-.louis-16{
-    font-family: 'Louis George Cafe';
+.louis-16 {
+    font-family: "Louis George Cafe";
     font-size: 14px;
 }
-.red{
+.red {
     color: red;
 }
-.white{
+.white {
     color: white;
 }
-.td-0{
+.td-0 {
     text-decoration: none;
 }
-.btn{
+.btn {
     width: 220px;
     border-radius: 24px;
     margin: auto;
-    background-color: #FF8D44;
-    font-family: 'Montserrat', sans-serif;
+    background-color: #ff8d44;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     padding: 14px 12px;
     box-shadow: none;
 }
-.btn:hover{
+.btn:hover {
     cursor: pointer;
 }
-.black{
-    color:black;
+.black {
+    color: black;
 }
-.fs-18{
+.fs-18 {
     font-size: 18px;
 }
-.fs-20{
+.fs-20 {
     font-size: 20px;
 }
-.orange{
-    color: #FF8D44;
+.orange {
+    color: #ff8d44;
 }

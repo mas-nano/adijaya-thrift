@@ -32,24 +32,22 @@
     @if (count($produk)<1)
     <p class="warn">Laman ini kosong</p>
     @else
-    <ul class="hasil">
+    <div class="hasil">
         @foreach ($produk as $p)
             @if ($p->stok>0)
-            <li>
-                <div class="produk" data-id="{{ $p->id }}">
-                    <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
-                    <p class="nama-barang">{{ $p->nama_produk }}</p>
-                    @if (isset($p->promo))
-                    <p class="harga-barang">Rp<strike>{{ number_format($p->harga,0,',','.') }}</strike></p>
-                    <p class="harga-barang fs-20 orange">Rp{{ number_format($p->promo,0,',','.') }}</p>
-                    @else
-                    <p class="harga-barang">Rp{{ number_format($p->harga,0,',','.') }}</p>
-                    @endif
-                </div>
-            </li>
+            <div class="produk" data-id="{{ $p->id }}">
+                <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" srcset="" class="gambar-produk">
+                <p class="nama-barang">{{ $p->nama_produk }}</p>
+                @if (isset($p->promo))
+                <p class="harga-barang">Rp<strike>{{ number_format($p->harga,0,',','.') }}</strike></p>
+                <p class="harga-barang fs-20 orange">Rp{{ number_format($p->promo,0,',','.') }}</p>
+                @else
+                <p class="harga-barang">Rp{{ number_format($p->harga,0,',','.') }}</p>
+                @endif
+            </div>
         @endif
         @endforeach
-    </ul>
+    </div>
     @endif
 </div>
 </div>

@@ -1,13 +1,13 @@
-.wrapper{
+.wrapper {
     width: 1050px;
     margin: auto;
     display: flex;
     padding-top: 30px;
 }
-.left{
+.left {
     flex: 9;
 }
-.profil{
+.profil {
     margin-bottom: 30px;
     height: 100px;
     padding: 10px 0px 10px 30px;
@@ -17,43 +17,43 @@
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.profil img{
+.profil img {
     border-radius: 50%;
     border: 1px solid black;
     width: 90px;
     height: 90px;
     object-fit: cover;
 }
-.profil div{
+.profil div {
     display: inline-block;
     margin-right: 30px;
 }
-.nama-toko{
-    font-family: 'Louis George Cafe';
+.nama-toko {
+    font-family: "Louis George Cafe";
     font-size: 16px;
     margin-bottom: 5px;
 }
 /* deskripsi ulasan dari ulasan */
-.nama-pengguna{
-    font-family: 'Louis George Cafe Std';
+.nama-pengguna {
+    font-family: "Louis George Cafe Std";
     font-size: 14px;
     margin-top: 5px;
 }
-.green{
-    color: #22C308;
+.green {
+    color: #22c308;
 }
 /* end deskripsi ulasan dari ulasan */
 .checked {
-    color: #FFCB44;
+    color: #ffcb44;
 }
-.dropdown{
+.daftar {
     margin-bottom: 10px;
     border-radius: 18px;
     padding-left: 5px;
     height: 38px;
     width: 30%;
 }
-.pilihan{
+.pilihan {
     background-color: white;
     margin-top: 10px;
     display: flex;
@@ -62,103 +62,113 @@
     justify-content: space-around;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.pilihan a{
+.pilihan a {
     padding: 25px 0px;
     display: block;
     padding-left: 50px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: black;
     text-decoration: none;
 }
-.pilihan a:hover{
+.pilihan a:hover {
     cursor: pointer;
 }
-.terpilih{
-    background-color: #E1E1E1;
+.terpilih {
+    background-color: #e1e1e1;
 }
-.atas{
+.atas {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
 }
-.bawah{
+.bawah {
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
 }
-.link{
+.link {
     text-decoration: none;
     color: black;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
-.center p{
+.center p {
     text-align: center;
     cursor: pointer;
 }
-.split{
-    flex:1;
+.split {
+    flex: 1;
 }
-.right{
+.right {
     flex: 15;
 }
-.box-radius-18{
+.box-radius-18 {
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     border-radius: 18px;
     background-color: white;
     padding: 10px 0px;
     margin-bottom: 20px;
 }
-.width-90{
+.width-90 {
     width: 90%;
     margin: auto;
 }
-.sub{
+.sub {
     text-align: center;
 }
-.status-produk{
+.status-produk {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
-.flex-5{
-    flex:5;
+.flex-5 {
+    flex: 5;
 }
-.flex-1{
+.flex-1 {
     flex: 1;
 }
-.align-r{
+.align-r {
     text-align: end;
 }
-.align-c{
+.align-c {
     text-align: center;
 }
-.mg-l-3{
+.mg-l-3 {
     margin-left: 30px;
 }
-.status-produk img{
+.produk-img {
     width: 100px;
     height: 100px;
     object-fit: cover;
 }
-.montserrat-18{
-    font-family: 'Montserrat', sans-serif;
+.montserrat-18 {
+    font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 600;
 }
-.louis-16{
-    font-family: 'Louis George Cafe';
+.louis-16 {
+    font-family: "Louis George Cafe";
     font-size: 16px;
 }
-.red{
+.red {
     color: red;
 }
-.link-detail{
+.link-detail {
     text-decoration: none;
     color: black;
 }
-.warn{
+.warn {
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
+}
+.louis-12 {
+    font-family: "Louis George Cafe Std";
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+.flex {
+    display: flex;
+    align-items: center;
 }

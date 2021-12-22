@@ -21,11 +21,9 @@
                     <a href="" class="terpilih">Penjualan</a>
                     <a href="/wishlist" class="">Disukai</a>
                     <a href="/chat" class="bawah">Pesan</a>
+                    <a href="/toko/{{ session('dataUser')['id'] }}">Profil</a>
+                    <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a>
                 </div>
-            </div>
-            <div class="center">
-                <p class="link"><a class="link" href="/toko/{{ session('dataUser')['id'] }}">Profil</a></p>
-                <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>
         <div class="split"></div>
@@ -48,6 +46,7 @@
                             <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$p->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="">
                             <div class="flex-5">
                                 <p class="louis fs-23">{{ $p->produk->nama_produk }}</p>
+                                <p class="louis fs-14"><a href="/toko/{{ $p->pembeli->id }}" class="td-0"><i class="fas fa-user"></i> {{ '@'.$p->pembeli->username }}</a></p>
                                 <p class="louis fs-14">{{ $p->status_terima }}</p>
                             </div>
                             <p class="flex-1 louis fs-23"><a href="/detail-pemesanan/{{ $p->id }}" class="link-detail">Detail</a></p>

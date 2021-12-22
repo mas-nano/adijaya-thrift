@@ -15,7 +15,7 @@
             <form action="" method="post">
                 @csrf
             <div class="box">
-                <pre>Total      Rp{{ number_format($data->total, 0, ',', '.') }}</pre>
+                <pre>Total      Rp{{ number_format($data->total+$data->nounik, 0, ',', '.') }}</pre>
                 <p>Bayar pesanan sesuai dengan jumlah di atas</p>
             </div>
             <div class="box">

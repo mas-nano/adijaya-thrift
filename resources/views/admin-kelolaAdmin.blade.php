@@ -24,44 +24,44 @@
                 @endif
                 @if ($aksi=='tambah-user')    
                 <label for="nama" class="block montserrat fs-16 fw-600 mg-t-3">Nama</label>
-                <input type="text" name="name" id="nama" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="text" name="name" id="nama" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="tel" class="block montserrat fs-16 fw-600 mg-t-3">Nomor Ponsel</label>
-                <input type="text" name="tel" id="tel" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="text" name="tel" id="tel" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="username" class="block montserrat fs-16 fw-600 mg-t-3">Nama Penguna</label>
-                <input type="text" name="username" id="username" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="text" name="username" id="username" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="email" class="block montserrat fs-16 fw-600 mg-t-3">Email</label>
-                <input type="email" name="email" id="email" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="email" name="email" id="email" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="password" class="block montserrat fs-16 fw-600 mg-t-3">Kata Sandi</label>
-                <input type="password" name="password" id="password" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="password" name="password" id="password" class="block input bg-white b-input montserrat fs-16 fw-600">
                 @endif
                 @if ($aksi=='ubah-user')
                 <label for="nama" class="block montserrat fs-16 fw-600 mg-t-3">Nama*</label>
-                <input type="text" name="name" id="nama" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->name }}">
+                <input type="text" name="name" id="nama" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->name }}">
                 <label for="username" class="block montserrat fs-16 fw-600 mg-t-3">Nama Penguna*</label>
-                <input type="text" name="username" id="username" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->username }}">
+                <input type="text" name="username" id="username" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->username }}">
                 <label for="email" class="block montserrat fs-16 fw-600 mg-t-3">Email*</label>
-                <input type="email" name="email" id="email" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->email }}">
+                <input type="email" name="email" id="email" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->email }}">
                 <label for="password" class="block montserrat fs-16 fw-600 mg-t-3">Kata Sandi</label>
-                <input type="password" name="password" id="password" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="password" name="password" id="password" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="tel" class="block montserrat fs-16 fw-600 mg-t-3">Ponsel*</label>
-                <input type="text" name="tel" id="tel" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->tel }}">
+                <input type="text" name="tel" id="tel" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->tel }}">
                 <label for="bank" class="block montserrat fs-16 fw-600 mg-t-3">Bank*</label>
-                <input type="text" name="bank" id="bank" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->bank }}">
+                <input type="text" name="bank" id="bank" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->bank }}">
                 <label for="rek" class="block montserrat fs-16 fw-600 mg-t-3">Nomor Rekening*</label>
-                <input type="text" name="rek" id="rek" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->rek }}">
+                <input type="text" name="rek" id="rek" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->rek }}">
                 <label for="pemilik" class="block montserrat fs-16 fw-600 mg-t-3">Nama Lengkap Pemilik*</label>
-                <input type="text" name="rekowner" id="pemilik" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->rekowner }}">
+                <input type="text" name="rekowner" id="pemilik" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->rekowner }}">
                 <label for="alamat" class="block montserrat fs-16 fw-600 mg-t-3">Alamat*</label>
-                <input type="text" name="alamat" id="alamat" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $user->alamat }}">
+                <input type="text" name="alamat" id="alamat" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $user->alamat }}">
                 <label for="provinsi" class="block montserrat fs-16 fw-600 mg-t-3">Provinsi*</label>
-                <select name="provinsi" id="provinsi" class="block input montserrat wp-97 fs-16 fw-600 mg-t-3">
+                <select name="provinsi" id="provinsi" class="block input b-input montserrat wp-97 fs-16 fw-600 mg-t-3">
                     <option value="">Pilih Provinsi</option>
                     @for ($i = 0; $i < count($prov); $i++)
                     <option value="{{ $prov[$i]['name'] }}" id="{{ $prov[$i]['id'] }}" {{ (isset($user->provinsi)&&$user->provinsi==$prov[$i]['name']?'selected':'') }}>{{ $prov[$i]['name'] }}</option>
                     @endfor
                 </select>
                 <label for="kota" class="block montserrat fs-16 fw-600 mg-t-3">Kota/Kabupaten*</label>
-                <select name="kota" id="kota" class="block input montserrat wp-97 fs-16 fw-600 mg-t-3">
+                <select name="kota" id="kota" class="block input b-input montserrat wp-97 fs-16 fw-600 mg-t-3">
                     <option value="{{ (isset($user->kota)?$user->kota:"") }}">{{ (isset($user->kota)?$user->kota:"Pilih Kota") }}</option>
                 </select>
                 <label for="" class="block montserrat fs-16 fw-600 mg-t-3">Lokasi*</label>
@@ -71,25 +71,25 @@
                 @endif
                 @if ($aksi=='ubah-admin')
                 <label for="nama" class="block montserrat fs-16 fw-600 mg-t-3">Nama</label>
-                <input type="text" name="nama" id="nama" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $admin->nama }}">
+                <input type="text" name="nama" id="nama" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $admin->nama }}">
                 <label for="idAdmin" class="block montserrat fs-16 fw-600 mg-t-3">ID Admin</label>
-                <input type="text" name="id_admin" id="idAdmin" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $admin->id_admin }}">
+                <input type="text" name="id_admin" id="idAdmin" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $admin->id_admin }}">
                 <label for="email" class="block montserrat fs-16 fw-600 mg-t-3">Email</label>
-                <input type="email" name="email" id="email" class="block input bg-grey montserrat fs-16 fw-600" value="{{ $admin->email }}">
+                <input type="email" name="email" id="email" class="block input bg-white b-input montserrat fs-16 fw-600" value="{{ $admin->email }}">
                 <label for="password" class="block montserrat fs-16 fw-600 mg-t-3">Kata Sandi</label>
-                <input type="password" name="password" id="password" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="password" name="password" id="password" class="block input bg-white b-input montserrat fs-16 fw-600">
                 @endif
                 @if ($aksi=='tambah-admin')
                 <label for="nama" class="block montserrat fs-16 fw-600 mg-t-3">Nama</label>
-                <input type="text" name="nama" id="nama" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="text" name="nama" id="nama" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="idAdmin" class="block montserrat fs-16 fw-600 mg-t-3">ID Admin</label>
-                <input type="text" name="id_admin" id="idAdmin" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="text" name="id_admin" id="idAdmin" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="username" class="block montserrat fs-16 fw-600 mg-t-3">Username</label>
-                <input type="text" name="username" id="username" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="text" name="username" id="username" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="email" class="block montserrat fs-16 fw-600 mg-t-3">Email</label>
-                <input type="email" name="email" id="email" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="email" name="email" id="email" class="block input bg-white b-input montserrat fs-16 fw-600">
                 <label for="password" class="block montserrat fs-16 fw-600 mg-t-3">Kata Sandi</label>
-                <input type="password" name="password" id="password" class="block input bg-grey montserrat fs-16 fw-600">
+                <input type="password" name="password" id="password" class="block input bg-white b-input montserrat fs-16 fw-600">
                 @endif
                 @if ($aksi=='tambah-admin'||$aksi=='tambah-user')
                 <button type="submit" class="block mg-ha-v-3 btn bg-orange montserrat fs-16 fw-600 pointer">Tambah</button>

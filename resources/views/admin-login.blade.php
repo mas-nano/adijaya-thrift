@@ -5,8 +5,8 @@
         <form action="" method="post" class="w-350">
             @csrf
             <p class="ta-c montserrat fs-30 fw-600">Masuk</p>
-            <input type="text" name="username" id="username" class="input block bg-grey louis fs-16 mg-b-2 b-0" placeholder="Nama Pengguna">
-            <input type="password" name="password" id="password" class="input block bg-grey louis fs-16 mg-b-2 b-0" placeholder="Kata sandi">
+            <input type="text" name="username" id="username" class="input block bg-white b-input louis fs-16 mg-b-2 b-0" placeholder="Nama Pengguna">
+            <input type="password" name="password" id="password" class="input block bg-white b-input louis fs-16 mg-b-2 b-0" placeholder="Kata sandi">
             <button type="submit" class="btn bg-orange block montserrat fs-16 fw-600 center pointer">Masuk</button>
             <br>
             @if (isset($data))

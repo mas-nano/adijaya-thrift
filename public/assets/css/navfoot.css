@@ -6,15 +6,15 @@
     font-family: Louis George Cafe Std;
     src: url(../font/Louis\ George\ Café\ 400.ttf);
 }
-.container{
-    background-color: #FAF8F8;
+.container {
+    background-color: #faf8f8;
 }
 /* navbar */
-.brand-logo{
+.brand-logo {
     float: left;
     flex: 1;
 }
-.navbar{
+.navbar {
     align-items: center;
     display: flex;
     width: 1050px;
@@ -22,88 +22,114 @@
     height: auto;
     background-color: white;
 }
-.search{
-    background-color: #E1E1E1;
+.search {
+    background-color: #e1e1e1;
     height: 40px;
     float: left;
     flex: 2;
     display: flex;
+    border: solid 1px #ff8d44;
     align-items: center;
     border-radius: 28px;
     padding: 0px 0px 0px 10px;
 }
-.search form{
+.search form {
     flex: 1;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
-.search-logo{
+.search-logo {
     padding: 0px 10px;
     display: flex;
     align-items: center;
 }
-.keyword{
-    background-color: #E1E1E1;
+.keyword {
+    background-color: white;
     height: 20px;
     width: 100%;
     float: left;
-    border: #E1E1E1;
-    font-family: 'Louis George Cafe Std';
+    border: none;
+    font-family: "Louis George Cafe Std";
     font-size: 18px;
 }
-.search-button{
+.search-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.link{
+.link {
     flex: 5;
 }
-.link ul{
+.link ul {
     display: flex;
     float: right;
     align-items: center;
 }
-.link li{
+.link li {
     float: left;
     margin-right: 40px;
     list-style-type: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
-.link li a{
+.link li a {
     text-decoration: none;
     color: black;
 }
-.link .active{
-    color: #FF8D44;
+.link .active {
+    color: #ff8d44;
 }
-.wrapper-navbar{
+.wrapper-navbar {
     background-color: white;
     box-shadow: 0px 4px 22px -5px rgba(0, 0, 0, 0.23);
 }
+.qwerty {
+    float: left;
+    overflow: hidden;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+}
+.qwerty:hover {
+    cursor: pointer;
+}
+.qwerty:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 /* end navbar */
 /* footer */
-.footer{
+.footer {
     margin-top: 50px;
-    background-color: #E1E1E1;
+    background-color: #e1e1e1;
     padding: 20px;
 }
-.title{
-    font-family: 'Montserrat', sans-serif;
+.title {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-.subtitle{
-    font-family: 'Montserrat', sans-serif;
+.subtitle {
+    font-family: "Montserrat", sans-serif;
 }
-.subtitle a{
+.subtitle a {
     text-decoration: none;
     color: black;
 }
-.wrapper-footer{
+.wrapper-footer {
     width: 1050px;
     margin: auto;
 }

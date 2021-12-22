@@ -21,11 +21,9 @@
                     <a href="/penjualan" class="">Penjualan</a>
                     <a href="/wishlist" class="">Disukai</a>
                     <a href="/chat" class="bawah">Pesan</a>
+                    <a href="/toko/{{ session('dataUser')['id'] }}">Profil</a>
+                    <a class="link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a>
                 </div>
-            </div>
-            <div class="center">
-                <p class="link"><a class="link" href="/toko/{{ session('dataUser')['id'] }}">Profil</a></p>
-                <p><i class="fa fa-sign-out" aria-hidden="true"></i><a class="link" href="/logout"> Keluar</a></p>
             </div>
         </div>
         <div class="split"></div>
@@ -34,7 +32,7 @@
                 <div class="width-90">
                     <input type="hidden" name="" id="user_id" value="{{ session('dataUser')['id'] }}">
                     <p class="sub montserrat-18">Status</p>
-                    <select name="filter" id="filter" class="dropdown">
+                    <select name="filter" id="filter" class="daftar">
                         <option value="">Filter</option>
                         <option value="Selesai">Selesai</option>
                         <option value="Telah Dikonfirmasi">Telah Dikonfirmasi</option>
@@ -48,7 +46,7 @@
             <div class="box-radius-18">
                 <div class="width-90">
                     <p class="sub montserrat-18">Penawaran</p>
-                    <select name="f-tawar" id="f-tawar" class="dropdown">
+                    <select name="f-tawar" id="f-tawar" class="daftar">
                         <option value="">Filter</option>
                         <option value="Ditolak">Ditolak</option>
                         <option value="Diterima">Diterima</option>

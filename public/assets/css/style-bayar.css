@@ -1,52 +1,52 @@
-.wrapper-luar{
+.wrapper-luar {
     width: 1050px;
     margin: auto;
     padding-top: 30px;
 }
-.sub{
-    font-family: 'Montserrat', sans-serif;
+.sub {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-.wrapper-dalam{
+.wrapper-dalam {
     display: flex;
 }
-.left{
-    flex:8;
+.left {
+    flex: 8;
 }
-.total{
+.total {
     padding: 10px 0px 10px 30px;
     border-radius: 18px;
     background-color: white;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
     margin-bottom: 10px;
 }
-.total pre{
+.total pre {
     tab-size: 8;
     font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
-.total p{
-    font-family: 'Louis George Cafe Std';
+.total p {
+    font-family: "Louis George Cafe Std";
     font-size: 16px;
     margin: 5px 0px;
 }
-.wrapper-bca{
+.wrapper-bca {
     display: flex;
     align-items: center;
 }
-.detail-bca{
+.detail-bca {
     margin-left: 10px;
 }
-.split{
-    flex:1;
+.split {
+    flex: 1;
     background-color: transparent;
 }
-.right{
-    flex:7;
+.right {
+    flex: 7;
 }
-.wrapper-bayar{
+.wrapper-bayar {
     background-color: white;
     border-radius: 18px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
@@ -54,45 +54,50 @@
     position: relative;
     margin-bottom: 10px;
 }
-.input{
+.input {
     display: block;
 }
-.wrapper-bayar label, .wrapper-form label{
-    font-family: 'Montserrat', sans-serif;
+.wrapper-bayar label,
+.wrapper-form label {
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 20px;
 }
-.wrapper-bayar input, select, .wrapper-form input{
+.wrapper-bayar input,
+select,
+.wrapper-form input {
     width: 84%;
     height: 40px;
     padding: 0px 30px;
     margin-bottom: 10px;
     border-radius: 18px;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 20px;
 }
-.wrapper-bayar select, .wrapper-form select{
+.wrapper-bayar select,
+.wrapper-form select {
     width: 99%;
 }
-.wrapper-bayar input, .wrapper-form input{
-    background-color: #E1E1E1;
-    border: none;
+.wrapper-bayar input,
+.wrapper-form input {
+    background-color: white;
+    border: solid 1px #ff8d44;
 }
-.btn{
+.btn {
     display: block;
     margin: 20px auto;
     padding: 10px 63px;
     color: white;
     border-radius: 24px;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
 }
-.btn:hover{
-    cursor:pointer;
+.btn:hover {
+    cursor: pointer;
 }
-.full{
+.full {
     padding: 30px 0px;
     width: 1050px;
     margin: auto;
@@ -100,24 +105,24 @@
     border-radius: 18px;
     box-shadow: 0px 0px 22px -5px rgba(0, 0, 0, 0.12);
 }
-.wrapper-form{
+.wrapper-form {
     width: 35%;
     margin: auto;
 }
-.flex{
+.flex {
     width: 25%;
     margin: auto;
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
-.orange{
-    background-color: #FF8D44;
+.orange {
+    background-color: #ff8d44;
 }
-.red{
-    background-color: #BA0000;
+.red {
+    background-color: #ba0000;
 }
-.center{
+.center {
     color: red;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }

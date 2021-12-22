@@ -43,6 +43,9 @@ function show(data = null, take) {
         success: function (data) {
             if (data.length > 0) {
                 $(".hasil").empty();
+                var formatter = new Intl.NumberFormat("de-DE", {
+                    maximumFractionDigits: 0,
+                });
                 for (let i = 0; i < data.length; i++) {
                     let append = `<div class="produk" data-id="${
                         data[i]["id"]
@@ -55,13 +58,15 @@ function show(data = null, take) {
                         }</p>
                         <p class="harga-barang fs-18">Rp${
                             data[i]["promo"]
-                                ? "<strike>" + data[i]["harga"] + "</strike>"
-                                : data[i]["harga"]
+                                ? "<strike>" +
+                                  formatter.format(data[i]["harga"]) +
+                                  "</strike>"
+                                : formatter.format(data[i]["harga"])
                         }</p>
                         ${
                             data[i]["promo"]
                                 ? '<p class="harga-barang orange fs-26">Rp' +
-                                  data[i]["promo"] +
+                                  formatter.format(data[i]["promo"]) +
                                   " (-" +
                                   Math.round(
                                       ((data[i]["harga"] - data[i]["promo"]) /

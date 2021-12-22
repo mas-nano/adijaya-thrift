@@ -65,11 +65,11 @@
                         <p class="align-kanan" id="nounik">{{ $nounik }}</p>
                         <br>
                         @if (isset($tawar->nominal))
-                        <p class="align-kanan total" id="total">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal+$produk['berat']*10000+2500, 0, ',', '.'):"") }}</p>
+                        <p class="align-kanan total" id="total">Rp{{ (isset($tawar->nominal)?number_format($tawar->nominal+$produk['berat']*10000+2500+$nounik, 0, ',', '.'):"") }}</p>
                         @elseif(isset($produk['promo']))
-                        <p class="align-kanan total" id="total">Rp{{ (isset($produk['promo'])?number_format($produk['promo']+$produk['berat']*10000+2500, 0, ',', '.'):"") }}</p>
+                        <p class="align-kanan total" id="total">Rp{{ (isset($produk['promo'])?number_format($produk['promo']+$produk['berat']*10000+2500+$nounik, 0, ',', '.'):"") }}</p>
                         @elseif(isset($produk['harga']))
-                        <p class="align-kanan total" id="total">Rp{{ (isset($produk['harga'])?number_format($produk['harga']+$produk['berat']*10000+2500, 0, ',', '.'):"") }}</p>
+                        <p class="align-kanan total" id="total">Rp{{ (isset($produk['harga'])?number_format($produk['harga']+$produk['berat']*10000+2500+$nounik, 0, ',', '.'):"") }}</p>
                         @endif
                     </div>
                 </div>

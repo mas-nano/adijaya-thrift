@@ -1,63 +1,63 @@
 /* container */
-.content{
+.content {
     padding: 100px 0px;
 }
-.bantuan{
+.bantuan {
     text-align: center;
 }
-.form-bantuan{
+.form-bantuan {
     width: 440px;
     margin: auto;
 }
-.form-input{
+.form-input {
     width: 400px;
     margin-bottom: 20px;
     background-color: white;
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid #ff8d44;
     float: left;
     flex: 2;
     display: flex;
     align-items: center;
     border-radius: 28px;
     padding: 0px 20px 0px 20px;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 20px;
 }
-.deskripsi{
+.deskripsi {
     height: 175px;
     padding: 20px;
 }
-.form-bantuan label{
+.form-bantuan label {
     display: block;
-    font-family: 'Louis George Cafe Std';
+    font-family: "Louis George Cafe Std";
     font-size: 18px;
     margin-bottom: 10px;
 }
-.form-bantuan textarea{
-    background-color: #E1E1E1;
+.form-bantuan textarea {
+    background-color: white;
 }
-.btn-bantuan{
+.btn-bantuan {
     display: block;
-    margin:auto;
+    margin: auto;
     padding: 10px 63px;
-    background-color: #FF8D44;
+    background-color: #ff8d44;
     color: white;
     border-radius: 24px;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 24px;
 }
-.warn{
+.warn {
     color: red;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
-.btn-bantuan:hover{
+.btn-bantuan:hover {
     cursor: pointer;
 }
-.centang{
+.centang {
     text-align: center;
     height: 500px;
     display: flex;
@@ -65,16 +65,16 @@
     align-content: center;
     justify-content: center;
 }
-.fs-48{
+.fs-48 {
     font-size: 100px;
 }
-.louis{
-    font-family: 'Louis George Cafe';
+.louis {
+    font-family: "Louis George Cafe";
 }
-.fs-20{
+.fs-20 {
     font-size: 20px;
 }
-.green{
-    color: #22C308;
+.green {
+    color: #22c308;
 }
 /* end container */

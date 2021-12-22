@@ -75,6 +75,7 @@ class PenawaranAPI extends Controller
         $tawar = Tawar::where("user_id", $request->user_id)->get();
         foreach ($tawar as $t) {
             $t->produk;
+            $t->produk->user;
             $t->produk->url = app("firebase.storage")
                 ->getBucket()
                 ->object("img/produk/" . $t->produk->foto)

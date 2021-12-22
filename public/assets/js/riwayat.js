@@ -18,7 +18,7 @@ function show(data) {
                         <p class="louis-16">${obj.status_pembeli}</p>
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/${
-                        obj.pemesanan_id
+                        obj.id
                     }" class="link-detail">Detail</a></p>
                 </div>
                 ${

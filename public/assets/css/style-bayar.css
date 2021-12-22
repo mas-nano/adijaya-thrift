@@ -79,7 +79,8 @@ select,
     width: 99%;
 }
 .wrapper-bayar input,
-.wrapper-form input {
+.wrapper-form input,
+.wrapper-form select {
     background-color: white;
     border: solid 1px #ff8d44;
 }

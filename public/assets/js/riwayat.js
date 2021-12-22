@@ -19,7 +19,7 @@ function show(data) {
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/detail-pemesanan/${
                         obj.id
-                    }" class=""><span class="link-detail">Detail</span></a></p>
+                    }" class="td-0"><span class="link-detail">Detail</span></a></p>
                 </div>
                 ${
                     index + 1 == data["bayar"].length ? "" : '<hr class="grey">'
@@ -61,7 +61,7 @@ function showTawar(data) {
                     </div>
                     <p class="flex-5 align-r louis-16"><a href="/checkout/${
                         obj.produk.id
-                    }" class="">${
+                    }" class="td-0">${
                         obj.status == "Diterima"
                             ? "<span class='link-detail'>Detail</span>"
                             : ""

@@ -154,8 +154,10 @@
 .red {
     color: red;
 }
-.link-detail {
+.td-0 {
     text-decoration: none;
+}
+.link-detail {
     color: white;
     padding: 5px;
     border-radius: 5px;

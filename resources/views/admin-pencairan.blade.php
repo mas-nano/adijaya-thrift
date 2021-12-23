@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="wrapper">
+    <div class="wrapper h-full grid ai-c">
         <div class="box pd-5">
             <form action="" method="post" class="center wp-50">
                 @csrf

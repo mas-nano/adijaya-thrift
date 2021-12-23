@@ -241,10 +241,16 @@ body {
     max-width: 500px;
 }
 /* height */
+.h-full {
+    height: 100vh;
+}
 .h-300 {
     height: 300px;
 }
 /* display */
+.grid {
+    display: grid;
+}
 .flex {
     display: flex;
 }

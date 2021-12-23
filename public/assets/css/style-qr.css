@@ -52,8 +52,7 @@
     padding: 0px 30px;
     margin-bottom: 10px;
     border-radius: 18px;
-    background-color: #e1e1e1;
-    border: none;
+    border: solid 1px #ff8d44;
 }
 .img {
     width: 300px;
@@ -122,6 +121,7 @@
     margin-bottom: 10px;
     border-radius: 18px;
     background-color: white;
+    border: solid 1px #ff8d44;
 }
 .center {
     color: red;

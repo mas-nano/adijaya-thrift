@@ -26,7 +26,7 @@
                         <span class="montserrat fw-500 fs-24 inline-block ta-r wcalc-custom">Subtotal</span>
                         <div class="flex mg-v-2 louis fs-20">
                             <img src="{{ app('firebase.storage')->getBucket()->object("img/produk/".$pemesanan->produk->foto)->signedUrl(new \DateTime('tomorrow')) }}" alt="" class="img-produk flex-1">
-                            <<div class="flex-1 mg-l-3">
+                            <div class="flex-1 mg-l-3">
                                 <p>{{ $pemesanan->produk->nama_produk }}</p>
                                 <p class="flex ai-c"><img src="{{ asset('img/shop.png') }}" width="18"><a href="/toko/{{ $pemesanan->penjual->id }}" class="td-0 black">{{ ' @'.$pemesanan->penjual->username }}</a></p>
                             </div>

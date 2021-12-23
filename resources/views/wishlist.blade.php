@@ -40,7 +40,7 @@
                         <p class="harga-barang">{{ $w->produk->nama_produk }}</p>
                         @if (!is_null($w->produk->promo))
                             <p class="harga-barang fs-18">Rp<strike>{{ number_format($w->produk->harga, 0, ',', '.') }}</strike></p>
-                            <p class="harga-barang fs-20 orange">Rp{{ number_format($w->produk->promo, 0, ',', '.') }}</p>
+                            <p class="harga-barang fs-20 orange">Rp{{ number_format($w->produk->promo, 0, ',', '.') }} (-{{ round(($w->produk->harga-$w->produk->promo)/$w->produk->harga*100) }}%)</p>
                             @else
                             <p class="harga-barang fs-18">Rp{{ number_format($w->produk->harga, 0, ',', '.') }}</p>
                             @endif

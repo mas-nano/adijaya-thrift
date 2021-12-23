@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="box">
-        <div class="w-35 center mv-4">
+        <div class="w-35 mv-4">
             @if (isset($error))
             @foreach ($error as $item)
                 @foreach ($item as $msg)

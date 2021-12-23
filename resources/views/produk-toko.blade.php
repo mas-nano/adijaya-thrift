@@ -37,7 +37,7 @@
                     <p class="nama-barang fs-18"><a href="/produk/{{ $data[$i]['id'] }}" class="td-0 black">{{ $data[$i]['nama_produk'] }}</a></p>
                     @if (isset($data[$i]['promo']))
                     <p class="harga-barang fs-18">Rp<strike>{{ number_format($data[$i]['harga'],0,',','.') }}</strike></p>
-                    <p class="harga-barang fs-20 orange">Rp{{ number_format($data[$i]['promo'],0,',','.') }} (-{{ round(($data[$i]['harga']-$data[$i]['promo'])/$data[$i['harga']]*100) }}%)</p>
+                    <p class="harga-barang fs-20 orange">Rp{{ number_format($data[$i]['promo'],0,',','.') }} (-{{ round(($data[$i]['harga']-$data[$i]['promo'])/$data[$i]['harga']*100) }}%)</p>
                     @else
                     <p class="harga-barang fs-18">Rp{{ number_format($data[$i]['harga'],0,',','.') }}</p>
                     @endif
